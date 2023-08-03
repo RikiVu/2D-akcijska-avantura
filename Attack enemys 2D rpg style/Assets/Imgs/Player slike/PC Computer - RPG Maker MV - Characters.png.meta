@@ -1,0 +1,2265 @@
+fileFormatVersion: 2
+guid: f048fb2f1cf415547b6ed4d1d3b4bb5e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: PC Computer - RPG Maker MV - Characters_0
+  - first:
+      213: 21300002
+    second: PC Computer - RPG Maker MV - Characters_1
+  - first:
+      213: 21300004
+    second: PC Computer - RPG Maker MV - Characters_2
+  - first:
+      213: 21300006
+    second: PC Computer - RPG Maker MV - Characters_3
+  - first:
+      213: 21300008
+    second: PC Computer - RPG Maker MV - Characters_4
+  - first:
+      213: 21300010
+    second: PC Computer - RPG Maker MV - Characters_5
+  - first:
+      213: 21300012
+    second: PC Computer - RPG Maker MV - Characters_6
+  - first:
+      213: 21300014
+    second: PC Computer - RPG Maker MV - Characters_7
+  - first:
+      213: 21300016
+    second: PC Computer - RPG Maker MV - Characters_8
+  - first:
+      213: 21300018
+    second: PC Computer - RPG Maker MV - Characters_9
+  - first:
+      213: 21300020
+    second: PC Computer - RPG Maker MV - Characters_10
+  - first:
+      213: 21300022
+    second: PC Computer - RPG Maker MV - Characters_11
+  - first:
+      213: 21300024
+    second: PC Computer - RPG Maker MV - Characters_12
+  - first:
+      213: 21300026
+    second: PC Computer - RPG Maker MV - Characters_13
+  - first:
+      213: 21300028
+    second: PC Computer - RPG Maker MV - Characters_14
+  - first:
+      213: 21300030
+    second: PC Computer - RPG Maker MV - Characters_15
+  - first:
+      213: 21300032
+    second: PC Computer - RPG Maker MV - Characters_16
+  - first:
+      213: 21300034
+    second: PC Computer - RPG Maker MV - Characters_17
+  - first:
+      213: 21300036
+    second: PC Computer - RPG Maker MV - Characters_18
+  - first:
+      213: 21300038
+    second: PC Computer - RPG Maker MV - Characters_19
+  - first:
+      213: 21300040
+    second: PC Computer - RPG Maker MV - Characters_20
+  - first:
+      213: 21300042
+    second: PC Computer - RPG Maker MV - Characters_21
+  - first:
+      213: 21300044
+    second: PC Computer - RPG Maker MV - Characters_22
+  - first:
+      213: 21300046
+    second: PC Computer - RPG Maker MV - Characters_23
+  - first:
+      213: 21300048
+    second: PC Computer - RPG Maker MV - Characters_24
+  - first:
+      213: 21300050
+    second: PC Computer - RPG Maker MV - Characters_25
+  - first:
+      213: 21300052
+    second: PC Computer - RPG Maker MV - Characters_26
+  - first:
+      213: 21300054
+    second: PC Computer - RPG Maker MV - Characters_27
+  - first:
+      213: 21300056
+    second: PC Computer - RPG Maker MV - Characters_28
+  - first:
+      213: 21300058
+    second: PC Computer - RPG Maker MV - Characters_29
+  - first:
+      213: 21300060
+    second: PC Computer - RPG Maker MV - Characters_30
+  - first:
+      213: 21300062
+    second: PC Computer - RPG Maker MV - Characters_31
+  - first:
+      213: 21300064
+    second: PC Computer - RPG Maker MV - Characters_32
+  - first:
+      213: 21300066
+    second: PC Computer - RPG Maker MV - Characters_33
+  - first:
+      213: 21300068
+    second: PC Computer - RPG Maker MV - Characters_34
+  - first:
+      213: 21300070
+    second: PC Computer - RPG Maker MV - Characters_35
+  - first:
+      213: 21300072
+    second: PC Computer - RPG Maker MV - Characters_36
+  - first:
+      213: 21300074
+    second: PC Computer - RPG Maker MV - Characters_39
+  - first:
+      213: 21300076
+    second: PC Computer - RPG Maker MV - Characters_40
+  - first:
+      213: 21300078
+    second: PC Computer - RPG Maker MV - Characters_37
+  - first:
+      213: 21300080
+    second: PC Computer - RPG Maker MV - Characters_38
+  - first:
+      213: 21300082
+    second: PC Computer - RPG Maker MV - Characters_41
+  - first:
+      213: 21300084
+    second: PC Computer - RPG Maker MV - Characters_42
+  - first:
+      213: 21300086
+    second: PC Computer - RPG Maker MV - Characters_43
+  - first:
+      213: 21300088
+    second: PC Computer - RPG Maker MV - Characters_44
+  - first:
+      213: 21300090
+    second: PC Computer - RPG Maker MV - Characters_45
+  - first:
+      213: 21300092
+    second: PC Computer - RPG Maker MV - Characters_46
+  - first:
+      213: 21300094
+    second: PC Computer - RPG Maker MV - Characters_47
+  - first:
+      213: 21300096
+    second: PC Computer - RPG Maker MV - Characters_48
+  - first:
+      213: 21300098
+    second: PC Computer - RPG Maker MV - Characters_49
+  - first:
+      213: 21300100
+    second: PC Computer - RPG Maker MV - Characters_50
+  - first:
+      213: 21300102
+    second: PC Computer - RPG Maker MV - Characters_51
+  - first:
+      213: 21300104
+    second: PC Computer - RPG Maker MV - Characters_52
+  - first:
+      213: 21300106
+    second: PC Computer - RPG Maker MV - Characters_53
+  - first:
+      213: 21300108
+    second: PC Computer - RPG Maker MV - Characters_54
+  - first:
+      213: 21300110
+    second: PC Computer - RPG Maker MV - Characters_55
+  - first:
+      213: 21300112
+    second: PC Computer - RPG Maker MV - Characters_56
+  - first:
+      213: 21300114
+    second: PC Computer - RPG Maker MV - Characters_57
+  - first:
+      213: 21300116
+    second: PC Computer - RPG Maker MV - Characters_58
+  - first:
+      213: 21300118
+    second: PC Computer - RPG Maker MV - Characters_59
+  - first:
+      213: 6809117603556996736
+    second: PC Computer - RPG Maker MV - Characters_60
+  - first:
+      213: -2522454923759715382
+    second: PC Computer - RPG Maker MV - Characters_61
+  - first:
+      213: -157111068950521403
+    second: PC Computer - RPG Maker MV - Characters_62
+  - first:
+      213: 1012399187795676388
+    second: PC Computer - RPG Maker MV - Characters_63
+  - first:
+      213: -6924720909353466616
+    second: PC Computer - RPG Maker MV - Characters_64
+  - first:
+      213: 6005497243176024037
+    second: PC Computer - RPG Maker MV - Characters_65
+  - first:
+      213: -4061106022554304531
+    second: PC Computer - RPG Maker MV - Characters_66
+  - first:
+      213: 1965437565398416509
+    second: PC Computer - RPG Maker MV - Characters_67
+  - first:
+      213: -1322919868505984708
+    second: PC Computer - RPG Maker MV - Characters_68
+  - first:
+      213: 6138962376946300929
+    second: PC Computer - RPG Maker MV - Characters_69
+  - first:
+      213: -2376924612218179157
+    second: PC Computer - RPG Maker MV - Characters_70
+  - first:
+      213: 200660674814698947
+    second: PC Computer - RPG Maker MV - Characters_71
+  - first:
+      213: -23784640595213911
+    second: PC Computer - RPG Maker MV - Characters_73
+  - first:
+      213: 5819180663837460146
+    second: PC Computer - RPG Maker MV - Characters_72
+  - first:
+      213: 3945840607386665617
+    second: PC Computer - RPG Maker MV - Characters_74
+  - first:
+      213: 8714323239857508347
+    second: PC Computer - RPG Maker MV - Characters_75
+  - first:
+      213: 9042864984498820703
+    second: PC Computer - RPG Maker MV - Characters_76
+  - first:
+      213: -1593130755335405288
+    second: PC Computer - RPG Maker MV - Characters_77
+  - first:
+      213: -8721126112257337560
+    second: PC Computer - RPG Maker MV - Characters_78
+  - first:
+      213: 2090764435448101705
+    second: PC Computer - RPG Maker MV - Characters_79
+  - first:
+      213: 7469927891379305647
+    second: PC Computer - RPG Maker MV - Characters_80
+  - first:
+      213: 6493158015292992947
+    second: PC Computer - RPG Maker MV - Characters_81
+  - first:
+      213: 518999315805486672
+    second: PC Computer - RPG Maker MV - Characters_82
+  - first:
+      213: -1318978709049860597
+    second: PC Computer - RPG Maker MV - Characters_83
+  - first:
+      213: 6679728852736670318
+    second: PC Computer - RPG Maker MV - Characters_84
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_0
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1793
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f493ab9126d83b243820442622532c64
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_1
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1793
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf23d5544143b3748878ebe552a36798
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_2
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1793
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14784b0b789ebca41929f368e76f7fe7
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_3
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1745
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50d0fa86f11012243a2d072bf000169f
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_4
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1746
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeaad335741daac409af833bc5e9369b
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_5
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1745
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11aad52c863445c4aac7197c1969a88f
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_6
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1697
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caa224c854665de40b0f07c971945c2d
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_7
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1698
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86f1a8cb6c6b10f4faa124a3de0282ab
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_8
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1697
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8a4d17d8e59844299736d17a33884b
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_9
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1650
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd635bb238f83e147845b5e06cac3ab5
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_10
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1650
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e3a278d836b67b47a00e378f7b3109f
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_11
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1650
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95555f9007b604c498f719e91261f501
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_24
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 1986
+        width: 35
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f86517a180d0a408aac31ebb94e240
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_25
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 1986
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 948bee278afbbab4d91bdef296ead7c4
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_26
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 1986
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca5a64bb89ab3d94d9add7f4d5f25b55
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_27
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 1938
+        width: 35
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6a4802901562db46b2a81105f02d591
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_28
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 1938
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43616b2732c202f44842b64b3a8958cf
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_29
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 1938
+        width: 33
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea621b8b8d99ff47b8d26d7a0d57e69
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_30
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 1890
+        width: 35
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe818944c7eeb448ba29069e5e827f3
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_31
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 1890
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 081051ad360e09b4bb2f28da2f450436
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_32
+      rect:
+        serializedVersion: 2
+        x: 1114
+        y: 1890
+        width: 34
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001a9d85c200c834cae70e294a8f1037
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_33
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 1842
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d05a78d79067fa2439896b7f43e5e802
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_34
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 1842
+        width: 35
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0acfb10bf11186040862606402a6acbf
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_35
+      rect:
+        serializedVersion: 2
+        x: 1114
+        y: 1842
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17de1f0f2813f4e4d99de09ca24ad2cf
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_36
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1986
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7660af9a86caa914fb16fbefcf47c2d5
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_12
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1986
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 362004b44b040cb42ac69a30a7d5cbea
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_13
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1986
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21cb3afddd2622488043f569f75f43b
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_14
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1938
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e15955cdfce46e45b36866575797042
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_15
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1938
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7123d74927cb34c95c59c7f1fdf5bb
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_16
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 1938
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbda5e5526f705a4199a7f54ab787ddc
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_17
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1890
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64ddde4d1b40447438288b3031d853ac
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_18
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 1890
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a2ebb028e266943ba9dc1f23ea2e9e
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_19
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 1890
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d9a01d7da8a14b43a363017ef5383b3
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_20
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 1842
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4fa8ccd4131d1449b20c8a3c77724b3
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_21
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1842
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 771037b5e1d242f4ebf9741250fd6b82
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_22
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1842
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ff9ccb26f2274a4296ab65ab6788463
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_23
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1406
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42bb34df04fac0f4982fc56118310916
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_39
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1406
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a4231673566374c972ef8c0d884535
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_40
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1406
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11bdda91824ca6f45b4c40ddfaa4290f
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_37
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1358
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 121ed7adb61aef74d84875d355bf0b89
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_38
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1358
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4946393f4840c134f9ecaf1c5c0b77d6
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_41
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1358
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc1020339710324198c6ecd723b631f
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_42
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1310
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a5f6ca078dfd14796cf4b633250ae1
+      internalID: 21300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_43
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1310
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ef9d49687884e740996001a6fefffa7
+      internalID: 21300086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_44
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1310
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bde05bea5828504ca2decae3284ac0c
+      internalID: 21300088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_45
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1262
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fdb9c1c7cc15ee489bc7e953a604c00
+      internalID: 21300090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_46
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1262
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a185b09e3081a47852ef4ab967cbe7
+      internalID: 21300092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_47
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1262
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78da7a18f7cb1844977bbcfa1e7c47b
+      internalID: 21300094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_48
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 1406
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d341cefd654c3cf42a2be3b3ac4abb55
+      internalID: 21300096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_49
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1406
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87fd6b9fd0f4a644abd49405ad07fdcf
+      internalID: 21300098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_50
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 1406
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f13d527149e8c344e93db622fc133e5a
+      internalID: 21300100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_51
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 1358
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bcbd07a1acb7374086f398504363f6e
+      internalID: 21300102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_52
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1358
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3313e2e4718c224d84345c551a2ffa3
+      internalID: 21300104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_53
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 1358
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 939dbd96ff4dc2d4a82eb7bebb99bd58
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_54
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 1310
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fc334c65e05d40449dd2288276a2bac
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_55
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1310
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64468793be4e1074192b662c4bfdc943
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_56
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 1310
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507def5fe82133b4198465e9ac58ef96
+      internalID: 21300112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_57
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 1262
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80a00d432257b104ea63b815527bf881
+      internalID: 21300114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_58
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1262
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e19c64a4c10d94e4ea323c546a89cf9b
+      internalID: 21300116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_59
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 1262
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eab987836d2f44d4cad5807e66b2a79a
+      internalID: 21300118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_60
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 338
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d2d1fbcaa130e349ae4d25c126962df
+      internalID: 6809117603556996736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_61
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 290
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98caa035393e19f43aa3bd9362bd315b
+      internalID: -2522454923759715382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_62
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 242
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d698bd8ca07a488439eca22edfa5edf4
+      internalID: -157111068950521403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_63
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 194
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c8ec7cb752c9a04191b3dd169dba55c
+      internalID: 1012399187795676388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_64
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 338
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b4eaa73a452e4a43b8eee2955f78aeb
+      internalID: -6924720909353466616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_65
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 338
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cda5878edb77434c836e5120160b40f
+      internalID: 6005497243176024037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_66
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 290
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 810f5c0446c8a6446b813cbab383b53f
+      internalID: -4061106022554304531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_67
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 290
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc044a4ae418394692c5ca604d058e7
+      internalID: 1965437565398416509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_68
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 242
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86e0afeda80a2c44385d6cacc7f55958
+      internalID: -1322919868505984708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_69
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 242
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd7574bb4414af42b20f22830d0807a
+      internalID: 6138962376946300929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_70
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 194
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5540342cae1f4e949938a7f049ccdba6
+      internalID: -2376924612218179157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_71
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 194
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93f4e2965f873fb47bec47cf2a3eeecc
+      internalID: 200660674814698947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_73
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1016
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c1725777046bef479b00c67bea65a48
+      internalID: -23784640595213911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_72
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 1406
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c952f7165488c42bbbddec7b00d1e7
+      internalID: 5819180663837460146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_74
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1406
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 650cfdd3fbcd2e543a3e04b4fd22c31e
+      internalID: 3945840607386665617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_75
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1406
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e6cb8efcd937b418c5c25ebe0041d8
+      internalID: 8714323239857508347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_76
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 1358
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6875144c3c0df864c9ce79b3bfc1e489
+      internalID: 9042864984498820703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_77
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1358
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d52c460c4f5ae3b4db2275015e119174
+      internalID: -1593130755335405288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_78
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1358
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74bb031cafc7584489323fe1456fb6fd
+      internalID: -8721126112257337560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_79
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 1310
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce2a8b928601e0047848e2f87dd11fdd
+      internalID: 2090764435448101705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_80
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1310
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c8696037c1742947aa9afe35ca3f8b0
+      internalID: 7469927891379305647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_81
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1310
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae26cd2ce2de90c4bb3e7820167ddbc8
+      internalID: 6493158015292992947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_82
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 1262
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada4ce778db120147995f5e454382686
+      internalID: 518999315805486672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_83
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1262
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db1deaf4fba63304dbd11df5a5c0bea5
+      internalID: -1318978709049860597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Characters_84
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1262
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db435aab832f8d4eb408641254ae3f2
+      internalID: 6679728852736670318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0eb785f8d9ec31d40b8da55ee0c36cc8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PC Computer - RPG Maker MV - Characters_0: 21300000
+      PC Computer - RPG Maker MV - Characters_1: 21300002
+      PC Computer - RPG Maker MV - Characters_10: 21300020
+      PC Computer - RPG Maker MV - Characters_11: 21300022
+      PC Computer - RPG Maker MV - Characters_12: 21300024
+      PC Computer - RPG Maker MV - Characters_13: 21300026
+      PC Computer - RPG Maker MV - Characters_14: 21300028
+      PC Computer - RPG Maker MV - Characters_15: 21300030
+      PC Computer - RPG Maker MV - Characters_16: 21300032
+      PC Computer - RPG Maker MV - Characters_17: 21300034
+      PC Computer - RPG Maker MV - Characters_18: 21300036
+      PC Computer - RPG Maker MV - Characters_19: 21300038
+      PC Computer - RPG Maker MV - Characters_2: 21300004
+      PC Computer - RPG Maker MV - Characters_20: 21300040
+      PC Computer - RPG Maker MV - Characters_21: 21300042
+      PC Computer - RPG Maker MV - Characters_22: 21300044
+      PC Computer - RPG Maker MV - Characters_23: 21300046
+      PC Computer - RPG Maker MV - Characters_24: 21300048
+      PC Computer - RPG Maker MV - Characters_25: 21300050
+      PC Computer - RPG Maker MV - Characters_26: 21300052
+      PC Computer - RPG Maker MV - Characters_27: 21300054
+      PC Computer - RPG Maker MV - Characters_28: 21300056
+      PC Computer - RPG Maker MV - Characters_29: 21300058
+      PC Computer - RPG Maker MV - Characters_3: 21300006
+      PC Computer - RPG Maker MV - Characters_30: 21300060
+      PC Computer - RPG Maker MV - Characters_31: 21300062
+      PC Computer - RPG Maker MV - Characters_32: 21300064
+      PC Computer - RPG Maker MV - Characters_33: 21300066
+      PC Computer - RPG Maker MV - Characters_34: 21300068
+      PC Computer - RPG Maker MV - Characters_35: 21300070
+      PC Computer - RPG Maker MV - Characters_36: 21300072
+      PC Computer - RPG Maker MV - Characters_37: 21300078
+      PC Computer - RPG Maker MV - Characters_38: 21300080
+      PC Computer - RPG Maker MV - Characters_39: 21300074
+      PC Computer - RPG Maker MV - Characters_4: 21300008
+      PC Computer - RPG Maker MV - Characters_40: 21300076
+      PC Computer - RPG Maker MV - Characters_41: 21300082
+      PC Computer - RPG Maker MV - Characters_42: 21300084
+      PC Computer - RPG Maker MV - Characters_43: 21300086
+      PC Computer - RPG Maker MV - Characters_44: 21300088
+      PC Computer - RPG Maker MV - Characters_45: 21300090
+      PC Computer - RPG Maker MV - Characters_46: 21300092
+      PC Computer - RPG Maker MV - Characters_47: 21300094
+      PC Computer - RPG Maker MV - Characters_48: 21300096
+      PC Computer - RPG Maker MV - Characters_49: 21300098
+      PC Computer - RPG Maker MV - Characters_5: 21300010
+      PC Computer - RPG Maker MV - Characters_50: 21300100
+      PC Computer - RPG Maker MV - Characters_51: 21300102
+      PC Computer - RPG Maker MV - Characters_52: 21300104
+      PC Computer - RPG Maker MV - Characters_53: 21300106
+      PC Computer - RPG Maker MV - Characters_54: 21300108
+      PC Computer - RPG Maker MV - Characters_55: 21300110
+      PC Computer - RPG Maker MV - Characters_56: 21300112
+      PC Computer - RPG Maker MV - Characters_57: 21300114
+      PC Computer - RPG Maker MV - Characters_58: 21300116
+      PC Computer - RPG Maker MV - Characters_59: 21300118
+      PC Computer - RPG Maker MV - Characters_6: 21300012
+      PC Computer - RPG Maker MV - Characters_60: 6809117603556996736
+      PC Computer - RPG Maker MV - Characters_61: -2522454923759715382
+      PC Computer - RPG Maker MV - Characters_62: -157111068950521403
+      PC Computer - RPG Maker MV - Characters_63: 1012399187795676388
+      PC Computer - RPG Maker MV - Characters_64: -6924720909353466616
+      PC Computer - RPG Maker MV - Characters_65: 6005497243176024037
+      PC Computer - RPG Maker MV - Characters_66: -4061106022554304531
+      PC Computer - RPG Maker MV - Characters_67: 1965437565398416509
+      PC Computer - RPG Maker MV - Characters_68: -1322919868505984708
+      PC Computer - RPG Maker MV - Characters_69: 6138962376946300929
+      PC Computer - RPG Maker MV - Characters_7: 21300014
+      PC Computer - RPG Maker MV - Characters_70: -2376924612218179157
+      PC Computer - RPG Maker MV - Characters_71: 200660674814698947
+      PC Computer - RPG Maker MV - Characters_72: 5819180663837460146
+      PC Computer - RPG Maker MV - Characters_73: -23784640595213911
+      PC Computer - RPG Maker MV - Characters_74: 3945840607386665617
+      PC Computer - RPG Maker MV - Characters_75: 8714323239857508347
+      PC Computer - RPG Maker MV - Characters_76: 9042864984498820703
+      PC Computer - RPG Maker MV - Characters_77: -1593130755335405288
+      PC Computer - RPG Maker MV - Characters_78: -8721126112257337560
+      PC Computer - RPG Maker MV - Characters_79: 2090764435448101705
+      PC Computer - RPG Maker MV - Characters_8: 21300016
+      PC Computer - RPG Maker MV - Characters_80: 7469927891379305647
+      PC Computer - RPG Maker MV - Characters_81: 6493158015292992947
+      PC Computer - RPG Maker MV - Characters_82: 518999315805486672
+      PC Computer - RPG Maker MV - Characters_83: -1318978709049860597
+      PC Computer - RPG Maker MV - Characters_84: 6679728852736670318
+      PC Computer - RPG Maker MV - Characters_9: 21300018
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

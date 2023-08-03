@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - EnemyHitBox
+  - PlayerHurtBox
+  - PlayerHitBox
+  - breakable
+  - CoinAncor
+  - Projectile
+  - ToolTip
+  - Obstacle
+  - Inventory
+  - Equipment
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Clickable
+  - Collider
+  - EnemyProjectile
+  - PlayerProjectile
+  - Player
+  - MiniMap
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Drop
+    uniqueID: 2184922341
+    locked: 0
+  - name: Destructible
+    uniqueID: 4223208817
+    locked: 0
+  - name: Player
+    uniqueID: 127300727
+    locked: 0
+  - name: Above player
+    uniqueID: 597963327
+    locked: 0

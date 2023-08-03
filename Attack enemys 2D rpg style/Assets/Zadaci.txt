@@ -1,0 +1,34 @@
+										Problemi, treba dodat:
+1.
+2. Nestanak chesta kad ga pokupis?
+3. Svi itemi na podu imaju isti icon ali kad pokupis  ili pritisnes E se pokaze sta e u nutra 
+4. Pick up text kod itema u postavkama  za islkljucit po volji I kod chestova 
+5.Kod itema koji se ne stackaju makniti counter u inv
+6  bolji ui za playera i ostale drke koje igrac gleda 
+7. Kad otvoris shop auto open inv
+8. Inv ne pokazuje 5/5 kada sam prije otvorio neg zavrsio quest od yarrovima ali pise kao gotov quest.. tj pokazuje al kao odvojen item 4/5 i 1/5
+9. Quest se ne obrise kod slucaja gore 8. Kada je vracen quest
+10. Buy house / Upgrade house / house inside
+11. Dungeon
+12. Coin koji iskoci da se jedan spawna a ima rand novaca da ne bez veze krkam gameobjecte coina 
+13. Fishing
+14. shop strile ne daju nis a uzmu pare 
+15. 
+16. rage treba polako nestajat ak nije u combatu duze vrime
+17. Achievements i progress..
+18.Farma in progress
+19. 
+20. Craft system
+21. Boss
+22. Puzzles
+23. arrow fix 
+24. 
+25. 
+26. /dungeon scene ima bagova u boga 
+27. quest dialog se zna izjebat kad razgovaras nasumicno posle rijesenih questova
+28. 
+29.
+
+
+
+

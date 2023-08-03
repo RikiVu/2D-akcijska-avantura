@@ -1,0 +1,540 @@
+fileFormatVersion: 2
+guid: b867312f7b27e6744984370ee38d3e71
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2097304037090240969
+    second: PC Computer - Evoland II - Creeper_0
+  - first:
+      213: -3176053575243638663
+    second: PC Computer - Evoland II - Creeper_1
+  - first:
+      213: 7770039170142412339
+    second: PC Computer - Evoland II - Creeper_2
+  - first:
+      213: 1375637664013974052
+    second: PC Computer - Evoland II - Creeper_3
+  - first:
+      213: 8476563648699429559
+    second: PC Computer - Evoland II - Creeper_4
+  - first:
+      213: -7856359386518085457
+    second: PC Computer - Evoland II - Creeper_5
+  - first:
+      213: 3258372346626495611
+    second: PC Computer - Evoland II - Creeper_6
+  - first:
+      213: 2785038507437434396
+    second: PC Computer - Evoland II - Creeper_7
+  - first:
+      213: -8366710782735959618
+    second: PC Computer - Evoland II - Creeper_8
+  - first:
+      213: 8902558268519947842
+    second: PC Computer - Evoland II - Creeper_9
+  - first:
+      213: -8157432879304384815
+    second: PC Computer - Evoland II - Creeper_10
+  - first:
+      213: -2526031629451255307
+    second: PC Computer - Evoland II - Creeper_11
+  - first:
+      213: -427103764251128171
+    second: PC Computer - Evoland II - Creeper_12
+  - first:
+      213: -2035211871406985582
+    second: PC Computer - Evoland II - Creeper_13
+  - first:
+      213: 370570953429768953
+    second: PC Computer - Evoland II - Creeper_14
+  - first:
+      213: -3458834740272703851
+    second: PC Computer - Evoland II - Creeper_15
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 227
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f23bb58bcd904444b0e118e3da2b58d
+      internalID: -2097304037090240969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 195
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3757adfdb2ec5c14f919db6a71bfa8a3
+      internalID: -3176053575243638663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 163
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b025f5f4b14a848bbdeae045be7d2a
+      internalID: 7770039170142412339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_3
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 131
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd87aac84ae113740b6c9dc461d885ef
+      internalID: 1375637664013974052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 99
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c62c03b9daf7d4ca1010fa32e7877d
+      internalID: 8476563648699429559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_5
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 99
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1fe5a8909a1e544e884d4f1fe4c20a8
+      internalID: -7856359386518085457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_6
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 99
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 280671a1b70079f48a5bfaa7085579d6
+      internalID: 3258372346626495611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_7
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 99
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45fce07655e21884cb9e3ad791711e91
+      internalID: 2785038507437434396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_8
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 99
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ffc01b331690ac47b83a28904e45875
+      internalID: -8366710782735959618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_9
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 99
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 645c7043cb1c1a2409de2ae6a1695021
+      internalID: 8902558268519947842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_10
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 67
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 941f2757d60538b4fb0e3d807734da1d
+      internalID: -8157432879304384815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_11
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 67
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 222aff87562f5d048abd33db5d7f5458
+      internalID: -2526031629451255307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_12
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 67
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 006822539d763274d82c50ffe7c5dee1
+      internalID: -427103764251128171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_13
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 67
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ba33fba69cd4454d8f2bb0bd620bbba
+      internalID: -2035211871406985582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_14
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 67
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64dc67ee217c4b34a9438ccd8d6480cd
+      internalID: 370570953429768953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Evoland II - Creeper_15
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 67
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a55a0524887bbc4390eb6e20bcfe62a
+      internalID: -3458834740272703851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PC Computer - Evoland II - Creeper_0: -2097304037090240969
+      PC Computer - Evoland II - Creeper_1: -3176053575243638663
+      PC Computer - Evoland II - Creeper_10: -8157432879304384815
+      PC Computer - Evoland II - Creeper_11: -2526031629451255307
+      PC Computer - Evoland II - Creeper_12: -427103764251128171
+      PC Computer - Evoland II - Creeper_13: -2035211871406985582
+      PC Computer - Evoland II - Creeper_14: 370570953429768953
+      PC Computer - Evoland II - Creeper_15: -3458834740272703851
+      PC Computer - Evoland II - Creeper_2: 7770039170142412339
+      PC Computer - Evoland II - Creeper_3: 1375637664013974052
+      PC Computer - Evoland II - Creeper_4: 8476563648699429559
+      PC Computer - Evoland II - Creeper_5: -7856359386518085457
+      PC Computer - Evoland II - Creeper_6: 3258372346626495611
+      PC Computer - Evoland II - Creeper_7: 2785038507437434396
+      PC Computer - Evoland II - Creeper_8: -8366710782735959618
+      PC Computer - Evoland II - Creeper_9: 8902558268519947842
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

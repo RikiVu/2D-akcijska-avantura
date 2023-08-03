@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a980bda3f16844584969d902a206e0, type: 3}
+  m_Name: Gather nes
+  m_EditorClassIdentifier: 
+  Type: 2
+  name: Gather two Yarrow plants
+  description: Can you gather 5 Yarrows, it's yellow plant that you can find around
+    this place
+  alreadyTakenQuest: Did you bring me that plants that i asked you for
+  completedQuest: Thank you
+  Target: Yarrow
+  count: 5
+  Finished: 0
+  AtNpcPlace: 0
+  money: 100
+  XPgain: 50

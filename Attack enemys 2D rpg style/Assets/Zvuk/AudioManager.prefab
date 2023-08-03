@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6403941258803103191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6403941258803103177}
+  - component: {fileID: 6403941258803103176}
+  m_Layer: 8
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6403941258803103177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403941258803103191}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6403941258803103176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403941258803103191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5847bb89f0fd34e4ab7c353b38362146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 24300002, guid: 83f5b304ceb11034f869a042065933cb, type: 2}
+  sounds:
+  - name: Click
+    clip: {fileID: 8300000, guid: 1cd7b5b0c2cf365428255743c14e5849, type: 3}
+    volume: 0.22
+    volumeVariance: 0.727
+    pitch: 0.92
+    pitchVariance: 0.451
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Menu
+    clip: {fileID: 8300000, guid: 11abb9d2e15aa3748b5b3e40f49bf1dc, type: 3}
+    volume: 0.22
+    volumeVariance: 0.727
+    pitch: 0.92
+    pitchVariance: 0.451
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Step
+    clip: {fileID: 8300000, guid: bc45268fd97bd11498320e23322889a5, type: 3}
+    volume: 0.22
+    volumeVariance: 0.727
+    pitch: 0.92
+    pitchVariance: 0.451
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09525a09b78461d459be3e4eace15c2a, type: 3}
+  m_Name: HealthPotion
+  m_EditorClassIdentifier: 
+  Type: 0
+  TypeOfEquipment: 0
+  name: Healing Potion
+  description: 'This restores one heart '
+  pickable: 1
+  isStackable: 1
+  Price: 50
+  damageBoost: 0
+  HealthBoost: 0
+  icon: {fileID: -4832337857863999088, guid: f12bb00f95d49a646ae61d32b2fb8edc, type: 3}
+  isDefaultItem: 0

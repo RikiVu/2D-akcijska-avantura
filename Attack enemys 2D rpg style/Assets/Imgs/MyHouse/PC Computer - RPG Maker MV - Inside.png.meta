@@ -1,0 +1,590 @@
+fileFormatVersion: 2
+guid: f096465d751f5e0429fc4210c90edd3d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: PC Computer - RPG Maker MV - Inside_0
+  - first:
+      213: 21300002
+    second: PC Computer - RPG Maker MV - Inside_1
+  - first:
+      213: 21300004
+    second: PC Computer - RPG Maker MV - Inside_2
+  - first:
+      213: 21300006
+    second: PC Computer - RPG Maker MV - Inside_3
+  - first:
+      213: 21300008
+    second: PC Computer - RPG Maker MV - Inside_4
+  - first:
+      213: 21300010
+    second: PC Computer - RPG Maker MV - Inside_5
+  - first:
+      213: 21300012
+    second: PC Computer - RPG Maker MV - Inside_6
+  - first:
+      213: 21300014
+    second: PC Computer - RPG Maker MV - Inside_7
+  - first:
+      213: 21300016
+    second: PC Computer - RPG Maker MV - Inside_8
+  - first:
+      213: 21300018
+    second: PC Computer - RPG Maker MV - Inside_9
+  - first:
+      213: 21300020
+    second: PC Computer - RPG Maker MV - Inside_10
+  - first:
+      213: 21300022
+    second: PC Computer - RPG Maker MV - Inside_11
+  - first:
+      213: 21300024
+    second: PC Computer - RPG Maker MV - Inside_12
+  - first:
+      213: 21300026
+    second: PC Computer - RPG Maker MV - Inside_13
+  - first:
+      213: 1391318032434619827
+    second: PC Computer - RPG Maker MV - Inside_14
+  - first:
+      213: 2054810371389751970
+    second: PC Computer - RPG Maker MV - Inside_15
+  - first:
+      213: 8300189908453087445
+    second: PC Computer - RPG Maker MV - Inside_16
+  - first:
+      213: -811998761984886105
+    second: PC Computer - RPG Maker MV - Inside_17
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_0
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 248
+        width: 48
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8902aa289e989b4428c7f0ba68e69cb8
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_1
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 146
+        width: 46
+        height: 47
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0cc3ef865957f043999bde9cd0cf7dc
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_2
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 290
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96a4afe35c932d441a2c7bd04c3202fe
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_3
+      rect:
+        serializedVersion: 2
+        x: 1590
+        y: 726
+        width: 49
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a0aa39e3bc3464baff1089ed5cb939
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_4
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 675
+        width: 48
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e658827936e1ff14b8209487f37b733b
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_5
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 504
+        width: 34
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cba062b5b78386443bc2a5232cf282ff
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_6
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 290
+        width: 46
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe1e43af4dde10418dcd0be63145564
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_7
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 3
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9536c08e9ab40934da2b74e8bb1469ed
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_8
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 203
+        width: 47
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04f54f74ca26d5a41a21f4a2fe153f62
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_9
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 586
+        width: 39
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f97e5342c39511640b39faba9aa1f997
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_10
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 440
+        width: 38
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbaf8a440fcf5794593f30a93606de93
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_11
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 105
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2f28326b0d9d9149919e47b5750a444
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_12
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 213
+        width: 48
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6bcb08ec592e81468be0ac146d671d6
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_13
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 194
+        width: 48
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 186996b3152cec0458e7c241dd78fae8
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_14
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 608
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 000a07c9c35e8da45ba4b64e472e04c5
+      internalID: 1391318032434619827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_15
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 9
+        width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8651a6cc8266b2f43b3fc95587b01cf3
+      internalID: 2054810371389751970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_16
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 530
+        width: 91
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3d00ebca14dcf744a782e389233c502
+      internalID: 8300189908453087445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - RPG Maker MV - Inside_17
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 291
+        width: 48
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e612b9b7f44174cbcbc5c6331427a3
+      internalID: -811998761984886105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 2ba8d82ea200bba429edec5d6321be29
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PC Computer - RPG Maker MV - Inside_0: 21300000
+      PC Computer - RPG Maker MV - Inside_1: 21300002
+      PC Computer - RPG Maker MV - Inside_10: 21300020
+      PC Computer - RPG Maker MV - Inside_11: 21300022
+      PC Computer - RPG Maker MV - Inside_12: 21300024
+      PC Computer - RPG Maker MV - Inside_13: 21300026
+      PC Computer - RPG Maker MV - Inside_14: 1391318032434619827
+      PC Computer - RPG Maker MV - Inside_15: 2054810371389751970
+      PC Computer - RPG Maker MV - Inside_16: 8300189908453087445
+      PC Computer - RPG Maker MV - Inside_17: -811998761984886105
+      PC Computer - RPG Maker MV - Inside_2: 21300004
+      PC Computer - RPG Maker MV - Inside_3: 21300006
+      PC Computer - RPG Maker MV - Inside_4: 21300008
+      PC Computer - RPG Maker MV - Inside_5: 21300010
+      PC Computer - RPG Maker MV - Inside_6: 21300012
+      PC Computer - RPG Maker MV - Inside_7: 21300014
+      PC Computer - RPG Maker MV - Inside_8: 21300016
+      PC Computer - RPG Maker MV - Inside_9: 21300018
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
