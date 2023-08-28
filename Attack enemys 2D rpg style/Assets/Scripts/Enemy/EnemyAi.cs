@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using System.Linq.Expressions;
+using System;
 
 public class EnemyAi : Enemy
 {
@@ -54,12 +56,18 @@ public class EnemyAi : Enemy
 
         if (Vector3.Distance(target.position, transform.position) > chaseRadius)
         {
-            if (seeker.IsDone())
-            {
-                seeker.StartPath(myRigidbody.position, PathLocations[currentPoint].position, OnPathComplete);
-
+            try{
+                if (seeker.IsDone())
+                {
+                    seeker.StartPath(myRigidbody.position, PathLocations[currentPoint].position, OnPathComplete);
+                }
+            }
+            catch {
+                Debug.Log("Nema lokaciju");
 
             }
+            
+            
         }
 
     }
