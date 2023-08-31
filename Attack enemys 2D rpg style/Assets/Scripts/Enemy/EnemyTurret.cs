@@ -84,14 +84,10 @@ public class EnemyTurret : Enemy
         {
             if (Vector3.Distance(transform.position, path[currentPoint].position) > roundingDistance)
             {
-                
                 Vector3 temp = Vector3.MoveTowards(transform.position, path[currentPoint].position, moveSpeed * Time.deltaTime);
                 anim.SetFloat("MoveX", (path[currentPoint].position.x - transform.position.x));
                 anim.SetFloat("MoveY", (path[currentPoint].position.y - transform.position.y));
                 myRigidbody.MovePosition(temp);
-
-                
-
             }
             else
             {

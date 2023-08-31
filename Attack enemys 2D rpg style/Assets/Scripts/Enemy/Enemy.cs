@@ -66,9 +66,14 @@ public class Enemy : MonoBehaviour
 
     public virtual void DeSelect()
     {
-        GameManager.haveTarget = false;
-        InitHearts2();
-        healthGroup.alpha = 0;
+         if(enemyName != "Arachne")
+        {
+            GameManager.haveTarget = false;
+            InitHearts2();
+            healthGroup.alpha = 0;
+
+        }
+       
         
      //   player.MyTarget = null;
         // player.MyTarget = null;
@@ -175,8 +180,12 @@ public class Enemy : MonoBehaviour
 
     public void ShowHealth(Vector3 position)
     {
-        HealthTip_Go.transform.position = position;
-        HealthTip_Go.SetActive(true);
+        if(enemyName != "Arachne")
+        {
+            HealthTip_Go.transform.position = position;
+            HealthTip_Go.SetActive(true);
+        }
+        
       
     }
 
@@ -209,7 +218,7 @@ public class Enemy : MonoBehaviour
 
         name.text = enemyName;
         float tempHealth = Health / 2;
-        for (int i = 0; i < MaxHealth; i++)
+        for (int i = 0; i < MaxHealth/2; i++)
         {
             if (i <= tempHealth - 1)
             {
