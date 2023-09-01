@@ -255,6 +255,7 @@ public class Enemy : MonoBehaviour
                 HealthTip_Go.SetActive(false);
                 Enemy1 = false;
                 FindObjectOfType<AudioManager>().Play("DieLog");
+              
                 this.gameObject.SetActive(false);
                 myRigidbody.velocity = Vector2.zero;
                 PlayerScr.CantAtt = true;

@@ -85,9 +85,16 @@ public class pot : MonoBehaviour
 
                 if (randomGeneratedNum == 3)
                 {
-                    
-                Instantiate(itemInside[Random.Range(0,itemInside.Length)] , transform.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)), Quaternion.identity);
-                 }
+                    try
+                    {
+                        Instantiate(itemInside[Random.Range(0, itemInside.Length)], transform.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)), Quaternion.identity);
+
+                    }
+                    catch
+                    {
+                        Debug.Log("bug pot?");
+                    }
+                 }  
                 else
                 {
                // Debug.Log("Bad luck");

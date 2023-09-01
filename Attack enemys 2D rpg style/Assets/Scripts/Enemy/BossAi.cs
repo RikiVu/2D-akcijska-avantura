@@ -38,7 +38,7 @@ public class BossAi : Enemy
     public float FireDelay;
     private float fireDelaySeconds;
     private bool canFire = true;
-    public int counterOfProjectiles = 10;
+    public int counterOfProjectiles = 30;
 
 
     public int numProjectiles = 100;
@@ -52,6 +52,11 @@ public class BossAi : Enemy
     public float rotationSpeed = 2;
     public GameObject[] minions;
 
+
+
+    public BoxCollider2D myCollider;
+    public BoxCollider2D myCollider2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +66,7 @@ public class BossAi : Enemy
         InvokeRepeating("UpdatePath", 0f, .5f);
         anim.SetFloat("MoveX", 0);
         anim.SetFloat("MoveY", -1);
-   
+      
     }
     void UpdatePath()
     {
@@ -83,51 +88,47 @@ public class BossAi : Enemy
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.T) )
-        {
-            Debug.Log(stageNumber);
-            stageNumber +=1;
-            switch (stageNumber)
-            {
-                case 1:
-                    //normal attacking 
-                    currentStage = Stages.first;
-                    Debug.Log("First stage");
-                    break;
-                case 2:
-                    //stays in center and shoots 
-                    currentStage = Stages.second;
-                    anim.SetBool("StartWalking", false);
-                   
-                    Debug.Log("Second stage");
-                    
-                    break;
-                case 3:
-                    currentStage = Stages.third;
-                    Debug.Log("Third stage");
-                    stageNumber = 0;
-                    break;
-            }
-
-        }
         
         if (Health > 30)
             currentStage = Stages.first;
         
         else if(Health > 20 &&  Health <= 30)
         {
+            if (currentStage== Stages.first)
+            {
+                Instantiate(itemInside, SpawnPosition.position + new Vector3(UnityEngine.Random.Range(-1, 1), 0, UnityEngine.Random.Range(-1, 1)), Quaternion.identity);
+                counterOfProjectiles = 30;
+            }
+                
+          
+               
             currentStage = Stages.second;
             anim.SetBool("StartWalking", false);
-            foreach (var minion in minions)
-                minion.SetActive(true);
+            
         }
             
         else if(Health > 10 && Health <= 20)
+        {
+            if (currentStage == Stages.second)
+                Instantiate(itemInside, SpawnPosition.position + new Vector3(UnityEngine.Random.Range(-1, 1), 0, UnityEngine.Random.Range(-1, 1)), Quaternion.identity);
+           
             currentStage = Stages.first;
+        }
+            
+      
        
             
         else if (Health > 1 && Health <= 10)
+        {
+            if (currentStage == Stages.first)
+            {
+                foreach (var minion in minions)
+                    minion.SetActive(true);
+            }
             currentStage = Stages.second;
+        }
+
+      
         
             
 
@@ -146,9 +147,13 @@ public class BossAi : Enemy
                     temp = Vector3.MoveTowards(transform.position, centerWaypoint.position, 20 * Time.deltaTime);
                     myRigidbody.MovePosition(temp);
                     startTime = Time.time;
+                    myCollider.enabled = false;
+                    myCollider2.enabled = false;
                 }
                 else //spawn minions
-                {    
+                {
+                    myCollider.enabled = true;
+                    myCollider2.enabled = true;
                     ChangeState(EnemyState.idle); //Promjeni animaciju
 
                     //timer za pucanje
@@ -172,15 +177,15 @@ public class BossAi : Enemy
                         GameObject current = Instantiate(projectile, transform.position, Quaternion.identity);
                         current.GetComponent<Projectile>().Launch(tempVector);
                     }
-                    else if(canFire && counterOfProjectiles <= 0 && counterOfProjectiles > -50)
+                    else if(canFire && counterOfProjectiles <= 0 && counterOfProjectiles > -30)
                     {
                         FireDelay = 0.2f;
                         //shoot all around her 
                         ShootAllAround();
                     }        
-                    else if(canFire && counterOfProjectiles <= 0 && counterOfProjectiles < -50)
+                    else if(canFire && counterOfProjectiles <= 0 && counterOfProjectiles < -30)
                     {
-                        if (shootingCount < 10)
+                        if (shootingCount < 5)
                         {
                             if (Time.time - lastShootingTime >= shootingInterval)
                             {
@@ -190,12 +195,14 @@ public class BossAi : Enemy
                                 ShootAllDirections();
                             }
                         }
+                        else
+                        {
+                            counterOfProjectiles = 20;
+                        }
                     }
                 }
                 break;
-            case Stages.third:
                     
-                break;
         }
 
 
@@ -229,7 +236,7 @@ public class BossAi : Enemy
         }
     }
     private int shootingCount = 0;
-    private float shootingInterval = 5f;
+    private float shootingInterval = 3f;
     private float lastShootingTime = 0f;
 
 
