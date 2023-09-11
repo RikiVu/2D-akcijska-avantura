@@ -5,13 +5,11 @@ using UnityEngine;
 public class AddArrow : MonoBehaviour
 {
     private GameObject Player;
-    private PlayerScr plyScr;
     private bool collected = false;
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        plyScr = Player.GetComponent<PlayerScr>();
     }
 
     // Update is called once per frame
@@ -25,9 +23,9 @@ public class AddArrow : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             // collected = true;
-            if (PlayerScr.Arrows < plyScr.MaxArrows)
+            if (PlayerScr.Arrows < PlayerScr.MaxArrows)
             {
-                if (plyScr.MaxArrows -1 == PlayerScr.Arrows )
+                if (PlayerScr.MaxArrows -1 == PlayerScr.Arrows )
                 {
                     PlayerScr.Arrows += 1;
                 }

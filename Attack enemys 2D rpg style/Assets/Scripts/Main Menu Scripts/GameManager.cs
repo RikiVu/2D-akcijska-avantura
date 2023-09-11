@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private Transform tr;
     public GameObject Inventory;
     public GameObject QuestList;
-    private Inventory InvScr;
+    public Inventory InvScr;
     public GameObject ShopInventory;
     public GameObject ToolTip;
     public GameObject sprite1;
@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
     {
         InvOppened = false;
         Inventory.gameObject.SetActive(false);
+        InvScr.DeactivateDeleteFunc();
         if (ShopInventory.activeInHierarchy == false)
         {
             Time.timeScale = 1;

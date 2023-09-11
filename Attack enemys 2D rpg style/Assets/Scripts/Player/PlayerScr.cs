@@ -63,7 +63,7 @@ public class PlayerScr : MonoBehaviour
     //Bow
     public static bool haveBow = false;
     public static int Arrows;
-    public int MaxArrows = 5;
+    public static int MaxArrows = 20;
     private float AimMAx = 0.7f;
     float startTime= 0;
     public GameObject projectile;
@@ -102,7 +102,7 @@ public class PlayerScr : MonoBehaviour
 
     void Start()
     {
-        Arrows = MaxArrows;
+        Arrows = 0;
         PlayerSprite = gameObject.GetComponent<SpriteRenderer>();
         //transform.position = Spawn.position;
         //cooldownSeconds = cooldown;
@@ -466,7 +466,7 @@ public class PlayerScr : MonoBehaviour
                 {
 
                     this.gameObject.SetActive(false);
-
+                    Time.timeScale = 0;
                 }
             }
            

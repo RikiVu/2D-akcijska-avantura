@@ -27,7 +27,6 @@ public class Inventory : MonoBehaviour
      public int Pun = 0;
     protected int Prazan = 0;
     public Redirect_Quest Redirect;
-
     bool closedTransfer = true;
 
     public CreateItem testMrkva;
@@ -50,11 +49,8 @@ public class Inventory : MonoBehaviour
         }
        
         if (shopInventory.InShop == false && closedTransfer)
-        {
-
             CloseShop();
-            
-        }
+
       
 
     }

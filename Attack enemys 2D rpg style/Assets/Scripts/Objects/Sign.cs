@@ -7,6 +7,7 @@ public class Sign : Interactable
     public GameObject SignBox;
     public TextMeshProUGUI SignText;
     public string signtext;
+    private bool oneActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,27 +18,26 @@ public class Sign : Interactable
     // Update is called once per frame
     void Update()
     {
-         if(Input.GetKeyDown(KeyCode.E) && playerInRange)
-        {
-            if(SignBox.activeInHierarchy)
-            {
-                SignBox.SetActive(false);
-            }
-            else
-            {
-                SignBox.SetActive(true);
-                SignText.text = signtext;
-            }
-        }
-         else if(playerInRange==false)
-        {
-            contextOff.Raise();
-            SignBox.SetActive(false);
-        }
-         if(playerInRange)
+        if (playerInRange)
         {
             contextOn.Raise();
+            Debug.Log("show");
         }
+        else if(oneActive && !playerInRange) {
+            SignBox.SetActive(false);
+            contextOff.Raise();
+            oneActive = false;
+        }
+     
+
+        if (Input.GetKeyDown(KeyCode.E) && playerInRange)
+         {
+                SignBox.SetActive(true);
+                SignText.text = signtext;
+                oneActive = true;
+          }
+        
+       
     }
     }
 

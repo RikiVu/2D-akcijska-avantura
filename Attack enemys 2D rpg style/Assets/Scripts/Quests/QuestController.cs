@@ -50,8 +50,10 @@ public class QuestController : MonoBehaviour
         Image img = this.GetComponent<Image>();
         img.color = UnityEngine.Color.white;
         completedText.gameObject.SetActive(false);
-
+        Debug.Log("zasto??");
         completedQuest = false;
+        progression.text = "0";
+        counter = 0;
     }
 
     private void Update()

@@ -19,7 +19,7 @@ public class CoinScript : MonoBehaviour
               FindObjectOfType<AudioManager>().Play("coin");
             StartCoroutine(ChangeSize());
             PlayerScr.Gold += 10;
-            Debug.Log("something");
+           
             Destroy(this.gameObject);
         }
     }

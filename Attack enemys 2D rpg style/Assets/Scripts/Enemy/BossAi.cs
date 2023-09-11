@@ -66,7 +66,6 @@ public class BossAi : Enemy
         InvokeRepeating("UpdatePath", 0f, .5f);
         anim.SetFloat("MoveX", 0);
         anim.SetFloat("MoveY", -1);
-      
     }
     void UpdatePath()
     {
@@ -260,6 +259,7 @@ public class BossAi : Enemy
         if (Vector3.Distance(target.position,transform.position) <= chaseRadius && Vector3.Distance(target.position, transform.position) > attackRadius)
         {
             anim.SetBool("StartWalking", true);
+            HealthTip_Go.SetActive(true);
             if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
             {
                 anim.SetFloat("MoveX", (target.position.x - transform.position.x));

@@ -230,7 +230,7 @@ public class item : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, I
     }
  public  void Sell()
     {
-        if (haveItem != false)
+        if (haveItem != false && shopInventory.InShop)
         {
             if (thisItem.isStackable && counter1 > 1)
             {
@@ -339,7 +339,7 @@ public class item : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, I
                     PlayerScr.Gold -= thisItem.Price;
                 }
                
-                if (thisItem.Type == TypeOfItem.Arrows && PlayerScr.Arrows <5)
+                if (thisItem.Type == TypeOfItem.Arrows && PlayerScr.Arrows < PlayerScr.MaxArrows)
                 {
                     PlayerScr.Arrows += 1;
                     PlayerScr.Gold -= thisItem.Price;
