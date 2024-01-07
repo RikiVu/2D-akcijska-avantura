@@ -6,7 +6,10 @@ using TMPro;
 
 public class RoomMove : MonoBehaviour
 {
-    
+    public bool spawn = false;
+    public GameObject spawnLocation;
+    public SpriteRenderer WallSprite;
+    public static bool bossFight = false;
     public Vector3 playerChange;
     private CameraMovement cam;
     public bool nextText;
@@ -16,11 +19,13 @@ public class RoomMove : MonoBehaviour
     private bool changedSmoothing = false; 
     public int number;
 
+
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main.GetComponent <CameraMovement>();
-     
+        if (!spawn)
+            WallSprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -44,15 +49,37 @@ public class RoomMove : MonoBehaviour
     {
         if(collision.CompareTag("Player") && collision.isTrigger)
         {
-            cam.i = this.number;
-            cam.smooothing = 0.03f;
-          
-            collision.transform.position += playerChange;
-            
-            if (nextText)
+            if(spawn)
             {
-                StartCoroutine(placeNameCo());
+                cam.i = this.number;
+                cam.smooothing = 0.03f;
+                collision.transform.position = spawnLocation.transform.position; //+= playerChange;
             }
+            else
+            {
+                if (bossFight)
+                {
+                    cam.i = this.number;
+                    cam.smooothing = 0.03f;
+                    collision.transform.position += playerChange;
+                    if (nextText)
+                        StartCoroutine(placeNameCo());
+                }
+                else
+                {
+                    cam.i = this.number;
+                    cam.smooothing = 0.03f;
+                    collision.transform.position += playerChange + new Vector3(0,1,0);
+                    if (nextText)
+                        StartCoroutine(placeNameCo());
+                    bossFight = true;
+                    WallSprite.enabled = true;
+                }
+            }
+          
+            
+            
+        
         }
     }
     private IEnumerator placeNameCo()

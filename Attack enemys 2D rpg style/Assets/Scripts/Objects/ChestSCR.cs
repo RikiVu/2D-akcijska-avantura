@@ -36,13 +36,9 @@ public class ChestSCR : MonoBehaviour
     }
 void Update()
 {
-
-
         // ovo se pokrece svaki frame ( Update)
         if (Input.GetKeyDown(KeyCode.E) && playerInRange && !chestOppened && !chestCollected)
-            
         {
-       
             // kad stisne slovo E i player je u rangeu tek onda ulazi u statement        
             anim.SetBool("Oppened", true);
             chestOppened = true;
@@ -52,16 +48,9 @@ void Update()
             ChestPanel.SetActive(true);
             if (chestCollected == false)
             {
-                
                 ShowItems(pos);
                 chestInvScr.AddItem1(ChestItem);
-                
-                
-
-                
-               
                 //   PlayerScr.Gold += 50;              
-
                 Debug.Log("otvorio si chest");
             }
             else if (chestCollected)
@@ -83,10 +72,6 @@ void Update()
             ChestPanel.SetActive(false);
             contextOff.Raise();
             anim.SetBool("Hiding", true);
-          
-
-
-
         }
 
 

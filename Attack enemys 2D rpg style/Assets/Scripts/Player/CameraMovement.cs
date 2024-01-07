@@ -21,8 +21,8 @@ public class CameraMovement : MonoBehaviour
     
     private void Update()
     {
-        scene = SceneManager.GetActiveScene();
-        nameofScene = scene.name;
+      //  scene = SceneManager.GetActiveScene();
+      //  nameofScene = scene.name;
     }
 
 
