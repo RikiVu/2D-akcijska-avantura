@@ -1,11 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Pathfinding;
-using System.Linq.Expressions;
-using System;
-using UnityEditor;
-
+using Random = UnityEngine.Random;
 public enum Stages
 {
     first,
@@ -24,7 +19,7 @@ public class BossAi : Enemy
     bool reachedEndOfPath = false;
     Seeker seeker;
     // ostalo 
-    public float chaseRadius;
+    public static float chaseRadius;
     public float attackRadius;
     //public Transform[] PathLocations;
     public int currentPoint;
@@ -39,21 +34,16 @@ public class BossAi : Enemy
     private float fireDelaySeconds;
     private bool canFire = true;
     public int counterOfProjectiles = 30;
-
-
     public int numProjectiles = 100;
     private float currentTime = 0f;
     private int projectilesShot = 0;
-
     private bool isSecondStage = false;
     private float startTime;
-
     public float noiseMagnitude = 1f;
     public float rotationSpeed = 2;
     public GameObject[] minions;
-
-
-
+    public GameObject transferCollider;
+    private RoomMove transferColliderScr;
     public BoxCollider2D myCollider;
     public BoxCollider2D myCollider2;
 
@@ -66,6 +56,8 @@ public class BossAi : Enemy
         InvokeRepeating("UpdatePath", 0f, .5f);
         anim.SetFloat("MoveX", 0);
         anim.SetFloat("MoveY", -1);
+        transferColliderScr = transferCollider.GetComponent<RoomMove>();
+        chaseRadius = 35;
     }
     void UpdatePath()
     {
@@ -278,6 +270,26 @@ public class BossAi : Enemy
             currentWaypoint++;
         }
     }
+
+    public override void Death()
+    {
+        DeSelect();
+        HealthTip_Go.SetActive(false);
+        Enemy1 = false;
+        FindObjectOfType<AudioManager>().Play("DieLog");
+        this.gameObject.SetActive(false);
+
+        InitHearts2();
+        Redirect.Killed(enemyName);
+
+        Instantiate(itemInside, SpawnPosition.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)), Quaternion.identity);
+        Instantiate(soul, SpawnPosition.position + new Vector3(0, 0, 0), Quaternion.identity);
+
+        transferCollider.SetActive(false);
+        RoomMove.bossFight = false;
+        transferColliderScr.WallSprite.SetActive(false);
+    }
+
 
 
     void ChangeState(EnemyState newState)

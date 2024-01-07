@@ -8,7 +8,7 @@ public class RoomMove : MonoBehaviour
 {
     public bool spawn = false;
     public GameObject spawnLocation;
-    public SpriteRenderer WallSprite;
+    public GameObject WallSprite;
     public static bool bossFight = false;
     public Vector3 playerChange;
     private CameraMovement cam;
@@ -24,8 +24,9 @@ public class RoomMove : MonoBehaviour
     void Start()
     {
         cam = Camera.main.GetComponent <CameraMovement>();
-        if (!spawn)
+       /* if (!spawn)
             WallSprite = gameObject.GetComponent<SpriteRenderer>();
+       */
     }
 
     // Update is called once per frame
@@ -38,11 +39,8 @@ public class RoomMove : MonoBehaviour
             {
                 changedSmoothing = false;
                 cam.smooothing = 0.1f;
-
             }
         }
-          
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,7 +51,7 @@ public class RoomMove : MonoBehaviour
             {
                 cam.i = this.number;
                 cam.smooothing = 0.03f;
-                collision.transform.position = spawnLocation.transform.position; //+= playerChange;
+                collision.transform.position = spawnLocation.transform.position;
             }
             else
             {
@@ -67,13 +65,15 @@ public class RoomMove : MonoBehaviour
                 }
                 else
                 {
-                    cam.i = this.number;
-                    cam.smooothing = 0.03f;
-                    collision.transform.position += playerChange + new Vector3(0,1,0);
+                    //cam.i = this.number;
+                    //cam.smooothing = 0.03f;
+                    collision.transform.position += playerChange + new Vector3(0,0,0);
                     if (nextText)
                         StartCoroutine(placeNameCo());
                     bossFight = true;
-                    WallSprite.enabled = true;
+                    WallSprite.SetActive(true);
+                    this.gameObject.SetActive(false);
+                    BossAi.chaseRadius = 58;
                 }
             }
           

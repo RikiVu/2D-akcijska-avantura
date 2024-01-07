@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public enum EnemyState
 {
@@ -11,7 +10,6 @@ public enum EnemyState
     walk,
     attack,
     stagger,
-
 }
 
 public class Enemy : MonoBehaviour
@@ -28,32 +26,25 @@ public class Enemy : MonoBehaviour
     public Sprite fullHeart;
     public Sprite halfHeart;
     public Sprite emptyHeart;
-  public bool isTargetable = true;
-
-
+    public bool isTargetable = true;
     public float moveSpeed;
-    private bool Enemy1 = false;
+    protected bool Enemy1 = false;
     private Vector3 pos;
     public GameObject healthBar;
     public GameObject HealthTip_Go;
     public TextMeshProUGUI name;
-    
-
     [SerializeField]
     private CanvasGroup healthGroup;
     public Transform hitBox;
     protected Transform target;
     public GameObject enemy;
     private GameObject Current;
-
     //Flash
-
     private bool FlashActive;
     [SerializeField]
     private float flashLenght = 0f;
     private float flashCounter = 0f;
     public SpriteRenderer enemySprite;
-
 
     //Enemy drop
     public Transform SpawnPosition;
@@ -71,25 +62,19 @@ public class Enemy : MonoBehaviour
             GameManager.haveTarget = false;
             InitHearts2();
             healthGroup.alpha = 0;
-
         }
-       
-        
      //   player.MyTarget = null;
         // player.MyTarget = null;
 
     }
     public virtual  Transform Select()
     {
-        
         name.text = enemyName;
         Enemy1 = true;
         healthGroup.alpha = 1;
         InitHearts();     
         Current = this.gameObject;
         return hitBox;
-        
-
     }
     void Awake()
     {
@@ -106,28 +91,17 @@ public class Enemy : MonoBehaviour
 
     void LateUpdate()
     {
-
-        
         if (Enemy1 == true)
         {
             if (Vector3.Distance(target.position,  Current.transform.position) >= 25 )
-            {
                 DeSelect();
-            }
-
             UpdateHearts();
             pos = Camera.main.WorldToScreenPoint(healthBar.transform.position);
-          
             ShowHealth(pos);
-
-
-
         }
         if (FlashActive)
-        {
             flash();
-        }
-
+       
     }
     private void flash()
     {
@@ -185,19 +159,14 @@ public class Enemy : MonoBehaviour
             HealthTip_Go.transform.position = position;
             HealthTip_Go.SetActive(true);
         }
-        
-      
     }
 
     public void InitHearts()
     {
-
         for (int i = 0; i < MaxHealth / 2; i++)
         {
             hearts[i].gameObject.SetActive(true);
-
             hearts[i].sprite = fullHeart;
-
         }
     }
     public void InitHearts2()
@@ -209,7 +178,6 @@ public class Enemy : MonoBehaviour
             HealthTip_Go.SetActive(false);
             //img.sprite = fullHeart;
         }
-
     }
 
 
@@ -238,49 +206,42 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Knock(Rigidbody2D myRigidbody, float knockTime, float damage)
+    public virtual void Knock(Rigidbody2D myRigidbody, float knockTime, float damage)
     {
-
         if(isTargetable)
         {
             isTargetable = false;
             Health -= damage;
-            
             //s isTargetable = false;
-           
             if(Health<=0)
             {
-                DeSelect();
-                
-                HealthTip_Go.SetActive(false);
-                Enemy1 = false;
-                FindObjectOfType<AudioManager>().Play("DieLog");
-              
-                this.gameObject.SetActive(false);
-                myRigidbody.velocity = Vector2.zero;
-                PlayerScr.CantAtt = true;
-                InitHearts2();               
-                Redirect.Killed(enemyName);
-                //LevelSystem.value1 += XpGive;
-
-                Instantiate(itemInside, SpawnPosition.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)), Quaternion.identity);
-                Instantiate(soul, SpawnPosition.position + new Vector3(0,0,0), Quaternion.identity);
+                Death();
             }
             else
             {
                 FlashActive = true;
                 flashCounter = flashLenght;
                 FindObjectOfType<AudioManager>().Play("LogPain");
-
                 StartCoroutine(KnockCo(myRigidbody, knockTime));
-
             }
-
         }
+    }
 
-      
-       
+    public virtual void Death()
+    {
+        DeSelect();
+        HealthTip_Go.SetActive(false);
+        Enemy1 = false;
+        FindObjectOfType<AudioManager>().Play("DieLog");
+        this.gameObject.SetActive(false);
+        //myRigidbody.velocity = Vector2.zero;
+        //PlayerScr.CantAtt = true;
+        InitHearts2();
+        Redirect.Killed(enemyName);
 
+        //remove restriction
+        Instantiate(itemInside, SpawnPosition.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)), Quaternion.identity);
+        Instantiate(soul, SpawnPosition.position + new Vector3(0, 0, 0), Quaternion.identity);
     }
 
     private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime)

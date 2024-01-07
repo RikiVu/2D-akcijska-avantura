@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9a980bda3f16844584969d902a206e0, type: 3}
-  m_Name: Kill 2 logs
+  m_Name: Kill bats
   m_EditorClassIdentifier: 
   Type: 1
-  name: Kill 2 logs
-  description: Can you kill 2 logs in Rendal forest
-  alreadyTakenQuest: Kill those bastards !!
-  completedQuest: Thank you. Here is your reward.
-  Target: Log
+  name: Kill bats
+  description: Can you kill bats in Rendal forest
+  alreadyTakenQuest: How is killing going?
+  completedQuest: Thank you. Here, your reward.
+  Target: Bat
   count: 2
   Finished: 0
   AtNpcPlace: 0
   money: 200
-  XPgain: 120
+  XPgain: 200
