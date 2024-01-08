@@ -72,7 +72,6 @@ public class RoomMove : MonoBehaviour
                         StartCoroutine(placeNameCo());
                     bossFight = true;
                     WallSprite.SetActive(true);
-                    this.gameObject.SetActive(false);
                     BossAi.chaseRadius = 58;
                 }
             }

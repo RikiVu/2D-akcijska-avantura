@@ -10,44 +10,86 @@ public enum Stages
 
 public class BossAi : Enemy
 {
-    public Stages currentStage;
-    private int stageNumber =1;
-    // public float speed = 4;
-    public float nextWaypointDistance = 3f;
-    Path path;
-    int currentWaypoint = 0;
-    bool reachedEndOfPath = false;
-    Seeker seeker;
-    // ostalo 
+    [SerializeField]
+    private Stages currentStage;
+    private int stageNumber = 1;
+
+    [SerializeField]
+    private float nextWaypointDistance = 3f;
+
+    private Path path;
+    private int currentWaypoint = 0;
+    private bool reachedEndOfPath = false;
+    private Seeker seeker;
+
+    // ostalo
+    
     public static float chaseRadius;
-    public float attackRadius;
-    //public Transform[] PathLocations;
-    public int currentPoint;
-    public float roundingDistance;
-    public Transform centerWaypoint;
-    Vector3 temp;
-    Vector3 tempVector;
 
-    //shooting
-    public GameObject projectile;
-    public float FireDelay;
+    [SerializeField]
+    private float attackRadius;
+
+    [SerializeField]
+    private Transform centerWaypoint;
+
+    [SerializeField]
+    private Vector3 temp;
+
+    [SerializeField]
+    private Vector3 tempVector;
+
+    // shooting
+    [SerializeField]
+    private GameObject projectile;
+
+    [SerializeField]
+    private float FireDelay;
+
+    [SerializeField]
     private float fireDelaySeconds;
-    private bool canFire = true;
-    public int counterOfProjectiles = 30;
-    public int numProjectiles = 100;
-    private float currentTime = 0f;
-    private int projectilesShot = 0;
-    private bool isSecondStage = false;
-    private float startTime;
-    public float noiseMagnitude = 1f;
-    public float rotationSpeed = 2;
-    public GameObject[] minions;
-    public GameObject transferCollider;
-    private RoomMove transferColliderScr;
-    public BoxCollider2D myCollider;
-    public BoxCollider2D myCollider2;
 
-    // Start is called before the first frame update
+    [SerializeField]
+    private bool canFire = true;
+
+    [SerializeField]
+    private int counterOfProjectiles = 30;
+
+    [SerializeField]
+    private int numProjectiles = 100;
+
+    [SerializeField]
+    private float currentTime = 0f;
+
+    [SerializeField]
+    private int projectilesShot = 0;
+
+    [SerializeField]
+    private bool isSecondStage = false;
+
+    [SerializeField]
+    private float startTime;
+
+    [SerializeField]
+    private float noiseMagnitude = 1f;
+
+    [SerializeField]
+    private float rotationSpeed = 2;
+
+    [SerializeField]
+    private GameObject[] minions;
+
+    [SerializeField]
+    private GameObject transferCollider;
+
+    [SerializeField]
+    private GameObject WallBoss;
+
+    [SerializeField]
+    private BoxCollider2D myCollider;
+
+    [SerializeField]
+    private BoxCollider2D myCollider2;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -56,9 +98,9 @@ public class BossAi : Enemy
         InvokeRepeating("UpdatePath", 0f, .5f);
         anim.SetFloat("MoveX", 0);
         anim.SetFloat("MoveY", -1);
-        transferColliderScr = transferCollider.GetComponent<RoomMove>();
         chaseRadius = 35;
     }
+
     void UpdatePath()
     {
         if (Vector3.Distance(target.position,transform.position) <= chaseRadius && Vector3.Distance(target.position, transform.position) > attackRadius)
@@ -287,7 +329,7 @@ public class BossAi : Enemy
 
         transferCollider.SetActive(false);
         RoomMove.bossFight = false;
-        transferColliderScr.WallSprite.SetActive(false);
+        WallBoss.SetActive(false);
     }
 
 
