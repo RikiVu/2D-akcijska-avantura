@@ -22,7 +22,7 @@ public class PlayerScr : MonoBehaviour
 
 #pragma warning disable 649
     #region Variables;
-
+    public bool GodMode = false;
     //Player Move , animations, 
    // public Transform Spawn;
     public PlayerState currentState;
@@ -102,6 +102,7 @@ public class PlayerScr : MonoBehaviour
 
     void Start()
     {
+        
         Arrows = 0;
         PlayerSprite = gameObject.GetComponent<SpriteRenderer>();
         //transform.position = Spawn.position;
@@ -116,9 +117,16 @@ public class PlayerScr : MonoBehaviour
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
         transform.position = startingPosition.initialValue;
-       
-        //pocne sva cetitri napadat kada se ne pomakne iz prve trea stavit pocetni float npr da je dolje 1
 
+        //pocne sva cetitri napadat kada se ne pomakne iz prve trea stavit pocetni float npr da je dolje 1
+        if (GodMode)
+        {
+            haveSword = true;
+            haveBow = true;
+            Gold += 10000;
+            Arrows = 20;
+            Knockback.damageBoost = 1;
+        }
 
     }
     private void Update()
@@ -397,6 +405,7 @@ public class PlayerScr : MonoBehaviour
         AdrenalinScr.value = 0;
         CanDash = false;
         IsDashing = false;
+        myRididbody.velocity = Vector2.zero;
     }
 
 
@@ -440,36 +449,43 @@ public class PlayerScr : MonoBehaviour
     {
         if(isTargetable)
         {
-            if(armorManager.armorCurrent != 0)
+            if (!GodMode)
             {
-                FlashActive = true;
-                flashCounter = flashLenght;
-                AdrenalinScr.value -= 0.1f;
-                //FindObjectOfType<AudioManager>().Play("PlayerPain");
-                StartCoroutine(KnockCo(knockTime));
-                armorManager.ArmorHit();
-            }
-
-           else if(armorManager.armorCurrent == 0)
-            {
-                currentHealth.RuntimeValue -= damage;
-                FlashActive = true;
-                flashCounter = flashLenght;
-                PlayerHealthSignal.Raise();
-                AdrenalinScr.value -= 0.1f;
-                if (currentHealth.RuntimeValue > 0)
+                if (armorManager.armorCurrent != 0)
                 {
-                    FindObjectOfType<AudioManager>().Play("PlayerPain");
+                    FlashActive = true;
+                    flashCounter = flashLenght;
+                    AdrenalinScr.value -= 0.1f;
+                    //FindObjectOfType<AudioManager>().Play("PlayerPain");
                     StartCoroutine(KnockCo(knockTime));
+                    armorManager.ArmorHit();
                 }
-                else
-                {
 
-                    this.gameObject.SetActive(false);
-                    Time.timeScale = 0;
+                else if (armorManager.armorCurrent == 0)
+                {
+                    currentHealth.RuntimeValue -= damage;
+                    FlashActive = true;
+                    flashCounter = flashLenght;
+                    PlayerHealthSignal.Raise();
+                    AdrenalinScr.value -= 0.1f;
+                    if (currentHealth.RuntimeValue > 0)
+                    {
+                        FindObjectOfType<AudioManager>().Play("PlayerPain");
+                        StartCoroutine(KnockCo(knockTime));
+                    }
+                    else
+                    {
+                        //death
+                        this.gameObject.SetActive(false);
+                        Time.timeScale = 0;
+                    }
                 }
             }
-           
+            else
+            {
+                myRididbody.velocity = Vector2.zero;
+                currentState = PlayerState.idle;
+            }
 
         }
         else

@@ -67,18 +67,20 @@ public class EnemyBoss : MonoBehaviour
         // player.MyTarget = null;
 
     }
-    public virtual  Transform Select()
+    /*
+    public Transform Select()
     {
         
         name.text = enemyName;
         Enemy1 = true;
-        healthGroup.alpha = 1;
+        
         InitHearts();     
         Current = this.gameObject;
         return hitBox;
         
 
     }
+  */
     void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -245,6 +247,7 @@ public class EnemyBoss : MonoBehaviour
                 InitHearts2();               
                 Redirect.Killed(enemyName);
                 //LevelSystem.value1 += XpGive;
+                GameManager.bossAlive = false;
 
                 Instantiate(itemInside, SpawnPosition.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)), Quaternion.identity);
                 Instantiate(soul, SpawnPosition.position + new Vector3(0,0,0), Quaternion.identity);

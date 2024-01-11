@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using Random = UnityEngine.Random;
 
+
 public enum EnemyState
 {
     idle,
@@ -65,16 +66,17 @@ public class Enemy : MonoBehaviour
         }
      //   player.MyTarget = null;
         // player.MyTarget = null;
-
     }
-    public virtual  Transform Select()
+    public virtual Transform Select()
     {
         name.text = enemyName;
         Enemy1 = true;
-        healthGroup.alpha = 1;
-        InitHearts();     
+        if (enemyName != "Arachne")
+            healthGroup.alpha = 1;
+        InitHearts();
         Current = this.gameObject;
         return hitBox;
+
     }
     void Awake()
     {

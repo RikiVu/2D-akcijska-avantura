@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
    public bool InvOppened = false;
    public bool QuestListOppened = false;
    public static bool haveTarget = false;
+
+    public static bool bossAlive = true;
+    public GameObject boss;
 
 
 
@@ -158,6 +162,34 @@ public class GameManager : MonoBehaviour
             currentTarget = null;
             player.MyTarget = null;
         }
+    }
+
+
+    public void ChangeTarget()
+    {
+        try
+        {
+            if (bossAlive)
+            {
+                haveTarget = true;
+                PlayerScr.CantAtt = false;
+                if (currentTarget != null)
+                    currentTarget.DeSelect();
+
+                currentTarget = boss.GetComponent<Enemy>();
+
+                if (currentTarget != null)
+                    player.MyTarget = currentTarget.Select();
+            }
+        }
+        catch
+        {
+            Debug.Log("error Gamemanager");
+        }
+        //if boss alive 
+    
+       
+               
     }
 
     private void ArrowShot()

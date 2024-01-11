@@ -18,6 +18,7 @@ public class RoomMove : MonoBehaviour
     public TextMeshProUGUI placeText;
     private bool changedSmoothing = false; 
     public int number;
+    public GameManager manager;
 
 
     // Start is called before the first frame update
@@ -49,7 +50,7 @@ public class RoomMove : MonoBehaviour
         {
             if(spawn)
             {
-                cam.i = this.number;
+                
                 cam.smooothing = 0.03f;
                 collision.transform.position = spawnLocation.transform.position;
             }
@@ -57,7 +58,7 @@ public class RoomMove : MonoBehaviour
             {
                 if (bossFight)
                 {
-                    cam.i = this.number;
+                    
                     cam.smooothing = 0.03f;
                     collision.transform.position += playerChange;
                     if (nextText)
@@ -73,6 +74,8 @@ public class RoomMove : MonoBehaviour
                     bossFight = true;
                     WallSprite.SetActive(true);
                     BossAi.chaseRadius = 58;
+                    manager.ChangeTarget();
+                    this.gameObject.SetActive(false);
                 }
             }
           
