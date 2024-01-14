@@ -304,7 +304,7 @@ public class item : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, I
    
     public void OnPointerEnter(PointerEventData eventData)
         {
-
+        Debug.Log("uso");
       
             if (haveItem)
             {
