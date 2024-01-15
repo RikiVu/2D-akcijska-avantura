@@ -19,26 +19,21 @@ public class chestInventory : MonoBehaviour
 
         // Start is called before the first frame update
         public void AddItem1(CreateItem item)
-    {
-        
+        {   
         itemScr = slot.GetComponentInChildren<item>();
         // itemScr.PlayerInv = false;
-
-
         itemScr.thisItem = item;
         itemScr.name = item.name;
         itemScr.description = item.description;
         itemScr.img = item.icon;
         itemScr.Type = item.Type;
         itemScr.haveItem = true;
-
         return;
 
-       
     }
     public void sendToInv()
     {
-        itemScr.ChestSend();
+        itemScr.ChestSend(itemScr.thisItem);
         DeleteItems();
     }
 
@@ -50,7 +45,6 @@ public class chestInventory : MonoBehaviour
         if (itemScr.haveItem)
         {
             itemScr.Destroy();
-
         }
     }
     

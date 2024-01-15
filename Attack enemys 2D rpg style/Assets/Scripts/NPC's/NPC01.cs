@@ -39,9 +39,6 @@ public class NPC01 : MonoBehaviour
 
     public virtual void Interact()
     {
-
-
-
         if (inRangeforTalk == true)
 
             if (Input.GetKeyDown(KeyCode.E)) 
@@ -65,16 +62,9 @@ public class NPC01 : MonoBehaviour
                     dialogScr.placeHolder = Talk.ToString();
                     dialogScr.Shop = false;
                 }
-               
-
-
                 // otvori buttone i imas izbor da uzmes ga
                 //kad stisne yes onda bih trebalo 
                 //javit npc u da moze upisat u quest log..
-
-
-
-
             }
     }
    

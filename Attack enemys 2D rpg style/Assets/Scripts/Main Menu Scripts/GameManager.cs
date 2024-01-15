@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject sprite1;
     GameObject current;
     public static bool turnOff=false;
-   public bool InvOppened = false;
+   public static bool InvOppened = false;
    public bool QuestListOppened = false;
    public static bool haveTarget = false;
 
@@ -88,6 +88,10 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+
+
+
 
   public  void CloseInv()
     {

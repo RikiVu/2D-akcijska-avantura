@@ -30,9 +30,10 @@ public class Inventory : MonoBehaviour
     bool closedTransfer = true;
 
     public CreateItem testMrkva;
+    public GameObject panelInv;
 
     // Start is called before the first frame update
-  public  virtual void  Awake()
+    public  virtual void  Awake()
     {
         Pun = 0;
     }
@@ -119,29 +120,7 @@ public class Inventory : MonoBehaviour
 
         //DeactivateButton.SetActive(true);
     }
-    /*
-    public void PlantItem()
-    {
-        //SellButton.SetActive(false);
-        
-            
-            for (int b = 0; b < slot.Length; b++)
-            {
-                itemScr = slot[b].GetComponentInChildren<item>();
-                itemScr.CantUse = true;
 
-                if (itemScr.haveItem && itemScr.Type == TypeOfItem.Veggies)
-                {
-                    itemScr.PlantButton.SetActive(true);
-                    itemScr.DeleteButton.SetActive(false);
-                }
-
-            }
-        
-
-        //DeactivateButton.SetActive(true);
-    }
-    */
     public void DeactivateDeleteFunc()
     {
         
@@ -193,7 +172,7 @@ public class Inventory : MonoBehaviour
         if(plantGm!=null)
         {
             plantingScr = plantGm.GetComponent<PlantAndHarvest>();
-            if (plantingScr.inRange)
+            if (plantingScr.playerInRange)
             {
                 for (int b = 0; b < slot.Length; b++)
                 {
@@ -217,20 +196,35 @@ public class Inventory : MonoBehaviour
     Debug.Log("you are not at the plant spot right now so you can't use that feature");
             itemScr.PlantButton.SetActive(false);
         }
-
     }
 
-    public void transferFromItem(CreateItem itm,string name)
+
+    public void openInvToPlant()
+    {
+        if (GameManager.InvOppened == false)
+        {
+            GameManager.InvOppened = true;
+            panelInv.SetActive(true);
+            ItemForPlanting();
+            Time.timeScale = 0;
+        }
+    }
+    public bool transferFromItem(CreateItem itm,string name)
     {
         if (plantGm != null)
         {
             plantingScr = plantGm.GetComponent<PlantAndHarvest>();
-            if (plantingScr.inRange && plantingScr.Sended == false)
+            if (plantingScr.playerInRange && plantingScr.currentState == PlantState.notPlanted)
             {
-                
                 plantingScr.Send(itm, name);
+                DeactivateDeleteFunc();
+                panelInv.SetActive(false);
+                GameManager.InvOppened = false;
+                Time.timeScale = 1;
+                return true;
             }
         }
+        return false;
     }
 
     public void SortByName()

@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using System;
 
-
-
-public class item : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
+public class item : MonoBehaviour
 {
     public TypeOfItem Type;
     public int CurrentNum = 0; 
@@ -39,6 +38,8 @@ public class item : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, I
     public GameObject EquipmentGM;
     public Equipment EquipmentScr;
     public bool equiped = false;
+
+    public Transform TipLocation;
 
     public void Awake()
     {
@@ -251,34 +252,27 @@ public class item : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, I
 
         }
     }
-
+    bool temp=false;
 
     public void Plant()
     {
-      
-        if (haveItem)
+        if (haveItem) 
         {
-            
-            if (thisItem.isStackable && counter1 > 1)
+            temp = invScr.transferFromItem(thisItem, thisItem.name);
+            if (temp)
             {
-                counter1--;
+                if (thisItem.isStackable && counter1 > 1)
+                    counter1--;
+                else
+                {
+                    invScr.Pun -= 1;
+                    name = null;
+                    description = null;
+                    img = null;
+                    haveItem = false;
+                    SellButton.SetActive(false);
+                }
             }
-            else
-            {
-                invScr.Pun -= 1;
-                name = null;
-                description = null;
-                img = null;
-
-                haveItem = false;
-                SellButton.SetActive(false);
-
-            }
-        
-
-            invScr.transferFromItem(thisItem, thisItem.name);
-           
-
         }
     }
 
@@ -302,43 +296,29 @@ public class item : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, I
     }
   
    
-    public void OnPointerEnter(PointerEventData eventData)
+    public void PointerEnter()
         {
-        Debug.Log("uso");
-      
             if (haveItem)
             {
-           
-                Tooltip.SetActive(true);
-           
-                Tooltip.transform.position = this.transform.position + new Vector3(0,55,0);
-                tooltipSCR.ChangeText(name, description);
-                //Debug.Log("Uso");
+            Tooltip.SetActive(true);
+            tooltipSCR.ChangeText(name, description);
+            Tooltip.transform.position = TipLocation.position;
             }
-       
          }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void PointerClick()
     {
-        
-      //  Debug.Log("click");
         if (haveItem && PlayerInv)
-        {
-           
             Use();
-        }
         else if(haveItem && !PlayerInv && equiped == false)
         {
-         
             if (PlayerScr.Gold >= thisItem.Price)
             {
-                
                 if(thisItem.Type != TypeOfItem.Arrows)
                 {
                      invScr2.AddItem(thisItem);
                     PlayerScr.Gold -= thisItem.Price;
                 }
-               
                 if (thisItem.Type == TypeOfItem.Arrows && PlayerScr.Arrows < PlayerScr.MaxArrows)
                 {
                     PlayerScr.Arrows += 1;
@@ -351,23 +331,21 @@ public class item : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, I
             }
             else
             {
-                Debug.Log("You can't buy shit with that amount money");
+                Debug.Log("Insufficient gold");
             }
            
     
         }
-       
     }
 
-   public void ChestSend()
+   public void ChestSend(CreateItem item)
     {
-        invScr2.AddItem(thisItem);
+        invScr2.AddItem(item);
 
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void PointerExit()
     {
         Tooltip.SetActive(false);
-      //  Debug.Log("Izaso");
     }
 }

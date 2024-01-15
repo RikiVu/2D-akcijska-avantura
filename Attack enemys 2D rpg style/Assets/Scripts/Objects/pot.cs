@@ -37,11 +37,7 @@ public class pot : MonoBehaviour
    
     public virtual Transform Select()
     {
-
-        
         return hitBox;
-
-
     }
     // Update is called once per frame
     void Update()

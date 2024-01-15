@@ -9,6 +9,7 @@ public class Redirect_Quest : MonoBehaviour
     public GameObject objekt;
     public GameObject[] slot = new GameObject[5];
     public int x = 0;
+    
 
     
     // Start is called before the first frame update
@@ -34,8 +35,15 @@ public class Redirect_Quest : MonoBehaviour
                     {
                         QuestCont.QuestCompleted();
                     }
-                }
             }
+            else
+            {
+                                                            // napravi da moze rjesit quest prije neg sto ga uzme.
+
+            }
+        }
+
+
             
        
 
@@ -201,9 +209,4 @@ public class Redirect_Quest : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-      //  Debug.Log(slot.Length);
-    }
 }

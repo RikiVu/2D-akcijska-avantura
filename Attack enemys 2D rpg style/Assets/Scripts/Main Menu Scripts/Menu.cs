@@ -33,13 +33,13 @@ public class Menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if (Input.GetKeyDown(KeyCode.Escape) && gM.InvOppened || Input.GetKeyDown(KeyCode.Escape) && gM.QuestListOppened)
+      if (Input.GetKeyDown(KeyCode.Escape) && GameManager.InvOppened || Input.GetKeyDown(KeyCode.Escape) && gM.QuestListOppened)
         {
             gM.CloseInv();
             gM.CloseQuests();
         }
 
-       else if (Input.GetKeyDown(KeyCode.Escape) && escOppened == false && optionsOppened==false && gM.InvOppened== false)
+       else if (Input.GetKeyDown(KeyCode.Escape) && escOppened == false && optionsOppened==false && GameManager.InvOppened== false)
         {
            
 

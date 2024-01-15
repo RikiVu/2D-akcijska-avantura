@@ -89,6 +89,7 @@ public class DialogScr : MonoBehaviour
             radi = false;
             TmProText.text = "";
             this.gameObject.SetActive(false);
+                                                                                                                            //moguc bug ovdi????
         }
 
     }

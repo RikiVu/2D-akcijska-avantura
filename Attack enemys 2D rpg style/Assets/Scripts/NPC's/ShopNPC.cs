@@ -43,7 +43,7 @@ public class ShopNPC : NPC01
                        // if(itemsInStock[i] != null)
                         ShopInvScr.AddItem1(itemsInStock[i],i);
                     }
-                 
+
                 }
 
             }
