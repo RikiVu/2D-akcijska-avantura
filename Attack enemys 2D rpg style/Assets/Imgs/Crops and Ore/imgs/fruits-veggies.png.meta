@@ -160,7 +160,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,6 +168,48 @@ TextureImporter:
       bones: []
       spriteID: 07488e575e5795fd0800000000000000
       internalID: -2352719701938240400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruits-veggies_1
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 1025
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6bba495e82b8894d97cf5b12717d386
+      internalID: 926792258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruits-veggies_2
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 1340
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dea5f3cc4ba8f1498725ccab653026d
+      internalID: 1196608871
       vertices: []
       indices: 
       edges: []
@@ -184,6 +226,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       fruits-veggies_0: -2352719701938240400
+      fruits-veggies_1: 926792258
+      fruits-veggies_2: 1196608871
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

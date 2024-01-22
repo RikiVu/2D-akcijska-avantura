@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 4
   TypeOfEquipment: 0
+  ID: 1
   name: Carrot
-  description: Eatable
+  description: Edible
   pickable: 1
   isStackable: 1
   Price: 6

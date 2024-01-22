@@ -11,6 +11,7 @@ public class CreateItem : ScriptableObject
 {
     public TypeOfItem Type;
     public TypeOfEquipment TypeOfEquipment;
+    public int ID = 0;
     new public string name = "New item";
     new public string description = "Description";
     new public bool pickable;

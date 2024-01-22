@@ -40,7 +40,7 @@ public class PlantAndHarvest : Interactable
                 case PlantState.finished:
                     animator.SetBool("harvested", true);
                     Debug.Log("you got carrots noice");
-                    animator.SetBool("Carrot", false);
+                    //animator.SetBool("Carrot", false);
                     animator.SetFloat("Stage", 0);
                     currentState = PlantState.notPlanted;
                     playerInRange = false;
@@ -58,8 +58,9 @@ public class PlantAndHarvest : Interactable
         // FindObjectOfType<AudioManager>().Play("");
         Debug.Log("Planting");
         currentState = PlantState.planted;
+        animator.SetInteger("TypeOfCrop", item.ID);
         animator.SetBool("harvested", false);
-        animator.SetBool(name, true);
+        //animator.SetBool(name, true);
         animator.SetFloat("Stage", 0);
         //assign itemPlanted
         itemPlanted.thisItem = item;

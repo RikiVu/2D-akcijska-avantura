@@ -5,12 +5,16 @@ using Pathfinding;
 using System.Linq.Expressions;
 using System;
 
+public enum EnemyType
+{
+    spawn,
+    patrol
+}
 public class EnemyAi : Enemy
 {
-   // public float speed = 4;
+    public EnemyType currentType;
+    // public float speed = 4;
     public float nextWaypointDistance = 3f;
-
-    
 
     Path path;
     int currentWaypoint = 0;
