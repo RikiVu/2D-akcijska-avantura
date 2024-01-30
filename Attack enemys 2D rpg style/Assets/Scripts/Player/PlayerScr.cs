@@ -27,7 +27,7 @@ public class PlayerScr : MonoBehaviour
    // public Transform Spawn;
     public PlayerState currentState;
     public static float speed;
-    float moveSpeed=100;
+    float moveSpeed=150;
     private Vector3 change;
     private Rigidbody2D myRididbody;
     public Animator animator;
@@ -38,7 +38,7 @@ public class PlayerScr : MonoBehaviour
     private float cooldownSeconds;
     private bool cooldownBool;
     //Money
-    public static int Gold = 50;
+    public static int Gold = 200;
 
     //Health
     public bool isTargetable = true;
@@ -166,7 +166,7 @@ public class PlayerScr : MonoBehaviour
         }
         else
         {
-            speed = 8;
+            speed = 18;
             trci = false;
         }
 
