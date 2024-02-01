@@ -10,42 +10,40 @@ public enum EnemyType
     spawn,
     patrol
 }
+
 public class EnemyAi : Enemy
 {
     public EnemyType currentType;
-    // public float speed = 4;
-    public float nextWaypointDistance = 3f;
+    #region spawn;
 
-    Path path;
+    #endregion
+
+    #region patrol;
+    public float nextWaypointDistance = 3f;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
+    public Transform[] PathLocations;
+    #endregion
 
+    Path path;
     Seeker seeker;
-    
-
-
-    // ostalo 
-  
     public float chaseRadius;
     public float attackRadius;
-    public Transform[] PathLocations;
+  
     public int currentPoint;
     public float roundingDistance;
     public Transform currentGoal;
+    float distance;
 
-    // Start is called before the first frame update
+
+
     void Start()
     {
-
         anim = GetComponent<Animator>();
-
         seeker = GetComponent<Seeker>();
-     
-
         InvokeRepeating("UpdatePath", 0f, .5f);
+        this.gameObject.SetActive(false);
     }
-
-  
 
     void UpdatePath()
     {
@@ -53,27 +51,35 @@ public class EnemyAi : Enemy
         if (Vector3.Distance(target.position,
             transform.position) <= chaseRadius && Vector3.Distance(target.position, transform.position) > attackRadius)
         {
+            if (this.gameObject.activeInHierarchy != true)
+            {
+                this.gameObject.SetActive(true);
+            }
             seeker.StartPath(myRigidbody.position, target.position, OnPathComplete);
-
         }
-
+    }
+    void UpdatePathPatrol()
+    {
+        if (Vector3.Distance(target.position,
+            transform.position) <= chaseRadius && Vector3.Distance(target.position, transform.position) > attackRadius)
+        {
+            seeker.StartPath(myRigidbody.position, target.position, OnPathComplete);
+        }
 
         if (Vector3.Distance(target.position, transform.position) > chaseRadius)
         {
-            try{
+            try
+            {
                 if (seeker.IsDone())
                 {
                     seeker.StartPath(myRigidbody.position, PathLocations[currentPoint].position, OnPathComplete);
                 }
             }
-            catch {
+            catch
+            {
                 Debug.Log("Nema lokaciju");
-
             }
-            
-            
         }
-
     }
 
     void OnPathComplete(Path p)
@@ -85,7 +91,6 @@ public class EnemyAi : Enemy
         }
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         Moving();
@@ -94,6 +99,70 @@ public class EnemyAi : Enemy
     void Moving()
     {
         if (path == null && Health>0)
+            return;
+
+        if (Vector3.Distance(target.position,transform.position) <= chaseRadius && Vector3.Distance(target.position, transform.position) > attackRadius)
+        {
+            anim.SetBool("StartWalking", true);
+            if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
+            {
+                
+                anim.SetFloat("MoveX", (target.position.x - transform.position.x));
+                anim.SetFloat("MoveY", (target.position.y - transform.position.y));
+                if (path.vectorPath.Count > currentWaypoint)
+                {
+                    Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - myRigidbody.position).normalized;
+                    Vector2 force = direction * moveSpeed * Time.deltaTime;
+                    myRigidbody.AddForce(force);
+                }
+                ChangeState(EnemyState.walk);
+            }
+        }
+        else if (Vector3.Distance(target.position, transform.position) > chaseRadius)
+        {
+            this.gameObject.SetActive(false);
+            return;
+        }
+
+        if (path.vectorPath.Count > currentWaypoint)
+        {
+            distance = Vector2.Distance(myRigidbody.position, path.vectorPath[currentWaypoint]);
+            if (distance < nextWaypointDistance)
+            {
+                    currentWaypoint++;
+            }
+        }
+
+    }
+
+
+
+
+     void ChangeState(EnemyState newState)
+    {
+        if (currentState != newState)
+        {
+            currentState = newState;
+        }
+    }
+     void ChangeGoal()
+    {
+        if (currentPoint == PathLocations.Length - 1)
+        {
+            currentPoint = 0;
+            currentGoal = PathLocations[0];
+        }
+        else
+        {
+            currentPoint++;
+            currentGoal = PathLocations[currentPoint];
+        }
+    }
+
+
+    void MovingTemp()
+    {
+        if (path == null && Health > 0)
             return;
 
         if (currentWaypoint >= path.vectorPath.Count)
@@ -131,7 +200,9 @@ public class EnemyAi : Enemy
         }
         else if (Vector3.Distance(target.position, transform.position) > chaseRadius)
         {
+
             anim.SetBool("StartWalking", true);
+            this.gameObject.SetActive(false);
             if (Vector3.Distance(transform.position, PathLocations[currentPoint].position) > roundingDistance)
             {
 
@@ -147,7 +218,7 @@ public class EnemyAi : Enemy
             }
             else
             {
-                    ChangeGoal();
+                ChangeGoal();
             }
 
         }
@@ -155,7 +226,11 @@ public class EnemyAi : Enemy
 
 
 
-                float distance = Vector2.Distance(myRigidbody.position, path.vectorPath[currentWaypoint]);
+
+
+
+
+        float distance = Vector2.Distance(myRigidbody.position, path.vectorPath[currentWaypoint]);
 
         if (distance < nextWaypointDistance)
         {
@@ -163,29 +238,10 @@ public class EnemyAi : Enemy
         }
     }
 
-     void ChangeState(EnemyState newState)
-    {
-        if (currentState != newState)
-        {
-            currentState = newState;
-        }
-    }
-     void ChangeGoal()
-    {
-        if (currentPoint == PathLocations.Length - 1)
-        {
-            currentPoint = 0;
-            currentGoal = PathLocations[0];
-        }
-        else
-        {
-            currentPoint++;
-            currentGoal = PathLocations[currentPoint];
 
-
-        }
-    }
 }
 
- 
-           
+
+
+
+

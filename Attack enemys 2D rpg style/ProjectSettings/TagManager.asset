@@ -15,6 +15,12 @@ TagManager:
   - Obstacle
   - Inventory
   - Equipment
+  - EnemyName
+  - EnemyCanvas
+  - EnemyHealth
+  - EnemyToolTip
+  - QuestPanel
+  - Redirect
   layers:
   - Default
   - TransparentFX

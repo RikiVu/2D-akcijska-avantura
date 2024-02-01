@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using TMPro;
 using Random = UnityEngine.Random;
 
-
 public enum EnemyState
 {
     idle,
@@ -22,7 +21,7 @@ public class Enemy : MonoBehaviour
     //Health
     public float Health = 4;
     public float MaxHealth = 4;
-    public string enemyName;   
+    public string enemyName;
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite halfHeart;
@@ -54,6 +53,8 @@ public class Enemy : MonoBehaviour
     public int XpGive;
 
     // quest
+    public GameObject QuestPanel;
+    private QuestPanelParent QuestPanelParentScr;
     public Redirect_Quest Redirect;
 
     public virtual void DeSelect()
@@ -69,6 +70,7 @@ public class Enemy : MonoBehaviour
     }
     public virtual Transform Select()
     {
+        Debug.Log(enemyName);
         name.text = enemyName;
         Enemy1 = true;
         if (enemyName != "Arachne")
@@ -78,16 +80,30 @@ public class Enemy : MonoBehaviour
         return hitBox;
 
     }
+    private GameObject EnemyToolTip;
     void Awake()
     {
+        
+        if (enemyName != "Arachne")
+        {
+            healthGroup = GameObject.FindGameObjectWithTag("EnemyCanvas").GetComponent<CanvasGroup>();
+            HealthTip_Go = GameObject.FindGameObjectWithTag("EnemyHealth");
+            name = GameObject.FindGameObjectWithTag("EnemyName").GetComponent<TextMeshProUGUI>();
+            EnemyToolTip = GameObject.FindGameObjectWithTag("EnemyToolTip");
+            hearts = EnemyToolTip.GetComponent<EnemyToolTip>().hearts;
+            QuestPanel = GameObject.FindGameObjectWithTag("QuestPanel");
+            QuestPanelParentScr = QuestPanel.GetComponent<QuestPanelParent>();
+            //Redirect = QuestPanelParentScr.QuestPanel2;
+        }       
+
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        
     }
 
      
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-      
         enemySprite = enemy.GetComponent<SpriteRenderer>();
     }
 
@@ -235,15 +251,17 @@ public class Enemy : MonoBehaviour
         HealthTip_Go.SetActive(false);
         Enemy1 = false;
         FindObjectOfType<AudioManager>().Play("DieLog");
-        this.gameObject.SetActive(false);
+        
         //myRigidbody.velocity = Vector2.zero;
         //PlayerScr.CantAtt = true;
         InitHearts2();
         Redirect.Killed(enemyName);
 
+
         //remove restriction
         Instantiate(itemInside, SpawnPosition.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)), Quaternion.identity);
         Instantiate(soul, SpawnPosition.position + new Vector3(0, 0, 0), Quaternion.identity);
+        Destroy(this.gameObject);
     }
 
     private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime)

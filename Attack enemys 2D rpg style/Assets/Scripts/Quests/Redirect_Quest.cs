@@ -19,22 +19,16 @@ public class Redirect_Quest : MonoBehaviour
         x = 0;
         for (x = 0; x < slot.Length; x++)
         {
-
             QuestCont = slot[x].GetComponent<QuestController>();
             if (QuestCont.activeQuest)
             {
-
                 if (QuestCont.Target == name )
                 {
                    if(QuestCont.counter.ToString() != QuestCont.progressionFull.text)
                     QuestCont.counter++;
-                    
-                   
                 }
                 if (QuestCont.counter.ToString() == QuestCont.progressionFull.text)
-                    {
                         QuestCont.QuestCompleted();
-                    }
             }
             else
             {
@@ -42,35 +36,22 @@ public class Redirect_Quest : MonoBehaviour
 
             }
         }
-
-
-            
-       
-
     }
-   
-
     public void Gathering(string name, int num)
     {
         x = 0;
         for (x = 0; x < slot.Length; x++)
         {
-
             QuestCont = slot[x].GetComponent<QuestController>();
             if (QuestCont.activeQuest)
             {
-
                 if (QuestCont.Target == name)
                 {
                     if (QuestCont.counter.ToString() != QuestCont.progressionFull.text)
                          QuestCont.counter = num;
-
-
                 }
                 if (QuestCont.counter.ToString() == QuestCont.progressionFull.text)
-                {
                     QuestCont.QuestCompleted();
-                }
             }
             else if(QuestCont.Type == TypeOfQuest.Gathering)
             {
@@ -78,102 +59,61 @@ public class Redirect_Quest : MonoBehaviour
                 {
                     if (QuestCont.counter.ToString() != QuestCont.progressionFull.text)
                         QuestCont.counter = num;
-
-
                 }
-              
             }
         }
-
     }
-
     public void DeleteQuest(string name)
     {
         int Pun = 0;
         int Prazan = 0;
-        
         for (x = 0; x < slot.Length; x++)
         {
-
             QuestCont = slot[x].GetComponent<QuestController>();
             if (QuestCont.activeQuest)
-            {
                 Pun++;
-
-            }
             else
-            {
                 Prazan++;
-            }
         }
      
 
         for (int i = 0; i < slot.Length; i++)
         {
-            
-
             QuestCont = slot[i].GetComponent<QuestController>();
             if (QuestCont.completedQuest && QuestCont.nameOfQuest.text == name)
             {
-
                 QuestCont.gameObject.SetActive(false);
                 QuestCont.activeQuest = false;
                 QuestCont.QuestDeletion();
-                
                 x--;
                 return;
             }
             if (QuestCont.activeQuest == false)
-            {
-
-
                 continue;
-
-                
-            }
-
-
-
         }
-
     }
     public void AddQuest(Create_Quest quest, GameObject gameobjectName)
     {
-
-
-
-
         int  Pun = 0;
         int Prazan = 0;
         for ( x = 0; x < slot.Length; x++)
         {
-
             QuestCont = slot[x].GetComponent<QuestController>();
             if (QuestCont.activeQuest)
-            {
                 Pun++;
 
-            }
             else
-            {
                 Prazan++;
-            }
         }
         
 
         for (int i = 0; i < slot.Length; i++)
         {
-
-
             QuestCont = slot[i].GetComponent<QuestController>();
             if (QuestCont.activeQuest)
-            {
-
                 continue;
-            }
             if (QuestCont.activeQuest == false)
             {
-
                 QuestCont.gameObject.SetActive(true);
                 QuestCont.progressionFull.text = quest.count.ToString();
                 QuestCont.nameOfQuest.text = quest.name;
@@ -181,31 +121,19 @@ public class Redirect_Quest : MonoBehaviour
                 QuestCont.description.text = quest.description.ToString();
                 QuestCont.completedQuest = quest.Finished;
                 QuestCont.currentQuestGiver = gameobjectName;
-                
                 if (QuestCont.Type == TypeOfQuest.Kill)
                 {
                     QuestCont.Target = quest.Target;
                     QuestCont.counter = 0;
-                 
-
                 }
                 else if(QuestCont.Type == TypeOfQuest.Gathering)
-                {
                     QuestCont.Target = quest.Target;
-                    //QuestCont.counter = 0;
-                }
-
+               
                 QuestCont.activeQuest = true;
                 x++;
-
                 return;
             }
-
-
-
         }
-
-        // QuestCont.AddQuest(quest);
     }
 
 
