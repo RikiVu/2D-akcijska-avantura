@@ -24,7 +24,8 @@ public class deathAnimScr : MonoBehaviour
         if (lifetimeSeconds <= 0)
         {
             //canFire = true;
-           this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
+           //this.gameObject.SetActive(false);
             
             //lifetimeSeconds = lifetime;
         }

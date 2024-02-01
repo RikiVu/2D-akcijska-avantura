@@ -4191,7 +4191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 213690152}
-  - component: {fileID: 213690153}
+  - component: {fileID: 213690154}
   m_Layer: 0
   m_Name: Quest Panel
   m_TagString: QuestPanel
@@ -4215,7 +4215,7 @@ Transform:
   - {fileID: 1487649624}
   m_Father: {fileID: 1569975656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &213690153
+--- !u!114 &213690154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4224,10 +4224,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 213690151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aa75f206f0459047a618679f786c84c, type: 3}
+  m_Script: {fileID: 11500000, guid: 845d0def1a833bd41866aee05954f030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestPanel2: {fileID: 1574421501}
+  Type: 0
+  objekt: {fileID: 7779327624462837860, guid: 5d5e5f85318748f49afdd1d4236ffcb4, type: 3}
+  slot:
+  - {fileID: 684499807}
+  - {fileID: 1671918436}
+  - {fileID: 14155273}
+  - {fileID: 1827915037}
+  - {fileID: 1275587500}
+  x: 0
 --- !u!1001 &222055184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9663,7 +9671,7 @@ MonoBehaviour:
   NpcItem: {fileID: 11400000, guid: 35264cdeda5ca5940a23d4196a7943de, type: 2}
   questTaken: 0
   questEnded: 0
-  Redirect: {fileID: 1574421503}
+  Redirect: {fileID: 0}
   name: Bozena
   DialogBox: {fileID: 2124041678}
   dialogScr: {fileID: 2124041682}
@@ -17938,8 +17946,6 @@ MonoBehaviour:
     type: 3}
   soul: {fileID: 7485993785386606440, guid: 24abb2630c9afd04e9361f18c32f48a4, type: 3}
   XpGive: 5
-  QuestPanel: {fileID: 0}
-  Redirect: {fileID: 1574421503}
   currentType: 0
   nextWaypointDistance: 2
   PathLocations:
@@ -18661,8 +18667,6 @@ MonoBehaviour:
     type: 3}
   soul: {fileID: 7485993785386606440, guid: 24abb2630c9afd04e9361f18c32f48a4, type: 3}
   XpGive: 5
-  QuestPanel: {fileID: 0}
-  Redirect: {fileID: 1574421503}
   currentType: 0
   nextWaypointDistance: 2
   PathLocations:
@@ -19284,7 +19288,7 @@ MonoBehaviour:
   NpcItem: {fileID: 0}
   questTaken: 0
   questEnded: 0
-  Redirect: {fileID: 1574421503}
+  Redirect: {fileID: 213690154}
   name: Kara
   DialogBox: {fileID: 2124041678}
   dialogScr: {fileID: 2124041682}
@@ -19630,8 +19634,6 @@ MonoBehaviour:
     type: 3}
   soul: {fileID: 7485993785386606440, guid: 24abb2630c9afd04e9361f18c32f48a4, type: 3}
   XpGive: 5
-  QuestPanel: {fileID: 0}
-  Redirect: {fileID: 1574421503}
   currentType: 0
   nextWaypointDistance: 2
   PathLocations:
@@ -21370,8 +21372,6 @@ MonoBehaviour:
     type: 3}
   soul: {fileID: 7485993785386606440, guid: 24abb2630c9afd04e9361f18c32f48a4, type: 3}
   XpGive: 5
-  QuestPanel: {fileID: 0}
-  Redirect: {fileID: 1574421503}
   currentType: 0
   nextWaypointDistance: 2
   PathLocations:
@@ -23869,8 +23869,6 @@ MonoBehaviour:
     type: 3}
   soul: {fileID: 7485993785386606440, guid: 24abb2630c9afd04e9361f18c32f48a4, type: 3}
   XpGive: 5
-  QuestPanel: {fileID: 0}
-  Redirect: {fileID: 1574421503}
   currentType: 0
   nextWaypointDistance: 2
   PathLocations:
@@ -25671,8 +25669,6 @@ MonoBehaviour:
     type: 3}
   soul: {fileID: 7485993785386606440, guid: 24abb2630c9afd04e9361f18c32f48a4, type: 3}
   XpGive: 10
-  QuestPanel: {fileID: 0}
-  Redirect: {fileID: 1574421503}
   chaseRadius: 20
   attackRadius: 0.1
   homePositon: {fileID: 0}
@@ -26696,8 +26692,6 @@ MonoBehaviour:
     type: 3}
   soul: {fileID: 7485993785386606440, guid: 24abb2630c9afd04e9361f18c32f48a4, type: 3}
   XpGive: 5
-  QuestPanel: {fileID: 0}
-  Redirect: {fileID: 1574421503}
   currentStage: 0
   WallBoss: {fileID: 1708617979}
   attackRadius: 0.9
@@ -35292,7 +35286,6 @@ GameObject:
   - component: {fileID: 1574421506}
   - component: {fileID: 1574421505}
   - component: {fileID: 1574421504}
-  - component: {fileID: 1574421503}
   - component: {fileID: 1574421502}
   m_Layer: 5
   m_Name: Quest Panel2
@@ -35325,27 +35318,6 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: -14.4}
   m_Constraint: 0
   m_ConstraintCount: 5
---- !u!114 &1574421503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1574421501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 845d0def1a833bd41866aee05954f030, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 0
-  objekt: {fileID: 7779327624462837860, guid: 5d5e5f85318748f49afdd1d4236ffcb4, type: 3}
-  slot:
-  - {fileID: 684499807}
-  - {fileID: 1671918436}
-  - {fileID: 14155273}
-  - {fileID: 1827915037}
-  - {fileID: 1275587500}
-  x: 0
 --- !u!114 &1574421504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38552,7 +38524,7 @@ MonoBehaviour:
   x: 0
   isFull: 0
   Pun: 0
-  Redirect: {fileID: 1574421503}
+  Redirect: {fileID: 0}
   testMrkva: {fileID: 11400000, guid: db23095c4ff879f40a3c0b19115c13fa, type: 2}
   panelInv: {fileID: 1061033589}
 --- !u!1 &1734353932
@@ -47089,8 +47061,6 @@ MonoBehaviour:
     type: 3}
   soul: {fileID: 7485993785386606440, guid: 24abb2630c9afd04e9361f18c32f48a4, type: 3}
   XpGive: 10
-  QuestPanel: {fileID: 0}
-  Redirect: {fileID: 1574421503}
   chaseRadius: 15
   attackRadius: 0.9
   homePositon: {fileID: 0}
@@ -47802,8 +47772,6 @@ MonoBehaviour:
     type: 3}
   soul: {fileID: 7485993785386606440, guid: 24abb2630c9afd04e9361f18c32f48a4, type: 3}
   XpGive: 5
-  QuestPanel: {fileID: 0}
-  Redirect: {fileID: 1574421503}
   currentType: 0
   nextWaypointDistance: 1
   PathLocations: []
@@ -49285,8 +49253,6 @@ MonoBehaviour:
     type: 3}
   soul: {fileID: 7485993785386606440, guid: 24abb2630c9afd04e9361f18c32f48a4, type: 3}
   XpGive: 5
-  QuestPanel: {fileID: 0}
-  Redirect: {fileID: 1574421503}
   currentType: 0
   nextWaypointDistance: 2
   PathLocations:
@@ -99860,7 +99826,7 @@ MonoBehaviour:
   NpcItem: {fileID: 0}
   questTaken: 0
   questEnded: 0
-  Redirect: {fileID: 1574421503}
+  Redirect: {fileID: 213690154}
   name: Bozidar
   DialogBox: {fileID: 2124041678}
   dialogScr: {fileID: 2124041682}
@@ -106104,7 +106070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3022e21712d3174fb2856d8b4e08b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GodMode: 1
+  GodMode: 0
   currentState: 0
   animator: {fileID: 8859660337024990749}
   isTargetable: 1

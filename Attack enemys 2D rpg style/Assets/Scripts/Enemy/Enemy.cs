@@ -53,9 +53,8 @@ public class Enemy : MonoBehaviour
     public int XpGive;
 
     // quest
-    public GameObject QuestPanel;
-    private QuestPanelParent QuestPanelParentScr;
-    public Redirect_Quest Redirect;
+    private GameObject QuestPanel;
+    protected Redirect_Quest Redirect;
 
     public virtual void DeSelect()
     {
@@ -86,16 +85,16 @@ public class Enemy : MonoBehaviour
         
         if (enemyName != "Arachne")
         {
+        
             healthGroup = GameObject.FindGameObjectWithTag("EnemyCanvas").GetComponent<CanvasGroup>();
             HealthTip_Go = GameObject.FindGameObjectWithTag("EnemyHealth");
             name = GameObject.FindGameObjectWithTag("EnemyName").GetComponent<TextMeshProUGUI>();
             EnemyToolTip = GameObject.FindGameObjectWithTag("EnemyToolTip");
             hearts = EnemyToolTip.GetComponent<EnemyToolTip>().hearts;
-            QuestPanel = GameObject.FindGameObjectWithTag("QuestPanel");
-            QuestPanelParentScr = QuestPanel.GetComponent<QuestPanelParent>();
-            //Redirect = QuestPanelParentScr.QuestPanel2;
-        }       
-
+        }
+        QuestPanel = GameObject.FindGameObjectWithTag("QuestPanel");
+        Redirect = QuestPanel.GetComponent<Redirect_Quest>();
+        
         target = GameObject.FindGameObjectWithTag("Player").transform;
         
     }
@@ -193,7 +192,7 @@ public class Enemy : MonoBehaviour
         foreach (Image img in hearts)
         {
             img.gameObject.SetActive(false);
-            HealthTip_Go.SetActive(false);
+            //HealthTip_Go.SetActive(false);
             //img.sprite = fullHeart;
         }
     }
@@ -248,7 +247,7 @@ public class Enemy : MonoBehaviour
     public virtual void Death()
     {
         DeSelect();
-        HealthTip_Go.SetActive(false);
+        //HealthTip_Go.SetActive(false);
         Enemy1 = false;
         FindObjectOfType<AudioManager>().Play("DieLog");
         
@@ -256,7 +255,7 @@ public class Enemy : MonoBehaviour
         //PlayerScr.CantAtt = true;
         InitHearts2();
         Redirect.Killed(enemyName);
-
+        SpawnEnemiesArea.currentMinionCount--;
 
         //remove restriction
         Instantiate(itemInside, SpawnPosition.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)), Quaternion.identity);

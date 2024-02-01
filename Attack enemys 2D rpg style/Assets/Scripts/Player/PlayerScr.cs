@@ -27,7 +27,7 @@ public class PlayerScr : MonoBehaviour
    // public Transform Spawn;
     public PlayerState currentState;
     public static float speed;
-    float moveSpeed=150;
+    float moveSpeed=100;
     private Vector3 change;
     private Rigidbody2D myRididbody;
     public Animator animator;
@@ -125,7 +125,7 @@ public class PlayerScr : MonoBehaviour
             haveBow = true;
             Gold += 10000;
             Arrows = 20;
-            Knockback.damageBoost = 1;
+            Knockback.damageBoost = 2;
         }
 
     }
@@ -161,12 +161,12 @@ public class PlayerScr : MonoBehaviour
         
         if(Input.GetKey(KeyCode.LeftShift))
         {
-            speed = 40;
+            speed = 30;
             trci = true;
         }
         else
         {
-            speed = 18;
+            speed = 10;
             trci = false;
         }
 
@@ -178,8 +178,8 @@ public class PlayerScr : MonoBehaviour
         change.y = Input.GetAxisRaw("Vertical");
         if(Input.GetKey(KeyCode.Space) && currentState != PlayerState.attack && currentState != PlayerState.stagger && moving == false && cooldownBool == true && haveSword && !trci)
         {
-    
-                StartCoroutine(AttackCo());           
+            cooldownBool = false;
+            StartCoroutine(AttackCo());           
         }
         else if( currentState == PlayerState.walk || currentState == PlayerState.idle)
         {
@@ -408,34 +408,21 @@ public class PlayerScr : MonoBehaviour
         myRididbody.velocity = Vector2.zero;
     }
 
-
-    private void AttackColdown()
-    {
-        cooldownBool = false;
-        animator.SetBool("attacking", true);
-        currentState = PlayerState.attack;
-        attackActive = true;
-            
-    }
-
     private IEnumerator AttackCo()
     {
-        cooldownBool = false;
         animator.SetBool("attacking", true);
         currentState = PlayerState.attack;
         attackActive = true;
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(0.2f);
         yield return null;
-        
-       
+
         animator.SetBool("attacking", false);
         attackActive = false;
-        yield return new WaitForSeconds (.1f);
-       
+        yield return new WaitForSeconds(0.1f);
+
         currentState = PlayerState.walk;
-        yield return new WaitForSeconds(.1f);
-        cooldownBool =  true;
-   
+        yield return new WaitForSeconds(0.1f);
+        cooldownBool = true;
     }
 
 

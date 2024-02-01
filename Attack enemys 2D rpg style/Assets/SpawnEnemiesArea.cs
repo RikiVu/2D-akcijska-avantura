@@ -1,46 +1,66 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Rendering;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class SpawnEnemiesArea : MonoBehaviour
 {
-    public static int currentMinionCount=0;
+    public static int currentMinionCount = 0;
     public GameObject prefab;
     public Transform Player;
     public GameObject[] placeOfSpawn;
     private bool inRange = false;
-    List<Vector3> vec = new List<Vector3>();
     private int maxMinions = 5;
-    
-    int i = 0;
-    private bool temp = false;
-    Vector3 temp1;
-    // Update is called once per frame
+
+    private float timer = 0f;
+    private float interval = 2.5f;
+
+    private float minSpawnDistance = 5f;
+
     void Update()
     {
         if (!inRange)
             return;
-       
-        if (!temp)
-        {
 
-            foreach (GameObject gm in placeOfSpawn)
+        timer += Time.deltaTime;
+
+        // Check if 2.5 seconds have passed
+        if (timer >= interval)
+        {
+            if (currentMinionCount < maxMinions)
             {
-                Debug.Log(gm.transform.position - Player.position  + " ;;;" + i );
-                Instantiate(prefab, placeOfSpawn[i].transform.position, Quaternion.identity);
-                //temp1 = gm.transform.position - Player.position;
-                i++;
-                currentMinionCount++;
+                // Find a random spawn point that is not in close proximity to the player
+                GameObject randomSpawn = GetRandomSpawnPointNotCloseToPlayer();
+
+                if (randomSpawn != null)
+                {
+                    // Instantiate prefab at the selected spawn point
+                    Instantiate(prefab, randomSpawn.transform.position, Quaternion.identity);
+                    currentMinionCount++;
+                    timer = 0f;
+                }
             }
-            
-            temp = true;
         }
     }
-    
+
+    private GameObject GetRandomSpawnPointNotCloseToPlayer()
+    {
+        // Filter spawn points that are not in close proximity to the player
+        var validSpawnPoints = placeOfSpawn.Where(spawn =>
+        {
+            float distance = Vector2.Distance(Player.position, spawn.transform.position);
+            return distance > minSpawnDistance;
+        }).ToArray();
+
+        // If there are valid spawn points, return a random one; otherwise, return null
+        if (validSpawnPoints.Length > 0)
+        {
+            return validSpawnPoints[UnityEngine.Random.Range(0, validSpawnPoints.Length)];
+        }
+        else
+        {
+            return null;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -49,6 +69,7 @@ public class SpawnEnemiesArea : MonoBehaviour
             inRange = true;
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && collision.isTrigger && inRange)
@@ -56,6 +77,4 @@ public class SpawnEnemiesArea : MonoBehaviour
             inRange = false;
         }
     }
-    
-
 }

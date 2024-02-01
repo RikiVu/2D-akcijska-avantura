@@ -252,11 +252,10 @@ MonoBehaviour:
     type: 3}
   soul: {fileID: 7485993785386606440, guid: 24abb2630c9afd04e9361f18c32f48a4, type: 3}
   XpGive: 5
-  Redirect: {fileID: 0}
   currentType: 0
   nextWaypointDistance: 1
   PathLocations: []
-  chaseRadius: 30
+  chaseRadius: 40
   attackRadius: 0.9
   currentPoint: 0
   roundingDistance: 2

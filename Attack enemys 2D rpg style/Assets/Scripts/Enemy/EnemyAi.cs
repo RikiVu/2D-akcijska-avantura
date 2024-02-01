@@ -42,6 +42,7 @@ public class EnemyAi : Enemy
         anim = GetComponent<Animator>();
         seeker = GetComponent<Seeker>();
         InvokeRepeating("UpdatePath", 0f, .5f);
+       
         this.gameObject.SetActive(false);
     }
 
@@ -120,7 +121,8 @@ public class EnemyAi : Enemy
         }
         else if (Vector3.Distance(target.position, transform.position) > chaseRadius)
         {
-            this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
+           // this.gameObject.SetActive(false);
             return;
         }
 
