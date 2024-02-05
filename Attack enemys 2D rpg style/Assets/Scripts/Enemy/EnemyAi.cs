@@ -121,9 +121,22 @@ public class EnemyAi : Enemy
         }
         else if (Vector3.Distance(target.position, transform.position) > chaseRadius)
         {
+            SpawnEnemiesArea.currentMinionCount--;
             Destroy(this.gameObject);
-           // this.gameObject.SetActive(false);
+            // this.gameObject.SetActive(false);
             return;
+        }
+        else if(Vector3.Distance(target.position, transform.position) <= attackRadius)
+        {
+            //all attack my warriors
+            if(currentState != EnemyState.attack)
+            {
+                Debug.Log("Attack");
+                anim.SetFloat("MoveX", (target.position.x - transform.position.x));
+                anim.SetFloat("MoveY", (target.position.y - transform.position.y));
+                //myRigidbody.velocity = Vector2.zero;
+                StartCoroutine(AttackCo());
+            }
         }
 
         if (path.vectorPath.Count > currentWaypoint)
@@ -137,10 +150,20 @@ public class EnemyAi : Enemy
 
     }
 
+    private IEnumerator AttackCo()
+    {
+        currentState = EnemyState.attack;
+        yield return new WaitForSeconds(0.4f);
+        anim.SetBool("Attack", true);
+        yield return new WaitForSeconds(0.2f);
+        yield return null;
+        currentState =  EnemyState.idle;
+        yield return new WaitForSeconds(0.1f);
+        anim.SetBool("Attack", false);
+    }
 
 
-
-     void ChangeState(EnemyState newState)
+    void ChangeState(EnemyState newState)
     {
         if (currentState != newState)
         {

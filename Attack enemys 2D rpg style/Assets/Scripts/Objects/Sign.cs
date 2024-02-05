@@ -15,7 +15,7 @@ public class Sign : Interactable
         if (playerInRange)
         {
             contextOn.Raise();
-            Debug.Log("show");
+           
         }
         else if(oneActive && !playerInRange) {
             SignBox.SetActive(false);

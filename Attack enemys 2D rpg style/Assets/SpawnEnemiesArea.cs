@@ -9,7 +9,7 @@ public class SpawnEnemiesArea : MonoBehaviour
     public Transform Player;
     public GameObject[] placeOfSpawn;
     private bool inRange = false;
-    private int maxMinions = 5;
+    private int maxMinions = 10;
 
     private float timer = 0f;
     private float interval = 2.5f;
@@ -37,6 +37,7 @@ public class SpawnEnemiesArea : MonoBehaviour
                     Instantiate(prefab, randomSpawn.transform.position, Quaternion.identity);
                     currentMinionCount++;
                     timer = 0f;
+                    Debug.Log(currentMinionCount);
                 }
             }
         }
