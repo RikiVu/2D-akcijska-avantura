@@ -153,7 +153,9 @@ public class EnemyAi : Enemy
     private IEnumerator AttackCo()
     {
         currentState = EnemyState.attack;
+        
         yield return new WaitForSeconds(0.4f);
+        myRigidbody.velocity = Vector2.zero;
         anim.SetBool("Attack", true);
         yield return new WaitForSeconds(0.2f);
         yield return null;

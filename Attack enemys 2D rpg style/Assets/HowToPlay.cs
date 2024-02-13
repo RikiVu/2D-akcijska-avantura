@@ -16,7 +16,7 @@ public class HowToPlay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        /*
         if(isActive==false)
         {
             startTime += 1f * Time.deltaTime;
@@ -27,6 +27,7 @@ public class HowToPlay : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
+        */
     }
   public  void TurnOffScreen()
     {
