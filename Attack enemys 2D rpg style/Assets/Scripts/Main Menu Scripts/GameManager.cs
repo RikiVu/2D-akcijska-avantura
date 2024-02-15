@@ -117,9 +117,10 @@ public class GameManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) // Ako kliknemo s lijevim clickom na "targetable" mjesto
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, 256);
-
+           
             if(hit.collider != null) // ako smo pogodili collider
             {
+               // Debug.Log("hit");
                 haveTarget = true;
                 PlayerScr.CantAtt = false;
                 if ( currentTarget != null )

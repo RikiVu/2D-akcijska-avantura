@@ -64,8 +64,6 @@ public class Enemy : MonoBehaviour
             InitHearts2();
             healthGroup.alpha = 0;
         }
-     //   player.MyTarget = null;
-        // player.MyTarget = null;
     }
     public virtual Transform Select()
     {
@@ -77,7 +75,6 @@ public class Enemy : MonoBehaviour
         InitHearts();
         Current = this.gameObject;
         return hitBox;
-
     }
     private GameObject EnemyToolTip;
     void Awake()
