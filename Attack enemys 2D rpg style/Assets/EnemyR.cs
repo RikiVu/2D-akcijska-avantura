@@ -1,24 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+public enum EnemyStateR
+{
+    idle,
+    walk,
+    attack,
+    stagger,
+}
 
 public class EnemyR : MonoBehaviour
 {
-
     [Header("Enemy Basics")]
+    protected EnemyStateR currentState;
     protected GameObject player;
     protected Rigidbody2D myRigidbody;
+    protected Animator anim;
+    [SerializeField] protected Animator emoteAnimator;
     [SerializeField] protected float chaseRadius = 20f;
     [SerializeField] protected float attackRadius = 0.9f;
+
     void Start()
     {
+        myRigidbody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
-        myRigidbody = player.GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

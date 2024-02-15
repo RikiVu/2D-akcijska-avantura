@@ -1,5 +1,6 @@
 using Pathfinding;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class EnemyFollowPlayer : EnemyR
 {
@@ -18,18 +19,30 @@ public class EnemyFollowPlayer : EnemyR
     bool reachedEndOfPath = false;
     Seeker seeker;
     float distance;
+    private bool isUpdatingPath = false;
 
     //temp vars
     Vector2 direction;
     Vector2 force;
+
+
+    //test vars
+    private bool shown = false;
+
     void Start()
     {
-        target = player.transform;
+        //parent override
+        myRigidbody = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        anim = GetComponent<Animator>();
+
+        //this scr
         layerMask = ~layerMask;
+        target = player.transform;
 
         //seeker
         seeker = GetComponent<Seeker>();
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        //InvokeRepeating("UpdatePath", 0f, .5f);
     }
     void UpdatePath()
     {
@@ -41,8 +54,9 @@ public class EnemyFollowPlayer : EnemyR
             if (seeker.IsDone())
                 seeker.StartPath(myRigidbody.position, target.position, OnPathComplete);
         }
-        
     }
+
+  
     void OnPathComplete(Path p)
     {
         if (!p.error)
@@ -53,23 +67,18 @@ public class EnemyFollowPlayer : EnemyR
     }
 
 
+
+
+
     private void FixedUpdate()
     {
         RayCastShot();
-        if (hasLineOfSight)
-        {
-            Moving();
-            //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-        }
-        else
-        {
-
-        }
+        Moving();
     }
 
     void RayCastShot()
     {
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position, sightRange, layerMask);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, target.position - transform.position, sightRange, layerMask);
         if (ray.collider != null)
         {
             //debug collider
@@ -77,11 +86,46 @@ public class EnemyFollowPlayer : EnemyR
             Debug.Log("Object name: " + objectName);*/
             hasLineOfSight = ray.collider.CompareTag("Player");
             if (hasLineOfSight)
-                Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.green);
-           
+             {
+                EmoteShow();
+                Debug.DrawRay(transform.position, target.position - transform.position, Color.green);
+                if (!isUpdatingPath)
+                {
+                 // If line of sight is established and not already updating path, start updating path
+                 isUpdatingPath = true;
+                 InvokeRepeating("UpdatePath", 0f, .5f);
+                }
+             }
+
             else
-                Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red);
+            {
+                Debug.DrawRay(transform.position, target.position - transform.position, Color.red);
+                // If no line of sight, cancel updating path
+                if (isUpdatingPath)
+                {
+                    CancelInvoke("UpdatePath");
+                    isUpdatingPath = false;
+                }
+            }
+            
          
+        }
+    }
+
+    void EmoteShow()
+    {
+        if (!shown)
+        {
+            emoteAnimator.SetTrigger("noticed");
+            shown = true;
+        }   
+    }
+    void EmoteShow2()
+    {
+        if (shown)
+        {
+            emoteAnimator.SetTrigger("lostTarget");
+            shown = false;
         }
     }
 
@@ -93,18 +137,59 @@ public class EnemyFollowPlayer : EnemyR
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
+            anim.SetBool("StartWalking", false);
+            if(!hasLineOfSight)
+                EmoteShow2();
             return;
         }
         else
             reachedEndOfPath = false;
-        
-        direction = ((Vector2)path.vectorPath[currentWaypoint]-myRigidbody.position).normalized;
-        force = direction * speed * Time.deltaTime; 
-        myRigidbody.AddForce(force);
-        distance = Vector2.Distance(myRigidbody.position, path.vectorPath[currentWaypoint]);
-        if(distance<nextWaypointDistance)
+
+        if ( Vector2.Distance(target.position, transform.position) > attackRadius)
         {
-            currentWaypoint++;
+            anim.SetBool("StartWalking", true);
+            if (currentState == EnemyStateR.idle || currentState == EnemyStateR.walk && currentState != EnemyStateR.stagger)
+            {
+                direction = ((Vector2)path.vectorPath[currentWaypoint] - myRigidbody.position).normalized;
+                anim.SetFloat("MoveX", (direction.x));
+                anim.SetFloat("MoveY", (direction.y));
+                
+                force = direction * speed * Time.deltaTime;
+                myRigidbody.AddForce(force);
+                distance = Vector2.Distance(myRigidbody.position, path.vectorPath[currentWaypoint]);
+                if (distance < nextWaypointDistance)
+                {
+                    currentWaypoint++;
+                }
+                ChangeState(EnemyStateR.walk);
+            }
         }
+        else if (Vector3.Distance(target.position, transform.position) > chaseRadius)
+        {
+            //SpawnEnemiesArea.currentMinionCount--;
+            //Destroy(this.gameObject);
+            // this.gameObject.SetActive(false);
+            Debug.Log(">chaseRadius");
+            anim.SetBool("StartWalking", false);
+            return;
+        }
+        else if (Vector3.Distance(target.position, transform.position) <= attackRadius)
+        {
+            //all attack my warriors
+            if (currentState != EnemyStateR.attack)
+            {
+                Debug.Log("Attack");
+                anim.SetFloat("MoveX", (target.position.x - transform.position.x));
+                anim.SetFloat("MoveY", (target.position.y - transform.position.y));
+                //myRigidbody.velocity = Vector2.zero;
+                //  StartCoroutine(AttackCo());
+            }
+        }
+    }
+
+    void ChangeState(EnemyStateR newState)
+    {
+        if (currentState != newState)
+            currentState = newState;
     }
 }
