@@ -30,8 +30,6 @@ public class SortingOrder : MonoBehaviour
         if (collision.tag == "Player" && collision.isTrigger && this.tag == "Obstacle")
         {
             inside = true;
-            
-            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
