@@ -40,7 +40,11 @@ public class EnemyFollowPlayer : EnemyR
     public float maxWanderInterval = 4.0f;
     private Vector2 initialPosition;
     private Vector2 wanderDestination;
-    private float nextWanderTime;
+    //private float nextWanderTime;
+    private bool coroutineStarted = false;
+
+    [SerializeField] private float noiseMagnitude = 0.5f;
+    [SerializeField] private float noiseStrength = 0.1f;
 
     void Start()
     {
@@ -48,8 +52,9 @@ public class EnemyFollowPlayer : EnemyR
         currentStateAi = EnemyStateMachine.Patrol;
         anim.SetBool("StartWalking", true);
         initialPosition = transform.position;
-        nextWanderTime = Time.time + Random.Range(minWanderInterval, maxWanderInterval);
-        RandomLocationWander();
+        wanderDestination = initialPosition;
+        //nextWanderTime = Time.time + Random.Range(minWanderInterval, maxWanderInterval);
+        //RandomLocationWander();
     }
 
     private void InitializeVariables()
@@ -73,17 +78,20 @@ public class EnemyFollowPlayer : EnemyR
     {
         if (Vector2.Distance(transform.position, initialPosition) > wanderingRadius)
         {
-            MoveTowards(initialPosition, 7);
+            MoveTowards(initialPosition, 5);
+            return;
+        }
+        if (Vector2.Distance(transform.position, wanderDestination) < 0.2)
+        {
+            if(!coroutineStarted)
+                StartCoroutine(WanderCooldown(3.0f));
+            
+
             return;
         }
 
-        if (Time.time >= nextWanderTime)
-        {
-            wanderDestination = GetRandomPointInRadius();
-            nextWanderTime = Time.time + Random.Range(minWanderInterval, maxWanderInterval);
-        }
-
-        MoveTowards(wanderDestination, 5);
+        if(!coroutineStarted)
+            MoveTowards(wanderDestination, 5);
     }
 
     private Vector2 GetRandomPointInRadius()
@@ -95,17 +103,20 @@ public class EnemyFollowPlayer : EnemyR
     private void MoveTowards(Vector2 destination, float movementSpeed)
     {
         transform.position = Vector2.MoveTowards(transform.position, destination, movementSpeed * Time.deltaTime);
+
     }
 
-    /*
+    
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(initialPosition, wanderingRadius);
+        /*Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, chaseRadius);*/
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
     }
-    */
+  
 
-    void UpdatePath()
+    void UpdatePathPlayer()
     {
         if (Vector2.Distance(target.position, transform.position) <= chaseRadius &&
             Vector2.Distance(target.position, transform.position) > attackRadius)
@@ -113,6 +124,11 @@ public class EnemyFollowPlayer : EnemyR
             if (seeker.IsDone())
                 seeker.StartPath(myRigidbody.position, target.position, OnPathComplete);
         }
+    }
+    void UpdatePathInitialPos()
+    {
+            if (seeker.IsDone())
+                seeker.StartPath(myRigidbody.position, initialPosition, OnPathComplete);
     }
 
     void OnPathComplete(Path p)
@@ -130,21 +146,22 @@ public class EnemyFollowPlayer : EnemyR
         Moving();
     }
 
+    RaycastHit2D ray;
     void RayCastShot()
     {
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, target.position - transform.position, sightRange, layerMask);
+        ray = Physics2D.Raycast(transform.position, target.position - transform.position, sightRange, layerMask);
         if (ray.collider != null)
         {
             hasLineOfSight = ray.collider.CompareTag("Player");
             if (hasLineOfSight)
             {
                 currentStateAi = EnemyStateMachine.Chase;
-                EmoteShow();
                 Debug.DrawRay(transform.position, target.position - transform.position, Color.green);
                 if (!isUpdatingPath)
                 {
                     isUpdatingPath = true;
-                    InvokeRepeating("UpdatePath", 0f, .5f);
+                    EmoteShow();
+                    InvokeRepeating("UpdatePathPlayer", 0f, .5f);
                 }
             }
             else
@@ -152,7 +169,7 @@ public class EnemyFollowPlayer : EnemyR
                 Debug.DrawRay(transform.position, target.position - transform.position, Color.red);
                 if (isUpdatingPath)
                 {
-                    CancelInvoke("UpdatePath");
+                    CancelInvoke("UpdatePathPlayer");
                     isUpdatingPath = false;
                 }
             }
@@ -188,6 +205,22 @@ public class EnemyFollowPlayer : EnemyR
             anim.SetBool("StartWalking", true);
         }
     }
+    private IEnumerator WanderCooldown(float waitTime)
+    {
+        coroutineStarted = true;
+        Debug.Log("change location");
+        wanderDestination = GetRandomPointInRadius();
+        Debug.Log(wanderDestination);
+        anim.SetBool("StartWalking", false);
+        yield return new WaitForSeconds(waitTime);
+        anim.SetBool("StartWalking", true);
+        Debug.Log("waiting done");
+        coroutineStarted = false;
+        //UpdatePathInitialPos();
+        anim.SetFloat("MoveX", (wanderDestination.x - transform.position.x));
+        anim.SetFloat("MoveY", (wanderDestination.y - transform.position.y));
+
+    }
 
     void Moving()
     {
@@ -210,8 +243,21 @@ public class EnemyFollowPlayer : EnemyR
             if (currentState == EnemyStateR.idle || currentState == EnemyStateR.walk && currentState != EnemyStateR.stagger)
             {
                 direction = ((Vector2)path.vectorPath[currentWaypoint] - myRigidbody.position).normalized;
-                anim.SetFloat("MoveX", (direction.x));
-                anim.SetFloat("MoveY", (direction.y));
+
+                // Add noise to the direction vector
+                Vector2 noise = Random.insideUnitCircle * noiseMagnitude;
+                direction += noise.normalized * noiseStrength;
+                if (hasLineOfSight)
+                {
+                    anim.SetFloat("MoveX", (target.position.x - transform.position.x));
+                    anim.SetFloat("MoveY", (target.position.y - transform.position.y));
+                }
+                else
+                {
+                    anim.SetFloat("MoveX", (path.vectorPath[currentWaypoint].x));
+                    anim.SetFloat("MoveY", (path.vectorPath[currentWaypoint].y));
+                }
+               
                 force = direction * speed * Time.deltaTime;
                 myRigidbody.AddForce(force);
                 distance = Vector2.Distance(myRigidbody.position, path.vectorPath[currentWaypoint]);
@@ -235,6 +281,7 @@ public class EnemyFollowPlayer : EnemyR
             anim.SetFloat("MoveY", (target.position.y - transform.position.y));
         }
     }
+
 
     void ChangeState(EnemyStateR newState)
     {
