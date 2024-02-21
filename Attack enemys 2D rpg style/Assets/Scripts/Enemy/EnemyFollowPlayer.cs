@@ -46,15 +46,22 @@ public class EnemyFollowPlayer : EnemyR
     [SerializeField] private float noiseMagnitude = 0.5f;
     [SerializeField] private float noiseStrength = 0.1f;
 
+    [SerializeField] private bool canMove= false;
+
+
     void Start()
     {
         InitializeVariables();
         currentStateAi = EnemyStateMachine.Patrol;
         anim.SetBool("StartWalking", true);
         initialPosition = transform.position;
-        wanderDestination = initialPosition;
+        //wanderDestination = initialPosition;
         //nextWanderTime = Time.time + Random.Range(minWanderInterval, maxWanderInterval);
         //RandomLocationWander();
+        wanderDestination = GetRandomPointInRadius();
+        UpdatePathWanderPos(wanderDestination);
+        reachedEndOfPath = false;
+        canMove = true;
     }
 
     private void InitializeVariables()
@@ -68,31 +75,15 @@ public class EnemyFollowPlayer : EnemyR
 
     private void Update()
     {
+        /*
         if (currentStateAi == EnemyStateMachine.Patrol)
         {
             RandomLocationWander();
         }
+        */
     }
 
-    private void RandomLocationWander()
-    {
-        if (Vector2.Distance(transform.position, initialPosition) > wanderingRadius)
-        {
-            MoveTowards(initialPosition, 5);
-            return;
-        }
-        if (Vector2.Distance(transform.position, wanderDestination) < 0.2)
-        {
-            if(!coroutineStarted)
-                StartCoroutine(WanderCooldown(3.0f));
-            
 
-            return;
-        }
-
-        if(!coroutineStarted)
-            MoveTowards(wanderDestination, 5);
-    }
 
     private Vector2 GetRandomPointInRadius()
     {
@@ -130,6 +121,11 @@ public class EnemyFollowPlayer : EnemyR
             if (seeker.IsDone())
                 seeker.StartPath(myRigidbody.position, initialPosition, OnPathComplete);
     }
+    void UpdatePathWanderPos(Vector2 pos)
+    {
+        if (seeker.IsDone())
+            seeker.StartPath(myRigidbody.position, pos, OnPathComplete);
+    }
 
     void OnPathComplete(Path p)
     {
@@ -155,10 +151,13 @@ public class EnemyFollowPlayer : EnemyR
             hasLineOfSight = ray.collider.CompareTag("Player");
             if (hasLineOfSight)
             {
-                currentStateAi = EnemyStateMachine.Chase;
                 Debug.DrawRay(transform.position, target.position - transform.position, Color.green);
                 if (!isUpdatingPath)
                 {
+                    canMove = true;
+                    anim.SetBool("StartWalking", true);
+                    StopCoroutine(WanderCooldown());
+                    currentStateAi = EnemyStateMachine.Chase;
                     isUpdatingPath = true;
                     EmoteShow();
                     InvokeRepeating("UpdatePathPlayer", 0f, .5f);
@@ -172,80 +171,91 @@ public class EnemyFollowPlayer : EnemyR
                     CancelInvoke("UpdatePathPlayer");
                     isUpdatingPath = false;
                 }
+                
             }
         }
     }
 
     void EmoteShow()
     {
-        if (!shown)
-        {
             emoteAnimator.SetTrigger("noticed");
-            shown = true;
-        }
     }
 
     void EmoteShow2()
     {
-        if (shown)
-        {
             emoteAnimator.SetTrigger("lostTarget");
-            shown = false;
-        }
     }
-
-    private IEnumerator LostCoroutine()
-    {
-        anim.SetBool("StartWalking", false);
-        EmoteShow2();
-        yield return new WaitForSeconds(3f);
-        if (!hasLineOfSight || Vector3.Distance(target.position, transform.position) > chaseRadius)
-        {
-            currentStateAi = EnemyStateMachine.Patrol;
-            anim.SetBool("StartWalking", true);
-        }
-    }
-    private IEnumerator WanderCooldown(float waitTime)
+ 
+    private IEnumerator WanderCooldown()
     {
         coroutineStarted = true;
-        Debug.Log("change location");
+        canMove = false;
+        currentStateAi = EnemyStateMachine.Patrol;
+        myRigidbody.velocity = Vector2.zero;
         wanderDestination = GetRandomPointInRadius();
-        Debug.Log(wanderDestination);
+        UpdatePathWanderPos(wanderDestination);
         anim.SetBool("StartWalking", false);
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(3.0f);
+        canMove = true;
         anim.SetBool("StartWalking", true);
         Debug.Log("waiting done");
         coroutineStarted = false;
-        //UpdatePathInitialPos();
         anim.SetFloat("MoveX", (wanderDestination.x - transform.position.x));
         anim.SetFloat("MoveY", (wanderDestination.y - transform.position.y));
-
+        
     }
 
+    Vector2 noise;
     void Moving()
     {
-        if (path == null || currentStateAi != EnemyStateMachine.Chase)
+        if (path == null)
             return;
 
         if (currentWaypoint >= path.vectorPath.Count)
         {
-            reachedEndOfPath = true;
-            StartCoroutine(LostCoroutine());
+            if(!coroutineStarted )
+            {
+                Debug.Log("wanderCooldown coro");
+                StartCoroutine(WanderCooldown());
+            }
             return;
         }
-        else
-            reachedEndOfPath = false;
 
-        if (Vector2.Distance(target.position, transform.position) > attackRadius)
+        if (currentStateAi == EnemyStateMachine.Patrol && canMove)
         {
-            anim.SetBool("StartWalking", true);
-
-            if (currentState == EnemyStateR.idle || currentState == EnemyStateR.walk && currentState != EnemyStateR.stagger)
+            Debug.Log("patrol logic");
+            if (Vector2.Distance(transform.position, initialPosition) > wanderingRadius)
             {
                 direction = ((Vector2)path.vectorPath[currentWaypoint] - myRigidbody.position).normalized;
+                force = direction * speed * Time.deltaTime;
+                myRigidbody.AddForce(force);
+                distance = Vector2.Distance(myRigidbody.position, path.vectorPath[currentWaypoint]);
+                if (distance < nextWaypointDistance)
+                    currentWaypoint++;
+                return;
+            }
 
+
+            if (!coroutineStarted)
+            {
+                direction = ((Vector2)path.vectorPath[currentWaypoint] - myRigidbody.position).normalized;
+                force = direction * speed * Time.deltaTime;
+                myRigidbody.AddForce(force);
+                distance = Vector2.Distance(myRigidbody.position, path.vectorPath[currentWaypoint]);
+                if (distance < nextWaypointDistance)
+                    currentWaypoint++;
+            }
+
+        }
+        else if (currentStateAi == EnemyStateMachine.Chase && canMove)
+        {
+            Debug.Log("chase logic");
+            if (Vector2.Distance(target.position, transform.position) > attackRadius)
+            {
+                anim.SetBool("StartWalking", true);
+                direction = ((Vector2)path.vectorPath[currentWaypoint] - myRigidbody.position).normalized;
                 // Add noise to the direction vector
-                Vector2 noise = Random.insideUnitCircle * noiseMagnitude;
+                noise = Random.insideUnitCircle * noiseMagnitude;
                 direction += noise.normalized * noiseStrength;
                 if (hasLineOfSight)
                 {
@@ -254,32 +264,33 @@ public class EnemyFollowPlayer : EnemyR
                 }
                 else
                 {
-                    anim.SetFloat("MoveX", (path.vectorPath[currentWaypoint].x));
-                    anim.SetFloat("MoveY", (path.vectorPath[currentWaypoint].y));
+                    anim.SetFloat("MoveX",  path.vectorPath[currentWaypoint].x - myRigidbody.position.x);
+                    anim.SetFloat("MoveY", path.vectorPath[currentWaypoint].y - myRigidbody.position.y);
                 }
-               
+
                 force = direction * speed * Time.deltaTime;
                 myRigidbody.AddForce(force);
                 distance = Vector2.Distance(myRigidbody.position, path.vectorPath[currentWaypoint]);
                 if (distance < nextWaypointDistance)
-                {
                     currentWaypoint++;
-                }
-                ChangeState(EnemyStateR.walk);
+               
+            }
+            else if (Vector3.Distance(target.position, transform.position) > chaseRadius)
+            {
+                Debug.Log(">chaseRadius");
+               // anim.SetBool("StartWalking", false);
+                return;
+            }
+            else if (Vector3.Distance(target.position, transform.position) <= attackRadius)
+            {
+                Debug.Log("Attack");
+                anim.SetFloat("MoveX", (target.position.x - transform.position.x));
+                anim.SetFloat("MoveY", (target.position.y - transform.position.y));
             }
         }
-        else if (Vector3.Distance(target.position, transform.position) > chaseRadius)
-        {
-            Debug.Log(">chaseRadius");
-            anim.SetBool("StartWalking", false);
-            return;
-        }
-        else if (Vector3.Distance(target.position, transform.position) <= attackRadius)
-        {
-            Debug.Log("Attack");
-            anim.SetFloat("MoveX", (target.position.x - transform.position.x));
-            anim.SetFloat("MoveY", (target.position.y - transform.position.y));
-        }
+       
+
+       
     }
 
 
@@ -289,4 +300,4 @@ public class EnemyFollowPlayer : EnemyR
             currentState = newState;
     }
 }
-
+//ChangeState(EnemyStateR.walk);
