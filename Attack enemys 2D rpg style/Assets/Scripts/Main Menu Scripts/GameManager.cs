@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private PlayerScr player;
-    private Enemy currentTarget;
+    private EnemyR currentTarget;
     private pot currentBreakeble;
     private Transform tr;
     public GameObject Inventory;
@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
                     currentBreakeble.DeSelect();
                 }
 
-                currentTarget = hit.collider.GetComponent<Enemy>();
+                currentTarget = hit.collider.GetComponent<EnemyR>();
                 currentBreakeble = hit.collider.GetComponent<pot>();
 
                 if(currentTarget != null)
@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour
                 if (currentTarget != null)
                     currentTarget.DeSelect();
 
-                currentTarget = boss.GetComponent<Enemy>();
+                currentTarget = boss.GetComponent<EnemyR>();
 
                 if (currentTarget != null)
                     player.MyTarget = currentTarget.Select();

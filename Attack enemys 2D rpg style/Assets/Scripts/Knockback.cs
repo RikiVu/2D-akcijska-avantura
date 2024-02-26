@@ -11,21 +11,34 @@ public class Knockback : MonoBehaviour
 
     // Start is called before the first frame update
 
-
+    Rigidbody2D hit;
     private void OnTriggerEnter2D(Collider2D other)
     {
       
 
-        if (other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("PlayerHitBox")||  other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("Projectile") && other.isTrigger) 
+        if (other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("Player")||  other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("Projectile") && other.isTrigger) 
         {
               other.GetComponent<pot>().Smash();
         }
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Player")&& other.isTrigger)
+      
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("PlayerHurtBox"))
         {
-            Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
-            if(hit != null)
+
+            if (other.gameObject.CompareTag("PlayerHurtBox"))
             {
-                if(other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Enemy"))
+               
+                 hit = other.GetComponentInParent<Rigidbody2D>();
+            }
+            else
+            {
+                 hit = other.GetComponent<Rigidbody2D>();
+            }
+            
+          
+            if (hit != null)
+            {
+                Debug.Log(other.tag);
+                if (other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Enemy"))
                 {
                     return;
                 }
@@ -35,24 +48,24 @@ public class Knockback : MonoBehaviour
                 if (other.gameObject.CompareTag("Enemy") &&  other.isTrigger)
                 {
                     
-                    hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
+                    hit.GetComponent<EnemyR>().currentState = EnemyStateR.stagger;
                     if (PlayerScr.IsDashing)
                     {
-                        other.GetComponent<Enemy>().Knock(hit, knockTime, damage + damageBoost);
+                        other.GetComponent<EnemyR>().Knock(hit, knockTime, damage + damageBoost);
                     }
                     else
                     {
                         
-                        other.GetComponent<Enemy>().Knock(hit, knockTime, damage + damageBoost);
+                        other.GetComponent<EnemyR>().Knock(hit, knockTime, damage + damageBoost);
                         AdrenalinScr.value += 0.1f;
                     }
                 }
-                if(other.gameObject.CompareTag("Player"))
+                if(other.gameObject.CompareTag("PlayerHurtBox"))
                 {
-                    if(other.GetComponent<PlayerScr>().currentState != PlayerState.stagger)
+                    if(other.GetComponentInParent<PlayerScr>().currentState != PlayerState.stagger)
                     {
                     hit.GetComponent<PlayerScr>().currentState = PlayerState.stagger;
-                    other.GetComponent<PlayerScr>().Knock(knockTime, damage);
+                    other.GetComponentInParent<PlayerScr>().Knock(knockTime, damage);
 
                     }
                 }
