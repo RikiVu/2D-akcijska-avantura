@@ -32,17 +32,18 @@ public class EnemyR : MonoBehaviour
     public GameObject soul;
     public bool isTargetable = true;   
     protected bool currentSelected = false; //ako je selectan
-
     private Vector3 pos;
+
     public GameObject healthBar;
-    public GameObject HealthTip_Go;
-    public TextMeshProUGUI name;
-    [SerializeField]
+    private GameObject HealthTip_Go;
+
+    private TextMeshProUGUI name;
+
     private CanvasGroup healthGroup;
     public Transform hitBox;
    
     protected Transform target;
-    public GameObject enemy;
+    private GameObject enemy;
     private GameObject Current;
     //Flash
     private bool FlashActive;

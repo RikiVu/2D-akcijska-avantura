@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2da98cf8e8550d34b99b6c312934f6d0, type: 3}
-  m_Name: Slime
+  m_Name: Skeleton
   m_EditorClassIdentifier: 
-  enemyName: Slime
-  MaxHealth: 2
-  chaseRadius: 21
-  attackRadius: 8
-  prepareToAttack: 0.2
-  attackCooldown: 2.5
+  enemyName: Skeleton
+  MaxHealth: 6
+  chaseRadius: 25
+  attackRadius: 3
+  prepareToAttack: 0.25
+  attackCooldown: 0.7
   speed: 700

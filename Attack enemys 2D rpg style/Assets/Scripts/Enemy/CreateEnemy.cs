@@ -10,6 +10,9 @@ public class CreateEnemy : ScriptableObject
         public float MaxHealth = 4;
         public float chaseRadius = 21f;
         public float attackRadius = 8f;
+        public float prepareToAttack = 0.2f;
+        public float attackCooldown = 2f;
+        public float speed = 500f;
 }
 
 

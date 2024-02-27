@@ -13,7 +13,7 @@ public class EnemyFollowPlayer : EnemyR
 {
     [Header("AI Behaviour")]
     public EnemyStateMachine currentStateAi;
-    [SerializeField] private float speed = 500f;
+    //[SerializeField] private float speed = 500f;
     [SerializeField] private float sightRange = 25;
     private bool hasLineOfSight = false;
     private int layerMask = ~(1 << 8 | 1 << 6);
@@ -47,6 +47,8 @@ public class EnemyFollowPlayer : EnemyR
     [SerializeField] private bool canMove= false;
     [SerializeField] private bool attacking = false;
 
+    private bool hasTarget = false;
+
     void Start()
     {
         InitializeVariables();
@@ -75,12 +77,12 @@ public class EnemyFollowPlayer : EnemyR
         return initialPosition + randomDirection;
     }
 
-    /*
+   
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRadius);
-    }*/
+        Gizmos.DrawWireSphere(transform.position, enemyScribtableObject.attackRadius);
+    }
 
     void UpdatePathPlayer()
     {
@@ -129,7 +131,9 @@ public class EnemyFollowPlayer : EnemyR
                     StopCoroutine(WanderCooldown());
                     currentStateAi = EnemyStateMachine.Chase;
                     isUpdatingPath = true;
-                    EmoteShow();
+                    if(!hasTarget)
+                        EmoteShow();
+                    hasTarget = true;
                     InvokeRepeating("UpdatePathPlayer", 0f, .5f);
                   
                 }
@@ -164,9 +168,14 @@ public class EnemyFollowPlayer : EnemyR
  
     private IEnumerator WanderCooldown()
     {
+        if(hasTarget)
+        {
+            EmoteShow2();
+        }
         coroutineStarted = true;
         canMove = false;
         currentStateAi = EnemyStateMachine.Patrol;
+        hasTarget = false;
         myRigidbody.velocity = Vector2.zero;
         wanderDestination = GetRandomPointInRadius();
         UpdatePathWanderPos(wanderDestination);
@@ -185,8 +194,10 @@ public class EnemyFollowPlayer : EnemyR
 
     private IEnumerator AttackCo()
     {
+
         coroutineStarted2 = true;
         canMove = false;
+        yield return new WaitForSeconds(enemyScribtableObject.prepareToAttack);
         Vector2 directionToPlayer = (target.position - transform.position).normalized;
         // Apply leap force towards the player
         myRigidbody.velocity = directionToPlayer * leapForce;
@@ -194,7 +205,7 @@ public class EnemyFollowPlayer : EnemyR
         anim.SetFloat("MoveX", directionToPlayer.x);
         anim.SetFloat("MoveY", directionToPlayer.y);
         anim.SetTrigger("attack");
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(enemyScribtableObject.attackCooldown);
         canMove = true;
         coroutineStarted2 = false;
         Vector2 directionToWander = (wanderDestination - (Vector2)transform.position).normalized;
@@ -241,7 +252,7 @@ public class EnemyFollowPlayer : EnemyR
             if (Vector2.Distance(transform.position, initialPosition) > wanderingRadius)
             {
                 direction = ((Vector2)path.vectorPath[currentWaypoint] - myRigidbody.position).normalized;
-                force = direction * speed * Time.deltaTime;
+                force = direction * enemyScribtableObject.speed * Time.deltaTime;
                 myRigidbody.AddForce(force);
                 distance = Vector2.Distance(myRigidbody.position, path.vectorPath[currentWaypoint]);
                 if (distance < nextWaypointDistance)
@@ -253,7 +264,7 @@ public class EnemyFollowPlayer : EnemyR
             if (!coroutineStarted)
             {
                 direction = ((Vector2)path.vectorPath[currentWaypoint] - myRigidbody.position).normalized;
-                force = direction * speed * Time.deltaTime;
+                force = direction * enemyScribtableObject.speed * Time.deltaTime;
                 myRigidbody.AddForce(force);
                 distance = Vector2.Distance(myRigidbody.position, path.vectorPath[currentWaypoint]);
                 if (distance < nextWaypointDistance)
@@ -280,7 +291,7 @@ public class EnemyFollowPlayer : EnemyR
                     anim.SetFloat("MoveY", path.vectorPath[currentWaypoint].y - myRigidbody.position.y);
                 }
 
-                force = direction * speed * Time.deltaTime;
+                force = direction * enemyScribtableObject.speed * Time.deltaTime;
                 myRigidbody.AddForce(force);
                 distance = Vector2.Distance(myRigidbody.position, path.vectorPath[currentWaypoint]);
                 if (distance < nextWaypointDistance)
