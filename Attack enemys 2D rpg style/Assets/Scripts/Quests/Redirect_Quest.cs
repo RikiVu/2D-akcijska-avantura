@@ -63,6 +63,32 @@ public class Redirect_Quest : MonoBehaviour
             }
         }
     }
+    public void FirstQuest(string name,bool canPass)
+    {
+        if (canPass)
+        {
+         
+            x = 0;
+            for (x = 0; x < slot.Length; x++)
+            {
+                QuestCont = slot[x].GetComponent<QuestController>();
+                if (QuestCont.activeQuest)
+                {
+                    Debug.Log("Proso");
+                    if (QuestCont.Type == TypeOfQuest.First)
+                    {
+                            QuestCont.QuestCompleted();
+
+                    }
+                }
+                else
+                {
+                    // napravi da moze rjesit quest prije neg sto ga uzme.
+
+                }
+            }
+        }
+    }
     public void DeleteQuest(string name)
     {
         int Pun = 0;

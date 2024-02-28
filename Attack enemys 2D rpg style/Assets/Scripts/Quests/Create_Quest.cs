@@ -36,7 +36,8 @@ public class Create_Quest : ScriptableObject
         None,
         Kill,
         Gathering,
-        interact
+        interact,
+        First,
     }
 
 

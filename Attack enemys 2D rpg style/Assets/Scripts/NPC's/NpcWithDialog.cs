@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NpcWithDialog : NPC01
 {
+    public bool moveBefore = true;
     public float speed;
     public float cekanje;
     public float kreni;
@@ -38,73 +39,70 @@ public class NpcWithDialog : NPC01
     }
     public void Move()
     {
-        if (movespots.Length != 0)
-        {
-
-
-
-            anim.SetBool("Moving", true);
-            transform.position = Vector2.MoveTowards(transform.position, movespots[randomspots].position, speed * Time.deltaTime); //(current , target ,  speed)
-
-
-            anim.SetFloat("x1", (movespots[randomspots].position.x - transform.position.x));
-            anim.SetFloat("y1", (movespots[randomspots].position.y - transform.position.y));
-            if (Vector2.Distance(transform.position, movespots[randomspots].position) < 0.2)  //(current , target ,  )
+            if (movespots.Length != 0)
             {
-                if (cekanje <= 0)
+                anim.SetBool("Moving", true);
+                transform.position = Vector2.MoveTowards(transform.position, movespots[randomspots].position, speed * Time.deltaTime); //(current , target ,  speed)
+
+
+                anim.SetFloat("x1", (movespots[randomspots].position.x - transform.position.x));
+                anim.SetFloat("y1", (movespots[randomspots].position.y - transform.position.y));
+                if (Vector2.Distance(transform.position, movespots[randomspots].position) < 0.2)  //(current , target ,  )
                 {
-
-
-                    if (randomspots < movespots.Length && Reverse == false)
+                    if (cekanje <= 0)
                     {
 
-                        if (randomspots != movespots.Length)
+
+                        if (randomspots < movespots.Length && Reverse == false)
                         {
-                            randomspots += 1;
-                            if (randomspots == movespots.Length)
+
+                            if (randomspots != movespots.Length)
                             {
-                                Reverse = true;
+                                randomspots += 1;
+                                if (randomspots == movespots.Length)
+                                {
+                                    Reverse = true;
+
+                                }
+                            }
+
+                        }
+
+
+
+                        if (Reverse == true)
+                        {
+                            randomspots -= 1;
+                            if (randomspots == 0)
+                            {
+                                Reverse = false;
 
                             }
+
+
                         }
+
+                        anim.SetFloat("x", (movespots[randomspots].position.x - transform.position.x));
+                        anim.SetFloat("y", (movespots[randomspots].position.y - transform.position.y));
+                        anim.SetFloat("x1", (movespots[randomspots].position.x - transform.position.x));
+                        anim.SetFloat("y1", (movespots[randomspots].position.y - transform.position.y));
+
+                        cekanje = kreni;
 
                     }
 
-
-
-                    if (Reverse == true)
+                    else
                     {
-                        randomspots -= 1;
-                        if (randomspots == 0)
-                        {
-                            Reverse = false;
-
-                        }
+                        cekanje -= Time.deltaTime;
+                        anim.SetBool("Moving", false);
 
 
                     }
-
-                    anim.SetFloat("x", (movespots[randomspots].position.x - transform.position.x));
-                    anim.SetFloat("y", (movespots[randomspots].position.y - transform.position.y));
-                    anim.SetFloat("x1", (movespots[randomspots].position.x - transform.position.x));
-                    anim.SetFloat("y1", (movespots[randomspots].position.y - transform.position.y));
-
-                    cekanje = kreni;
-
                 }
 
-                else
-                {
-                    cekanje -= Time.deltaTime;
-                    anim.SetBool("Moving", false);
 
 
-                }
             }
-
-
-
-        }
 
     }
     public override void OnTriggerEnter2D(Collider2D collision)

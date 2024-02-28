@@ -32,7 +32,7 @@ public class CreateItem : ScriptableObject
     }
    
 
-   
+   //drs
 }
 
 
@@ -43,7 +43,6 @@ public enum TypeOfItem
     Quest,
     Arrows,
     Plantable
-     
 }
 public enum TypeOfEquipment
 {

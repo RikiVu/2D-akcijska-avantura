@@ -122,6 +122,7 @@ public class PlayerScr : MonoBehaviour
         if (GodMode)
         {
             haveSword = true;
+           
             haveBow = true;
             Gold += 10000;
             Arrows = 20;

@@ -16,7 +16,7 @@ public class Knockback : MonoBehaviour
     {
       
 
-        if (other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("Player")||  other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("Projectile") && other.isTrigger) 
+        if (other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("PlayerHitBox")||  other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("Projectile") && other.isTrigger) 
         {
               other.GetComponent<pot>().Smash();
         }

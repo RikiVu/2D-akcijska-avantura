@@ -323,6 +323,7 @@ SpriteAtlas:
     - de77b0478ec7fd34c9b0862f350b13e6: -1148347079330664453
     - 8eb992473cfba664ca53737184688020: 21300000
     - 66041447ec91ad248a647881bfe184f0: 21300000
+    - 7c97bb67cc1695a48b8eaeeb19b27728: 21300000
     - 26b6e677128bb984fac6398557cb2da2: 21300000
     - 6fdbb877c30ee7e4c9e7190824f9ad80: -2016784339499954532
     - 6fdbb877c30ee7e4c9e7190824f9ad80: 2252556351172381284
@@ -1491,6 +1492,7 @@ SpriteAtlas:
   - {fileID: -1148347079330664453, guid: de77b0478ec7fd34c9b0862f350b13e6, type: 3}
   - {fileID: 21300000, guid: 8eb992473cfba664ca53737184688020, type: 3}
   - {fileID: 21300000, guid: 66041447ec91ad248a647881bfe184f0, type: 3}
+  - {fileID: 21300000, guid: 7c97bb67cc1695a48b8eaeeb19b27728, type: 3}
   - {fileID: 21300000, guid: 26b6e677128bb984fac6398557cb2da2, type: 3}
   - {fileID: -2016784339499954532, guid: 6fdbb877c30ee7e4c9e7190824f9ad80, type: 3}
   - {fileID: 2252556351172381284, guid: 6fdbb877c30ee7e4c9e7190824f9ad80, type: 3}
@@ -2658,6 +2660,7 @@ SpriteAtlas:
   - WEAPON_arrow 1_6
   - grey_sliderVertical
   - dropdownMid
+  - star
   - 12
   - dungeon_tiles_206
   - dungeon_tiles_207

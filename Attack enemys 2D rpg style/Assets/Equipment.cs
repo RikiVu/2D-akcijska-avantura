@@ -17,6 +17,14 @@ public class Equipment : MonoBehaviour
     protected int Prazan = 0;
     public int x = 0;
     float i =0;
+    protected Redirect_Quest Redirect;
+    private GameObject QuestPanel;
+
+    private void Start()
+    {
+        QuestPanel = GameObject.FindGameObjectWithTag("QuestPanel");
+        Redirect = QuestPanel.GetComponent<Redirect_Quest>();
+    }
 
     public void AddItem(CreateItem item)
     {
@@ -33,6 +41,7 @@ public class Equipment : MonoBehaviour
                 {
                     Knockback.damageBoost += item.damageBoost;
                     PlayerScr.haveSword = true;
+                    AllowPassage.CanPass = true;
                     itemScr.equiped = true;
                     itemScr.thisItem = item;
                     itemScr.name = item.name;
@@ -49,6 +58,7 @@ public class Equipment : MonoBehaviour
 
                     Knockback.damageBoost += item.damageBoost;
                     PlayerScr.haveSword = true;
+                    AllowPassage.CanPass = true;
                     itemScr.equiped = true;
                     itemScr.thisItem = item;
                     itemScr.name = item.name;

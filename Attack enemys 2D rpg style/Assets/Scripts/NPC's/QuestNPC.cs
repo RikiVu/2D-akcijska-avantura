@@ -15,6 +15,8 @@ public class QuestNPC : MonoBehaviour
     public Inventory invScr;
     public string Talk;
 
+
+
      void Awake()
     {
         if (NpcItem)
@@ -89,6 +91,7 @@ public class QuestNPC : MonoBehaviour
                 invScr.DeleteItemAfterQuestEnded(NpcQuest);
                 //mora sve popravit treba
             }
+           
             //neki razgovor ne bitan   
         }
         else if (questEnded)

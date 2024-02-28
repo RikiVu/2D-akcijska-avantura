@@ -28,9 +28,7 @@ public class ShopNPC : NPC01
                 
                 if (!haveQuest == true)
                 {
-                   
                     talking = true;
-                    
                     dialogScr.currentQuestGiver = this.gameObject;
                     DialogBox.SetActive(true);
                     dialogScr.Shop = true;

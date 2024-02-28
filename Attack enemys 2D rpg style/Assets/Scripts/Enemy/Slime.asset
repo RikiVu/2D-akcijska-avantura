@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Slime
   MaxHealth: 2
   chaseRadius: 21
-  attackRadius: 8
-  prepareToAttack: 0.2
+  attackRadius: 6
+  prepareToAttack: 0.5
   attackCooldown: 2.5
   speed: 700
