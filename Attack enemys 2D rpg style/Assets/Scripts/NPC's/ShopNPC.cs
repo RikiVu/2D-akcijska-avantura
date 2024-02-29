@@ -2,75 +2,62 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopNPC : NPC01
+public class ShopNPC : NpcScr
 {
+    [Header("Shop")]
     public CreateItem[] itemsInStock = new CreateItem[5];
     public shopInventory ShopInvScr;
     public static int id;
     private int CounterOfItems;
-    
+    private bool talking = false;
+
     // public static bool CanRemove = false;
     // Start is called before the first frame update
-    private void Start()
+    protected override void Start()
     {
+        dialogBox = GameObject.FindGameObjectWithTag("Dialog");
+        dialogBoxScr = dialogBox.GetComponent<DialogScr>();
+        anim = gameObject.GetComponent<Animator>();
         CounterOfItems = itemsInStock.Length;
     }
 
-
     public override void Interact()
     {
-       
-        //  base.Interact();
-        if (inRangeforTalk == true)
-
-            if (Input.GetKey(KeyCode.E) && !talking)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                
-                if (!haveQuest == true)
+                talking = true;
+                dialogBoxScr.currentQuestGiver = this.gameObject;
+                dialogBoxScr.showDialogShop(dialogTekst);
+                ShopInvScr.DeleteItems();
+                for (int i = 0; i < CounterOfItems; i++)
                 {
-                    talking = true;
-                    dialogScr.currentQuestGiver = this.gameObject;
-                    DialogBox.SetActive(true);
-                    dialogScr.Shop = true;
-                    dialogScr.placeHolder = Talk.ToString();
-                    dialogScr.acceptButton.SetActive(true);
-                    dialogScr.rejectButton.SetActive(true);
-                    ShopInvScr.DeleteItems();
-                    for (int i = 0; i < CounterOfItems; i++)
-                    {
-                       // if(itemsInStock[i] != null)
-                        ShopInvScr.AddItem1(itemsInStock[i],i);
-                    }
-
+                    ShopInvScr.AddItem1(itemsInStock[i], i);
                 }
-
             }
-         
-
-
-
     }
+
+ 
     void DeleteItem()
     {
         Debug.Log("removed");
         itemsInStock[id] = null;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        /*
-        if(CanRemove)
+        if (playerInRange == true)
         {
-            DeleteItem();
-            CanRemove = false;
-                
+            Interact();
         }
-    */
-
-
-        Interact();
     }
-    
+
+    public override void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && other.isTrigger)
+        {
+            playerInRange = true;
+        }
+    }
+
 
 }

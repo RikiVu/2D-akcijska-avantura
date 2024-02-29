@@ -16,6 +16,7 @@ public class Redirect_Quest : MonoBehaviour
  
     public void Killed(string name)
     {
+        Debug.Log("killed " + name);
         x = 0;
         for (x = 0; x < slot.Length; x++)
         {
@@ -91,6 +92,7 @@ public class Redirect_Quest : MonoBehaviour
     }
     public void DeleteQuest(string name)
     {
+        Debug.Log("deleting quest: " + name);
         int Pun = 0;
         int Prazan = 0;
         for (x = 0; x < slot.Length; x++)

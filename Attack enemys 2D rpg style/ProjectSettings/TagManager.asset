@@ -21,6 +21,7 @@ TagManager:
   - EnemyToolTip
   - QuestPanel
   - Redirect
+  - Dialog
   layers:
   - Default
   - TransparentFX

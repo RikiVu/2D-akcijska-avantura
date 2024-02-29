@@ -10,12 +10,14 @@ public class DialogScr : MonoBehaviour
     public GameObject acceptButton;
     public GameObject rejectButton;
     public GameObject currentQuestGiver;
-    private QuestNPC Scr;
+    private NpcQuestScr Scr;
     public GameObject ShopPanel;
     public bool Shop = false;
-    public bool radi = false;
+    public bool coroutineStarted = false;
+    public bool talking = false;
     public string placeHolder = "";
-   
+    private RectTransform rectTransform;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -23,25 +25,16 @@ public class DialogScr : MonoBehaviour
         TmProText.text = "";
         acceptButton.SetActive(false);
         rejectButton.SetActive(false);
+        rectTransform = gameObject.GetComponent<RectTransform>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        
-        if(this.gameObject.activeInHierarchy && !radi)
+        if(talking)
         {
-            
-
-            
-                radi = true;
+           if(!coroutineStarted)
                 StartCoroutine(FreezeCo());
-           
- 
-      
         }
-       
-       
-        
     }
   
 
@@ -49,9 +42,9 @@ public class DialogScr : MonoBehaviour
     {
         if(!Shop)
         {
-            Scr = currentQuestGiver.GetComponent<QuestNPC>();
+            Scr = currentQuestGiver.GetComponent<NpcQuestScr>();
             // if(Scr.)
-            radi = false;
+            coroutineStarted = false;
             TmProText.text = "";
             Scr.Decide(true);
             Debug.Log(Scr.name + " test  ");
@@ -59,14 +52,12 @@ public class DialogScr : MonoBehaviour
         else
         {
             Debug.Log("Shop1");
-            radi = false;
+            coroutineStarted = false;
             TmProText.text = "";
             ShopPanel.SetActive(true);
-            this.gameObject.SetActive(false);
+            hideDialog();
             Time.timeScale = 0;
         }
-      
-        
     }
     public void RejectQuest()
     {
@@ -74,55 +65,70 @@ public class DialogScr : MonoBehaviour
         {
             if(currentQuestGiver!=null)
             {
-                Scr = currentQuestGiver.GetComponent<QuestNPC>();
+                Scr = currentQuestGiver.GetComponent<NpcQuestScr>();
                 Scr.Decide(false);
             }
-          
-            radi = false;
+            coroutineStarted = false;
             TmProText.text = "";
-           
         }
         else
         {
-          
             Debug.Log("Shop");
-            radi = false;
+            coroutineStarted = false;
             TmProText.text = "";
-            this.gameObject.SetActive(false);
-                                                                                                                            //moguc bug ovdi????
+            hideDialog();
         }
+    }
 
+
+
+                                                                                                                    //new 
+    public void showDialog(string text)
+    {
+        talking = true;
+        rectTransform.anchoredPosition = new Vector3(0, 0, 0);
+        Shop = false;
+        acceptButton.SetActive(false);
+        rejectButton.SetActive(false);
+        placeHolder = text.ToString();
+    }
+    public void showDialogShop(string text)
+    {
+        talking = true;
+        rectTransform.anchoredPosition = new Vector3(0, 0, 0);
+        Shop = true;
+        acceptButton.SetActive(true);
+        rejectButton.SetActive(true);
+        placeHolder = text.ToString();
+    }
+
+
+    public void hideDialog()
+    {
+        talking = false;
+        if(rectTransform!=null)
+            rectTransform.anchoredPosition = new Vector3(0, -200, 0);
+        StopCoroutine(FreezeCo());
+        coroutineStarted = false;
+        placeHolder = "";
     }
 
     private IEnumerator FreezeCo()
     {
-       
-
+        coroutineStarted = true;
         int i = 0;
-       
+        TmProText.text = "";
         for (i = 0; i < placeHolder.Length; i++)
         {
-           
             TmProText.text += placeHolder[i];
-
-
             yield return new WaitForSeconds(0.05f);
             if (Input.GetKey(KeyCode.E) && i>4)
             {
-
                 TmProText.text = placeHolder;
                 yield return new WaitForSeconds(0.1f);
                 yield break;
-
             }
         }
-        
-            
        
-        // TmProText.text = b + Time.deltaTime;
-
-
     }
-
-
 }

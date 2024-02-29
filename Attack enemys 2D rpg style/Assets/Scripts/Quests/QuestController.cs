@@ -13,7 +13,7 @@ public class QuestController : MonoBehaviour
     public TextMeshProUGUI progressionFull;
     public TextMeshProUGUI completedText;
     public GameObject currentQuestGiver;
-    private QuestNPC Scr;
+    private NpcQuestScr Scr;
 
     public bool completedQuest;
     
@@ -38,11 +38,12 @@ public class QuestController : MonoBehaviour
         completedText.gameObject.SetActive(true);
         
         completedQuest = true;
-        Scr = currentQuestGiver.GetComponent<QuestNPC>();
+        Scr = currentQuestGiver.GetComponent<NpcQuestScr>();
         Scr.NpcQuest.Finished = true;
         if (Scr.NpcItem)
             Scr.NpcItem.pickable = false;
 
+        Debug.Log("completed");
         // 
     }
     public void QuestDeletion()

@@ -70,7 +70,7 @@ public class NPC01 : MonoBehaviour
      dialogScr.currentQuestGiver = null;
         dialogScr.RejectQuest();
         inRangeforTalk = false;
-        dialogScr.radi = false;
+        dialogScr.coroutineStarted = false;
         dialogScr.TmProText.text = "";
         DialogBox.SetActive(false);
         if (haveQuest)

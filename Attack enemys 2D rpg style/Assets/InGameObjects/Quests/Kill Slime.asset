@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9a980bda3f16844584969d902a206e0, type: 3}
-  m_Name: Kill bats
+  m_Name: Kill Slime
   m_EditorClassIdentifier: 
   Type: 1
-  name: Kill bats
-  description: Can you kill bats in Rendal forest
+  name: Kill Slimes
+  description: Can you kill slimes in Rendal forest
   alreadyTakenQuest: How is killing going?
   completedQuest: Thank you. Here, your reward.
-  Target: Bat
+  Target: Slime
   count: 2
   Finished: 0
   AtNpcPlace: 0
   money: 200
-  XPgain: 200
+  XPgain: 0

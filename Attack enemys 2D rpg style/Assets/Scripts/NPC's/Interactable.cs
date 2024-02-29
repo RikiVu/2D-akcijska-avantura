@@ -12,10 +12,14 @@ public class Interactable : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player") && other.isTrigger)
+        {
             playerInRange = true;
+           // contextOn.Raise();
+        }
+              
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public virtual void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player") && other.isTrigger)
         {
