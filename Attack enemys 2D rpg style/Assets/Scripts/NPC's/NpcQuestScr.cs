@@ -15,7 +15,8 @@ public class NpcQuestScr : NpcScr
     protected Redirect_Quest redirectScr;
     public Inventory invScr;
     [SerializeField]
-    protected GameObject emoteGameObject;
+    protected SpriteRenderer emoteSprite;
+    
 
     protected override void Start()
     {
@@ -54,6 +55,8 @@ public class NpcQuestScr : NpcScr
                 NpcItem.pickable = true;
            
             dialogBoxScr.hideDialog();
+            emoteSprite.color = new Color(0.4f, 0.74f, 0.95f);
+
         }
         else if (!decide)
         {
@@ -79,7 +82,7 @@ public class NpcQuestScr : NpcScr
             dialogBoxScr.placeHolder = NpcQuest.completedQuest.ToString();
             PlayerScr.Gold += NpcQuest.money;
             questEnded = true;
-            emoteGameObject.SetActive(false);
+            emoteSprite.enabled = false;
             redirectScr.DeleteQuest(NpcQuest.name);
             Debug.Log("jel obriso ?" + NpcQuest.name);
             if (NpcQuest.Type == TypeOfQuest.Gathering)

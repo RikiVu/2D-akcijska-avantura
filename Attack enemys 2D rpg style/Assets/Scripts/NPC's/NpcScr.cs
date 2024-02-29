@@ -8,17 +8,21 @@ public class NpcScr : MonoBehaviour
     [SerializeField]
     protected string name= "nameless";
     [SerializeField]
-    protected string dialogTekst;
+    public string dialogTekst;
     protected GameObject dialogBox;
     protected DialogScr dialogBoxScr;
     protected bool playerInRange;
     private Vector2 directionToPlayer;
     protected Animator anim;
+    [SerializeField] protected Vector2 animationTurnDirection; 
     protected virtual void Start()
     {
         dialogBox = GameObject.FindGameObjectWithTag("Dialog");
         dialogBoxScr = dialogBox.GetComponent<DialogScr>();
         anim = gameObject.GetComponent<Animator>();
+   
+        anim.SetFloat("x", animationTurnDirection.x);
+        anim.SetFloat("y", animationTurnDirection.y);
     }
 
     protected virtual void Update()
@@ -53,6 +57,9 @@ public class NpcScr : MonoBehaviour
         {
             playerInRange = false;
             dialogBoxScr.hideDialog();
+      
+            anim.SetFloat("x", animationTurnDirection.x);
+            anim.SetFloat("y", animationTurnDirection.y);
         }
        
     }

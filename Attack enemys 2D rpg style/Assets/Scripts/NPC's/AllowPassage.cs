@@ -11,19 +11,19 @@ public class AllowPassage : MonoBehaviour
     [SerializeField] 
     private string newText;
     private Animator anim;
-    private NPC01 npc01Scr;
+    private NpcScr npcScr;
 
     private void Start()
     {  
         anim =  gameObject.GetComponent<Animator>();
-        npc01Scr = gameObject.GetComponent<NPC01>();
+        npcScr = gameObject.GetComponent<NpcScr>();
     }
     private void Update()
     {
         if (CanPass)
         {
             anim.SetBool("Moving", true);
-            npc01Scr.Talk = newText;
+            npcScr.dialogTekst = newText;
             if (Vector3.Distance(movespots.position, transform.position) <= 1) {
 
                 CanPass = false;
