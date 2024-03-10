@@ -19,7 +19,7 @@ public class Create_Quest : ScriptableObject
         new public bool Finished;
         new public bool AtNpcPlace;
         new public short money;
-    new public int XPgain;
+    //new public int XPgain;
     // public bool isDefaultItem = false;
 
 

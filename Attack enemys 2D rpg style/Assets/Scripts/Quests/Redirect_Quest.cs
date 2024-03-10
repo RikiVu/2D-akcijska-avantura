@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Redirect_Quest : MonoBehaviour
 {
-    private QuestController QuestCont;
+    //private QuestController QuestCont;
     public TypeOfQuest Type;
-    public GameObject objekt;
-    public GameObject[] slot = new GameObject[5];
+    public QuestController[] QuestCont = new QuestController[5];
     public int x = 0;
     
 
@@ -18,116 +17,96 @@ public class Redirect_Quest : MonoBehaviour
     {
         Debug.Log("killed " + name);
         x = 0;
-        for (x = 0; x < slot.Length; x++)
+        for (x = 0; x < QuestCont.Length; x++)
         {
-            QuestCont = slot[x].GetComponent<QuestController>();
-            if (QuestCont.activeQuest)
+            if (QuestCont[x].activeQuest && QuestCont[x].Type == TypeOfQuest.Kill)
             {
-                if (QuestCont.Target == name )
+                
+                if (QuestCont[x].Target == name )
                 {
-                   if(QuestCont.counter.ToString() != QuestCont.progressionFull.text)
-                    QuestCont.counter++;
+                   if(QuestCont[x].counter != QuestCont[x].progressionFullCounter)
+                    {
+                        QuestCont[x].counter++;
+                        Debug.Log("Killed");
+                        Debug.Log(QuestCont[x].counter.ToString());
+                        Debug.Log(QuestCont[x].progressionFullCounter);
+                    }
+                    if (QuestCont[x].counter == QuestCont[x].progressionFullCounter)
+                        QuestCont[x].QuestCompleted();
                 }
-                if (QuestCont.counter.ToString() == QuestCont.progressionFull.text)
-                        QuestCont.QuestCompleted();
             }
             else
             {
                                                             // napravi da moze rjesit quest prije neg sto ga uzme.
-
             }
         }
     }
     public void Gathering(string name, int num)
     {
         x = 0;
-        for (x = 0; x < slot.Length; x++)
+        for (x = 0; x < QuestCont.Length; x++)
         {
-            QuestCont = slot[x].GetComponent<QuestController>();
-            if (QuestCont.activeQuest)
+           
+            if (QuestCont[x].activeQuest && QuestCont[x].Type == TypeOfQuest.Gathering)
             {
-                if (QuestCont.Target == name)
+                if (QuestCont[x].Target == name)
                 {
-                    if (QuestCont.counter.ToString() != QuestCont.progressionFull.text)
-                         QuestCont.counter = num;
+                    Debug.Log("gath");
+                   
+                    if (QuestCont[x].counter != QuestCont[x].progressionFullCounter)
+                        QuestCont[x].counter = num;
+
+                    Debug.Log(QuestCont[x].counter.ToString());
+                    Debug.Log(QuestCont[x].progressionFullCounter);
+
+                    if (QuestCont[x].counter == QuestCont[x].progressionFullCounter)
+                        QuestCont[x].QuestCompleted();
+
+          
                 }
-                if (QuestCont.counter.ToString() == QuestCont.progressionFull.text)
-                    QuestCont.QuestCompleted();
-            }
-            else if(QuestCont.Type == TypeOfQuest.Gathering)
-            {
-                if (QuestCont.Target == name)
-                {
-                    if (QuestCont.counter.ToString() != QuestCont.progressionFull.text)
-                        QuestCont.counter = num;
-                }
+               
             }
         }
     }
-    public void FirstQuest(string name,bool canPass)
-    {
-        if (canPass)
-        {
-         
-            x = 0;
-            for (x = 0; x < slot.Length; x++)
-            {
-                QuestCont = slot[x].GetComponent<QuestController>();
-                if (QuestCont.activeQuest)
-                {
-                    Debug.Log("Proso");
-                    if (QuestCont.Type == TypeOfQuest.First)
-                    {
-                            QuestCont.QuestCompleted();
 
-                    }
-                }
-                else
-                {
-                    // napravi da moze rjesit quest prije neg sto ga uzme.
-
-                }
-            }
-        }
-    }
     public void DeleteQuest(string name)
     {
         Debug.Log("deleting quest: " + name);
         int Pun = 0;
         int Prazan = 0;
-        for (x = 0; x < slot.Length; x++)
+        for (x = 0; x < QuestCont.Length; x++)
         {
-            QuestCont = slot[x].GetComponent<QuestController>();
-            if (QuestCont.activeQuest)
+            if (QuestCont[x].activeQuest)
                 Pun++;
             else
                 Prazan++;
         }
-     
-
-        for (int i = 0; i < slot.Length; i++)
+        for (int i = 0; i < QuestCont.Length; i++)
         {
-            QuestCont = slot[i].GetComponent<QuestController>();
-            if (QuestCont.completedQuest && QuestCont.nameOfQuest.text == name)
+            Debug.Log("i: " + i + " QuestCont.Length: " + QuestCont.Length);
+            //Debug.Log("QuestCont[i].completedQuest: " + QuestCont[i].completedQuest + " QuestCont[i].nameOfQuest: " + QuestCont[i].nameOfQuest);
+
+            if (QuestCont[i].completedQuest && QuestCont[i].nameOfQuest.text == name)
             {
-                QuestCont.gameObject.SetActive(false);
-                QuestCont.activeQuest = false;
-                QuestCont.QuestDeletion();
+                Debug.Log("?3");
+                QuestCont[i].gameObject.SetActive(false);
+                QuestCont[i].activeQuest = false;
+                QuestCont[i].QuestDeletion();
                 x--;
                 return;
             }
-            if (QuestCont.activeQuest == false)
+            if (QuestCont[i].activeQuest == false)
                 continue;
         }
     }
     public void AddQuest(Create_Quest quest, GameObject gameobjectName)
     {
+        Debug.Log("Dodaj quest: "+ quest.name + " Nes: " +  gameobjectName.name);
         int  Pun = 0;
         int Prazan = 0;
-        for ( x = 0; x < slot.Length; x++)
+        for ( x = 0; x < QuestCont.Length; x++)
         {
-            QuestCont = slot[x].GetComponent<QuestController>();
-            if (QuestCont.activeQuest)
+            if (QuestCont[x].activeQuest)
                 Pun++;
 
             else
@@ -135,29 +114,28 @@ public class Redirect_Quest : MonoBehaviour
         }
         
 
-        for (int i = 0; i < slot.Length; i++)
+        for (int i = 0; i < QuestCont.Length; i++)
         {
-            QuestCont = slot[i].GetComponent<QuestController>();
-            if (QuestCont.activeQuest)
+            if (QuestCont[i].activeQuest)
                 continue;
-            if (QuestCont.activeQuest == false)
+            if (QuestCont[i].activeQuest == false)
             {
-                QuestCont.gameObject.SetActive(true);
-                QuestCont.progressionFull.text = quest.count.ToString();
-                QuestCont.nameOfQuest.text = quest.name;
-                QuestCont.Type = quest.Type;
-                QuestCont.description.text = quest.description.ToString();
-                QuestCont.completedQuest = quest.Finished;
-                QuestCont.currentQuestGiver = gameobjectName;
-                if (QuestCont.Type == TypeOfQuest.Kill)
+                QuestCont[i].gameObject.SetActive(true);
+                QuestCont[i].progressionFullCounter = quest.count;
+                QuestCont[i].nameOfQuest.text = quest.name;
+                QuestCont[i].Type = quest.Type;
+                QuestCont[i].description.text = quest.description.ToString();
+                QuestCont[i].completedQuest = quest.Finished;
+                QuestCont[i].currentQuestGiver = gameobjectName;
+                if (QuestCont[i].Type == TypeOfQuest.Kill)
                 {
-                    QuestCont.Target = quest.Target;
-                    QuestCont.counter = 0;
+                    QuestCont[i].Target = quest.Target;
+                    QuestCont[i].counter = 0;
                 }
-                else if(QuestCont.Type == TypeOfQuest.Gathering)
-                    QuestCont.Target = quest.Target;
-               
-                QuestCont.activeQuest = true;
+                else if(QuestCont[i].Type == TypeOfQuest.Gathering)
+                    QuestCont[i].Target = quest.Target;
+
+                QuestCont[i].activeQuest = true;
                 x++;
                 return;
             }

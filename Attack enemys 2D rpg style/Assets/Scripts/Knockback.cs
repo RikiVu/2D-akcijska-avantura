@@ -37,7 +37,7 @@ public class Knockback : MonoBehaviour
           
             if (hit != null)
             {
-                Debug.Log(other.tag);
+               // Debug.Log(other.tag);
                 if (other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Enemy"))
                 {
                     return;

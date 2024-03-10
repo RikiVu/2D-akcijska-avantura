@@ -49,14 +49,16 @@ public class NpcQuestScr : NpcScr
     {
         if (decide)  //prihvacen quest
         {
-            questTaken = true;
-            redirectScr.AddQuest(NpcQuest, this.gameObject);
-            if (NpcItem)
-                NpcItem.pickable = true;
-           
-            dialogBoxScr.hideDialog();
-            emoteSprite.color = new Color(0.4f, 0.74f, 0.95f);
+            if (!questTaken)
+            {
+                questTaken = true;
+                redirectScr.AddQuest(NpcQuest, this.gameObject);
+                if (NpcItem)
+                    NpcItem.pickable = true;
 
+                dialogBoxScr.hideDialog();
+                emoteSprite.color = new Color(0.4f, 0.74f, 0.95f);
+            }
         }
         else if (!decide)
         {

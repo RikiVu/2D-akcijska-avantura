@@ -241,7 +241,7 @@ public class EnemyFollowPlayer : EnemyR
             }
             else
             {
-                Debug.Log("else");
+               // Debug.Log("else");
                 return;
             }
         }

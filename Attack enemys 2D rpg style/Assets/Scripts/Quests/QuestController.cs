@@ -20,15 +20,22 @@ public class QuestController : MonoBehaviour
     public bool activeQuest = false;
     bool active = false;
     public int counter;
+    public int progressionFullCounter;
     public string Target;
     public string CurrentKilledEnemy;
     
 
     private void Awake()
     {
-        completedQuest=false;
         if (!activeQuest)
+        {
             this.gameObject.SetActive(false);
+        }
+        else
+        {
+            progression.text = counter.ToString();
+            progressionFull.text = progressionFullCounter.ToString();
+        }
     }
 
     public void QuestCompleted()
@@ -51,19 +58,17 @@ public class QuestController : MonoBehaviour
         Image img = this.GetComponent<Image>();
         img.color = UnityEngine.Color.white;
         completedText.gameObject.SetActive(false);
-        Debug.Log("zasto??");
+        Debug.Log("obrisan quest");
         completedQuest = false;
         progression.text = "0";
         counter = 0;
+        Target = "Null";
+        activeQuest = false;
+        if (!activeQuest)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
-
-    private void Update()
-    {
-       progression.text = counter.ToString();
-        
-       
-    }
-
 
     public void onClick()
     {
