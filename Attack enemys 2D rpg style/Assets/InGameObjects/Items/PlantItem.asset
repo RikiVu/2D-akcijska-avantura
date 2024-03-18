@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: PlantItem
   m_EditorClassIdentifier: 
   Type: 2
-  name: Yarrow
-  description: This is a plant
+  TypeOfEquipment: 0
+  ID: 0
+  name: 'Hibiscus '
+  description: Hibiscus flowers are often used in teas and have various health benefits
   pickable: 0
   isStackable: 1
-  icon: {fileID: 21300062, guid: 2cc007ba658529d49a05e49327137f94, type: 3}
+  Price: 0
+  damageBoost: 0
+  HealthBoost: 0
+  icon: {fileID: 1340625377, guid: ecc64b27a50d6904c85997cb99cbb48b, type: 3}
   isDefaultItem: 0

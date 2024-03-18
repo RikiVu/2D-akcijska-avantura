@@ -8,7 +8,10 @@ public class Equipment : MonoBehaviour
     
     private item itemScr;
    [SerializeField]  private TextMeshProUGUI StrenghtText;
-    [SerializeField] private TextMeshProUGUI StaminaText;
+    [SerializeField] private TextMeshProUGUI ConstitutionText;
+    [SerializeField] private TextMeshProUGUI DexterityText;
+    [SerializeField] private TextMeshProUGUI walkText;
+    [SerializeField] private TextMeshProUGUI runText;
     //public FloatValue currentHealth;
     // public FloatValue heartContainers;
     public ArmorManager armorManager;
@@ -16,7 +19,7 @@ public class Equipment : MonoBehaviour
     public int Pun = 0;
     protected int Prazan = 0;
     public int x = 0;
-    float i =0;
+    private float i = 0;
     protected Redirect_Quest Redirect;
     private GameObject QuestPanel;
 
@@ -28,9 +31,6 @@ public class Equipment : MonoBehaviour
 
     public void AddItem(CreateItem item)
     {
-
-     
-        
         switch (item.TypeOfEquipment)
         {
             case TypeOfEquipment.None:
@@ -49,6 +49,11 @@ public class Equipment : MonoBehaviour
                     itemScr.img = item.icon;
                     itemScr.Type = item.Type;
                     itemScr.haveItem = true;
+
+                    i = 0 + Knockback.damageBoost;
+                    StrenghtText.text = i.ToString();
+                    ConstitutionText.text = armorManager.armorContainers.ToString();
+                    
                     //Debug.Log("Equipo");
                 }
                 else
@@ -134,9 +139,12 @@ public class Equipment : MonoBehaviour
 
                 }
                 break;
-            case TypeOfEquipment.Trousers:
+            case TypeOfEquipment.Boots:
+                itemScr = slot[2].GetComponentInChildren<item>();
                 if (itemScr.haveItem == false)
                 {
+                    RunningScr.maxSpeed += 4;
+                    RunningScr.walkSpeed += 2;
                     itemScr.equiped = true;
                     itemScr.thisItem = item;
                     itemScr.name = item.name;
@@ -145,10 +153,32 @@ public class Equipment : MonoBehaviour
                     itemScr.Type = item.Type;
                     itemScr.haveItem = true;
                     Debug.Log("Equipo");
+
+                    DexterityText.text = 2.ToString() ;
+                    runText.text = RunningScr.maxSpeed.ToString();
+                    walkText.text = RunningScr.walkSpeed.ToString();
                 }
                 else
                 {
-                    Debug.Log("Nije Equipo");
+                    Inventory.AddItem(itemScr.thisItem);
+                    RunningScr.maxSpeed = 16;
+                    RunningScr.walkSpeed =10;
+                    Knockback.damageBoost -= itemScr.thisItem.damageBoost;
+                    Debug.Log("obuko " + item.HealthBoost);
+                    itemScr.equiped = true;
+                    itemScr.thisItem = item;
+                    itemScr.name = item.name;
+                    itemScr.description = item.description;
+                    itemScr.img = item.icon;
+                    itemScr.Type = item.Type;
+                    itemScr.haveItem = true;
+                    RunningScr.maxSpeed += 4;
+                    RunningScr.walkSpeed += 2;
+                    Debug.Log("Swap Equipo");
+                    DexterityText.text = 2.ToString();
+                    runText.text = RunningScr.maxSpeed.ToString();
+                    walkText.text = RunningScr.walkSpeed.ToString();
+
                 }
                 break;
             case TypeOfEquipment.Ring:
@@ -260,15 +290,6 @@ public class Equipment : MonoBehaviour
 
     }
     */
-
-    private void Update()
-    {
-        i = 0 + Knockback.damageBoost;
-
-
-          StrenghtText.text = i.ToString();
-            StaminaText.text = armorManager.armorContainers.ToString();
-    }
 
 
 

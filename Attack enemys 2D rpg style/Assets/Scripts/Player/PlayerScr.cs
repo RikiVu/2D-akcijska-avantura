@@ -26,6 +26,7 @@ public class PlayerScr : MonoBehaviour
     //Player Move , animations, 
    // public Transform Spawn;
     public PlayerState currentState;
+    public static bool canRun = true;
     public static float speed;
     float moveSpeed=100;
     private Vector3 change;
@@ -96,7 +97,7 @@ public class PlayerScr : MonoBehaviour
         }
     }
 
-    bool trci = false;
+    public static bool trci = false;
     #endregion
 
 
@@ -160,16 +161,7 @@ public class PlayerScr : MonoBehaviour
             flash();
         }
         
-        if(Input.GetKey(KeyCode.LeftShift))
-        {
-            speed = 30;
-            trci = true;
-        }
-        else
-        {
-            speed = 10;
-            trci = false;
-        }
+    
 
 
         // Debug.Log(startTime);
@@ -251,61 +243,6 @@ public class PlayerScr : MonoBehaviour
 
             animator.SetBool("Bow", false);
         }
-
-        /*
-
-            if (Input.GetKey(KeyCode.R) && currentState != PlayerState.attack && currentState != PlayerState.stagger && moving == false && cooldownBool == true && haveBow && !trci && !CantAtt)
-            {            
-                if(MyTarget != null && Vector3.Distance(MyTarget.position,transform.position) <= 30 && Arrows > 0 )
-                {
-                
-                    animator.SetFloat("moveY", MyTarget.position.y - transform.position.y);
-                    startTime += 1f * Time.deltaTime;
-                    if (startTime >= AimMAx)
-                    {
-                            Arrows--;
-                            Vector3 tempVector = MyTarget.parent.transform.position - transform.position;
-                            GameObject current = Instantiate(projectile, transform.position, Quaternion.identity);
-                            current.GetComponent<Projectile>().Launch(tempVector);
-                            StartCoroutine(FreezeCo());
-
-                            // holding = false;
-
-                    }
-
-
-                    animator.SetBool("Bow", true);
-
-
-                }
-                else
-                {
-                    startTime = 0;
-                    animator.SetBool("Bow", false);
-                }
-
-            }
-            else
-            {
-
-                startTime = 0;
-
-                animator.SetBool("Bow", false);
-            }
-            */
-
-
-
-
-        
-
-
-
-
-
-
-
-
     }
 
     // public void Blend(string animation, float targetWeight = 1.0F, float fadeLength = 0.3F);

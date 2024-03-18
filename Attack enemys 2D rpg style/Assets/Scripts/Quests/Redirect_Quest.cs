@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Redirect_Quest : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class Redirect_Quest : MonoBehaviour
                    if(QuestCont[x].counter != QuestCont[x].progressionFullCounter)
                     {
                         QuestCont[x].counter++;
-                        Debug.Log("Killed");
+                        QuestCont[x].progression.text = QuestCont[x].counter.ToString();
                         Debug.Log(QuestCont[x].counter.ToString());
                         Debug.Log(QuestCont[x].progressionFullCounter);
                     }
@@ -49,6 +50,9 @@ public class Redirect_Quest : MonoBehaviour
            
             if (QuestCont[x].activeQuest && QuestCont[x].Type == TypeOfQuest.Gathering)
             {
+                Debug.Log(name);
+                Debug.Log(QuestCont[x].Target);
+
                 if (QuestCont[x].Target == name)
                 {
                     Debug.Log("gath");
@@ -58,6 +62,7 @@ public class Redirect_Quest : MonoBehaviour
 
                     Debug.Log(QuestCont[x].counter.ToString());
                     Debug.Log(QuestCont[x].progressionFullCounter);
+                    QuestCont[x].progression.text = QuestCont[x].counter.ToString();
 
                     if (QuestCont[x].counter == QuestCont[x].progressionFullCounter)
                         QuestCont[x].QuestCompleted();

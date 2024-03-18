@@ -19,6 +19,7 @@ public class CreateItem : ScriptableObject
     new public int Price;
     new public int damageBoost;
     new public int HealthBoost;
+    new public int DexterityBoost;
     public Sprite icon = null;
     public bool isDefaultItem = false;
     
@@ -50,7 +51,7 @@ public enum TypeOfEquipment
     Weapon,
     Helmet,
     Chest,
-    Trousers,
+    Boots,
     Ring,
     Bow
 
