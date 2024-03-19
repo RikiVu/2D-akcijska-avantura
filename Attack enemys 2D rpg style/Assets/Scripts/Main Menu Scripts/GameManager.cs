@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.PlayerLoop.PostLateUpdate;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,6 +29,17 @@ public class GameManager : MonoBehaviour
     public static bool bossAlive = true;
     public GameObject boss;
 
+    public Stats stats;
+    private int strenght=0;
+    private int dexterity=0;
+    private int constitution=0;
+    public FloatValue playerCurrentHealth;
+    [SerializeField] private TextMeshProUGUI StrenghtText;
+    [SerializeField] private TextMeshProUGUI ConstitutionText;
+    [SerializeField] private TextMeshProUGUI DexterityText;
+    [SerializeField] private TextMeshProUGUI walkText;
+    [SerializeField] private TextMeshProUGUI runText;
+
 
 
 
@@ -37,6 +51,26 @@ public class GameManager : MonoBehaviour
         Inventory.gameObject.SetActive(false);
         ShopInventory.gameObject.SetActive(false);
         QuestList.gameObject.SetActive(false);
+
+        updateStats(stats.Strenght, stats.Dexterity, stats.Constitution);
+
+    }
+
+    public void updateStats(int Str, int Dex, int Const)
+    {
+        strenght += Str;
+        dexterity += Dex;
+        constitution += Const;
+        StrenghtText.text = strenght.ToString();
+        DexterityText.text = dexterity.ToString();
+        ConstitutionText.text = constitution.ToString();
+
+        RunningScr.dexUpdate(dexterity);
+        runText.text = RunningScr.maxSpeed.ToString();
+        walkText.text = RunningScr.walkSpeed.ToString();
+        Knockback.damageBoost = strenght;
+        //playerCurrentHealth.initialValue += (float)constitution; 
+
     }
 
     void Update()

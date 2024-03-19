@@ -22,7 +22,8 @@ public class PlayerScr : MonoBehaviour
 
 #pragma warning disable 649
     #region Variables;
-    public bool GodMode = false;
+    public  bool SetGodMode = false;
+    public static bool GodMode;
     //Player Move , animations, 
    // public Transform Spawn;
     public PlayerState currentState;
@@ -39,7 +40,7 @@ public class PlayerScr : MonoBehaviour
     private float cooldownSeconds;
     private bool cooldownBool;
     //Money
-    public static int Gold = 200;
+    public static int Gold = 2550;
 
     //Health
     public bool isTargetable = true;
@@ -85,6 +86,7 @@ public class PlayerScr : MonoBehaviour
     private static PlayerScr playerInstance;
     void Awake()
     {
+        GodMode = SetGodMode;
         DontDestroyOnLoad(this);
 
         if (playerInstance == null)

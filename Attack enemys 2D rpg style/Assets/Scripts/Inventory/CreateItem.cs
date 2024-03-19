@@ -17,8 +17,10 @@ public class CreateItem : ScriptableObject
     new public bool pickable;
     new public bool isStackable;
     new public int Price;
-    new public int damageBoost;
+    //new public int damageBoost;
     new public int HealthBoost;
+    new public int StrenghtBoost;
+    new public int ConstitutionBoost;
     new public int DexterityBoost;
     public Sprite icon = null;
     public bool isDefaultItem = false;

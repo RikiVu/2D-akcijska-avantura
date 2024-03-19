@@ -20,8 +20,9 @@ MonoBehaviour:
   pickable: 1
   isStackable: 0
   Price: 100
-  damageBoost: 0
   HealthBoost: 1
+  StrenghtBoost: 0
+  ConstitutionBoost: 1
   DexterityBoost: 0
   icon: {fileID: 21300000, guid: f8cdeb6bf79b94c40924f9a87fccd179, type: 3}
   isDefaultItem: 0

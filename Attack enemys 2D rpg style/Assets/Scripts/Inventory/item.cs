@@ -290,12 +290,34 @@ public class item : MonoBehaviour
             haveItem = false;
             if (PlayerInv == true)
                 invScr.Pun -= 1;
-        
-        
-       
-    }
-  
+
    
+
+
+
+
+    }
+    public void UnEquip()
+    {
+        if (haveItem)
+        {
+            Debug.Log("deleting");
+            EquipmentScr.UnequipItem(this);
+            Tooltip.SetActive(false);
+            name = null;
+            description = null;
+            img = null;
+            sprite.sprite = null;
+            haveItem = false;
+        }
+        else
+        {
+            Debug.Log("Its empty");
+        }
+     
+    }
+
+
     public void PointerEnter()
         {
             if (haveItem)

@@ -20,7 +20,7 @@ public class RunningScr : MonoBehaviour
 
     public static float walkSpeed = 10;
     [SerializeField]
-    float depletionSpeed = .9f;
+    float depletionSpeed = .85f;
     [SerializeField]
     float chargingSpeed = .1f;
 
@@ -30,16 +30,44 @@ public class RunningScr : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    public static void dexUpdate(int dex)
+    {
+        switch (dex)
+        {
+            case 0:
+                maxSpeed = 16;
+                walkSpeed = 10;
+                break;
+            case 1:
+                maxSpeed = 18;
+                walkSpeed = 11;
+                break;
+            case 2:
+                maxSpeed = 20;
+                walkSpeed = 12;
+                break;
+            case 3:
+                maxSpeed = 22;
+                walkSpeed = 13;
+                break;
+        }
+    }
+
     void FixedUpdate()
     {
-       
-         if(Input.GetKey(KeyCode.LeftShift) && PlayerScr.canRun)
-         {
-            PlayerScr.trci = true;
-            value -= depletionSpeed * Time.deltaTime;
+      
+
+        if (Input.GetKey(KeyCode.LeftShift) && PlayerScr.canRun)
+        {
+            PlayerScr.trci = true; 
+            if (PlayerScr.GodMode == false)
+            {
+                value -= depletionSpeed * Time.deltaTime;
+            }
+           
             PlayerScr.canRun = true;
             PlayerScr.speed = maxSpeed;
-           
+
             if (value <= minValue)
             {
                 if (!coroutineStarted)
@@ -59,8 +87,8 @@ public class RunningScr : MonoBehaviour
                 }
             }
         }
-       // img.fillAmount = Mathf.Lerp(img.fillAmount,value, Time.deltaTime * lerpSpeed *2);
-        img.fillAmount = Mathf.SmoothDamp(img.fillAmount, value, ref currentVel, 10 *Time.deltaTime);
+        // img.fillAmount = Mathf.Lerp(img.fillAmount,value, Time.deltaTime * lerpSpeed *2);
+        img.fillAmount = Mathf.SmoothDamp(img.fillAmount, value, ref currentVel, 10 * Time.deltaTime);
     }
     private IEnumerator RunningCooldown()
     {
