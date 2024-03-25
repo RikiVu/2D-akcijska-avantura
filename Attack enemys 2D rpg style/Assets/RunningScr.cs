@@ -30,7 +30,7 @@ public class RunningScr : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public static void dexUpdate(int dex)
+    public void dexUpdate(int dex)
     {
         switch (dex)
         {
@@ -49,6 +49,47 @@ public class RunningScr : MonoBehaviour
             case 3:
                 maxSpeed = 22;
                 walkSpeed = 13;
+                break;
+            case 4:
+                maxSpeed = 24;
+                walkSpeed = 14;
+                break;
+            case 5:
+                maxSpeed = 26;
+                walkSpeed = 15;
+                break;
+        }
+    }
+    public void constUpdateRunning(int constitution)
+    {
+        switch (constitution)
+        {
+            case 0:
+                depletionSpeed = .90f;
+                break;
+            case 1:
+                depletionSpeed = .80f;
+                chargingSpeed = .12f;
+                break;
+            case 2:
+                depletionSpeed = .70f;
+                chargingSpeed = .14f;
+                break;
+            case 3:
+                depletionSpeed = .60f;
+                chargingSpeed = .14f;
+                break;
+            case 4:
+                depletionSpeed = .50f;
+                chargingSpeed = .16f;
+                break;
+            case 5:
+                depletionSpeed = .4f;
+                chargingSpeed = .16f;
+                break;
+            case 6:
+                depletionSpeed = .3f;
+                chargingSpeed = .18f;
                 break;
         }
     }

@@ -22,6 +22,8 @@ public class CreateItem : ScriptableObject
     new public int StrenghtBoost;
     new public int ConstitutionBoost;
     new public int DexterityBoost;
+    new public float MonsterGoldBonus;
+    new public bool nullify = false;
     public Sprite icon = null;
     public bool isDefaultItem = false;
     

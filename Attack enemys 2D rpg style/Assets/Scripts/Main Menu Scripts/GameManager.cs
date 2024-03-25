@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
    public static bool InvOppened = false;
    public bool QuestListOppened = false;
    public static bool haveTarget = false;
+    public RunningScr RunningScript;
 
     public static bool bossAlive = true;
     public GameObject boss;
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI DexterityText;
     [SerializeField] private TextMeshProUGUI walkText;
     [SerializeField] private TextMeshProUGUI runText;
+    public HeartManager heartManager;
 
 
 
@@ -65,10 +67,12 @@ public class GameManager : MonoBehaviour
         DexterityText.text = dexterity.ToString();
         ConstitutionText.text = constitution.ToString();
 
-        RunningScr.dexUpdate(dexterity);
+        RunningScript.dexUpdate(dexterity);
+        RunningScript.constUpdateRunning(constitution);
         runText.text = RunningScr.maxSpeed.ToString();
         walkText.text = RunningScr.walkSpeed.ToString();
         Knockback.damageBoost = strenght;
+        heartManager.constLogic(constitution);
         //playerCurrentHealth.initialValue += (float)constitution; 
 
     }

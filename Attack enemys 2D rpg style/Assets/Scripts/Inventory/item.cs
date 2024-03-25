@@ -130,17 +130,13 @@ public class item : MonoBehaviour
             if (Type == TypeOfItem.HealingPotion)
             {
 
-                if (plyScr.currentHealth.RuntimeValue < plyScr.currentHealth.initialValue)
+                if (HeartManager.playerCurrentHealth < HeartManager.playerMaxHealth)
                 {
-
-                    if (plyScr.currentHealth.RuntimeValue == plyScr.currentHealth.initialValue - 1)
-                    {
-                        plyScr.currentHealth.RuntimeValue += 1;
-                    }
+                    if (HeartManager.playerCurrentHealth == HeartManager.playerMaxHealth - 1)
+                        HeartManager.playerCurrentHealth += 1;
                     else
-                    {
-                        plyScr.currentHealth.RuntimeValue += 2;
-                    }
+                        HeartManager.playerCurrentHealth += 2;
+
                     FindObjectOfType<AudioManager>().Play("HealHeart");
 
                     plyScr.PlayerHealthSignal.Raise();

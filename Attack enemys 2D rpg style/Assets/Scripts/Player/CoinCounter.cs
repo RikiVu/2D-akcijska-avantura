@@ -19,7 +19,7 @@ public class CoinCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        coinAmount = PlayerScr.Gold;
+        coinAmount = (int)PlayerScr.Gold;
         text.text = coinAmount.ToString();
     }
 }

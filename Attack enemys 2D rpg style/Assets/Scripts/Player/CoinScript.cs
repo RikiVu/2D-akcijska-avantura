@@ -7,9 +7,10 @@ using UnityEngine.EventSystems;
 public class CoinScript : MonoBehaviour
 {
     private bool collected = false;
+    public static float bonusPerc;
+    private float bonus;
+    int randomGeneratedNum;
 
-
- 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -18,8 +19,9 @@ public class CoinScript : MonoBehaviour
             collected = true;
               FindObjectOfType<AudioManager>().Play("coin");
             StartCoroutine(ChangeSize());
-            PlayerScr.Gold += 10;
-           
+            randomGeneratedNum = Random.Range(5, 10);
+            bonus = randomGeneratedNum * bonusPerc;
+            PlayerScr.Gold += randomGeneratedNum + bonus;
             Destroy(this.gameObject);
         }
     }

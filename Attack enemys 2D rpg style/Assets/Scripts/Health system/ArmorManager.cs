@@ -3,146 +3,73 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.PlayerLoop;
 
 public class ArmorManager : MonoBehaviour
 {
-    public Image[] armors;
-    public Sprite armor;
+    public GameObject armor;
+    public Image armorImage;
+    public GameObject background;
     float startTime = 0;
    public float TimeLeft = 20f;
-    public Animator[] animator;
-    public TextMeshProUGUI[] tmText;
+    public Animator animator;
+    public TextMeshProUGUI tmText;
     public int armorContainers =0;
-    public int armorCurrent = 0;
+   // public int armorCurrent = 0;
     float lerpSpeed = 2;
    public bool cooldown = false;
-    int count = 0;
+   // int count = 0;
+    public bool hasProtection = false;
+    public bool activeProtection = false;
 
     void Start()
     {
-   
-
-        armorContainers = 0;
-      //  playerCurrentArmor = 0;
         InitArmor();
     }
     // Start is called before the first frame update
     public void InitArmor()
     {
-        for (int x = 0; x < armors.Length; x++)
+        armor.SetActive(false);
+        background.SetActive(false);
+        if (hasProtection)
         {
-            armors[x].gameObject.SetActive(false);
-           // armors[x].sprite = armor;
-
-        
-        }
-       // armorCurrent = armorContainers;
-        for (int i = 0; i < armorContainers; i++)
-        {
-            armors[i].gameObject.SetActive(true);
-            armors[i].sprite = armor;
-        }
-
-    }
-    public void UpdateHearts()
-    {
-       // armorCurrent = armorContainers;
-        //  float tempHealth = playerCurrentArmor;
-        for (int i = 0; i < armorContainers; i++)
-        {
-            if (i <= armorContainers - 1)
-            {
-                //full health
-                armors[i].sprite = armor;
-            }
-            else if (i >= armorContainers)
-            {
-                //emptyHeart
-             //   hearts[i].sprite = emptyHeart;
-            }
-            else
-            {
-                //halfHeart
-            //    hearts[i].sprite = halfHeart;
-            }
+            Debug.Log("init protection");
+            TimeLeft = 20f;
+            armor.SetActive(true);
+            cooldown = true;
+            background.SetActive(true);
+           
         }
     }
-
     public  void ArmorHit()
     {
-        armorCurrent -= 1;
-        Debug.Log(armorCurrent);
+        TimeLeft = 20f;
+        activeProtection = false;
         StartCoroutine(WaitCo());
     }
 
-
-    private void ArmorCooldown(int element)
-    {
-      //  startTime += 0.1f * Time.deltaTime;
-       // armors[armorContainers - armorCurrent+1].fillAmount = Mathf.Lerp(armors[armorContainers -armorCurrent+1].fillAmount, startTime, Time.deltaTime * lerpSpeed);
-    }
-
     private void LateUpdate()
- {
-        
-
+    {
         if(cooldown)
         {
-          //  Debug.Log("container "+armorContainers);
-          //  Debug.Log("armor current "+armorCurrent);
-          //  Debug.Log("cout -- "+count);
-
-
             startTime += 0.05f * Time.deltaTime;
             TimeLeft -= 0.98f * Time.deltaTime;
             if (startTime <= 1.05f )
                 {
-                if(count > 0)
+                if(!activeProtection)
                 {
-                    if(count>armorContainers)
-                    {
-                        count--;
-                    }
                     int time =(int)TimeLeft;
-                   // Debug.Log(armorContainers - count);
-                    armors[armorContainers - count].fillAmount = Mathf.Lerp(armors[armorContainers - count].fillAmount, startTime, Time.deltaTime * lerpSpeed);
-                    tmText[armorContainers - count].text = time.ToString();
+                    armorImage.fillAmount = Mathf.Lerp(armorImage.fillAmount, startTime, Time.deltaTime * lerpSpeed);
+                    tmText.text = time.ToString();
                 }
-                 
-
-               
-               
             }
-
-
             else if(startTime>=1.06)
                 {
-                animator[armorContainers - count].SetBool("Recharged", true);
+                animator.SetTrigger("Recharged2");
                 startTime = 0;
-                
-                TimeLeft = 20f;
-                tmText[armorContainers - count].text="";
-                armorCurrent += 1;
-                      count--;
-                WaitCo2();
-
-
-            }
-                if(count==0)
-                  {
+                tmText.text="";
+                activeProtection = true;
                 cooldown = false;
-                 }
-           
-
-        }
-        if (count > 0)
-        {
-            for (int i = 1; i <= count; i++)
-            {
-                //armors[armorCurrent +1].fillAmount = 0;
-                armors[armorCurrent + 1].fillAmount = Mathf.Lerp(armors[armorCurrent + 1].fillAmount, 0, Time.deltaTime * lerpSpeed);
-                tmText[armorContainers + 1].text = "20";
             }
         }
     }
@@ -150,38 +77,13 @@ public class ArmorManager : MonoBehaviour
 
     private IEnumerator WaitCo()
     {
-
-        armors[armorCurrent].fillAmount = 0;
+        armorImage.fillAmount = 0;
         yield return new WaitForSeconds(2f);
-        count++;
+        activeProtection = false;
+        armorImage.fillAmount = Mathf.Lerp(armorImage.fillAmount, 0, Time.deltaTime * lerpSpeed);
+        //tmText.text = "20";
         cooldown = true;
-
-
-   
-        
-
-
     }
-    private IEnumerator WaitCo2()
-    {
-
-        animator[armorContainers - count].SetBool("Recharged", false);
-        yield return new WaitForSeconds(1f);
-       
-    }
-    public void Changed(int boost)
-    {
-        cooldown = false;      
-        armorCurrent = 0;
-        for (int i =0; i<boost; i++)
-        {
-            armors[i].fillAmount = 0;
-            tmText[i].text = "20";
-        }
-        count = boost;
-        cooldown = true;
-
-    }
-
 
 }
+

@@ -32,22 +32,54 @@ public class Equipment : MonoBehaviour
         itemScr.Type = item.Type;
         itemScr.haveItem = true;
         itemScr.DeleteButton.SetActive(true);
+        CoinScript.bonusPerc = item.MonsterGoldBonus;
         GameManager.updateStats(item.StrenghtBoost, item.DexterityBoost, item.ConstitutionBoost);
+     
     }
     private void conditionFunc(item itemScr, CreateItem item)
     {
         if (itemScr.haveItem == false)
+        {
             ItemLogic(itemScr, item);
+            if (item.nullify)
+            {
+                armorManager.hasProtection = true;
+                armorManager.cooldown = false;
+          
+                armorManager.armorContainers = 1;
+                armorManager.InitArmor();
+               
+            }
+        }
+            
         else
         {
             ItemLogicUnequip(itemScr.thisItem);
             Inventory.AddItem(itemScr.thisItem);
             ItemLogic(itemScr, item);
             Debug.Log("Swap Equipo");
+            if (item.nullify)
+            {
+                armorManager.hasProtection = true;
+                armorManager.cooldown = false;
+            
+                armorManager.armorContainers = 1;
+                armorManager.InitArmor(); 
+          
+            }
         }
     }
     private void ItemLogicUnequip(CreateItem item)
     {
+        if (item.nullify)
+        {
+            armorManager.hasProtection = false;
+            armorManager.cooldown = false;
+     
+            armorManager.armorContainers = 0;
+            armorManager.InitArmor();
+         
+        }
         GameManager.updateStats(-item.StrenghtBoost, -item.DexterityBoost, -item.ConstitutionBoost);
     }
     public void UnequipItem(item item)

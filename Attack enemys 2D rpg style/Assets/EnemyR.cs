@@ -29,6 +29,7 @@ public class EnemyR : MonoBehaviour
     public Sprite emptyHeart;
     //Enemy drop
     public GameObject itemInside;
+    public GameObject heartSpawn;
     public GameObject soul;
     public bool isTargetable = true;   
     protected bool currentSelected = false; //ako je selectan
@@ -56,6 +57,10 @@ public class EnemyR : MonoBehaviour
     protected Redirect_Quest Redirect;
 
     private GameObject EnemyToolTip;
+
+    //knock heart
+    public GameObject knockHeart;
+    public GameObject knockHeart2;
 
     void Start()
     {
@@ -211,26 +216,42 @@ public class EnemyR : MonoBehaviour
             }
         }
     }
+    int heartsToSpawn;
     public virtual void Knock(Rigidbody2D myRigidbody, float knockTime, float damage)
     {
         if (isTargetable)
         {
             isTargetable = false;
-            Health -= damage;
-            if (Health <= 0)
+           
+            if (Health - damage <= 0)
             {
-                Death();
+                heartsToSpawn = (int)(Health / 2);
+                Debug.Log(heartsToSpawn);
             }
+             
+            else
+                heartsToSpawn = (int)(damage / 2);
+            Health -= damage;
+            for (int i = 0; i < heartsToSpawn; i++)
+            {
+                Instantiate(knockHeart, transform.position + new Vector3(0, 1, 0) * (i + 1), Quaternion.identity);
+            }
+            if (damage % 2 == 1 && Health>=0)
+                Instantiate(knockHeart2, transform.position + new Vector3(0, 1, 0) * (heartsToSpawn + 1), Quaternion.identity);
+          
+            if (Health <= 0)
+                Death();
             else
             {
                 FlashActive = true;
                 flashCounter = flashLenght;
-
                 FindObjectOfType<AudioManager>().Play("LogPain");
                 StartCoroutine(KnockCo(myRigidbody, knockTime));
             }
         }
     }
+    int counterI;
+    Vector3 tempVectorSpawnCoin;
     public virtual void Death()
     {
         DeSelect();
@@ -240,7 +261,16 @@ public class EnemyR : MonoBehaviour
         Redirect.Killed(enemyScribtableObject.enemyName);
         SpawnEnemiesArea.currentMinionCount--;
         //remove restriction
-        Instantiate(itemInside, transform.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)), Quaternion.identity);
+        tempVectorSpawnCoin = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
+        for (counterI = 0; counterI < enemyScribtableObject.gold; counterI++)
+        {
+            Instantiate(itemInside, transform.position + tempVectorSpawnCoin, Quaternion.identity);
+        }
+        counterI = Random.Range(1, 10);
+        if(counterI <= 2)
+        {
+            Instantiate(heartSpawn, transform.position + tempVectorSpawnCoin, Quaternion.identity);
+        }
         Instantiate(soul, transform.position + new Vector3(0, 0, 0), Quaternion.identity);
         Destroy(this.gameObject);
     }

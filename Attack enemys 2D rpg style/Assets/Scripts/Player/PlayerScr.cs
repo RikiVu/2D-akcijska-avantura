@@ -40,11 +40,11 @@ public class PlayerScr : MonoBehaviour
     private float cooldownSeconds;
     private bool cooldownBool;
     //Money
-    public static int Gold = 2550;
+    public static float Gold = 4550;
 
     //Health
     public bool isTargetable = true;
-    public FloatValue currentHealth;
+   // public FloatValue currentHealth;
     public SignalSender PlayerHealthSignal;
     //Position
     public VectorValue startingPosition;
@@ -378,7 +378,7 @@ public class PlayerScr : MonoBehaviour
         {
             if (!GodMode)
             {
-                if (armorManager.armorCurrent != 0)
+                if (armorManager.activeProtection && armorManager.hasProtection)
                 {
                     FlashActive = true;
                     flashCounter = flashLenght;
@@ -388,14 +388,14 @@ public class PlayerScr : MonoBehaviour
                     armorManager.ArmorHit();
                 }
 
-                else if (armorManager.armorCurrent == 0)
+                else if (armorManager.activeProtection == false)
                 {
-                    currentHealth.RuntimeValue -= damage;
+                    HeartManager.playerCurrentHealth -= damage;
                     FlashActive = true;
                     flashCounter = flashLenght;
                     PlayerHealthSignal.Raise();
                     AdrenalinScr.value -= 0.1f;
-                    if (currentHealth.RuntimeValue > 0)
+                    if (HeartManager.playerCurrentHealth > 0)
                     {
                         FindObjectOfType<AudioManager>().Play("PlayerPain");
                         StartCoroutine(KnockCo(knockTime));

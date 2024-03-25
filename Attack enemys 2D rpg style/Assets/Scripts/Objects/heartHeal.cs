@@ -9,12 +9,17 @@ public class heartHeal : MonoBehaviour
     private float speed = 30;
     private bool collected = false;
     private GameObject Player;
+    private HeartManager heartManager;
     private PlayerScr plyScr;
+
+    private float lifetime = 10f;
+    private float lifetimeSeconds;
 
     private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-      plyScr =  Player.GetComponent<PlayerScr>();
+        plyScr =  Player.GetComponent<PlayerScr>();
+        lifetimeSeconds = lifetime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,42 +28,26 @@ public class heartHeal : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             // collected = true;
-            if(plyScr.currentHealth.RuntimeValue < plyScr.currentHealth.initialValue)
+            if(HeartManager.playerCurrentHealth < HeartManager.playerMaxHealth)
             {
-                if(plyScr.currentHealth.RuntimeValue == plyScr.currentHealth.initialValue -1)
-                {
-                    plyScr.currentHealth.RuntimeValue += 1;
-                }
+                if(HeartManager.playerCurrentHealth == HeartManager.playerMaxHealth - 1)
+                    HeartManager.playerCurrentHealth += 1;
                 else
-                {
-                    plyScr.currentHealth.RuntimeValue += 2;                       
-                }
+                    HeartManager.playerCurrentHealth += 2;                       
+               
                 FindObjectOfType<AudioManager>().Play("HealHeart");       
                 plyScr.PlayerHealthSignal.Raise();
                 Destroy(gameObject);
             }
-           
-           
-
         }
-    }
-
-    void Animation(Vector3 position)
-    {
-        
-        if (Vector2.Distance(transform.position, Location.position) < 0.2)
-        {
-          
-            Destroy(gameObject);
-            
-          
-        }
-
     }
 
     private void Update()
     {
-       
-
+        lifetimeSeconds -= Time.deltaTime;
+        if (lifetimeSeconds <= 0)
+            Destroy(this.gameObject);
     }
+
+
 }

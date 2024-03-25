@@ -13,6 +13,7 @@ public class CreateEnemy : ScriptableObject
         public float prepareToAttack = 0.2f;
         public float attackCooldown = 2f;
         public float speed = 500f;
+        public float gold = 0;
 }
 
 

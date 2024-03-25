@@ -10,29 +10,89 @@ public class HeartManager : MonoBehaviour
     public Sprite fullHeart;
     public Sprite halfHeart;
     public Sprite emptyHeart;
-    public FloatValue heartContainers;
-    public FloatValue playerCurrentHealth;
+    public float setPlayerMaxHealth = 9;
+    //public float setPlayerCurrentHealth;
+    public static float playerMaxHealth;
+    public static float playerCurrentHealth;
+    float tempHealth;
+    //public FloatValue heartContainers;
+    //public FloatValue playerCurrentHealth;
 
-     void Start()
+    void Start()
     {
-        heartContainers.initialValue = 4;
-        playerCurrentHealth.initialValue = 8;
+        playerMaxHealth = setPlayerMaxHealth ;
+        playerCurrentHealth = playerMaxHealth;
+        InitHearts();
+    }
+
+    public void constLogic(int constitution)
+    {
+        if(constitution == 0)
+        {
+            playerMaxHealth = setPlayerMaxHealth;
+        }
+        else
+        {
+            playerMaxHealth = setPlayerMaxHealth + (constitution + constitution);
+        }
+    
         InitHearts();
     }
     // Start is called before the first frame update
     public void InitHearts()
     {
-        for (int i = 0; i < heartContainers.initialValue; i++)
+        if(playerCurrentHealth>playerMaxHealth)
+        {
+            playerCurrentHealth = playerMaxHealth;
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            hearts[i].gameObject.SetActive(false);
+            if (i <= tempHealth - 1)
+            {
+                //full health
+                hearts[i].sprite = fullHeart;
+            }
+            else if (i >= tempHealth)
+            {
+                //emptyHeart
+                hearts[i].sprite = emptyHeart;
+            }
+            else
+            {
+                //halfHeart
+                hearts[i].sprite = halfHeart;
+            }
+        }
+        tempHealth = playerCurrentHealth / 2;
+        // Debug.Log((playerMaxHealth / 2.0f));
+        for (int i = 0; i < playerMaxHealth / 2.0; i++)
         {
             hearts[i].gameObject.SetActive(true);
-            hearts[i].sprite = fullHeart; 
+            //Debug.Log(i + ": " + (playerCurrentHealth - 1));
+            if (i <= tempHealth - 1)
+            {
+                //full health
+                hearts[i].sprite = fullHeart;
+            }
+            else if (i >= tempHealth)
+            {
+                //emptyHeart
+                hearts[i].sprite = emptyHeart;
+            }
+            else
+            {
+                //halfHeart
+                hearts[i].sprite = halfHeart;
+            }
+
         }
     }
     public void UpdateHearts()
     {
-        float tempHealth = playerCurrentHealth.RuntimeValue / 2;
-        for (int i = 0; i < heartContainers.initialValue; i++)
-        {
+         tempHealth = playerCurrentHealth / 2;
+            for (int i = 0; i < playerMaxHealth / 2; i++)
+            {
             if (i <= tempHealth-1)
             {
                 //full health

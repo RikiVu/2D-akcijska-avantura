@@ -19,3 +19,4 @@ MonoBehaviour:
   prepareToAttack: 0.25
   attackCooldown: 0.7
   speed: 700
+  gold: 3

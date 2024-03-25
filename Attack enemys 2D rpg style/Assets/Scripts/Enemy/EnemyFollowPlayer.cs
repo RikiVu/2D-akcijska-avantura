@@ -134,8 +134,10 @@ public class EnemyFollowPlayer : EnemyR
                     StopCoroutine(WanderCooldown());
                     currentStateAi = EnemyStateMachine.Chase;
                     isUpdatingPath = true;
-                    if(!hasTarget)
+                    if (!hasTarget)
                         EmoteShow();
+                  
+                     
                     hasTarget = true;
                     InvokeRepeating("UpdatePathPlayer", 0f, .5f);
                   
@@ -173,6 +175,7 @@ public class EnemyFollowPlayer : EnemyR
     {
         if(hasTarget)
         {
+            Debug.Log("NE NEG ovaj je kriv ");
             EmoteShow2();
         }
         coroutineStarted = true;
@@ -192,6 +195,16 @@ public class EnemyFollowPlayer : EnemyR
         anim.SetFloat("MoveX", (wanderDestination.x - transform.position.x));
         anim.SetFloat("MoveY", (wanderDestination.y - transform.position.y));
         
+    }
+    private IEnumerator WanderCooldown2()
+    {
+        coroutineStarted = true;
+        yield return new WaitForSeconds(0.5f);
+        coroutineStarted = false;
+        if (!hasLineOfSight)
+        {
+            StartCoroutine(WanderCooldown());
+        }
     }
 
     public float leapForce;
@@ -234,11 +247,11 @@ public class EnemyFollowPlayer : EnemyR
             else if(currentStateAi == EnemyStateMachine.Chase &&  !hasLineOfSight)
             {
                 if (!coroutineStarted)
-                    StartCoroutine(WanderCooldown());
+                    StartCoroutine(WanderCooldown2());
                 return;
             }
             else if(hasLineOfSight && Vector3.Distance(target.position, transform.position) <= enemyScribtableObject.attackRadius) {
-
+             
                 if (!coroutineStarted2)
                     StartCoroutine(AttackCo());
                 return;
@@ -251,7 +264,7 @@ public class EnemyFollowPlayer : EnemyR
                 }
                 else
                 {
-                    Debug.Log("else 2");
+                    Debug.Log("5");
                 }
                 return;
             }
@@ -287,7 +300,6 @@ public class EnemyFollowPlayer : EnemyR
                 stuckCounter++;
                 if (stuckCounter > 5)
                 {
-                    Debug.Log("stuck");
                     StopCoroutine(WanderCooldown());
                     StartCoroutine(WanderCooldown());
                     stuckCounter = 0;
