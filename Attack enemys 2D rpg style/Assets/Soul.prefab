@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7485993785386606441}
   - component: {fileID: 7485993785386606436}
   - component: {fileID: 7485993785386606437}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Soul
   m_TagString: Untagged
   m_Icon: {fileID: 0}

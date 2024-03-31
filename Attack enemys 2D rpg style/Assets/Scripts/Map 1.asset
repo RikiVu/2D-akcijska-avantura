@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e234ce9cb43a39c4d95c8b3b9b68a61c, type: 3}
+  m_Name: Map 1
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 4047847017028428844, guid: 0ba2095b7d0a7a54a9cb6e2fa6641c4e, type: 3}
+  MaxCount: 6
+  RespawnTime: 2.5

@@ -1,30 +1,58 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour
 {
-    public static int currentMinionCount = 0;
-    public GameObject prefab;
+
+    public CreateMap target;
+    private int maxMinions;
     public Transform Player;
     public GameObject[] placeOfSpawn;
+    [SerializeField]
     private bool inRange = false;
-    private int maxMinions = 10;
+    [SerializeField]
+    private bool spawned = false;
+    public List<GameObject> enemies = new List<GameObject>();
 
+    //unused
+    public static int currentMinionCount = 0;
     private float timer = 0f;
-    private float interval = 2.5f;
-
     private float minSpawnDistance = 5f;
+
+    int i;
+    GameObject randomSpawn;
+    GameObject temp;
+
+    private void Start()
+    {
+        //maxMinions = target.MaxCount;
+    }
 
     void Update()
     {
-        if (!inRange)
+        if (!inRange || spawned)
             return;
 
+        spawned = true;
+
+        for ( i = 0; i<  placeOfSpawn.Length-1; i++)
+        {
+            // Instantiate enemy at the randomly selected spawn point
+            temp = Instantiate(target.Enemy, placeOfSpawn[i].transform.position, Quaternion.identity);
+            enemies.Add(temp);
+        }
+          
+    }
+    
+
+    public void testWithTime()
+    {
         timer += Time.deltaTime;
 
-        // Check if 2.5 seconds have passed
-        if (timer >= interval)
+        // Check if 2 seconds have passed
+        if (timer >= target.RespawnTime)
         {
             if (currentMinionCount < maxMinions)
             {
@@ -34,7 +62,7 @@ public class SpawnEnemies : MonoBehaviour
                 if (randomSpawn != null)
                 {
                     // Instantiate prefab at the selected spawn point
-                    Instantiate(prefab, randomSpawn.transform.position, Quaternion.identity);
+                    Instantiate(target.Enemy, randomSpawn.transform.position, Quaternion.identity);
                     currentMinionCount++;
                     timer = 0f;
                     Debug.Log(currentMinionCount);
@@ -76,6 +104,14 @@ public class SpawnEnemies : MonoBehaviour
         if (collision.CompareTag("Player") && collision.isTrigger && inRange)
         {
             inRange = false;
+            spawned = false;
+            for(i = enemies.Count -1; i >=0 ; i--)
+            {
+                temp = enemies[i];
+                enemies.RemoveAt(i);
+                Destroy(temp);
+            }
+            enemies.Clear();
+            }
         }
-    }
 }

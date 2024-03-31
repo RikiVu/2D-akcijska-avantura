@@ -68,10 +68,10 @@ void Update()
             chestCollected = true;
             playerInRange = false;
             chestOppened = false;
-            anim.SetBool("Oppened", false);
+            //anim.SetBool("Oppened", false);
             ChestPanel.SetActive(false);
             contextOff.Raise();
-            anim.SetBool("Hiding", true);
+           // anim.SetBool("Hiding", true);
         }
 
 
@@ -109,15 +109,15 @@ void Update()
     {
         if (other.CompareTag("Player") && other.isTrigger)
         {
-            //Debug.Log("out of range");
-            //hestInvScr.DeleteItems();
+            Debug.Log("out of range");
+            chestInvScr.DeleteItems();
             playerInRange = false;
             chestOppened = false;
-            anim.SetBool("Oppened", false);
+            //anim.SetBool("Oppened", false);
             ChestPanel.SetActive(false);
             contextOff.Raise();
-            if(chestCollected)
-            this.gameObject.SetActive(false);
+           if(!chestCollected)
+                anim.SetBool("Oppened", false);
 
         }
     }
