@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour
     protected int num =0;
     protected int i = 0;
      public int x= 0;
-    public bool isFull = false;
+    public static bool isFull = false;
      public int Pun = 0;
     protected int Prazan = 0;
     public Redirect_Quest Redirect;
@@ -32,28 +32,27 @@ public class Inventory : MonoBehaviour
     public CreateItem testMrkva;
     public GameObject panelInv;
 
+
+    private int spaceInInventory;
+    public AlertPanelScr alertPanelScr;
+
     // Start is called before the first frame update
     public  virtual void  Awake()
     {
         Pun = 0;
+        spaceInInventory = slot.Length;
     }
-    private void FixedUpdate()
+
+    private void Update()
     {
-        if (Pun == slot.Length -1)
-        {
-            isFull = true;
-        
-        }
-        else
-        {
-            isFull = false;
-        }
-       
         if (shopInventory.InShop == false && closedTransfer)
             CloseShop();
+    }
 
-      
-
+    public void checkSpaceInInventory(int amount)
+    {
+        Pun -= amount;
+        isFull = false;
     }
 
     void  CloseShop()
@@ -259,8 +258,14 @@ public class Inventory : MonoBehaviour
         */
     }
 
-        public  void AddItem(CreateItem item)
+        public void AddItem(CreateItem item)
         {
+        if (isFull)
+        {
+            alertPanelScr.showAlertPanel("No space in inventory");
+            return;
+        }
+        //Ako inv nije pun...
  
         for (int  i = 0; i < slot.Length; i++)
         {     
@@ -298,19 +303,14 @@ public class Inventory : MonoBehaviour
                 {
                     num++;
                     Redirect.Gathering(item.name,num);
-                   
                 }
-           
-                return;
+                if (Pun == spaceInInventory)
+                {
+                    isFull = true;
+                    Debug.Log("pun");
+                }
+                return ;
             }
-            
-           
         }
-
-
-
     }
-
-
-
 }

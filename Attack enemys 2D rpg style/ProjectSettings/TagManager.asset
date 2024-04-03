@@ -22,6 +22,7 @@ TagManager:
   - QuestPanel
   - Redirect
   - Dialog
+  - alertPanel
   layers:
   - Default
   - TransparentFX

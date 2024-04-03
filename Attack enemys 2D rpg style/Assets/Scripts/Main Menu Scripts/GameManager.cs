@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
         Inventory.gameObject.SetActive(false);
         ShopInventory.gameObject.SetActive(false);
         QuestList.gameObject.SetActive(false);
-
         updateStats(stats.Strenght, stats.Dexterity, stats.Constitution);
 
     }
@@ -93,7 +92,7 @@ public class GameManager : MonoBehaviour
         {
             InvOppened = true;
             Inventory.gameObject.SetActive(true);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
         }
        else  if(Input.GetKeyDown(KeyCode.I) && InvOppened == true )
         {
@@ -101,7 +100,7 @@ public class GameManager : MonoBehaviour
             Inventory.gameObject.SetActive(false);
             if (ShopInventory.activeInHierarchy == false)
             {
-                Time.timeScale = 1;
+               // Time.timeScale = 1;
             }
             ToolTip.SetActive(false);
 
@@ -138,7 +137,7 @@ public class GameManager : MonoBehaviour
         InvScr.DeactivateDeleteFunc();
         if (ShopInventory.activeInHierarchy == false)
         {
-            Time.timeScale = 1;
+           // Time.timeScale = 1;
         }
         ToolTip.SetActive(false);
     }

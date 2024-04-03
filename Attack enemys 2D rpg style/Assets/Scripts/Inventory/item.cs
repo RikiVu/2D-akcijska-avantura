@@ -9,25 +9,25 @@ using System;
 public class item : MonoBehaviour
 {
     public TypeOfItem Type;
-    public int CurrentNum = 0; 
+    public int CurrentNum = 0;
     public Inventory invScr;
     public Inventory invScr2;
     public GameObject InventoryGM;
     public string name;
     public string description;
     public Sprite img;
-    private  Image sprite;
-    public bool haveItem =false;
+    private Image sprite;
+    public bool haveItem = false;
     public GameObject Player;
     private PlayerScr plyScr;
-    public  GameObject DeleteButton;
+    public GameObject DeleteButton;
     public GameObject SellButton;
     public GameObject PlantButton;
     private GameObject Tooltip;
     public bool CantUse = false;
     public GameObject stackCount;
     public TextMeshProUGUI broj;
-    public int counter1 =1;
+    public int counter1 = 1;
     toolTipScr tooltipSCR;
     public bool PlayerInv;
     public CreateItem thisItem;
@@ -40,10 +40,13 @@ public class item : MonoBehaviour
     public bool equiped = false;
 
     public Transform TipLocation;
+    private GameObject alertPanelGm;
+    private AlertPanelScr alertPanelScr;
 
     public void Awake()
     {
-
+        alertPanelGm = GameObject.FindGameObjectWithTag("alertPanel");
+        alertPanelScr = alertPanelGm.GetComponent<AlertPanelScr>();
         Tooltip = GameObject.FindGameObjectWithTag("ToolTip");
         sprite = this.gameObject.GetComponent<Image>();
         tooltipSCR = Tooltip.GetComponent<toolTipScr>();
@@ -52,11 +55,11 @@ public class item : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-       
-         
+
+
+
         plyScr = Player.GetComponent<PlayerScr>();
-        
+
 
         if (img != null)
         {
@@ -75,9 +78,9 @@ public class item : MonoBehaviour
         if (haveItem)
         {
             priceGM.SetActive(true);
-            if ( !PlayerInv && !equiped)
-            {   
-               
+            if (!PlayerInv && !equiped)
+            {
+
                 stackCount.gameObject.SetActive(false);
                 priceText.text = thisItem.Price.ToString();
 
@@ -91,12 +94,12 @@ public class item : MonoBehaviour
 
             else if (PlayerInv)
             {
-                reducedPrice = thisItem.Price /2;
+                reducedPrice = thisItem.Price / 2;
                 priceText.text = reducedPrice.ToString();
                 stackCount.gameObject.SetActive(true);
             }
 
-            
+
             sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1f);
 
             broj.text = counter1.ToString();
@@ -109,23 +112,23 @@ public class item : MonoBehaviour
             }
         }
 
-            else
-            {
-                sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0f);
-            
-                stackCount.gameObject.SetActive(false);
-                priceGM.SetActive(false);
-                counter1 = 1;
-            }
-        
+        else
+        {
+            sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0f);
+
+            stackCount.gameObject.SetActive(false);
+            priceGM.SetActive(false);
+            counter1 = 1;
+        }
+
     }
 
 
-    public  void Use()
+    public void Use()
     {
         if (CantUse == false)
         {
-            
+
 
             if (Type == TypeOfItem.HealingPotion)
             {
@@ -141,7 +144,7 @@ public class item : MonoBehaviour
 
                     plyScr.PlayerHealthSignal.Raise();
 
-                    if(counter1 == 1)
+                    if (counter1 == 1)
                     {
                         Tooltip.SetActive(false);
                         name = null;
@@ -151,22 +154,22 @@ public class item : MonoBehaviour
                         sprite.sprite = null;
 
                         haveItem = false;
-                        if(PlayerInv)
-                        invScr.Pun -= 1;
+                        if (PlayerInv)
+                            invScr.checkSpaceInInventory(1);
                     }
-                    else if(counter1>1 && counter1<6)
+                    else if (counter1 > 1 && counter1 < 6)
                     {
                         counter1--;
                     }
 
-                   
+
 
 
 
                 }
             }
 
-            else if(Type == TypeOfItem.Equipment)
+            else if (Type == TypeOfItem.Equipment)
             {
                 Equip();
             }
@@ -178,28 +181,23 @@ public class item : MonoBehaviour
             */
         }
     }
-   
+
 
     public void Destroy()
     {
-        if(haveItem != false)
+        if (haveItem != false)
         {
-            if(thisItem.isStackable && counter1 >1 && thisItem.Type != TypeOfItem.Quest)
+            if (thisItem.isStackable && counter1 > 1 && thisItem.Type != TypeOfItem.Quest)
             {
-                
+
             }
-            else if(thisItem.isStackable && counter1 >= 1 && thisItem.Type == TypeOfItem.Quest)
+            else if (thisItem.isStackable && counter1 >= 1 && thisItem.Type == TypeOfItem.Quest)
             {
                 name = null;
                 description = null;
-
                 img = null;
                 //  sprite.enabled = false;
-
                 //sprite.sprite = null;
-
-
-
                 haveItem = false;
                 DeleteButton.SetActive(false);
                 counter1 = 1;
@@ -208,24 +206,17 @@ public class item : MonoBehaviour
             {
                 name = null;
                 description = null;
-
                 img = null;
                 //  sprite.enabled = false;
-
                 //sprite.sprite = null;
-
                 if (PlayerInv)
-                    invScr.Pun -= 1;
-
-
+                    invScr.checkSpaceInInventory(1);
                 haveItem = false;
                 DeleteButton.SetActive(false);
             }
-           
-
         }
     }
- public  void Sell()
+    public void Sell()
     {
         if (haveItem != false && shopInventory.InShop)
         {
@@ -235,24 +226,21 @@ public class item : MonoBehaviour
             }
             else
             {
-                invScr.Pun -= 1;
+                invScr.checkSpaceInInventory(1); 
                 name = null;
                 description = null;
                 img = null;
-
                 haveItem = false;
                 SellButton.SetActive(false);
-               
             }
             PlayerScr.Gold += thisItem.Price / 4;
-
         }
     }
-    bool temp=false;
+    bool temp = false;
 
     public void Plant()
     {
-        if (haveItem) 
+        if (haveItem)
         {
             temp = invScr.transferFromItem(thisItem, thisItem.name);
             if (temp)
@@ -261,7 +249,7 @@ public class item : MonoBehaviour
                     counter1--;
                 else
                 {
-                    invScr.Pun -= 1;
+                    invScr.checkSpaceInInventory(1);
                     name = null;
                     description = null;
                     img = null;
@@ -271,70 +259,75 @@ public class item : MonoBehaviour
             }
         }
     }
-
+    
     public void Equip()
     {
+        name = null;
+        description = null;
+        img = null;
+        sprite.sprite = null;
+        haveItem = false;
         EquipmentScr.AddItem(thisItem);
+        Tooltip.SetActive(false);
        
-            Tooltip.SetActive(false);
-            name = null;
-            description = null;
-            img = null;
-            //  sprite.enabled = false;
-            sprite.sprite = null;
-
-            haveItem = false;
-            if (PlayerInv == true)
-                invScr.Pun -= 1;
-
-   
-
-
-
-
+        
     }
     public void UnEquip()
     {
         if (haveItem)
         {
-            Debug.Log("deleting");
-            EquipmentScr.UnequipItem(this);
-            Tooltip.SetActive(false);
-            name = null;
-            description = null;
-            img = null;
-            sprite.sprite = null;
-            haveItem = false;
+            if (Inventory.isFull == false)
+            {
+                EquipmentScr.UnequipItem(this);
+
+                Debug.Log("Unequip");
+                Tooltip.SetActive(false);
+                name = null;
+                description = null;
+                img = null;
+                sprite.sprite = null;
+                haveItem = false;
+            }
+            else
+            {
+                alertPanelScr.showAlertPanel("No space in inventory!");
+            }
         }
         else
         {
             Debug.Log("Its empty");
         }
-     
+
     }
 
 
     public void PointerEnter()
+    {
+        if (haveItem)
         {
-            if (haveItem)
-            {
             Tooltip.SetActive(true);
             tooltipSCR.ChangeText(name, description);
             Tooltip.transform.position = TipLocation.position;
-            }
-         }
+        }
+    }
 
     public void PointerClick()
     {
         if (haveItem && PlayerInv)
             Use();
-        else if(haveItem && !PlayerInv && equiped == false)
+        else if (haveItem && !PlayerInv && equiped == false)
         {
+            if (Inventory.isFull == true)
+            {
+                alertPanelScr.showAlertPanel("No space in inventory!");
+                Debug.Log("No space in inventory!");
+                return;
+            }
             if (PlayerScr.Gold >= thisItem.Price)
             {
-                if(thisItem.Type != TypeOfItem.Arrows)
+                if (thisItem.Type != TypeOfItem.Arrows)
                 {
-                     invScr2.AddItem(thisItem);
+                    invScr2.AddItem(thisItem);
                     PlayerScr.Gold -= thisItem.Price;
                 }
                 if (thisItem.Type == TypeOfItem.Arrows && PlayerScr.Arrows < PlayerScr.MaxArrows)
@@ -342,24 +335,20 @@ public class item : MonoBehaviour
                     PlayerScr.Arrows += 1;
                     PlayerScr.Gold -= thisItem.Price;
                 }
-                
-                //  ShopNPC.id = id;
-                // ShopNPC.CanRemove = true;
-                // Destroy();
             }
             else
             {
+                alertPanelScr.showAlertPanel("Insufficient gold");
                 Debug.Log("Insufficient gold");
             }
-           
-    
+
+
         }
     }
 
-   public void ChestSend(CreateItem item)
+    public void ChestSend(CreateItem item)
     {
         invScr2.AddItem(item);
-
     }
 
     public void PointerExit()

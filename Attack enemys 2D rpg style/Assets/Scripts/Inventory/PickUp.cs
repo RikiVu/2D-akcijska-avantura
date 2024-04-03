@@ -10,15 +10,15 @@ public class PickUp : ShowOutline
     public CreateItem item;   
     public Inventory invScr;
     // Start is called before the first frame update
-    void Awake()
+    private GameObject alertPanelGm;
+    private AlertPanelScr alertPanelScr;
+
+    public void Awake()
     {
-       
-       
-
+        alertPanelGm = GameObject.FindGameObjectWithTag("alertPanel");
+        alertPanelScr = alertPanelGm.GetComponent<AlertPanelScr>();
     }
-   
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if(item.pickable)
@@ -30,14 +30,18 @@ public class PickUp : ShowOutline
             HideOutlineOnItems();
         }
 
-        if (Input.GetKey(KeyCode.E) && inRange == true && invScr.isFull == false && item.pickable==true)
+        if (Input.GetKey(KeyCode.E) && inRange == true  && item.pickable==true)
         {
-           
-           // Debug.Log("Picked item");       
+           if(Inventory.isFull == true)
+            {
+                alertPanelScr.showAlertPanel("No space in inventory!");
+                return;
+            }
             inRange = false;
             invScr.AddItem(item);
             Destroy(this.gameObject);
-          //  bool isPicked = Inventory
+            
+           
         }
     }
     

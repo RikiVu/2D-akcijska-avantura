@@ -25,9 +25,13 @@ public class ChestSCR : MonoBehaviour
     private float HideLenght = 0f;
 
 
+    private GameObject alertPanelGm;
+    private AlertPanelScr alertPanelScr;
+
     void Start() // ovo se pokrece samo jednom
     {
-
+        alertPanelGm = GameObject.FindGameObjectWithTag("alertPanel");
+        alertPanelScr = alertPanelGm.GetComponent<AlertPanelScr>();
         ChestPanel.SetActive(false);
         anim = GetComponent<Animator>(); // anim na foru dohvaca Animator u Unityu
         chestCollected = false; // bool moze bit samo true i false na pocetku "Start je false"
@@ -58,41 +62,36 @@ void Update()
                 Debug.Log("You already looted this chest");
             }
         }
-
-
-
-
        else if (Input.GetKeyDown(KeyCode.E) && !chestCollected  && chestOppened)
         {
-            chestInvScr.sendToInv();
-            chestCollected = true;
-            playerInRange = false;
-            chestOppened = false;
-            //anim.SetBool("Oppened", false);
-            ChestPanel.SetActive(false);
-            contextOff.Raise();
-           // anim.SetBool("Hiding", true);
+            if(Inventory.isFull == false)
+            {
+                chestInvScr.sendToInv();
+                chestCollected = true;
+                playerInRange = false;
+                chestOppened = false;
+                //anim.SetBool("Oppened", false);
+                ChestPanel.SetActive(false);
+                contextOff.Raise();
+            }
+            else
+            {
+                alertPanelScr.showAlertPanel("No space in inventory!");
+                Debug.Log("No space in inventory!");
+            }
         }
-
-
     }
-   
-
-  
 
     // ako uzme itemee     chestCollected = true;
     public void ShowItems(Vector3 position)
     {
         ChestPanel.transform.position = position;
-        // ChestPanel.transform.position = pos2    ;
         ChestPanel.SetActive(true);
-
     }
 
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.CompareTag("Player") && other.isTrigger)
         {
           //  Debug.Log("in range");

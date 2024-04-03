@@ -15,7 +15,8 @@ public class shopInventory : Inventory
 
     public void ClosePanel()
     {
-        Time.timeScale = 1;
+        PlayerScr.playerCanMove = true;
+        //Time.timeScale = 1;
         DeleteItems();
         ParentGM.SetActive(false);
         InShop = false;
@@ -85,7 +86,6 @@ public class shopInventory : Inventory
             if (itemScr.haveItem)
             {
                 Pun++;
-
             }
             else
             {

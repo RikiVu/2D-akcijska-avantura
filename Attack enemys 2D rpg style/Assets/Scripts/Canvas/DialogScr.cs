@@ -17,6 +17,7 @@ public class DialogScr : MonoBehaviour
     public bool talking = false;
     public string placeHolder = "";
     private RectTransform rectTransform;
+    public GameObject Inventory;
 
 
     // Start is called before the first frame update
@@ -56,7 +57,10 @@ public class DialogScr : MonoBehaviour
             TmProText.text = "";
             ShopPanel.SetActive(true);
             hideDialog();
-            Time.timeScale = 0;
+            PlayerScr.playerCanMove = false;
+            GameManager.InvOppened = true;
+            Inventory.gameObject.SetActive(true);
+            //Time.timeScale = 0;
         }
     }
     public void RejectQuest()

@@ -50,11 +50,13 @@ public class Equipment : MonoBehaviour
                 armorManager.InitArmor();
                
             }
+            Inventory.checkSpaceInInventory(1);
         }
             
         else
         {
             ItemLogicUnequip(itemScr.thisItem);
+            Inventory.checkSpaceInInventory(1);
             Inventory.AddItem(itemScr.thisItem);
             ItemLogic(itemScr, item);
             Debug.Log("Swap Equipo");

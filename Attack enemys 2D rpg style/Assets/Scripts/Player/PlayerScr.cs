@@ -22,6 +22,7 @@ public class PlayerScr : MonoBehaviour
 
 #pragma warning disable 649
     #region Variables;
+    public static bool playerCanMove = true;
     public  bool SetGodMode = false;
     public static bool GodMode;
     //Player Move , animations, 
@@ -157,17 +158,11 @@ public class PlayerScr : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
         if (FlashActive)
         {
             flash();
         }
-        
-    
-
-
         // Debug.Log(startTime);
-
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
@@ -178,10 +173,9 @@ public class PlayerScr : MonoBehaviour
         }
         else if( currentState == PlayerState.walk || currentState == PlayerState.idle)
         {
-            UpdateAnimationAndMove();
+            if(playerCanMove)
+                UpdateAnimationAndMove();
         }
-
-
 
         if (Input.GetKey(KeyCode.R) && currentState != PlayerState.attack && currentState != PlayerState.stagger && moving == false && cooldownBool == true && haveBow && !trci && !CantAtt)
         {
@@ -204,8 +198,6 @@ public class PlayerScr : MonoBehaviour
 
                 }
                 animator.SetBool("Bow", true);
-
-
             }
 
             else if(Arrows > 0)
@@ -227,31 +219,20 @@ public class PlayerScr : MonoBehaviour
 
                 }
                 animator.SetBool("Bow", true);
-
             }
-
-
             else
             {
                 startTime = 0;
                 animator.SetBool("Bow", false);
             }
-
         }
         else
         {
-
             startTime = 0;
-
             animator.SetBool("Bow", false);
         }
     }
-
-    // public void Blend(string animation, float targetWeight = 1.0F, float fadeLength = 0.3F);
-
     #region Moving
-
-
     private void Dash(Vector2 InitialVel)
     {
        
