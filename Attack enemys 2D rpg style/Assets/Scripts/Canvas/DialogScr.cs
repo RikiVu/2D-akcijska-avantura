@@ -53,6 +53,7 @@ public class DialogScr : MonoBehaviour
         else
         {
             Debug.Log("Shop1");
+            shopInventory.InShop = true;
             coroutineStarted = false;
             TmProText.text = "";
             ShopPanel.SetActive(true);

@@ -176,6 +176,7 @@ SpriteAtlas:
     - 2d4a1b024707dde4b9982ad22069e91e: 21300024
     - 2d4a1b024707dde4b9982ad22069e91e: 21300022
     - 2d4a1b024707dde4b9982ad22069e91e: 21300020
+    - cf365d0278ea64a4d9dc64cf4489e6b7: 21300000
     - 6c52fe02c5d410f4c94ea790db12d982: 21300000
     - 65be7b12436952248ac9ebb5b74faf3f: 6433675360013514843
     - 65be7b12436952248ac9ebb5b74faf3f: -257914156392716046
@@ -309,6 +310,7 @@ SpriteAtlas:
     - 1263219418b46f44bbe63a01383910eb: 21300000
     - 9dbe0e9461f87694d8fa82588dbe9c9a: 21300000
     - 1c4693a4bec043246946a84d47dc61d9: 21300000
+    - a9e526a40e3c5134fbba6532954326d5: 21300000
     - 0e406ec446b700f4aa7d6768365c40f5: 21300000
     - 0c6f25d415163684cb98e18542ed2db4: 21300000
     - 3ff6a7e4583ca074d9c4638535740468: 21300000
@@ -571,6 +573,7 @@ SpriteAtlas:
     - 53554ec72c8483a41a89f08a0c86af7e: 21300000
     - 131e16e77611f5f4d90217d12b9f43d7: 21300000
     - 4171dee7e4061e044995bec9ac4c0e0e: 21300000
+    - 7f7de2f7e68b86046aea56ce823ec64f: 21300000
     - 9e3414f77abadea4da3141cf38660810: 21300000
     - e888d5f701eb8b44a84dc9d0048d9bd3: 21300000
     - 106f7408328aef14788ebd50591246c2: 545223147
@@ -950,6 +953,7 @@ SpriteAtlas:
     - 4ee0b24a2fed7614d9c7c521dc2fb06b: 21300002
     - 4ee0b24a2fed7614d9c7c521dc2fb06b: 21300016
     - 4ee0b24a2fed7614d9c7c521dc2fb06b: 21300018
+    - fdb8715ad0631724e921b7ae055ff028: 21300000
     - 9297226a50906d241b33fe232c0d627c: 21300000
     - a075536a0d7aafb499af92e43db8c68c: 21300000
     - de6fe57a7a86d9244a27ee58ac41bbe4: 21300000
@@ -1526,6 +1530,7 @@ SpriteAtlas:
   - {fileID: 21300024, guid: 2d4a1b024707dde4b9982ad22069e91e, type: 3}
   - {fileID: 21300022, guid: 2d4a1b024707dde4b9982ad22069e91e, type: 3}
   - {fileID: 21300020, guid: 2d4a1b024707dde4b9982ad22069e91e, type: 3}
+  - {fileID: 21300000, guid: cf365d0278ea64a4d9dc64cf4489e6b7, type: 3}
   - {fileID: 21300000, guid: 6c52fe02c5d410f4c94ea790db12d982, type: 3}
   - {fileID: 6433675360013514843, guid: 65be7b12436952248ac9ebb5b74faf3f, type: 3}
   - {fileID: -257914156392716046, guid: 65be7b12436952248ac9ebb5b74faf3f, type: 3}
@@ -1659,6 +1664,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1263219418b46f44bbe63a01383910eb, type: 3}
   - {fileID: 21300000, guid: 9dbe0e9461f87694d8fa82588dbe9c9a, type: 3}
   - {fileID: 21300000, guid: 1c4693a4bec043246946a84d47dc61d9, type: 3}
+  - {fileID: 21300000, guid: a9e526a40e3c5134fbba6532954326d5, type: 3}
   - {fileID: 21300000, guid: 0e406ec446b700f4aa7d6768365c40f5, type: 3}
   - {fileID: 21300000, guid: 0c6f25d415163684cb98e18542ed2db4, type: 3}
   - {fileID: 21300000, guid: 3ff6a7e4583ca074d9c4638535740468, type: 3}
@@ -1921,6 +1927,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 53554ec72c8483a41a89f08a0c86af7e, type: 3}
   - {fileID: 21300000, guid: 131e16e77611f5f4d90217d12b9f43d7, type: 3}
   - {fileID: 21300000, guid: 4171dee7e4061e044995bec9ac4c0e0e, type: 3}
+  - {fileID: 21300000, guid: 7f7de2f7e68b86046aea56ce823ec64f, type: 3}
   - {fileID: 21300000, guid: 9e3414f77abadea4da3141cf38660810, type: 3}
   - {fileID: 21300000, guid: e888d5f701eb8b44a84dc9d0048d9bd3, type: 3}
   - {fileID: 545223147, guid: 106f7408328aef14788ebd50591246c2, type: 3}
@@ -2300,6 +2307,7 @@ SpriteAtlas:
   - {fileID: 21300002, guid: 4ee0b24a2fed7614d9c7c521dc2fb06b, type: 3}
   - {fileID: 21300016, guid: 4ee0b24a2fed7614d9c7c521dc2fb06b, type: 3}
   - {fileID: 21300018, guid: 4ee0b24a2fed7614d9c7c521dc2fb06b, type: 3}
+  - {fileID: 21300000, guid: fdb8715ad0631724e921b7ae055ff028, type: 3}
   - {fileID: 21300000, guid: 9297226a50906d241b33fe232c0d627c, type: 3}
   - {fileID: 21300000, guid: a075536a0d7aafb499af92e43db8c68c, type: 3}
   - {fileID: 21300000, guid: de6fe57a7a86d9244a27ee58ac41bbe4, type: 3}
@@ -2875,6 +2883,7 @@ SpriteAtlas:
   - PC Computer - Stardew Valley - Emotes_12
   - PC Computer - Stardew Valley - Emotes_11
   - PC Computer - Stardew Valley - Emotes_10
+  - slotPopravit
   - Iicon_32_40
   - PC Computer - RPG Maker MV - Portraits_40
   - PC Computer - RPG Maker MV - Portraits_41
@@ -3008,6 +3017,7 @@ SpriteAtlas:
   - Ring_6
   - chest1
   - grey_button10
+  - slotPopravitHighlight
   - half 16x16
   - grey_crossWhite
   - grey_boxCheckmark
@@ -3270,6 +3280,7 @@ SpriteAtlas:
   - BodyArmor_10
   - Iicon_32_06
   - Inside2_1
+  - slotPopravitHighlight2
   - dole bow
   - g4234
   - crops_9
@@ -3649,6 +3660,7 @@ SpriteAtlas:
   - Kuce_1
   - Kuce_8
   - Kuce_9
+  - 23 - Copy
   - Iicon_32_36
   - g4914
   - Iicon_32_01

@@ -9,6 +9,9 @@ public class CreateMap : ScriptableObject
     public GameObject Enemy;
     new public int MaxCount = 0;
     new public float RespawnTime = 0;
+    new public string mapName ="";
+    new public Vector2 maxPosition;
+    new public Vector2 minPosition;
 }
 
 

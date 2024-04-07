@@ -47,7 +47,8 @@ public enum TypeOfItem
     Equipment,
     Quest,
     Arrows,
-    Plantable
+    Plantable,
+    Star
 }
 public enum TypeOfEquipment
 {

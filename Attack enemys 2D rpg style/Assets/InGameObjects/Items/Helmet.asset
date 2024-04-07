@@ -15,8 +15,10 @@ MonoBehaviour:
   Type: 1
   TypeOfEquipment: 2
   ID: 0
-  name: Helmet 1
-  description: just helmet
+  name: Vigorplate Helm
+  description: Crafted from reinforced steel plates, the Vigorplate Helm fortifies
+    the wearer's constitution, granting increased resilience and endurance in the
+    heat of battle. ( Constitution + 1 )
   pickable: 1
   isStackable: 0
   Price: 170
@@ -24,5 +26,7 @@ MonoBehaviour:
   StrenghtBoost: 0
   ConstitutionBoost: 1
   DexterityBoost: 0
+  MonsterGoldBonus: 0
+  nullify: 0
   icon: {fileID: 21300000, guid: 8cb85d359c56ca841bff274d71060b04, type: 3}
   isDefaultItem: 0

@@ -40,23 +40,23 @@ public class RunningScr : MonoBehaviour
                 break;
             case 1:
                 maxSpeed = 18;
-                walkSpeed = 11;
+                walkSpeed = 10;
                 break;
             case 2:
                 maxSpeed = 20;
-                walkSpeed = 12;
+                walkSpeed = 11;
                 break;
             case 3:
                 maxSpeed = 22;
-                walkSpeed = 13;
+                walkSpeed = 11;
                 break;
             case 4:
                 maxSpeed = 24;
-                walkSpeed = 14;
+                walkSpeed = 12;
                 break;
             case 5:
                 maxSpeed = 26;
-                walkSpeed = 15;
+                walkSpeed = 12;
                 break;
         }
     }
@@ -94,7 +94,7 @@ public class RunningScr : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
       
 
@@ -118,7 +118,7 @@ public class RunningScr : MonoBehaviour
         else
         {
             PlayerScr.trci = false;
-            PlayerScr.speed = 10;
+            PlayerScr.speed = walkSpeed;
             if (value < maxValue && PlayerScr.canRun)
             {
                 value += chargingSpeed * Time.deltaTime;

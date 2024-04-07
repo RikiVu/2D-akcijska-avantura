@@ -42,6 +42,11 @@ public class item : MonoBehaviour
     public Transform TipLocation;
     private GameObject alertPanelGm;
     private AlertPanelScr alertPanelScr;
+    [SerializeField]
+    private Image SlotImg;
+    private Sprite originalSlot;
+    [SerializeField]
+    private Sprite SlotImgHighlight;
 
     public void Awake()
     {
@@ -50,6 +55,7 @@ public class item : MonoBehaviour
         Tooltip = GameObject.FindGameObjectWithTag("ToolTip");
         sprite = this.gameObject.GetComponent<Image>();
         tooltipSCR = Tooltip.GetComponent<toolTipScr>();
+        originalSlot = SlotImg.sprite;
     }
 
     // Start is called before the first frame update
@@ -303,8 +309,9 @@ public class item : MonoBehaviour
 
     public void PointerEnter()
     {
-        if (haveItem)
+        if (haveItem) 
         {
+            SlotImg.sprite = SlotImgHighlight;
             Tooltip.SetActive(true);
             tooltipSCR.ChangeText(name, description);
             Tooltip.transform.position = TipLocation.position;
@@ -353,6 +360,7 @@ public class item : MonoBehaviour
 
     public void PointerExit()
     {
+        SlotImg.sprite = originalSlot;
         Tooltip.SetActive(false);
     }
 }

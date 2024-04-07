@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,8 @@ public class HeartManager : MonoBehaviour
     public static float playerMaxHealth;
     public static float playerCurrentHealth;
     float tempHealth;
+    public TextMeshProUGUI heartsCountText;
+    public TextMeshProUGUI heartsCountText2;
     //public FloatValue heartContainers;
     //public FloatValue playerCurrentHealth;
 
@@ -22,6 +25,8 @@ public class HeartManager : MonoBehaviour
     {
         playerMaxHealth = setPlayerMaxHealth ;
         playerCurrentHealth = playerMaxHealth;
+        heartsCountText.text = (playerMaxHealth / 2).ToString();
+        heartsCountText2.text = " = " + (playerMaxHealth).ToString() + " hitpoints";
         InitHearts();
     }
 
@@ -35,7 +40,9 @@ public class HeartManager : MonoBehaviour
         {
             playerMaxHealth = setPlayerMaxHealth + (constitution + constitution);
         }
-    
+        heartsCountText.text = (playerMaxHealth / 2).ToString();
+        heartsCountText2.text = " = "+ (playerMaxHealth).ToString() + " hitpoints";
+
         InitHearts();
     }
     // Start is called before the first frame update

@@ -14,12 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   TypeOfEquipment: 0
-  name: Arrows
-  description: arrow
+  ID: 0
+  name: Arrow
+  description: Plain arrow.
   pickable: 1
   isStackable: 0
   Price: 30
-  damageBoost: 0
   HealthBoost: 0
+  StrenghtBoost: 0
+  ConstitutionBoost: 0
+  DexterityBoost: 0
+  MonsterGoldBonus: 0
+  nullify: 0
   icon: {fileID: 21300000, guid: c404913fdbf3614438b39d5f3374edd3, type: 3}
   isDefaultItem: 0

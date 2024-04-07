@@ -85,6 +85,8 @@ public class PlayerScr : MonoBehaviour
     public ArmorManager armorManager;
 
     private static PlayerScr playerInstance;
+
+    public AlertPanelScr alertPanelScr;
     void Awake()
     {
         GodMode = SetGodMode;
@@ -345,6 +347,18 @@ public class PlayerScr : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         cooldownBool = true;
     }
+    private IEnumerator DeathCo()
+    {
+        GameManager.gameOver = true;
+        FlashActive = false;
+        PlayerSprite.color = new Color(255, 255, 255);
+        myRididbody.velocity = Vector2.zero;
+        animator.SetBool("Death", true);
+        yield return new WaitForSeconds(1.5f);
+        alertPanelScr.showAlertPanel("Game over!");
+        yield return new WaitForSeconds(1f);
+        Time.timeScale = 0;
+    }
 
 
     private void BowShoot()
@@ -383,9 +397,7 @@ public class PlayerScr : MonoBehaviour
                     }
                     else
                     {
-                        //death
-                        this.gameObject.SetActive(false);
-                        Time.timeScale = 0;
+                        StartCoroutine(DeathCo());
                     }
                 }
             }
@@ -482,21 +494,4 @@ public class PlayerScr : MonoBehaviour
             flashCounter -= Time.deltaTime;
         }
     }
-
-    /*
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag =="Obstacle" && collision.isTrigger)
-        {
-            PlayerSprite.sortingOrder = collision.GetComponent<SpriteRenderer>().sortingOrder - 1;
-            inCollision = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-      if(inCollision == false)
-            PlayerSprite.sortingOrder = 3;
-    }
-    */
 }

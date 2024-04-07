@@ -329,7 +329,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1c5b8aec35f215041b90954e2df12fbc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf365d0278ea64a4d9dc64cf4489e6b7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -719,6 +719,8 @@ MonoBehaviour:
   EquipmentScr: {fileID: 0}
   equiped: 0
   TipLocation: {fileID: 8026805046485535756}
+  SlotImg: {fileID: 8064093139131782255}
+  SlotImgHighlight: {fileID: 21300000, guid: 7f7de2f7e68b86046aea56ce823ec64f, type: 3}
 --- !u!1 &5603245483159117650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,8 +1054,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.7, y: 1.6}
-  m_SizeDelta: {x: 7.75, y: 16.22}
+  m_AnchoredPosition: {x: -0.258, y: 0.0216}
+  m_SizeDelta: {x: 11.6643, y: 13.0633}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5759737025942225657
 CanvasRenderer:
@@ -1110,15 +1112,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17
+  m_fontSize: 11.65
   m_fontSizeBase: 17
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 7
+  m_fontSizeMax: 30.1
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
@@ -35,12 +35,16 @@ public class Inventory : MonoBehaviour
 
     private int spaceInInventory;
     public AlertPanelScr alertPanelScr;
+    public TextMeshProUGUI starsCountText;
+    [SerializeField]
+    private int starCount = 0;
 
     // Start is called before the first frame update
     public  virtual void  Awake()
     {
         Pun = 0;
         spaceInInventory = slot.Length;
+        starsCountText.text = starCount.ToString();
     }
 
     private void Update()
@@ -80,7 +84,7 @@ public class Inventory : MonoBehaviour
         {
             itemScr = slot[b].GetComponentInChildren<item>();
             itemScr.CantUse = true;
-            if (itemScr.haveItem && itemScr.Type != TypeOfItem.Quest)
+            if (itemScr.haveItem && itemScr.Type != TypeOfItem.Quest && itemScr.Type != TypeOfItem.Star)
             {
                 itemScr.DeleteButton.SetActive(true);
                 itemScr.SellButton.SetActive(false);
@@ -94,7 +98,8 @@ public class Inventory : MonoBehaviour
     public void ActivateSellFunc()
     {
         //SellButton.SetActive(false);
-        if(shopInventory.InShop== true)
+        Debug.Log("shopInventory.InShop : " + shopInventory.InShop);
+        if(shopInventory.InShop== true) 
         {
             closedTransfer = true;
             for (int b = 0; b < slot.Length; b++)
@@ -102,13 +107,13 @@ public class Inventory : MonoBehaviour
                 itemScr = slot[b].GetComponentInChildren<item>();
                 itemScr.CantUse = true;
                 
-                if (itemScr.haveItem && itemScr.Type != TypeOfItem.Quest)
+                if (itemScr.haveItem && itemScr.Type != TypeOfItem.Quest && itemScr.Type != TypeOfItem.Star)
                 {
                     itemScr.SellButton.SetActive(true);
                     itemScr.DeleteButton.SetActive(false);
                     itemScr.PlantButton.SetActive(false);
                 }
-
+               
             }
         }
         else
@@ -275,19 +280,27 @@ public class Inventory : MonoBehaviour
             {
                 continue;
             }
+            else if (itemScr.haveItem && item.isStackable && item.name == itemScr.name && item.Type == TypeOfItem.Star)
+            {
+             
+                itemScr.counter1++;
+                ++starCount;
+                starsCountText.text = starCount.ToString();
+                return;
+            }
             else if(itemScr.haveItem && item.isStackable && itemScr.counter1 < 5 && item.name == itemScr.name)
             {
-                
+                Debug.Log("ovaj2");
                 itemScr.counter1++;
                 if (item.Type == TypeOfItem.Quest)
                 {
                     num++;
                     Redirect.Gathering(item.name, num);
-
                 }
                 return;
             }
-            
+           
+
             else if (itemScr.haveItem == false)
             {
                 itemScr.thisItem = item;
@@ -303,6 +316,11 @@ public class Inventory : MonoBehaviour
                 {
                     num++;
                     Redirect.Gathering(item.name,num);
+                }
+                else if (itemScr.Type == TypeOfItem.Star)
+                {
+                    starCount++;
+                    starsCountText.text = starCount.ToString();
                 }
                 if (Pun == spaceInInventory)
                 {

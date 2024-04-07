@@ -15,8 +15,9 @@ MonoBehaviour:
   Type: 1
   TypeOfEquipment: 4
   ID: 0
-  name: Boots3
-  description: Legendary boots
+  name: Stormcaster Boots
+  description: ' Legendary in nature, these boots are imbued with magical enhancements
+    that grant the wearer unparalleled speed and agility. ( Dexterity + 3 )'
   pickable: 1
   isStackable: 0
   Price: 450
@@ -24,5 +25,7 @@ MonoBehaviour:
   StrenghtBoost: 0
   ConstitutionBoost: 0
   DexterityBoost: 3
+  MonsterGoldBonus: 0
+  nullify: 0
   icon: {fileID: 21300000, guid: 030b45c89461d344a96f7bada785ba7a, type: 3}
   isDefaultItem: 0

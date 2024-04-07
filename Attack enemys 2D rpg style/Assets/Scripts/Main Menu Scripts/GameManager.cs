@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI walkText;
     [SerializeField] private TextMeshProUGUI runText;
     public HeartManager heartManager;
+    public static bool gameOver = false;
 
 
 
@@ -48,10 +49,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Inventory.gameObject.SetActive(true);
-        ShopInventory.gameObject.SetActive(true);
+        //ShopInventory.gameObject.SetActive(true);
         //  InvScr = Inventory.GetComponent<Inventory>();
         Inventory.gameObject.SetActive(false);
-        ShopInventory.gameObject.SetActive(false);
+        //ShopInventory.gameObject.SetActive(false);
         QuestList.gameObject.SetActive(false);
         updateStats(stats.Strenght, stats.Dexterity, stats.Constitution);
 

@@ -15,8 +15,9 @@ MonoBehaviour:
   Type: 1
   TypeOfEquipment: 3
   ID: 0
-  name: Armor
-  description: This low budget armor
+  name: Common Chestplate
+  description: Sturdy leather armor with reinforced metal plating. ( Constitution
+    + 1 )
   pickable: 1
   isStackable: 0
   Price: 100
@@ -24,5 +25,7 @@ MonoBehaviour:
   StrenghtBoost: 0
   ConstitutionBoost: 1
   DexterityBoost: 0
+  MonsterGoldBonus: 0
+  nullify: 0
   icon: {fileID: 21300000, guid: f8cdeb6bf79b94c40924f9a87fccd179, type: 3}
   isDefaultItem: 0

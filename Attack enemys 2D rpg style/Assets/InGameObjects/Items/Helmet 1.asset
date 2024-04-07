@@ -15,8 +15,9 @@ MonoBehaviour:
   Type: 1
   TypeOfEquipment: 2
   ID: 0
-  name: Helmet 2
-  description: Light helmet
+  name: Shadowstride Mask
+  description: A sleek leather helm imbued with shadow magic, enhancing the wearer's
+    agility and evasiveness in combat. ( Dexterity + 1 )
   pickable: 1
   isStackable: 0
   Price: 150
@@ -24,5 +25,7 @@ MonoBehaviour:
   StrenghtBoost: 0
   ConstitutionBoost: 0
   DexterityBoost: 1
+  MonsterGoldBonus: 0
+  nullify: 0
   icon: {fileID: 21300000, guid: 3173a2f193407fb41b460393955c54cc, type: 3}
   isDefaultItem: 0

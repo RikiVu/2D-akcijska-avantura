@@ -16,7 +16,7 @@ MonoBehaviour:
   TypeOfEquipment: 1
   ID: 0
   name: Rusty sword
-  description: 'Old sword may break anytime '
+  description: Worn but sharp, a testament to past battles.  ( Strenght +1 )
   pickable: 1
   isStackable: 0
   Price: 80

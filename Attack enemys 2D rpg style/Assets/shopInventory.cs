@@ -11,6 +11,10 @@ public class shopInventory : Inventory
 
     // Start is called before the first frame update
 
+    public override void Awake()
+    {
+        Pun = 0;
+    }
 
 
     public void ClosePanel()

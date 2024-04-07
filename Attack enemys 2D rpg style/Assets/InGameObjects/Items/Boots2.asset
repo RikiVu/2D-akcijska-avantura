@@ -15,8 +15,9 @@ MonoBehaviour:
   Type: 1
   TypeOfEquipment: 4
   ID: 0
-  name: Boots2
-  description: Swift leather boots
+  name: Ironbound Boots
+  description: Crafted from hardened leather with steel toe caps, these boots offer
+    superior protection in battle and exploration. ( Dexterity + 2 )
   pickable: 1
   isStackable: 0
   Price: 300
@@ -24,5 +25,7 @@ MonoBehaviour:
   StrenghtBoost: 0
   ConstitutionBoost: 0
   DexterityBoost: 2
+  MonsterGoldBonus: 0
+  nullify: 0
   icon: {fileID: 21300000, guid: ee7abc193393eb248b8b92f0b0a18924, type: 3}
   isDefaultItem: 0

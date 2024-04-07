@@ -56,7 +56,8 @@ public class Menu : MonoBehaviour
         {
             EscPanel.SetActive(false);
             escOppened = false;
-            Time.timeScale = 1;
+            if(GameManager.gameOver==false)
+                Time.timeScale = 1;
 
         }
         if(optionsOppened == true)
@@ -144,7 +145,8 @@ public class Menu : MonoBehaviour
         {
             EscPanel.SetActive(false);
             escOppened = false;
-            Time.timeScale = 1;
+            if (GameManager.gameOver == false)
+                Time.timeScale = 1;
         }
     }
     public void GotoMainMenu()

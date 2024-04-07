@@ -15,9 +15,9 @@ MonoBehaviour:
   Type: 1
   TypeOfEquipment: 1
   ID: 0
-  name: Shalamayne
-  description: This blade does not belong to darkness. It was forged by valor. Strenght
-    +3
+  name: Stormforged Blade
+  description: Forged in the heart of a raging tempest, this sword crackles with
+    raw power, ready to unleash lightning-fast strikes on foes. ( Strenght + 3 )
   pickable: 1
   isStackable: 0
   Price: 1000

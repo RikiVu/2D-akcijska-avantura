@@ -16,7 +16,8 @@ MonoBehaviour:
   TypeOfEquipment: 5
   ID: 0
   name: Ring of luck
-  description: Monster gold drop +25%
+  description: This enchanted ring, known as the Lucky Band of Prosperity, increases
+    the gold dropped by defeated monsters by 25% ( Monster gold drop +25% )
   pickable: 1
   isStackable: 0
   Price: 220
@@ -25,5 +26,6 @@ MonoBehaviour:
   ConstitutionBoost: 0
   DexterityBoost: 0
   MonsterGoldBonus: 0.25
+  nullify: 0
   icon: {fileID: 21300000, guid: 85be880bbe41b424bbcc44de91f9962a, type: 3}
   isDefaultItem: 0

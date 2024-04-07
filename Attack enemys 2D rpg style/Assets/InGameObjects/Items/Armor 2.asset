@@ -15,8 +15,9 @@ MonoBehaviour:
   Type: 1
   TypeOfEquipment: 3
   ID: 0
-  name: Armor3
-  description: This is legendary armor
+  name: Epic Chestplate
+  description: Legendary armor imbued with potent magical enchantments. ( Constitution
+    + 3 )
   pickable: 1
   isStackable: 0
   Price: 1000
@@ -24,5 +25,7 @@ MonoBehaviour:
   StrenghtBoost: 0
   ConstitutionBoost: 3
   DexterityBoost: 0
+  MonsterGoldBonus: 0
+  nullify: 0
   icon: {fileID: 21300000, guid: 652506ceb1f1c39458d820f2772ca444, type: 3}
   isDefaultItem: 0

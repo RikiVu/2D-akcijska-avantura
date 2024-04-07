@@ -15,8 +15,9 @@ MonoBehaviour:
   Type: 1
   TypeOfEquipment: 5
   ID: 0
-  name: Ring of Protection
-  description: Nullifies damage once per 20 seconds
+  name: Sentinel's Ward Ring
+  description: Ring possesses the ability to nullify incoming damage once every 20
+    seconds.
   pickable: 1
   isStackable: 0
   Price: 500

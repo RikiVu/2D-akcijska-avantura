@@ -15,8 +15,9 @@ MonoBehaviour:
   Type: 1
   TypeOfEquipment: 3
   ID: 0
-  name: Armor
-  description: Fine armor
+  name: Rare Chestplate
+  description: Hardened steel with intricate engravings, offering superior defense.
+    ( Constitution + 2 )
   pickable: 1
   isStackable: 0
   Price: 400
@@ -24,5 +25,7 @@ MonoBehaviour:
   StrenghtBoost: 0
   ConstitutionBoost: 2
   DexterityBoost: 0
+  MonsterGoldBonus: 0
+  nullify: 0
   icon: {fileID: 21300000, guid: 53554ec72c8483a41a89f08a0c86af7e, type: 3}
   isDefaultItem: 0
