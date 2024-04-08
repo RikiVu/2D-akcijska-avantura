@@ -56,8 +56,10 @@ public class NpcScr : MonoBehaviour
         if (other.CompareTag("Player") && other.isTrigger)
         {
             playerInRange = false;
-            dialogBoxScr.hideDialog();
-      
+            if (dialogBoxScr != null)
+            {
+                dialogBoxScr.hideDialog();
+            }
             anim.SetFloat("x", animationTurnDirection.x);
             anim.SetFloat("y", animationTurnDirection.y);
         }

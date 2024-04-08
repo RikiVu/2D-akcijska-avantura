@@ -9,7 +9,7 @@ public class ShopNPC : NpcScr
     public shopInventory ShopInvScr;
     public static int id;
     private int CounterOfItems;
-    private bool talking = false;
+   // private bool talking = false;
 
     // public static bool CanRemove = false;
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class ShopNPC : NpcScr
     {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                talking = true;
+                //talking = true;
                 dialogBoxScr.currentQuestGiver = this.gameObject;
                 dialogBoxScr.showDialogShop(dialogTekst);
                 ShopInvScr.DeleteItems();
@@ -43,7 +43,7 @@ public class ShopNPC : NpcScr
         itemsInStock[id] = null;
     }
 
-    void Update()
+    protected override void Update()
     {
         if (playerInRange == true)
         {

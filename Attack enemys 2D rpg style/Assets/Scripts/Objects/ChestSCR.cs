@@ -64,7 +64,7 @@ void Update()
         }
        else if (Input.GetKeyDown(KeyCode.E) && !chestCollected  && chestOppened)
         {
-            if(Inventory.isFull == false)
+            if(Inventory.isFull == false || ChestItem.Type == TypeOfItem.Star)
             {
                 chestInvScr.sendToInv();
                 chestCollected = true;

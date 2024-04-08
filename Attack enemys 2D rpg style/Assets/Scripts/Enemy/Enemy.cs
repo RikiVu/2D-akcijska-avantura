@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
     private Vector3 pos;
     public GameObject healthBar;
     public GameObject HealthTip_Go;
-    public TextMeshProUGUI name;
+    public TextMeshProUGUI nameOfNpc;
     [SerializeField]
     private CanvasGroup healthGroup;
     public Transform hitBox;
@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
     public virtual Transform Select()
     {
         Debug.Log(enemyName);
-        name.text = enemyName;
+        nameOfNpc.text = enemyName;
         Enemy1 = true;
         if (enemyName != "Arachne")
             healthGroup.alpha = 1;
@@ -85,7 +85,7 @@ public class Enemy : MonoBehaviour
         
             healthGroup = GameObject.FindGameObjectWithTag("EnemyCanvas").GetComponent<CanvasGroup>();
             HealthTip_Go = GameObject.FindGameObjectWithTag("EnemyHealth");
-            name = GameObject.FindGameObjectWithTag("EnemyName").GetComponent<TextMeshProUGUI>();
+            nameOfNpc = GameObject.FindGameObjectWithTag("EnemyName").GetComponent<TextMeshProUGUI>();
             EnemyToolTip = GameObject.FindGameObjectWithTag("EnemyToolTip");
             hearts = EnemyToolTip.GetComponent<EnemyToolTip>().hearts;
         }
@@ -198,7 +198,7 @@ public class Enemy : MonoBehaviour
     public void UpdateHearts()
     {
 
-        name.text = enemyName;
+        nameOfNpc.text = enemyName;
         float tempHealth = Health / 2;
         for (int i = 0; i < MaxHealth/2; i++)
         {
@@ -271,5 +271,5 @@ public class Enemy : MonoBehaviour
             isTargetable = true;
         }
     }
-
+    //
 }

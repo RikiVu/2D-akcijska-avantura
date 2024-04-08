@@ -28,6 +28,7 @@ public class item : MonoBehaviour
     public GameObject stackCount;
     public TextMeshProUGUI broj;
     public int counter1 = 1;
+    [SerializeField]
     toolTipScr tooltipSCR;
     public bool PlayerInv;
     public CreateItem thisItem;
@@ -52,21 +53,25 @@ public class item : MonoBehaviour
     {
         alertPanelGm = GameObject.FindGameObjectWithTag("alertPanel");
         alertPanelScr = alertPanelGm.GetComponent<AlertPanelScr>();
-        Tooltip = GameObject.FindGameObjectWithTag("ToolTip");
         sprite = this.gameObject.GetComponent<Image>();
-        tooltipSCR = Tooltip.GetComponent<toolTipScr>();
         originalSlot = SlotImg.sprite;
+        if(tooltipSCR== null)
+        {
+            Tooltip = GameObject.FindGameObjectWithTag("ToolTip");
+
+            if (Tooltip.GetComponent<toolTipScr>() != null)
+            {
+                Debug.Log("tooltip nije null");
+                tooltipSCR = Tooltip.GetComponent<toolTipScr>();
+            }
+        }
+       
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
-
-
         plyScr = Player.GetComponent<PlayerScr>();
-
-
         if (img != null)
         {
             //ImageObject.;
@@ -239,7 +244,7 @@ public class item : MonoBehaviour
                 haveItem = false;
                 SellButton.SetActive(false);
             }
-            PlayerScr.Gold += thisItem.Price / 4;
+            PlayerScr.Gold += thisItem.Price / 2;
         }
     }
     bool temp = false;

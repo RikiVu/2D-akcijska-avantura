@@ -110,12 +110,20 @@ public class DialogScr : MonoBehaviour
 
     public void hideDialog()
     {
-        talking = false;
-        if(rectTransform!=null)
-            rectTransform.anchoredPosition = new Vector3(0, -200, 0);
-        StopCoroutine(FreezeCo());
-        coroutineStarted = false;
-        placeHolder = "";
+        try
+        {
+            talking = false;
+            if (rectTransform != null)
+                rectTransform.anchoredPosition = new Vector3(0, -200, 0);
+            StopCoroutine(FreezeCo());
+            coroutineStarted = false;
+            placeHolder = "";
+        }
+        catch
+        {
+            Debug.Log("bug");
+        }
+      
     }
 
     private IEnumerator FreezeCo()

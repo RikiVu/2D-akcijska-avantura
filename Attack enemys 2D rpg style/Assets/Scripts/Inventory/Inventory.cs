@@ -27,7 +27,7 @@ public class Inventory : MonoBehaviour
      public int Pun = 0;
     protected int Prazan = 0;
     public Redirect_Quest Redirect;
-    bool closedTransfer = true;
+    protected bool closedTransfer = false;
 
     public CreateItem testMrkva;
     public GameObject panelInv;
@@ -42,15 +42,18 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     public  virtual void  Awake()
     {
+        closedTransfer = false;
         Pun = 0;
         spaceInInventory = slot.Length;
         starsCountText.text = starCount.ToString();
     }
 
     private void Update()
-    {
+    {           //mozda izmjene
+        /*
         if (shopInventory.InShop == false && closedTransfer)
             CloseShop();
+    */
     }
 
     public void checkSpaceInInventory(int amount)
@@ -59,16 +62,7 @@ public class Inventory : MonoBehaviour
         isFull = false;
     }
 
-    void  CloseShop()
-    {
-        DeactivateDeleteFunc();
-        itemScr.priceGM.SetActive(false);
-        closedTransfer = false;
-        Debug.Log("closed");
-        
-
-
-    }
+  
    public void CloseInv()
     {
         gM.CloseInv();
@@ -265,28 +259,28 @@ public class Inventory : MonoBehaviour
 
         public void AddItem(CreateItem item)
         {
+
+        if (item.Type == TypeOfItem.Star)
+        {
+            ++starCount;
+            starsCountText.text = starCount.ToString();
+            return;
+        }
+
         if (isFull)
         {
+            Debug.Log("ovdi?");
             alertPanelScr.showAlertPanel("No space in inventory");
             return;
         }
         //Ako inv nije pun...
- 
+
         for (int  i = 0; i < slot.Length; i++)
         {     
             itemScr = slot[i].GetComponentInChildren<item>();
-         
             if (itemScr.haveItem && item.isStackable == false)
             {
                 continue;
-            }
-            else if (itemScr.haveItem && item.isStackable && item.name == itemScr.name && item.Type == TypeOfItem.Star)
-            {
-             
-                itemScr.counter1++;
-                ++starCount;
-                starsCountText.text = starCount.ToString();
-                return;
             }
             else if(itemScr.haveItem && item.isStackable && itemScr.counter1 < 5 && item.name == itemScr.name)
             {
@@ -299,8 +293,6 @@ public class Inventory : MonoBehaviour
                 }
                 return;
             }
-           
-
             else if (itemScr.haveItem == false)
             {
                 itemScr.thisItem = item;
@@ -316,11 +308,6 @@ public class Inventory : MonoBehaviour
                 {
                     num++;
                     Redirect.Gathering(item.name,num);
-                }
-                else if (itemScr.Type == TypeOfItem.Star)
-                {
-                    starCount++;
-                    starsCountText.text = starCount.ToString();
                 }
                 if (Pun == spaceInInventory)
                 {

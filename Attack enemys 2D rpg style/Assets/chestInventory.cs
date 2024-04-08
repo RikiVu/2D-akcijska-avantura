@@ -38,12 +38,20 @@ public class chestInventory : MonoBehaviour
     }
     public void DeleteItems()
     {
-        itemScr = slot.GetComponentInChildren<item>();
-        itemScr.PlayerInv = false;
-        if (itemScr.haveItem)
+        try
         {
-            itemScr.Destroy();
+            itemScr = slot.GetComponentInChildren<item>();
+            itemScr.PlayerInv = false;
+            if (itemScr.haveItem)
+            {
+                itemScr.Destroy();
+            }
         }
+        catch
+        {
+            Debug.Log("bug");
+        }
+      
     }
 }
 

@@ -13,7 +13,12 @@ public class shopInventory : Inventory
 
     public override void Awake()
     {
+        closedTransfer = false;
         Pun = 0;
+    }
+    private void Start()
+    {
+       // CloseShop();
     }
 
 
@@ -25,6 +30,13 @@ public class shopInventory : Inventory
         ParentGM.SetActive(false);
         InShop = false;
         
+    }
+    void CloseShop()
+    {
+        DeactivateDeleteFunc();
+        itemScr.priceGM.SetActive(false);
+        closedTransfer = false;
+        Debug.Log("closed");
     }
 
     public void DeleteItems()
@@ -65,14 +77,6 @@ public class shopInventory : Inventory
 
             }
 
-        }
-    }
-
-    private void Update()
-    {
-        if(this.gameObject.activeInHierarchy)
-        {
-            InShop = true; 
         }
     }
 
