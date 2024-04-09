@@ -30,28 +30,9 @@ public class chestInventory : MonoBehaviour
  
     public void sendToInv()
     {
-        if(Inventory.isFull == false)
-        {
             itemScr.ChestSend(itemScr.thisItem);
-            DeleteItems();
-        }
+          
     }
-    public void DeleteItems()
-    {
-        try
-        {
-            itemScr = slot.GetComponentInChildren<item>();
-            itemScr.PlayerInv = false;
-            if (itemScr.haveItem)
-            {
-                itemScr.Destroy();
-            }
-        }
-        catch
-        {
-            Debug.Log("bug");
-        }
-      
-    }
+ 
 }
 

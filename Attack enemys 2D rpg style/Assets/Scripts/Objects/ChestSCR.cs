@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 // ovo gore su libary 
 public class ChestSCR : MonoBehaviour
 {
@@ -106,19 +107,19 @@ void Update()
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && other.isTrigger)
-        {
-            Debug.Log("out of range");
-            chestInvScr.DeleteItems();
-            playerInRange = false;
-            chestOppened = false;
-            //anim.SetBool("Oppened", false);
-            ChestPanel.SetActive(false);
-            contextOff.Raise();
-           if(!chestCollected)
-                anim.SetBool("Oppened", false);
+     
+            if (other.CompareTag("Player") && other.isTrigger)
+            {
+               // Debug.Log("out of range");
+                playerInRange = false;
+                chestOppened = false;
+                //anim.SetBool("Oppened", false);
+                //ChestPanel.SetActive(false);
+                contextOff.Raise();
+                if (!chestCollected)
+                    anim.SetBool("Oppened", false);
 
-        }
+            }
     }
 
 

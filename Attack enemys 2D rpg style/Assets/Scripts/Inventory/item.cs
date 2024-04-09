@@ -23,7 +23,8 @@ public class item : MonoBehaviour
     public GameObject DeleteButton;
     public GameObject SellButton;
     public GameObject PlantButton;
-    private GameObject Tooltip;
+    [SerializeField]
+    protected GameObject Tooltip;
     public bool CantUse = false;
     public GameObject stackCount;
     public TextMeshProUGUI broj;
@@ -61,7 +62,7 @@ public class item : MonoBehaviour
 
             if (Tooltip.GetComponent<toolTipScr>() != null)
             {
-                Debug.Log("tooltip nije null");
+                //Debug.Log("tooltip nije null");
                 tooltipSCR = Tooltip.GetComponent<toolTipScr>();
             }
         }
