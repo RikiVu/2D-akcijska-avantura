@@ -1,0 +1,12 @@
+{
+    "spawnPosition": {
+        "x": 88.52172088623047,
+        "y": 123.37442779541016,
+        "z": 0.0
+    },
+    "godMode": true,
+    "currentHealth": 10.0,
+    "gold": 450.0,
+    "arrows": 20,
+    "stars": 1
+}

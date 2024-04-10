@@ -138,7 +138,6 @@ public class PlayerScr : MonoBehaviour
     }
     private void Update()
     {
-     
         if(arrowCounter !=null)
         arrowCounter.text = Arrows.ToString();
         if (Input.GetKeyDown(KeyCode.Q) && currentState != PlayerState.attack && currentState != PlayerState.stagger && cooldownBool == true && !trci && MyTarget != null && CanDash && !CantAtt)
@@ -149,13 +148,10 @@ public class PlayerScr : MonoBehaviour
             Vector3 tempVector = MyTarget.transform.position - transform.position;
             IsDashing = true;
             Dash(tempVector);
-
-
         }
-
-       
-
     }
+
+  
 
     // Update is called once per frame
     void FixedUpdate()

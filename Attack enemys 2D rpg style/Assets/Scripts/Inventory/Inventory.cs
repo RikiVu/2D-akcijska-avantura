@@ -36,8 +36,8 @@ public class Inventory : MonoBehaviour
     private int spaceInInventory;
     public AlertPanelScr alertPanelScr;
     public TextMeshProUGUI starsCountText;
-    [SerializeField]
-    private int starCount = 0;
+
+    public static int starCount = 0;
 
     // Start is called before the first frame update
     public  virtual void  Awake()
@@ -45,6 +45,11 @@ public class Inventory : MonoBehaviour
         closedTransfer = false;
         Pun = 0;
         spaceInInventory = slot.Length;
+        starsCountText.text = starCount.ToString();
+    }
+
+    public void loadInventory()
+    {
         starsCountText.text = starCount.ToString();
     }
 
