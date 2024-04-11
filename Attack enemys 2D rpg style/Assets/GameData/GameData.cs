@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -12,5 +13,7 @@ public class GameData
     public int strenght = 0;
     public int dexterity = 0;
     public int constitution = 0;
-
+    public List<CreateItem> items = new List<CreateItem>();
+    public List<CreateItem> equipment = new List<CreateItem>();
+    public CreateMap map;
 }

@@ -63,6 +63,12 @@ public class GameManager : MonoBehaviour
         strenght += Str;
         dexterity += Dex;
         constitution += Const;
+        if(strenght < 0)
+            strenght = 0;
+        if (dexterity < 0)
+            dexterity = 0;
+        if (constitution < 0)
+            constitution = 0;
         StrenghtText.text = strenght.ToString();
         DexterityText.text = dexterity.ToString();
         ConstitutionText.text = constitution.ToString();

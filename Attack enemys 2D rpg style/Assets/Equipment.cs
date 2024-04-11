@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+using static UnityEditor.Progress;
+
 public class Equipment : MonoBehaviour
 {
     public GameObject[] slot = new GameObject[6];
@@ -90,57 +93,88 @@ public class Equipment : MonoBehaviour
         item.DeleteButton.SetActive(false);
         Inventory.AddItem(item.thisItem);
     }
-  
-        public void AddItem(CreateItem item)
+
+    public void AddItem(CreateItem item)
     {
-        switch (item.TypeOfEquipment)
+            switch (item.TypeOfEquipment)
+            {
+                case TypeOfEquipment.None:
+                    break;
+                case TypeOfEquipment.Weapon:
+                    itemScr = slot[5].GetComponentInChildren<item>();
+                    conditionFunc(itemScr, item);
+                    PlayerScr.haveSword = true;
+                    AllowPassage.CanPass = true;
+                    break;
+                case TypeOfEquipment.Helmet:
+                    itemScr = slot[0].GetComponentInChildren<item>();
+                    conditionFunc(itemScr, item);
+                    break;
+                case TypeOfEquipment.Chest:
+                    itemScr = slot[1].GetComponentInChildren<item>();
+                    conditionFunc(itemScr, item);
+                    break;
+                case TypeOfEquipment.Boots:
+                    itemScr = slot[2].GetComponentInChildren<item>();
+                    conditionFunc(itemScr, item);
+                    break;
+                case TypeOfEquipment.Ring:
+                    itemScr = slot[3].GetComponentInChildren<item>();
+                    conditionFunc(itemScr, item);
+                    break;
+                case TypeOfEquipment.Bow:
+                    itemScr = slot[4].GetComponentInChildren<item>();
+                    if (itemScr.haveItem == false)
+                    {
+                        PlayerScr.haveBow = true;
+                        ItemLogic(itemScr, item);
+                    }           
+                    else
+                    {
+                        Inventory.AddItem(itemScr.thisItem);
+                        ItemLogic(itemScr, item);
+                    }
+                    break;
+                default:
+                    Debug.Log("NO");
+                    break;
+            }
+    }
+
+    public void WipeEquipment()
+    {
+        foreach (GameObject gm in slot)
         {
-            case TypeOfEquipment.None:
-                break;
-            case TypeOfEquipment.Weapon:
-                itemScr = slot[5].GetComponentInChildren<item>();
-                conditionFunc(itemScr, item);
-                PlayerScr.haveSword = true;
-                AllowPassage.CanPass = true;
-                break;
-            case TypeOfEquipment.Helmet:
-                itemScr = slot[0].GetComponentInChildren<item>();
-                conditionFunc(itemScr, item);
-                break;
-            case TypeOfEquipment.Chest:
-                itemScr = slot[1].GetComponentInChildren<item>();
-                conditionFunc(itemScr, item);
-                break;
-            case TypeOfEquipment.Boots:
-                itemScr = slot[2].GetComponentInChildren<item>();
-                conditionFunc(itemScr, item);
-                break;
-            case TypeOfEquipment.Ring:
-                itemScr = slot[3].GetComponentInChildren<item>();
-                conditionFunc(itemScr, item);
-                break;
-            case TypeOfEquipment.Bow:
-                itemScr = slot[4].GetComponentInChildren<item>();
-                if (itemScr.haveItem == false)
-                {
-                    PlayerScr.haveBow = true;
-                    ItemLogic(itemScr, item);
-                }           
-                else
-                {
-                    Inventory.AddItem(itemScr.thisItem);
-                    ItemLogic(itemScr, item);
-                }
-                break;
-            default:
-                Debug.Log("NO");
-                break;
+            itemScr = gm.GetComponentInChildren<item>();
+            if (itemScr.haveItem)
+            {
+                itemScr.UnEquipForLoad();
+                ItemLogicUnequip(itemScr.thisItem);
+                itemScr.DeleteButton.SetActive(false);
+            }
         }
     }
+    public List<CreateItem> SaveEquipment()
+    {
+        List<CreateItem> items = new List<CreateItem>();
+        foreach (GameObject gm in slot)
+        {
+            itemScr = gm.GetComponentInChildren<item>();
+            if (itemScr.haveItem)
+            {
+                items.Add(itemScr.thisItem);
+            }
+        }
+        return items;
+    }
+    public void LoadEquipment(List<CreateItem> items)
+    {
+        WipeEquipment();
+        foreach (CreateItem item1 in items)
+        {
+            AddItem(item1);
+        }
+    }
+
 }
 
-
-//armorManager.armorContainers += item.HealthBoost;
-//armorManager.Changed(item.HealthBoost);
-// armorManager.InitArmor(); armorManager.UpdateHearts();
-// armorManager.cooldown = false;

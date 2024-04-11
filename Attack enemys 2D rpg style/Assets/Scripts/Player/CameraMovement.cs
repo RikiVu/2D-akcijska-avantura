@@ -33,4 +33,9 @@ public class CameraMovement : MonoBehaviour
         alertPanelScr.showAlertPanel(name);
 
     }
+    public void MapTransfer(Vector2 valueMin, Vector2 valueMax)
+    {
+        minPosition = valueMin;
+        maxPosition = valueMax;
+    }
 }

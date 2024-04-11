@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using System;
+using static UnityEditor.Progress;
 
 public class Inventory : MonoBehaviour
 {
@@ -48,18 +50,7 @@ public class Inventory : MonoBehaviour
         starsCountText.text = starCount.ToString();
     }
 
-    public void loadInventory()
-    {
-        starsCountText.text = starCount.ToString();
-    }
-
-    private void Update()
-    {           //mozda izmjene
-        /*
-        if (shopInventory.InShop == false && closedTransfer)
-            CloseShop();
-    */
-    }
+  
 
     public void checkSpaceInInventory(int amount)
     {
@@ -261,8 +252,47 @@ public class Inventory : MonoBehaviour
         }
         */
     }
+    public void wipeInvenory()
+    {
+        for (int i = 0; i < slot.Length; i++)
+        {
+            itemScr = slot[i].GetComponentInChildren<item>();
+            if (itemScr.haveItem)
+            {
+                itemScr.Destroy();
+                num--;
+                Pun -= 1;
+                x++;
+            }
+        }
+    }
+    public List<CreateItem> SaveInventory()
+    {
+        List<CreateItem> items = new List<CreateItem>();
+        for (int i = 0; i < slot.Length; i++)
+        {
+            itemScr = slot[i].GetComponentInChildren<item>();
+            if (itemScr.haveItem)
+                items.Add(itemScr.thisItem);
+            continue;
+        }
+      
+        return items;
+    }
 
-        public void AddItem(CreateItem item)
+    public void LoadInventory(List<CreateItem> items)
+    {
+        starsCountText.text = starCount.ToString();
+        wipeInvenory();
+        foreach (CreateItem item1 in items)
+        {
+            AddItem(item1);
+        }
+    }
+
+
+
+    public void AddItem(CreateItem item)
         {
 
         if (item.Type == TypeOfItem.Star)

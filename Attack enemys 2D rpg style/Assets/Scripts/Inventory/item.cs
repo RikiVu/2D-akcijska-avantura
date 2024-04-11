@@ -311,6 +311,15 @@ public class item : MonoBehaviour
         }
 
     }
+    public void UnEquipForLoad()
+    {
+        Tooltip.SetActive(false);
+        name = null;
+        description = null;
+        img = null;
+        sprite.sprite = null;
+        haveItem = false;
+    }
 
 
     public void PointerEnter()

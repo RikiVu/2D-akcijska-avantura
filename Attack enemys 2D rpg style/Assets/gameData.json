@@ -1,12 +1,37 @@
 {
     "spawnPosition": {
-        "x": 88.52172088623047,
-        "y": 123.37442779541016,
+        "x": 170.39231872558595,
+        "y": 153.07789611816407,
         "z": 0.0
     },
     "godMode": true,
-    "currentHealth": 10.0,
-    "gold": 450.0,
+    "currentHealth": 8.0,
+    "gold": 12840.0,
     "arrows": 20,
-    "stars": 1
+    "stars": 0,
+    "strenght": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "items": [
+        {
+            "instanceID": 25436
+        },
+        {
+            "instanceID": 26266
+        },
+        {
+            "instanceID": 24910
+        },
+        {
+            "instanceID": 25814
+        }
+    ],
+    "equipment": [
+        {
+            "instanceID": 25036
+        }
+    ],
+    "map": {
+        "instanceID": 26182
+    }
 }
