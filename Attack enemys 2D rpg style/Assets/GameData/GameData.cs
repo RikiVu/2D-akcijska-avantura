@@ -15,5 +15,8 @@ public class GameData
     public int constitution = 0;
     public List<CreateItem> items = new List<CreateItem>();
     public List<CreateItem> equipment = new List<CreateItem>();
-    public CreateMap map;
+    public Vector2 camMaxPosition;
+    public Vector2 camMinPosition;
+    public List<ChestObject> chests = new List<ChestObject>();
+
 }

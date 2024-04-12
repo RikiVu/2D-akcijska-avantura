@@ -1,37 +1,80 @@
 {
     "spawnPosition": {
-        "x": 170.39231872558595,
-        "y": 153.07789611816407,
+        "x": 88.57417297363281,
+        "y": 123.79126739501953,
         "z": 0.0
     },
     "godMode": true,
     "currentHealth": 8.0,
-    "gold": 12840.0,
+    "gold": 13550.0,
     "arrows": 20,
-    "stars": 0,
+    "stars": 2,
     "strenght": 0,
     "dexterity": 0,
     "constitution": 0,
-    "items": [
-        {
-            "instanceID": 25436
-        },
-        {
-            "instanceID": 26266
-        },
-        {
-            "instanceID": 24910
-        },
-        {
-            "instanceID": 25814
-        }
-    ],
+    "items": [],
     "equipment": [
         {
-            "instanceID": 25036
+            "instanceID": 25040
         }
     ],
-    "map": {
-        "instanceID": 26182
-    }
+    "camMaxPosition": {
+        "x": 115.0,
+        "y": 165.0
+    },
+    "camMinPosition": {
+        "x": 44.0,
+        "y": 115.0
+    },
+    "chests": [
+        {
+            "id": 0,
+            "chestScr": {
+                "instanceID": 30668
+            },
+            "collected": false
+        },
+        {
+            "id": 1,
+            "chestScr": {
+                "instanceID": 31508
+            },
+            "collected": false
+        },
+        {
+            "id": 2,
+            "chestScr": {
+                "instanceID": 32482
+            },
+            "collected": false
+        },
+        {
+            "id": 3,
+            "chestScr": {
+                "instanceID": 33508
+            },
+            "collected": true
+        },
+        {
+            "id": 4,
+            "chestScr": {
+                "instanceID": 34474
+            },
+            "collected": true
+        },
+        {
+            "id": 5,
+            "chestScr": {
+                "instanceID": 35884
+            },
+            "collected": false
+        },
+        {
+            "id": 6,
+            "chestScr": {
+                "instanceID": 36792
+            },
+            "collected": false
+        }
+    ]
 }

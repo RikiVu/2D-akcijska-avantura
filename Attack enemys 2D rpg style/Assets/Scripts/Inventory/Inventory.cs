@@ -286,7 +286,8 @@ public class Inventory : MonoBehaviour
         wipeInvenory();
         foreach (CreateItem item1 in items)
         {
-            AddItem(item1);
+            if(item1 != null)
+                AddItem(item1);
         }
     }
 
@@ -294,7 +295,6 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(CreateItem item)
         {
-
         if (item.Type == TypeOfItem.Star)
         {
             ++starCount;

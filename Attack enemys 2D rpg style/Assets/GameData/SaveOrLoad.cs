@@ -26,6 +26,7 @@ public class SaveOrLoad : MonoBehaviour
     [SerializeField]
     private CreateMap mapScrObject;
     private CameraMovement cam;
+    public GameManager manager;
 
 
     private void Start()
@@ -33,7 +34,7 @@ public class SaveOrLoad : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScr>();
         cam = Camera.main.GetComponent<CameraMovement>();
     }
-    public void SavetoJson(Vector3 playerPosition, bool godmode, float health, float gold, int arrows, int stars, List<CreateItem> items, List<CreateItem> equipment)
+    public void SavetoJson(Vector3 playerPosition, bool godmode, float health, float gold, int arrows, int stars, List<CreateItem> items, List<CreateItem> equipment, List<ChestObject> chestList)
     {
         GameData data = new GameData();
         data.spawnPosition = playerPosition;
@@ -44,7 +45,9 @@ public class SaveOrLoad : MonoBehaviour
         data.stars = stars;
         data.items = items;
         data.equipment = equipment;
-        data.map= mapScrObject;
+        data.camMaxPosition= mapScrObject.maxPosition;
+        data.camMinPosition = mapScrObject.minPosition;
+        data.chests = chestList;
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(Application.dataPath + "/gameData.json", json);
     }
@@ -61,11 +64,11 @@ public class SaveOrLoad : MonoBehaviour
             HeartManager.playerCurrentHealth = data.currentHealth;
             PlayerScr.Gold = data.gold;
             PlayerScr.Arrows = data.arrows;
-            //player.loadPlayer();
             Inventory.starCount = data.stars;
             inventory.LoadInventory(data.items);
             equipment.LoadEquipment(data.equipment);
-            cam.MapTransfer(data.map.minPosition, data.map.maxPosition);
+            cam.MapTransfer(data.camMinPosition, data.camMaxPosition);
+            manager.loadChests(data.chests);
             alertPanelScr.showAlertPanel("Loaded");
         }
         else
@@ -79,7 +82,7 @@ public class SaveOrLoad : MonoBehaviour
     {
         if (!saved && !loading)
         {
-            SavetoJson(player.transform.position, PlayerScr.GodMode, HeartManager.playerCurrentHealth, PlayerScr.Gold, PlayerScr.Arrows, Inventory.starCount, inventory.SaveInventory(), equipment.SaveEquipment());
+            SavetoJson(player.transform.position, PlayerScr.GodMode, HeartManager.playerCurrentHealth, PlayerScr.Gold, PlayerScr.Arrows, Inventory.starCount, inventory.SaveInventory(), equipment.SaveEquipment(), manager.chestList) ;
             StartCoroutine(Saving());
         }
     }

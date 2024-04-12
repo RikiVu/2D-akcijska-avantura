@@ -9,25 +9,25 @@ public class ChestSCR : MonoBehaviour
     public CreateItem ChestItem;
     private Vector3 pos;
     public GameObject ItemsInsideObject;
-
+    
     public bool playerInRange;
     public SignalSender contextOn;
     public SignalSender contextOff;
 
     public GameObject ChestPanel;
-    private bool chestCollected;
+    public bool chestCollected;
     public Transform SpawnPosition;
     private Animator anim;
     public chestInventory chestInvScr;
     bool chestOppened = false;
-    float startTime = 0;
-    SpriteRenderer renderer;
-    private float HideCounter = 0f;
-    private float HideLenght = 0f;
+
 
 
     private GameObject alertPanelGm;
     private AlertPanelScr alertPanelScr;
+    public GameManager gameManager;
+    [SerializeField]
+    private int assignedId;
 
     void Start() // ovo se pokrece samo jednom
     {
@@ -36,8 +36,7 @@ public class ChestSCR : MonoBehaviour
         ChestPanel.SetActive(false);
         anim = GetComponent<Animator>(); // anim na foru dohvaca Animator u Unityu
         chestCollected = false; // bool moze bit samo true i false na pocetku "Start je false"
-        renderer = GetComponent<SpriteRenderer>();
-
+        assignedId = gameManager.addInChestList(this, chestCollected);
     }
 void Update()
 {
@@ -74,6 +73,7 @@ void Update()
                 //anim.SetBool("Oppened", false);
                 ChestPanel.SetActive(false);
                 contextOff.Raise();
+                gameManager.addInChestList(chestCollected, assignedId);
             }
             else
             {
@@ -81,6 +81,16 @@ void Update()
                 Debug.Log("No space in inventory!");
             }
         }
+    }
+
+    public void loadChest(bool state)
+    {
+        chestCollected = state;
+        if (!state)
+            anim.SetBool("Oppened", false);
+        else
+            anim.SetBool("Oppened", true);
+ 
     }
 
     // ako uzme itemee     chestCollected = true;
@@ -114,7 +124,7 @@ void Update()
                 playerInRange = false;
                 chestOppened = false;
                 //anim.SetBool("Oppened", false);
-                //ChestPanel.SetActive(false);
+                ChestPanel.SetActive(false);
                 contextOff.Raise();
                 if (!chestCollected)
                     anim.SetBool("Oppened", false);

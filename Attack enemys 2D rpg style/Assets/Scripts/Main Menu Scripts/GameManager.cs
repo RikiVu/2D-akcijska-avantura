@@ -42,12 +42,38 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI runText;
     public HeartManager heartManager;
     public static bool gameOver = false;
+    public List<ChestObject> chestList = new List<ChestObject>();
+    int i = 0;
+    private ChestSCR tempChestScr;
 
-
+    public int addInChestList(ChestSCR chestScr, bool state)
+    {
+        ChestObject tempChestObject = new ChestObject();
+        tempChestObject.chestScr = chestScr;
+        tempChestObject.collected = state;
+        tempChestObject.id = i;
+        ++i;
+        chestList.Add(tempChestObject);
+        return tempChestObject.id;
+    }
+    public void addInChestList(bool state, int Id)
+    {
+        chestList.Find(p => p.id == Id).collected = state;
+    }
+    public void loadChests(List<ChestObject> list)
+    {
+        chestList = list;
+        foreach (ChestObject c in chestList)
+        {
+            //tempChestScr =  c.chestScr.GetComponent<ChestSCR>();
+            c.chestScr.loadChest(c.collected);
+        }
+    }
 
 
     private void Start()
     {
+ 
         Inventory.gameObject.SetActive(true);
         //ShopInventory.gameObject.SetActive(true);
         //  InvScr = Inventory.GetComponent<Inventory>();
@@ -55,7 +81,6 @@ public class GameManager : MonoBehaviour
         //ShopInventory.gameObject.SetActive(false);
         QuestList.gameObject.SetActive(false);
         updateStats(stats.Strenght, stats.Dexterity, stats.Constitution);
-
     }
 
     public void updateStats(int Str, int Dex, int Const)
