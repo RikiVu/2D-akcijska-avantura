@@ -18,10 +18,16 @@ public class PlantAndHarvest : Interactable
     private int[] RandomAmountOfCrops = new int[] { 2, 3, 4 };
     int randomGeneratedNum,i;
 
+    public GameManager gameManager;
+    [SerializeField]
+    private int assignedId;
+
+
 
     private void Start()
     {
         currentState = PlantState.notPlanted;
+        assignedId = gameManager.addInPlantList(this, currentState, stageTime);
     }
 
     private void FixedUpdate()
@@ -43,6 +49,7 @@ public class PlantAndHarvest : Interactable
                     //animator.SetBool("Carrot", false);
                     animator.SetFloat("Stage", 0);
                     currentState = PlantState.notPlanted;
+                    gameManager.addInPlantList(currentState, assignedId);
                     playerInRange = false;
                     sendToInv();
                     break;
@@ -70,6 +77,45 @@ public class PlantAndHarvest : Interactable
         itemPlanted.img = item.icon;
         itemPlanted.Type = item.Type;
         itemPlanted.haveItem = true;
+        gameManager.addInPlantList(currentState, assignedId);
+    }
+    public void loadPlant(PlantState state, item itm)
+    {
+        currentState = state;
+     
+        switch (currentState)
+        {
+            case PlantState.notPlanted:
+                playerInRange = false;
+                stageTime = 0;
+                animator.SetBool("harvested", true);
+                animator.SetFloat("Stage", 0);
+                break;
+            case PlantState.planted:
+                itemPlanted.name = itm.name;
+                stageTime = 10;
+                itemPlanted.description = itm.description;
+                itemPlanted.img = itm.thisItem.icon;
+                itemPlanted.Type = itm.Type;
+                itemPlanted.haveItem = true;
+                animator.SetInteger("TypeOfCrop", itm.thisItem.ID);
+                animator.SetFloat("Stage", 0.1f);
+                break;
+            case PlantState.finished:
+                itemPlanted.name = itm.name;
+                stageTime = 100;
+                itemPlanted.description = itm.description;
+                itemPlanted.img = itm.thisItem.icon;
+                itemPlanted.Type = itm.Type;
+                itemPlanted.haveItem = true;
+                animator.SetInteger("TypeOfCrop", itm.thisItem.ID);
+                animator.SetFloat("Stage", 1);
+                break;
+            default:
+                Debug.Log("greska");
+                break;
+        }
+
     }
 
 
@@ -83,6 +129,7 @@ public class PlantAndHarvest : Interactable
             {
                 stageTime = 0;
                 currentState = PlantState.finished;
+                gameManager.addInPlantList(currentState, assignedId);
             }
         }
     }

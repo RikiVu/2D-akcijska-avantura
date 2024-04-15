@@ -25,6 +25,7 @@ public class ChestSCR : MonoBehaviour
 
     private GameObject alertPanelGm;
     private AlertPanelScr alertPanelScr;
+
     public GameManager gameManager;
     [SerializeField]
     private int assignedId;

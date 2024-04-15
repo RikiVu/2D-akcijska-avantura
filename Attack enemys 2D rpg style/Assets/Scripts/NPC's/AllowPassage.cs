@@ -12,11 +12,13 @@ public class AllowPassage : MonoBehaviour
     private string newText;
     private Animator anim;
     private NpcScr npcScr;
+    private Vector3 initalPos;
 
     private void Start()
     {  
         anim =  gameObject.GetComponent<Animator>();
         npcScr = gameObject.GetComponent<NpcScr>();
+        initalPos = transform.position;
     }
     private void Update()
     {
@@ -26,7 +28,7 @@ public class AllowPassage : MonoBehaviour
             npcScr.dialogTekst = newText;
             if (Vector3.Distance(movespots.position, transform.position) <= 1) {
 
-                CanPass = false;
+                //CanPass = false;
                 anim.SetBool("Moving", false);
                 gameObject.GetComponent<AllowPassage>().enabled = false;
             }
@@ -34,6 +36,23 @@ public class AllowPassage : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, movespots.position, speed * Time.deltaTime); //(current , target ,  speed)
             anim.SetFloat("x1", (movespots.position.x - transform.position.x));
             anim.SetFloat("y1", (movespots.position.y - transform.position.y));
+        }
+    }
+
+    public void load(bool value)
+    {
+        CanPass = value;
+        if (!value)
+        {
+            transform.position = initalPos;
+            anim.SetBool("Moving", false);
+            Wall.SetActive(true);
+        }
+        else
+        {
+            transform.position = movespots.position;
+            anim.SetBool("Moving", false);
+            Wall.SetActive(false);
         }
     }
 }

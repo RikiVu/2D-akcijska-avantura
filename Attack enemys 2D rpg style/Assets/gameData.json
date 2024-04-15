@@ -1,14 +1,14 @@
 {
     "spawnPosition": {
-        "x": 88.57417297363281,
-        "y": 123.79126739501953,
+        "x": 90.25140380859375,
+        "y": 118.66458129882813,
         "z": 0.0
     },
     "godMode": true,
     "currentHealth": 8.0,
     "gold": 13550.0,
     "arrows": 20,
-    "stars": 2,
+    "stars": 0,
     "strenght": 0,
     "dexterity": 0,
     "constitution": 0,
@@ -26,55 +26,230 @@
         "x": 44.0,
         "y": 115.0
     },
-    "chests": [
+    "pots": [
         {
             "id": 0,
-            "chestScr": {
-                "instanceID": 30668
+            "potScr": {
+                "instanceID": -17178
             },
-            "collected": false
+            "broken": false
         },
         {
-            "id": 1,
-            "chestScr": {
-                "instanceID": 31508
+            "id": 9,
+            "potScr": {
+                "instanceID": 36614
             },
-            "collected": false
+            "broken": false
         },
+        {
+            "id": 10,
+            "potScr": {
+                "instanceID": 36702
+            },
+            "broken": false
+        },
+        {
+            "id": 11,
+            "potScr": {
+                "instanceID": 36792
+            },
+            "broken": false
+        },
+        {
+            "id": 13,
+            "potScr": {
+                "instanceID": 36820
+            },
+            "broken": false
+        },
+        {
+            "id": 14,
+            "potScr": {
+                "instanceID": 36870
+            },
+            "broken": false
+        },
+        {
+            "id": 15,
+            "potScr": {
+                "instanceID": 37056
+            },
+            "broken": false
+        },
+        {
+            "id": 16,
+            "potScr": {
+                "instanceID": 37072
+            },
+            "broken": false
+        },
+        {
+            "id": 17,
+            "potScr": {
+                "instanceID": 37074
+            },
+            "broken": false
+        },
+        {
+            "id": 18,
+            "potScr": {
+                "instanceID": 37252
+            },
+            "broken": false
+        },
+        {
+            "id": 19,
+            "potScr": {
+                "instanceID": 37274
+            },
+            "broken": false
+        },
+        {
+            "id": 20,
+            "potScr": {
+                "instanceID": 37286
+            },
+            "broken": false
+        },
+        {
+            "id": 21,
+            "potScr": {
+                "instanceID": 37290
+            },
+            "broken": false
+        },
+        {
+            "id": 22,
+            "potScr": {
+                "instanceID": 37368
+            },
+            "broken": false
+        },
+        {
+            "id": 23,
+            "potScr": {
+                "instanceID": 37400
+            },
+            "broken": false
+        },
+        {
+            "id": 24,
+            "potScr": {
+                "instanceID": 37448
+            },
+            "broken": false
+        },
+        {
+            "id": 25,
+            "potScr": {
+                "instanceID": 37454
+            },
+            "broken": false
+        },
+        {
+            "id": 26,
+            "potScr": {
+                "instanceID": 37460
+            },
+            "broken": false
+        },
+        {
+            "id": 27,
+            "potScr": {
+                "instanceID": 37470
+            },
+            "broken": false
+        },
+        {
+            "id": 28,
+            "potScr": {
+                "instanceID": 37498
+            },
+            "broken": false
+        },
+        {
+            "id": 29,
+            "potScr": {
+                "instanceID": 38080
+            },
+            "broken": false
+        },
+        {
+            "id": 30,
+            "potScr": {
+                "instanceID": 38112
+            },
+            "broken": false
+        }
+    ],
+    "chests": [
         {
             "id": 2,
             "chestScr": {
-                "instanceID": 32482
+                "instanceID": 30682
             },
             "collected": false
         },
         {
             "id": 3,
             "chestScr": {
-                "instanceID": 33508
+                "instanceID": 31522
             },
-            "collected": true
-        },
-        {
-            "id": 4,
-            "chestScr": {
-                "instanceID": 34474
-            },
-            "collected": true
+            "collected": false
         },
         {
             "id": 5,
             "chestScr": {
-                "instanceID": 35884
+                "instanceID": 32496
             },
             "collected": false
         },
         {
             "id": 6,
             "chestScr": {
-                "instanceID": 36792
+                "instanceID": 33532
+            },
+            "collected": false
+        },
+        {
+            "id": 7,
+            "chestScr": {
+                "instanceID": 34498
+            },
+            "collected": false
+        },
+        {
+            "id": 8,
+            "chestScr": {
+                "instanceID": 35908
+            },
+            "collected": false
+        },
+        {
+            "id": 12,
+            "chestScr": {
+                "instanceID": 36816
             },
             "collected": false
         }
-    ]
+    ],
+    "plantList": [
+        {
+            "id": 1,
+            "plantAndHarvestScr": {
+                "instanceID": 30344
+            },
+            "stageTime": 0.0,
+            "isPlanted": 0
+        },
+        {
+            "id": 4,
+            "plantAndHarvestScr": {
+                "instanceID": 31852
+            },
+            "stageTime": 0.0,
+            "isPlanted": 0
+        }
+    ],
+    "canPass": true
 }

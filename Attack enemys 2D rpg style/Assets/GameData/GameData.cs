@@ -17,6 +17,9 @@ public class GameData
     public List<CreateItem> equipment = new List<CreateItem>();
     public Vector2 camMaxPosition;
     public Vector2 camMinPosition;
+    public List<PotObject> pots = new List<PotObject>();
     public List<ChestObject> chests = new List<ChestObject>();
+    public List<PlantAndHarvestObject> plantList = new List<PlantAndHarvestObject>();
+    public bool canPass;
 
 }

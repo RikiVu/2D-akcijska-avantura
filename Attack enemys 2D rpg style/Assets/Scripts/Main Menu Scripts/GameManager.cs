@@ -42,10 +42,49 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI runText;
     public HeartManager heartManager;
     public static bool gameOver = false;
+    public List<PotObject> potList = new List<PotObject>();
     public List<ChestObject> chestList = new List<ChestObject>();
+    public List<PlantAndHarvestObject> plantList = new List<PlantAndHarvestObject>();
+    public AllowPassage allowPassage;
+    //  public List<ChestObject> itemsOnGroundList = new List<ChestObject>();
     int i = 0;
-    private ChestSCR tempChestScr;
 
+    //cica 
+    public void Passage(bool value)
+    {
+        allowPassage.load(value);
+    }
+
+    //pot load and save
+    public int addInPotList(pot potScr, bool state)
+    {
+        PotObject tempPotObject = new PotObject();
+        tempPotObject.potScr = potScr;
+        tempPotObject.broken = state;
+        tempPotObject.id = i;
+        ++i;
+        potList.Add(tempPotObject);
+        return tempPotObject.id;
+    }
+    public void addInPotList( int Id,bool state)
+    {
+        potList.Find(p => p.id == Id).broken = state;
+    }
+    public void loadPots(List<PotObject> list)
+    {
+        if (list != null)
+        {
+            potList = list;
+            foreach (PotObject c in potList)
+            {
+                c.potScr.loadPot(c.broken);
+            }
+        }
+      
+    }
+
+
+    //chest load and save
     public int addInChestList(ChestSCR chestScr, bool state)
     {
         ChestObject tempChestObject = new ChestObject();
@@ -65,10 +104,44 @@ public class GameManager : MonoBehaviour
         chestList = list;
         foreach (ChestObject c in chestList)
         {
-            //tempChestScr =  c.chestScr.GetComponent<ChestSCR>();
             c.chestScr.loadChest(c.collected);
         }
     }
+
+    //plant load and save
+    public int addInPlantList(PlantAndHarvest plantScr, PlantState state, float time)
+    {
+        PlantAndHarvestObject tempPlantObject = new PlantAndHarvestObject();
+        tempPlantObject.plantAndHarvestScr = plantScr;
+        tempPlantObject.isPlanted = state;
+        tempPlantObject.stageTime = time;
+        tempPlantObject.id = i;
+        ++i;
+        plantList.Add(tempPlantObject);
+        return tempPlantObject.id;
+    }
+    public void addInPlantList(PlantState state, int Id)
+    {
+        plantList.Find(p => p.id == Id).isPlanted = state;
+    }
+  
+    public void loadPlant(List<PlantAndHarvestObject> list)
+    {
+        if (list != null)
+        {
+            plantList = list;
+            foreach (PlantAndHarvestObject c in plantList)
+            {
+                c.plantAndHarvestScr.loadPlant(c.isPlanted, c.plantAndHarvestScr.itemPlanted);
+            }
+        }
+        else
+        {
+
+            Debug.Log("empty plant list");
+        }
+    }
+
 
 
     private void Start()
@@ -308,3 +381,5 @@ public class GameManager : MonoBehaviour
     }
 
 }
+
+

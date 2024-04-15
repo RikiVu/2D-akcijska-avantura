@@ -22,11 +22,17 @@ public class pot : MonoBehaviour
     bool isHited = false;
     private Collider2D m_Collider;
     // Start is called before the first frame update
+
+    public GameManager gameManager;
+    [SerializeField]
+    private int assignedId;
+
     void Start()
     {
-    anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         m_Collider = GetComponent<Collider2D>();
         // hitBox = this.gameObject;
+        assignedId = gameManager.addInPotList(this, false);
     }
     public virtual void DeSelect()
     {
@@ -34,7 +40,15 @@ public class pot : MonoBehaviour
 
     }
 
-   
+    public void loadPot(bool state)
+    {
+        if(state!=null) {
+            isHited = state;
+            this.gameObject.SetActive(!state);
+        }
+    }
+
+
     public virtual Transform Select()
     {
         return hitBox;
@@ -96,6 +110,7 @@ public class pot : MonoBehaviour
                // Debug.Log("Bad luck");
                 }
             anim.SetBool("smash", false);
+            gameManager.addInPotList(assignedId, true);
             this.gameObject.SetActive(false);
 
         }
@@ -118,6 +133,7 @@ public class pot : MonoBehaviour
                 Instantiate(itemInside[0], transform.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)), Quaternion.identity);
 
             }
+            gameManager.addInPotList(assignedId, true);
             this.gameObject.SetActive(false);
             DeSelect();
         }

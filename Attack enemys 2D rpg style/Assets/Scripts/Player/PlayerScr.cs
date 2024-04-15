@@ -25,6 +25,7 @@ public class PlayerScr : MonoBehaviour
     public static bool playerCanMove = true;
     public  bool SetGodMode = false;
     public static bool GodMode;
+    public BoxCollider2D triggerBox;
     //Player Move , animations, 
    // public Transform Spawn;
     public PlayerState currentState;
@@ -72,6 +73,7 @@ public class PlayerScr : MonoBehaviour
     public GameObject projectile;
     public TextMeshProUGUI arrowCounter;
     public Vector3 Location;
+    
 
 
     //layer change on obstacle 

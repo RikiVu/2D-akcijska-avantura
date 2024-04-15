@@ -30,10 +30,12 @@ public class SpawnEnemies : MonoBehaviour
         //maxMinions = target.MaxCount;
     }
 
+
     void Update()
     {
         if (!inRange || spawned)
             return;
+
 
         spawned = true;
 
@@ -45,6 +47,7 @@ public class SpawnEnemies : MonoBehaviour
         }
           
     }
+
     
 
     public void testWithTime()
@@ -103,6 +106,7 @@ public class SpawnEnemies : MonoBehaviour
     {
         if (collision.CompareTag("Player") && collision.isTrigger && inRange)
         {
+            Debug.Log("no longer in range");
             inRange = false;
             spawned = false;
             for(i = enemies.Count -1; i >=0 ; i--)
