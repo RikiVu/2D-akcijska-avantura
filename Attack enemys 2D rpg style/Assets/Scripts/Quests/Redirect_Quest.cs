@@ -9,11 +9,8 @@ public class Redirect_Quest : MonoBehaviour
     public TypeOfQuest Type;
     public QuestController[] QuestCont = new QuestController[5];
     public int x = 0;
-    
-
-    
     // Start is called before the first frame update
- 
+
     public void Killed(string name)
     {
         Debug.Log("killed " + name);
@@ -28,9 +25,10 @@ public class Redirect_Quest : MonoBehaviour
                    if(QuestCont[x].counter != QuestCont[x].progressionFullCounter)
                     {
                         QuestCont[x].counter++;
+                        QuestCont[x].saveToManager();
                         QuestCont[x].progression.text = QuestCont[x].counter.ToString();
-                        Debug.Log(QuestCont[x].counter.ToString());
-                        Debug.Log(QuestCont[x].progressionFullCounter);
+                        //Debug.Log(QuestCont[x].counter.ToString());
+                        //Debug.Log(QuestCont[x].progressionFullCounter);
                     }
                     if (QuestCont[x].counter == QuestCont[x].progressionFullCounter)
                         QuestCont[x].QuestCompleted();
@@ -50,18 +48,22 @@ public class Redirect_Quest : MonoBehaviour
            
             if (QuestCont[x].activeQuest && QuestCont[x].Type == TypeOfQuest.Gathering)
             {
-                Debug.Log(name);
-                Debug.Log(QuestCont[x].Target);
+                //Debug.Log(name);
+                //Debug.Log(QuestCont[x].Target);
 
                 if (QuestCont[x].Target == name)
                 {
-                    Debug.Log("gath");
+                    //Debug.Log("gath");
                    
                     if (QuestCont[x].counter != QuestCont[x].progressionFullCounter)
+                    {
                         QuestCont[x].counter = num;
+                        QuestCont[x].saveToManager();
+                    }
+                       
 
-                    Debug.Log(QuestCont[x].counter.ToString());
-                    Debug.Log(QuestCont[x].progressionFullCounter);
+                    //Debug.Log(QuestCont[x].counter.ToString());
+                   // Debug.Log(QuestCont[x].progressionFullCounter);
                     QuestCont[x].progression.text = QuestCont[x].counter.ToString();
 
                     if (QuestCont[x].counter == QuestCont[x].progressionFullCounter)
@@ -132,6 +134,7 @@ public class Redirect_Quest : MonoBehaviour
                 QuestCont[i].description.text = quest.description.ToString();
                 QuestCont[i].completedQuest = quest.Finished;
                 QuestCont[i].currentQuestGiver = gameobjectName;
+                QuestCont[i].quest = quest;
                 if (QuestCont[i].Type == TypeOfQuest.Kill)
                 {
                     QuestCont[i].Target = quest.Target;

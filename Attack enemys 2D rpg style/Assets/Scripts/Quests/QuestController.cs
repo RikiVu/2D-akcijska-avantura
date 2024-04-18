@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.Sprites;
 
 public class QuestController : MonoBehaviour
 {
@@ -14,16 +15,57 @@ public class QuestController : MonoBehaviour
     public TextMeshProUGUI completedText;
     public GameObject currentQuestGiver;
     private NpcQuestScr Scr;
+    public Create_Quest quest;
 
     public bool completedQuest;
     
     public bool activeQuest = false;
     bool active = false;
-    public int counter;
+    public int counter = 0;
     public int progressionFullCounter;
     public string Target;
     public string CurrentKilledEnemy;
+
+    public GameManager gameManager;
+    [SerializeField]
+    private int assignedId;
+
+    private void Start()
+    {
+        assignedId = gameManager.addInQuestList(this, counter, quest);
+    }
+
+
+    public void saveToManager()
+    {
+        gameManager.addInQuestList(assignedId,counter);
+    }
+
+    public void loadItem(int count, bool activeQuest, Create_Quest quest)
+    {
+        if (count != null || activeQuest != null)
+        {
+            if (!activeQuest)
+            {
+                QuestDeletion();
+            }
+            else
+            {
+                counter = count;
+                progression.text = counter.ToString();
+                progressionFullCounter = quest.count;
+                nameOfQuest.text = quest.name;
+                Type = quest.Type;
+                description.text = quest.description.ToString();
+                completedQuest = quest.Finished;
+                //currentQuestGiver = gameobjectName;
+                quest = quest;
+                this.gameObject.SetActive(true);
+            }
     
+           
+        }
+    }
 
     private void Awake()
     {

@@ -43,9 +43,12 @@ public class GameManager : MonoBehaviour
     public HeartManager heartManager;
     public static bool gameOver = false;
     public List<PotObject> potList = new List<PotObject>();
+    public List<ItemsOnGroundObject> pickupList = new List<ItemsOnGroundObject>();
     public List<ChestObject> chestList = new List<ChestObject>();
+    public List<QuestObjectLog> questObjectLogList = new List<QuestObjectLog>();
     public List<PlantAndHarvestObject> plantList = new List<PlantAndHarvestObject>();
     public AllowPassage allowPassage;
+    private QuestObjectLog questObject;
     //  public List<ChestObject> itemsOnGroundList = new List<ChestObject>();
     int i = 0;
 
@@ -53,6 +56,82 @@ public class GameManager : MonoBehaviour
     public void Passage(bool value)
     {
         allowPassage.load(value);
+    }
+    //quest log load and save
+    public int addInQuestList(NpcQuestScr npcQuestScr, bool taken, bool ended, Create_Quest whichQuest)
+    {
+        QuestObjectLog questObjectLog = new QuestObjectLog();
+        questObjectLog.npcQuestScr = npcQuestScr;
+        questObjectLog.questTaken = taken;
+        questObjectLog.questEnded = ended;
+        questObjectLog.quest = whichQuest;
+        questObjectLog.id = i;
+        ++i;
+        questObjectLogList.Add(questObjectLog);
+        return questObjectLog.id;
+    }
+    public void addInQuestList(int Id, bool taken, bool ended)
+    {
+        questObjectLogList.Find(p => p.id == Id).questTaken = taken;
+        questObjectLogList.Find(p => p.id == Id).questEnded = ended;
+    }
+   
+    public int addInQuestList(QuestController controllerScr, int counter, Create_Quest quest)
+    {
+            questObject = questObjectLogList.Find(p => p.quest == quest);
+        if (questObject != null)
+        {
+            questObject.controllerScr = controllerScr;
+            questObject.count = counter;
+            return questObject.id;
+        }
+        return -1;
+        //  questObjectLogList.Find(p => p.quest == quest).controllerScr = controllerScr;
+        // questObjectLogList.Find(p => p.quest == quest).count = counter;
+    }
+    public void addInQuestList(int Id, int counter)
+    {
+        questObjectLogList.Find(p => p.id == Id).count = counter;
+    }
+    public void loadQuests(List<QuestObjectLog> list)
+    {
+        if (list != null)
+        {
+            questObjectLogList = list;
+            foreach (QuestObjectLog c in questObjectLogList)
+            {
+                c.npcQuestScr.loadQuestData(c.questTaken, c.questEnded);
+              //  c.controllerScr.(c.questTaken,c.questEnded);
+            }
+        }
+
+    }
+    //pickUp load and save
+    public int addInPickupList(PickUp pickUpScr, bool state)
+    {
+        ItemsOnGroundObject tempPickUpObject = new ItemsOnGroundObject();
+        tempPickUpObject.pickUpScr = pickUpScr;
+        tempPickUpObject.picked = state;
+        tempPickUpObject.id = i;
+        ++i;
+        pickupList.Add(tempPickUpObject);
+        return tempPickUpObject.id;
+    }
+    public void addInPickupList(int Id, bool state)
+    {
+        pickupList.Find(p => p.id == Id).picked = state;
+    }
+    public void loadPickUpItems(List<ItemsOnGroundObject> list)
+    {
+        if (list != null)
+        {
+            pickupList = list;
+            foreach (ItemsOnGroundObject c in pickupList)
+            {
+                c.pickUpScr.loadItem(c.picked);
+            }
+        }
+
     }
 
     //pot load and save

@@ -35,7 +35,7 @@ public class SaveOrLoad : MonoBehaviour
         cam = Camera.main.GetComponent<CameraMovement>();
     }
     public void SavetoJson(Vector3 playerPosition, bool godmode, float health, float gold, int arrows, int stars, List<CreateItem> items, List<CreateItem> equipment,
-        List<ChestObject> chestList, List<PlantAndHarvestObject> plantListPar, List<PotObject> potlist, bool passage)
+        List<ChestObject> chestList, List<PlantAndHarvestObject> plantListPar, List<PotObject> potlist, bool passage, List<ItemsOnGroundObject> pickUpItemList, List<QuestObjectLog> questObject)
     {
         GameData data = new GameData();
         data.spawnPosition = playerPosition;
@@ -52,6 +52,8 @@ public class SaveOrLoad : MonoBehaviour
         data.plantList = plantListPar;
         data.pots = potlist;
         data.canPass = passage;
+        data.pickUpItems = pickUpItemList;
+        data.quests = questObject;
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(Application.dataPath + "/gameData.json", json);
     }
@@ -67,7 +69,8 @@ public class SaveOrLoad : MonoBehaviour
         if (!saved && !loading)
         {
             SavetoJson(player.transform.position, PlayerScr.GodMode, HeartManager.playerCurrentHealth, PlayerScr.Gold,
-                PlayerScr.Arrows, Inventory.starCount, inventory.SaveInventory(), equipment.SaveEquipment(), manager.chestList, manager.plantList, manager.potList, AllowPassage.CanPass) ;
+                PlayerScr.Arrows, Inventory.starCount, inventory.SaveInventory(), equipment.SaveEquipment(),
+                manager.chestList, manager.plantList, manager.potList, AllowPassage.CanPass, manager.pickupList ,manager.questObjectLogList) ;
             StartCoroutine(Saving());
         }
     }
@@ -114,6 +117,8 @@ public class SaveOrLoad : MonoBehaviour
             manager.loadPlant(data.plantList);
             manager.loadPots(data.pots);
             manager.Passage(data.canPass);
+            manager.loadPickUpItems(data.pickUpItems);
+            manager.loadQuests(data.quests);
             alertPanelScr.showAlertPanel("Loaded");
         }
         else

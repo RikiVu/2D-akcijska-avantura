@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,10 +14,28 @@ public class PickUp : ShowOutline
     private GameObject alertPanelGm;
     private AlertPanelScr alertPanelScr;
 
+    public GameManager gameManager;
+    [SerializeField]
+    private int assignedId;
+    private bool picked = false;
+
     public void Awake()
     {
         alertPanelGm = GameObject.FindGameObjectWithTag("alertPanel");
         alertPanelScr = alertPanelGm.GetComponent<AlertPanelScr>();
+    }
+    private void Start()
+    {
+        assignedId = gameManager.addInPickupList(this, false);
+    }
+
+    public void loadItem(bool state)
+    {
+        if (state != null)
+        {
+            picked = state;
+            this.gameObject.SetActive(!state);
+        }
     }
 
     void FixedUpdate()
@@ -39,9 +58,10 @@ public class PickUp : ShowOutline
             }
             inRange = false;
             invScr.AddItem(item);
-            Destroy(this.gameObject);
-            
-           
+            picked= true;
+            gameManager.addInPickupList(assignedId, picked);
+            this.gameObject.SetActive(false);
+           // Destroy(this.gameObject);
         }
     }
     
