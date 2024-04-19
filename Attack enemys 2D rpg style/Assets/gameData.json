@@ -1,14 +1,14 @@
 {
     "spawnPosition": {
-        "x": 89.31568908691406,
-        "y": 124.76152801513672,
+        "x": 158.3234405517578,
+        "y": 150.38226318359376,
         "z": 0.0
     },
     "godMode": true,
     "currentHealth": 8.0,
-    "gold": 14562.0,
+    "gold": 14550.0,
     "arrows": 20,
-    "stars": 0,
+    "stars": 1,
     "strenght": 0,
     "dexterity": 0,
     "constitution": 0,
@@ -22,163 +22,163 @@
     ],
     "equipment": [],
     "camMaxPosition": {
-        "x": 115.0,
+        "x": 217.0,
         "y": 165.0
     },
     "camMinPosition": {
-        "x": 44.0,
-        "y": 115.0
+        "x": 166.0,
+        "y": 126.0
     },
     "pots": [
         {
-            "id": 2,
+            "id": 4,
             "potScr": {
                 "instanceID": 30068
             },
             "broken": false
         },
         {
-            "id": 20,
+            "id": 22,
             "potScr": {
                 "instanceID": 36648
             },
             "broken": false
         },
         {
-            "id": 21,
+            "id": 23,
             "potScr": {
                 "instanceID": 36736
             },
             "broken": false
         },
         {
-            "id": 23,
+            "id": 25,
             "potScr": {
                 "instanceID": 36824
             },
             "broken": false
         },
         {
-            "id": 25,
+            "id": 27,
             "potScr": {
                 "instanceID": 36852
             },
             "broken": false
         },
         {
-            "id": 26,
+            "id": 28,
             "potScr": {
                 "instanceID": 36902
             },
             "broken": false
         },
         {
-            "id": 27,
+            "id": 29,
             "potScr": {
                 "instanceID": 37088
             },
             "broken": false
         },
         {
-            "id": 28,
+            "id": 30,
             "potScr": {
                 "instanceID": 37104
             },
             "broken": false
         },
         {
-            "id": 29,
+            "id": 31,
             "potScr": {
                 "instanceID": 37106
             },
             "broken": false
         },
         {
-            "id": 31,
+            "id": 33,
             "potScr": {
                 "instanceID": 37284
             },
             "broken": false
         },
         {
-            "id": 32,
+            "id": 34,
             "potScr": {
                 "instanceID": 37306
             },
             "broken": false
         },
         {
-            "id": 33,
+            "id": 35,
             "potScr": {
                 "instanceID": 37318
             },
             "broken": false
         },
         {
-            "id": 34,
+            "id": 36,
             "potScr": {
                 "instanceID": 37322
             },
             "broken": false
         },
         {
-            "id": 35,
+            "id": 37,
             "potScr": {
                 "instanceID": 37400
             },
             "broken": false
         },
         {
-            "id": 36,
+            "id": 38,
             "potScr": {
                 "instanceID": 37432
             },
             "broken": false
         },
         {
-            "id": 37,
+            "id": 39,
             "potScr": {
                 "instanceID": 37480
             },
             "broken": false
         },
         {
-            "id": 38,
+            "id": 40,
             "potScr": {
                 "instanceID": 37486
             },
             "broken": false
         },
         {
-            "id": 39,
+            "id": 41,
             "potScr": {
                 "instanceID": 37492
             },
             "broken": false
         },
         {
-            "id": 40,
+            "id": 42,
             "potScr": {
                 "instanceID": 37502
             },
             "broken": false
         },
         {
-            "id": 41,
+            "id": 43,
             "potScr": {
                 "instanceID": 37530
             },
             "broken": false
         },
         {
-            "id": 42,
+            "id": 44,
             "potScr": {
                 "instanceID": 38112
             },
             "broken": false
         },
         {
-            "id": 43,
+            "id": 45,
             "potScr": {
                 "instanceID": 38140
             },
@@ -189,68 +189,75 @@
         {
             "id": 0,
             "pickUpScr": {
-                "instanceID": -101046
+                "instanceID": -762292
             },
             "picked": true
         },
         {
-            "id": 3,
+            "id": 2,
             "pickUpScr": {
-                "instanceID": 30094
-            },
-            "picked": false
-        },
-        {
-            "id": 4,
-            "pickUpScr": {
-                "instanceID": 30168
+                "instanceID": -101046
             },
             "picked": true
         },
         {
             "id": 5,
             "pickUpScr": {
+                "instanceID": 30094
+            },
+            "picked": false
+        },
+        {
+            "id": 6,
+            "pickUpScr": {
+                "instanceID": 30168
+            },
+            "picked": false
+        },
+        {
+            "id": 7,
+            "pickUpScr": {
                 "instanceID": 30324
             },
             "picked": true
         },
         {
-            "id": 8,
+            "id": 10,
             "pickUpScr": {
                 "instanceID": 31056
             },
             "picked": false
         },
         {
-            "id": 11,
+            "id": 13,
             "pickUpScr": {
                 "instanceID": 32128
             },
             "picked": false
         },
         {
-            "id": 16,
+            "id": 18,
             "pickUpScr": {
                 "instanceID": 34950
             },
             "picked": false
         },
         {
-            "id": 17,
+            "id": 19,
             "pickUpScr": {
                 "instanceID": 35000
             },
             "picked": false
         },
         {
-            "id": 22,
+            "id": 24,
             "pickUpScr": {
                 "instanceID": 36766
             },
             "picked": true
         },
         {
-            "id": 30,
+            "id": 32,
             "pickUpScr": {
                 "instanceID": 37270
             },
@@ -259,49 +266,49 @@
     ],
     "chests": [
         {
-            "id": 7,
+            "id": 9,
             "chestScr": {
                 "instanceID": 30716
             },
             "collected": false
         },
         {
-            "id": 9,
+            "id": 11,
             "chestScr": {
                 "instanceID": 31556
             },
             "collected": false
         },
         {
-            "id": 12,
+            "id": 14,
             "chestScr": {
                 "instanceID": 32530
             },
             "collected": false
         },
         {
-            "id": 13,
+            "id": 15,
             "chestScr": {
                 "instanceID": 33570
             },
-            "collected": false
+            "collected": true
         },
         {
-            "id": 15,
+            "id": 17,
             "chestScr": {
                 "instanceID": 34536
             },
             "collected": false
         },
         {
-            "id": 18,
+            "id": 20,
             "chestScr": {
                 "instanceID": 35946
             },
             "collected": false
         },
         {
-            "id": 24,
+            "id": 26,
             "chestScr": {
                 "instanceID": 36848
             },
@@ -310,7 +317,7 @@
     ],
     "plantList": [
         {
-            "id": 6,
+            "id": 8,
             "plantAndHarvestScr": {
                 "instanceID": 30378
             },
@@ -318,7 +325,7 @@
             "isPlanted": 0
         },
         {
-            "id": 10,
+            "id": 12,
             "plantAndHarvestScr": {
                 "instanceID": 31886
             },
@@ -329,6 +336,21 @@
     "quests": [
         {
             "id": 1,
+            "npcQuestScr": {
+                "instanceID": -112564
+            },
+            "questTaken": false,
+            "questEnded": false,
+            "quest": {
+                "instanceID": 26044
+            },
+            "controllerScr": {
+                "instanceID": 0
+            },
+            "count": 0
+        },
+        {
+            "id": 3,
             "npcQuestScr": {
                 "instanceID": 29950
             },
@@ -343,11 +365,11 @@
             "count": 0
         },
         {
-            "id": 14,
+            "id": 16,
             "npcQuestScr": {
                 "instanceID": 34102
             },
-            "questTaken": false,
+            "questTaken": true,
             "questEnded": false,
             "quest": {
                 "instanceID": 26414
@@ -358,7 +380,7 @@
             "count": 0
         },
         {
-            "id": 19,
+            "id": 21,
             "npcQuestScr": {
                 "instanceID": 35978
             },

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -10,7 +11,12 @@ public class Redirect_Quest : MonoBehaviour
     private QuestObject questObjectTemp = new QuestObject();
     public GameObject parentGameObject;
     public GameObject panelPrefab;
-
+    private float sizeOfContainerBottom = 0;
+    private RectTransform rectTransform;
+    private void Awake()
+    {
+       rectTransform = parentGameObject.gameObject.GetComponent<RectTransform>();
+    }
     public void Killed(string name)
     {
         Debug.Log("killed " + name);
@@ -81,6 +87,11 @@ public class Redirect_Quest : MonoBehaviour
         questController.description.text = quest.description.ToString();
         questController.activeQuest = true;
         questController.progressionFull.text = quest.count.ToString();
+        if (questObjects.Count > 5)
+        {
+            sizeOfContainerBottom = rectTransform.offsetMin.y - 70f;
+            rectTransform.offsetMin = new Vector2(rectTransform.offsetMin.x, sizeOfContainerBottom);
+        }
     }
 
     public void DeleteQuest(string name)
@@ -93,6 +104,11 @@ public class Redirect_Quest : MonoBehaviour
             {
                 Destroy(questObjectTemp.panelScr.gameObject);
                 questObjects.Remove(questObjectTemp);
+                if (questObjects.Count > 5)
+                {
+                    sizeOfContainerBottom = rectTransform.offsetMin.y + 70f;
+                    rectTransform.offsetMin = new Vector2(rectTransform.offsetMin.x, sizeOfContainerBottom);
+                }
             }
         }
     }

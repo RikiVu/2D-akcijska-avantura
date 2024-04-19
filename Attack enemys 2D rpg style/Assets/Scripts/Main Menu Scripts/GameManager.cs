@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private pot currentBreakeble;
     private Transform tr;
     public GameObject Inventory;
+    public GameObject QuestTitle;
     public GameObject QuestList;
     public Inventory InvScr;
     public GameObject ShopInventory;
@@ -232,6 +233,7 @@ public class GameManager : MonoBehaviour
         Inventory.gameObject.SetActive(false);
         //ShopInventory.gameObject.SetActive(false);
         QuestList.gameObject.SetActive(false);
+        QuestTitle.gameObject.SetActive(false);
         updateStats(stats.Strenght, stats.Dexterity, stats.Constitution);
     }
 
@@ -296,13 +298,15 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L) && QuestListOppened == false)
         {
             QuestListOppened = true;
-            QuestList.gameObject.SetActive(true);           
+            QuestList.gameObject.SetActive(true);
+            QuestTitle.gameObject.SetActive(true);
         }
         else if (Input.GetKeyDown(KeyCode.L) && QuestListOppened == true)
         {
             QuestListOppened = false;
             QuestList.gameObject.SetActive(false);
-            
+            QuestTitle.gameObject.SetActive(false);
+
             //InvScr.DeactivateButton.SetActive(false);
             // InvScr.ActivateButton.SetActive(true);
         }
@@ -329,6 +333,7 @@ public class GameManager : MonoBehaviour
     {
         QuestListOppened = false;
         QuestList.gameObject.SetActive(false);
+        QuestTitle.gameObject.SetActive(false);
 
     }
 
