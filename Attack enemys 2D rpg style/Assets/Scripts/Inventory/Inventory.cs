@@ -319,10 +319,11 @@ public class Inventory : MonoBehaviour
             }
             else if(itemScr.haveItem && item.isStackable && itemScr.counter1 < 5 && item.name == itemScr.name)
             {
-                Debug.Log("ovaj2");
+                Debug.Log("gather");
                 itemScr.counter1++;
                 if (item.Type == TypeOfItem.Quest)
                 {
+                    Debug.Log("salje");
                     num++;
                     Redirect.Gathering(item.name, num);
                 }

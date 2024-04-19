@@ -7,66 +7,60 @@ using UnityEditor.Sprites;
 
 public class QuestController : MonoBehaviour
 {
-    public TypeOfQuest Type;
     public TextMeshProUGUI nameOfQuest;
     public TextMeshProUGUI description;
     public TextMeshProUGUI progression;
     public TextMeshProUGUI progressionFull;
     public TextMeshProUGUI completedText;
-    public GameObject currentQuestGiver;
-    private NpcQuestScr Scr;
-    public Create_Quest quest;
+    //private NpcQuestScr Scr;
+    //public Create_Quest quest;
 
-    public bool completedQuest;
+    //public bool completedQuest;
     
     public bool activeQuest = false;
     bool active = false;
-    public int counter = 0;
-    public int progressionFullCounter;
-    public string Target;
-    public string CurrentKilledEnemy;
-
+    /*
     public GameManager gameManager;
     [SerializeField]
     private int assignedId;
+   private void Start()
+   {
+       assignedId = gameManager.addInQuestList(this, counter, quest);
+   }
 
-    private void Start()
-    {
-        assignedId = gameManager.addInQuestList(this, counter, quest);
-    }
+
+   public void saveToManager()
+   {
+       gameManager.addInQuestList(assignedId,counter);
+   }
 
 
-    public void saveToManager()
-    {
-        gameManager.addInQuestList(assignedId,counter);
-    }
+   public void loadItem(int count, bool activeQuest, Create_Quest quest)
+   {
+       if (count != null || activeQuest != null)
+       {
+           if (!activeQuest)
+           {
+              // QuestDeletion();
+           }
+           else
+           {
+               counter = count;
+               progression.text = counter.ToString();
+               progressionFullCounter = quest.count;
+               nameOfQuest.text = quest.name;
+               Type = quest.Type;
+               description.text = quest.description.ToString();
+               completedQuest = quest.Finished;
+               //currentQuestGiver = gameobjectName;
+               quest = quest;
+               this.gameObject.SetActive(true);
+           }
 
-    public void loadItem(int count, bool activeQuest, Create_Quest quest)
-    {
-        if (count != null || activeQuest != null)
-        {
-            if (!activeQuest)
-            {
-                QuestDeletion();
-            }
-            else
-            {
-                counter = count;
-                progression.text = counter.ToString();
-                progressionFullCounter = quest.count;
-                nameOfQuest.text = quest.name;
-                Type = quest.Type;
-                description.text = quest.description.ToString();
-                completedQuest = quest.Finished;
-                //currentQuestGiver = gameobjectName;
-                quest = quest;
-                this.gameObject.SetActive(true);
-            }
-    
-           
-        }
-    }
 
+       }
+   }
+*/
     private void Awake()
     {
         if (!activeQuest)
@@ -75,8 +69,8 @@ public class QuestController : MonoBehaviour
         }
         else
         {
-            progression.text = counter.ToString();
-            progressionFull.text = progressionFullCounter.ToString();
+          //  progression.text = "0";
+          //  progressionFull.text = "0";
         }
     }
 
@@ -85,32 +79,15 @@ public class QuestController : MonoBehaviour
         Image img = this.GetComponent<Image>();
         img.color = UnityEngine.Color.green;
         completedText.gameObject.SetActive(true);
-        
-        completedQuest = true;
-        Scr = currentQuestGiver.GetComponent<NpcQuestScr>();
-        Scr.NpcQuest.Finished = true;
-        if (Scr.NpcItem)
-            Scr.NpcItem.pickable = false;
+        //completedQuest = true;
+        /*
+         if (Scr.NpcItem)
+             Scr.NpcItem.pickable = false;
+        */
+    }
 
-        Debug.Log("completed");
-        // 
-    }
-    public void QuestDeletion()
-    {
-        Image img = this.GetComponent<Image>();
-        img.color = UnityEngine.Color.white;
-        completedText.gameObject.SetActive(false);
-        Debug.Log("obrisan quest");
-        completedQuest = false;
-        progression.text = "0";
-        counter = 0;
-        Target = "Null";
-        activeQuest = false;
-        if (!activeQuest)
-        {
-            this.gameObject.SetActive(false);
-        }
-    }
+
+    //ne diraj
 
     public void onClick()
     {

@@ -85,7 +85,7 @@ public class NpcQuestScr : NpcScr
             {
                 questTaken = true;
                 gameManager.addInQuestList(assignedId, questTaken, questEnded);
-                redirectScr.AddQuest(NpcQuest, this.gameObject);
+                redirectScr.AddQuest(NpcQuest, this);
                 if (NpcItem)
                     NpcItem.pickable = true;
 
