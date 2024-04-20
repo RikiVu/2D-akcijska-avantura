@@ -9,6 +9,6 @@ public class QuestObjectLog
     public bool questTaken = false;
     public bool questEnded = false;
     public Create_Quest quest;
-    public QuestController controllerScr;
+    public Redirect_Quest redirect_Quest;
     public int count = 0;
 }

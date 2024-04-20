@@ -49,7 +49,7 @@ public class SaveOrLoad : MonoBehaviour
         data.camMaxPosition= mapScrObject.maxPosition;
         data.camMinPosition = mapScrObject.minPosition;
         data.chests = chestList;
-        data.plantList = plantListPar;
+        //data.plantList = plantListPar;
         data.pots = potlist;
         data.canPass = passage;
         data.pickUpItems = pickUpItemList;
@@ -60,26 +60,51 @@ public class SaveOrLoad : MonoBehaviour
 
     public void LoadFromJson()
     {
-        if (!loading)
-            StartCoroutine(Loading());
+        try
+        {
+            if (!loading)
+                StartCoroutine(Loading());
+        }
+        catch
+        {
+            Debug.Log("failed to load!");
+            alertPanelScr.showAlertPanel("Failed to load!");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!saved && !loading)
         {
-            SavetoJson(player.transform.position, PlayerScr.GodMode, HeartManager.playerCurrentHealth, PlayerScr.Gold,
-                PlayerScr.Arrows, Inventory.starCount, inventory.SaveInventory(), equipment.SaveEquipment(),
-                manager.chestList, manager.plantList, manager.potList, AllowPassage.CanPass, manager.pickupList ,manager.questObjectLogList) ;
-            StartCoroutine(Saving());
+            try
+            {
+                manager.redirect_Quest.saveToManager();
+                SavetoJson(player.transform.position, PlayerScr.GodMode, HeartManager.playerCurrentHealth, PlayerScr.Gold,
+                    PlayerScr.Arrows, Inventory.starCount, inventory.SaveInventory(), equipment.SaveEquipment(),
+                    manager.chestList, manager.plantList, manager.potList, AllowPassage.CanPass, manager.pickupList, manager.questObjectLogList);
+                StartCoroutine(Saving());
+            }
+            catch
+            {
+                Debug.Log("failed to save!");
+                alertPanelScr.showAlertPanel("Failed to save!");
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (loading)
         {
-            if(!waitingCoro)
-                StartCoroutine(waitToLeave());
+            try
+            {
+                if (!waitingCoro)
+                    StartCoroutine(waitToLeave());
+            }
+            catch
+            {
+                Debug.Log("Coroutine couldn't be started because the the game object 'spawn_0(1)' is inactive!");
+            }
+        
         }
     }
 
@@ -96,37 +121,35 @@ public class SaveOrLoad : MonoBehaviour
     }
     private IEnumerator Loading()
     {
-        loading = true;
-        player.triggerBox.enabled = false;
-        yield return Frames(2);
-        player.triggerBox.enabled = true;
-        if (File.Exists(filePath))
-        {
-            string json = File.ReadAllText(Application.dataPath + "/gameData.json");
-            GameData data = JsonUtility.FromJson<GameData>(json);
-            player.transform.position = data.spawnPosition;
-            PlayerScr.GodMode = data.godMode;
-            HeartManager.playerCurrentHealth = data.currentHealth;
-            PlayerScr.Gold = data.gold;
-            PlayerScr.Arrows = data.arrows;
-            Inventory.starCount = data.stars;
-            inventory.LoadInventory(data.items);
-            equipment.LoadEquipment(data.equipment);
-            cam.MapTransfer(data.camMinPosition, data.camMaxPosition);
-            manager.loadChests(data.chests);
-            manager.loadPlant(data.plantList);
-            manager.loadPots(data.pots);
-            manager.Passage(data.canPass);
-            manager.loadPickUpItems(data.pickUpItems);
-            manager.loadQuests(data.quests);
-            alertPanelScr.showAlertPanel("Loaded");
-        }
-        else
-        {
-            Debug.LogError("There are no save files");
-        }
-  
-       
+            loading = true;
+            player.triggerBox.enabled = false;
+            yield return Frames(2);
+            player.triggerBox.enabled = true;
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(Application.dataPath + "/gameData.json");
+                GameData data = JsonUtility.FromJson<GameData>(json);
+                player.transform.position = data.spawnPosition;
+                PlayerScr.GodMode = data.godMode;
+                HeartManager.playerCurrentHealth = data.currentHealth;
+                PlayerScr.Gold = data.gold;
+                PlayerScr.Arrows = data.arrows;
+                Inventory.starCount = data.stars;
+                inventory.LoadInventory(data.items);
+                equipment.LoadEquipment(data.equipment);
+                cam.MapTransfer(data.camMinPosition, data.camMaxPosition);
+                manager.loadChests(data.chests);
+                //manager.loadPlant(data.plantList);
+                manager.loadPots(data.pots);
+                manager.Passage(data.canPass);
+                manager.loadPickUpItems(data.pickUpItems);
+                manager.loadQuests(data.quests);
+                alertPanelScr.showAlertPanel("Loaded");
+            }
+            else
+            {
+                Debug.LogError("There are no save files");
+            }
     }
     public static IEnumerator Frames(int frameCount)
     {

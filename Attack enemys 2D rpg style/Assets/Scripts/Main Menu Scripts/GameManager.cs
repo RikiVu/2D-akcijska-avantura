@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     private QuestObjectLog questObject;
     //  public List<ChestObject> itemsOnGroundList = new List<ChestObject>();
     int i = 0;
+    public Redirect_Quest redirect_Quest;
 
     //cica 
     public void Passage(bool value)
@@ -76,19 +77,16 @@ public class GameManager : MonoBehaviour
         questObjectLogList.Find(p => p.id == Id).questTaken = taken;
         questObjectLogList.Find(p => p.id == Id).questEnded = ended;
     }
-   
-    public int addInQuestList(QuestController controllerScr, int counter, Create_Quest quest)
+
+
+    public void addInQuestList(int counter, Create_Quest quest)
     {
             questObject = questObjectLogList.Find(p => p.quest == quest);
         if (questObject != null)
         {
-            questObject.controllerScr = controllerScr;
             questObject.count = counter;
-            return questObject.id;
+            Debug.Log(counter);
         }
-        return -1;
-        //  questObjectLogList.Find(p => p.quest == quest).controllerScr = controllerScr;
-        // questObjectLogList.Find(p => p.quest == quest).count = counter;
     }
     public void addInQuestList(int Id, int counter)
     {
@@ -99,11 +97,14 @@ public class GameManager : MonoBehaviour
         if (list != null)
         {
             questObjectLogList = list;
+           
+            redirect_Quest.DeleteAll();
             foreach (QuestObjectLog c in questObjectLogList)
             {
                 c.npcQuestScr.loadQuestData(c.questTaken, c.questEnded);
-              //  c.controllerScr.(c.questTaken,c.questEnded);
+                redirect_Quest.loadQuests(c);
             }
+      
         }
 
     }

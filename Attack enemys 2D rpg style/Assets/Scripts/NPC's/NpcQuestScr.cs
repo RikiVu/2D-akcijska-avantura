@@ -39,6 +39,7 @@ public class NpcQuestScr : NpcScr
             questEnded = ended;
             if (questTaken && !questEnded)
             {
+                emoteSprite.enabled = true;
                 emoteSprite.color = new Color(0.4f, 0.74f, 0.95f);
                 if (NpcItem!=null)
                     NpcItem.pickable = true;
@@ -49,6 +50,7 @@ public class NpcQuestScr : NpcScr
             }
             else
             {
+                emoteSprite.enabled = true;
                 emoteSprite.color = new Color(1f, 0.9195983f, 0.5707547f);
                 if (NpcItem != null)
                     NpcItem.pickable = false;
@@ -85,7 +87,7 @@ public class NpcQuestScr : NpcScr
             {
                 questTaken = true;
                 gameManager.addInQuestList(assignedId, questTaken, questEnded);
-                redirectScr.AddQuest(NpcQuest, this);
+                redirectScr.AddQuest(NpcQuest, this,0);
                 if (NpcItem)
                     NpcItem.pickable = true;
 
@@ -117,6 +119,7 @@ public class NpcQuestScr : NpcScr
             dialogBoxScr.placeHolder = NpcQuest.completedQuest.ToString();
             PlayerScr.Gold += NpcQuest.money;
             questEnded = true;
+            Debug.Log("ugasio");
             emoteSprite.enabled = false;
             redirectScr.DeleteQuest(NpcQuest.name);
             gameManager.addInQuestList(assignedId, questTaken, questEnded);
