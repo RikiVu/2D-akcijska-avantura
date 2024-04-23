@@ -27,7 +27,7 @@ public class ShopNPC : NpcScr
             {
                 //talking = true;
                 dialogBoxScr.currentQuestGiver = this.gameObject;
-                dialogBoxScr.showDialogShop(dialogTekst);
+                dialogBoxScr.showDialogShop(dialogTekst, name);
                 ShopInvScr.DeleteItems();
                 for (int i = 0; i < CounterOfItems; i++)
                 {

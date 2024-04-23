@@ -71,7 +71,7 @@ public class NpcQuestScr : NpcScr
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                dialogBoxScr.showDialog(dialogTekst);
+                dialogBoxScr.showDialog(dialogTekst, name);
                 QuestConversation();
             }
         }

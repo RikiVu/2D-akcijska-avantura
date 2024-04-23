@@ -37,7 +37,7 @@ public class NpcScr : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                dialogBoxScr.showDialog(dialogTekst);
+                dialogBoxScr.showDialog(dialogTekst, name);
             }
     }
     public virtual void OnTriggerEnter2D(Collider2D other)

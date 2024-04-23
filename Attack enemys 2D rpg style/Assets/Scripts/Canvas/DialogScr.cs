@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DialogScr : MonoBehaviour
 {
     public TextMeshProUGUI TmProText;
+    public TextMeshProUGUI tmProNameText;
     public GameObject acceptButton;
     public GameObject rejectButton;
     public GameObject currentQuestGiver;
@@ -24,6 +25,7 @@ public class DialogScr : MonoBehaviour
     void Awake()
     {
         TmProText.text = "";
+        tmProNameText.text = "";
         acceptButton.SetActive(false);
         rejectButton.SetActive(false);
         rectTransform = gameObject.GetComponent<RectTransform>();
@@ -47,6 +49,7 @@ public class DialogScr : MonoBehaviour
             // if(Scr.)
             coroutineStarted = false;
             TmProText.text = "";
+            tmProNameText.text = "";
             Scr.Decide(true);
             Debug.Log(Scr.name + " test  ");
         }
@@ -56,6 +59,7 @@ public class DialogScr : MonoBehaviour
             shopInventory.InShop = true;
             coroutineStarted = false;
             TmProText.text = "";
+            tmProNameText.text = "";
             ShopPanel.SetActive(true);
             hideDialog();
             PlayerScr.playerCanMove = false;
@@ -75,12 +79,14 @@ public class DialogScr : MonoBehaviour
             }
             coroutineStarted = false;
             TmProText.text = "";
+            tmProNameText.text = "";
         }
         else
         {
             Debug.Log("Shop");
             coroutineStarted = false;
             TmProText.text = "";
+            tmProNameText.text = "";
             hideDialog();
         }
     }
@@ -88,7 +94,7 @@ public class DialogScr : MonoBehaviour
 
 
                                                                                                                     //new 
-    public void showDialog(string text)
+    public void showDialog(string text, string name)
     {
         talking = true;
         rectTransform.anchoredPosition = new Vector3(0, 0, 0);
@@ -96,8 +102,9 @@ public class DialogScr : MonoBehaviour
         acceptButton.SetActive(false);
         rejectButton.SetActive(false);
         placeHolder = text.ToString();
+        tmProNameText.text = name;
     }
-    public void showDialogShop(string text)
+    public void showDialogShop(string text, string name)
     {
         talking = true;
         rectTransform.anchoredPosition = new Vector3(0, 0, 0);
@@ -105,6 +112,7 @@ public class DialogScr : MonoBehaviour
         acceptButton.SetActive(true);
         rejectButton.SetActive(true);
         placeHolder = text.ToString();
+        tmProNameText.text = name;
     }
 
 
@@ -131,6 +139,7 @@ public class DialogScr : MonoBehaviour
         coroutineStarted = true;
         int i = 0;
         TmProText.text = "";
+
         for (i = 0; i < placeHolder.Length; i++)
         {
             TmProText.text += placeHolder[i];
