@@ -17,4 +17,4 @@ MonoBehaviour:
   RespawnTime: 0
   mapName: Bobota
   maxPosition: {x: 154.9, y: 80}
-  minPosition: {x: 70, y: -36.5}
+  minPosition: {x: 70, y: -45}
