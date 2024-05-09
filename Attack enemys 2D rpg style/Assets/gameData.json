@@ -1,494 +1,494 @@
 {
     "spawnPosition": {
-        "x": 105.22168731689453,
-        "y": -7.99340295791626,
-        "z": 0.0
+        "x": -33.52043914794922,
+        "y": 32.6316032409668,
+        "z": -4.741912841796875
     },
     "godMode": true,
     "currentHealth": 8.0,
-    "gold": 12950.0,
+    "gold": 13061.0,
     "arrows": 20,
-    "stars": 0,
+    "stars": 3,
     "strenght": 0,
     "dexterity": 0,
     "constitution": 0,
     "items": [
         {
-            "instanceID": 25446
+            "instanceID": 25448
         }
     ],
     "equipment": [
         {
-            "instanceID": 25510
+            "instanceID": 25512
         },
         {
-            "instanceID": 26432
+            "instanceID": 26434
         },
         {
             "instanceID": 25040
         }
     ],
     "camMaxPosition": {
-        "x": 154.89999389648438,
-        "y": 80.0
+        "x": 30.0,
+        "y": 45.0
     },
     "camMinPosition": {
-        "x": 70.0,
-        "y": -45.0
+        "x": -28.5,
+        "y": -36.5
     },
     "pots": [
         {
             "id": 0,
             "potScr": {
-                "instanceID": 28634
+                "instanceID": 28636
             },
             "broken": false
         },
         {
             "id": 1,
             "potScr": {
-                "instanceID": 37396
+                "instanceID": 37394
             },
             "broken": false
         },
         {
             "id": 2,
             "potScr": {
-                "instanceID": 37564
+                "instanceID": 37560
             },
             "broken": false
         },
         {
             "id": 3,
             "potScr": {
-                "instanceID": 36918
+                "instanceID": 36920
             },
             "broken": false
         },
         {
             "id": 4,
             "potScr": {
-                "instanceID": 30266
+                "instanceID": 30268
             },
             "broken": false
         },
         {
             "id": 5,
             "potScr": {
-                "instanceID": 36356
+                "instanceID": 36358
             },
             "broken": false
         },
         {
             "id": 6,
             "potScr": {
-                "instanceID": 36948
+                "instanceID": 36950
             },
             "broken": false
         },
         {
             "id": 7,
             "potScr": {
-                "instanceID": 33524
+                "instanceID": 33526
             },
             "broken": false
         },
         {
             "id": 8,
             "potScr": {
-                "instanceID": 27772
+                "instanceID": 27774
             },
             "broken": false
         },
         {
             "id": 9,
             "potScr": {
-                "instanceID": 30434
+                "instanceID": 30436
             },
             "broken": false
         },
         {
             "id": 10,
             "potScr": {
-                "instanceID": 37576
+                "instanceID": 37572
             },
             "broken": false
         },
         {
             "id": 11,
             "potScr": {
-                "instanceID": 34716
+                "instanceID": 34718
             },
             "broken": false
         },
         {
             "id": 12,
             "potScr": {
-                "instanceID": 36750
+                "instanceID": 36752
             },
             "broken": false
         },
         {
             "id": 13,
             "potScr": {
-                "instanceID": 30536
+                "instanceID": 30538
             },
             "broken": false
         },
         {
             "id": 14,
             "potScr": {
-                "instanceID": 38188
+                "instanceID": 38184
             },
             "broken": false
         },
         {
             "id": 15,
             "potScr": {
-                "instanceID": 36838
+                "instanceID": 36840
             },
             "broken": false
         },
         {
             "id": 16,
             "potScr": {
-                "instanceID": 30902
+                "instanceID": 30904
             },
             "broken": false
         },
         {
             "id": 17,
             "potScr": {
-                "instanceID": 33218
+                "instanceID": 33220
             },
             "broken": false
         },
         {
             "id": 18,
             "potScr": {
-                "instanceID": 37186
+                "instanceID": 37184
             },
             "broken": false
         },
         {
             "id": 19,
             "potScr": {
-                "instanceID": 29932
+                "instanceID": 29934
             },
             "broken": false
         },
         {
             "id": 20,
             "potScr": {
-                "instanceID": 37606
+                "instanceID": 37602
             },
             "broken": false
         },
         {
             "id": 21,
             "potScr": {
-                "instanceID": 27288
+                "instanceID": 27290
             },
             "broken": false
         },
         {
             "id": 22,
             "potScr": {
-                "instanceID": 35678
+                "instanceID": 35680
             },
             "broken": false
         },
         {
             "id": 23,
             "potScr": {
-                "instanceID": 36416
+                "instanceID": 36418
             },
             "broken": false
         },
         {
             "id": 24,
             "potScr": {
-                "instanceID": 31140
+                "instanceID": 31142
             },
             "broken": false
         },
         {
             "id": 25,
             "potScr": {
-                "instanceID": 36996
+                "instanceID": 36998
             },
             "broken": false
         },
         {
             "id": 26,
             "potScr": {
-                "instanceID": 34010
+                "instanceID": 34012
             },
             "broken": false
         },
         {
             "id": 27,
             "potScr": {
-                "instanceID": 32450
+                "instanceID": 32452
             },
             "broken": false
         },
         {
             "id": 28,
             "potScr": {
-                "instanceID": 30214
+                "instanceID": 30216
             },
             "broken": false
         },
         {
             "id": 29,
             "potScr": {
-                "instanceID": 32274
+                "instanceID": 32276
             },
             "broken": false
         },
         {
             "id": 30,
             "potScr": {
-                "instanceID": 32596
+                "instanceID": 32598
             },
             "broken": false
         },
         {
             "id": 31,
             "potScr": {
-                "instanceID": 37386
+                "instanceID": 37384
             },
             "broken": false
         },
         {
             "id": 32,
             "potScr": {
-                "instanceID": 31046
+                "instanceID": 31048
             },
             "broken": false
         },
         {
             "id": 33,
             "potScr": {
-                "instanceID": 32188
+                "instanceID": 32190
             },
             "broken": false
         },
         {
             "id": 34,
             "potScr": {
-                "instanceID": 32022
+                "instanceID": 32024
             },
             "broken": false
         },
         {
             "id": 35,
             "potScr": {
-                "instanceID": 36264
+                "instanceID": 36266
             },
             "broken": false
         },
         {
             "id": 36,
             "potScr": {
-                "instanceID": 27784
+                "instanceID": 27786
             },
             "broken": false
         },
         {
             "id": 37,
             "potScr": {
-                "instanceID": 31128
+                "instanceID": 31130
             },
             "broken": false
         },
         {
             "id": 38,
             "potScr": {
-                "instanceID": 37366
+                "instanceID": 37364
             },
             "broken": false
         },
         {
             "id": 39,
             "potScr": {
-                "instanceID": 37482
+                "instanceID": 37480
             },
             "broken": false
         },
         {
             "id": 40,
             "potScr": {
-                "instanceID": 36096
+                "instanceID": 36098
             },
             "broken": false
         },
         {
             "id": 41,
             "potScr": {
-                "instanceID": 29508
+                "instanceID": 29510
             },
             "broken": false
         },
         {
             "id": 42,
             "potScr": {
-                "instanceID": 31584
+                "instanceID": 31586
             },
             "broken": false
         },
         {
             "id": 43,
             "potScr": {
-                "instanceID": 37190
+                "instanceID": 37188
             },
             "broken": false
         },
         {
             "id": 44,
             "potScr": {
-                "instanceID": 29730
+                "instanceID": 29732
             },
             "broken": false
         },
         {
             "id": 45,
             "potScr": {
-                "instanceID": 32402
+                "instanceID": 32404
             },
             "broken": false
         },
         {
             "id": 46,
             "potScr": {
-                "instanceID": 35074
+                "instanceID": 35076
             },
             "broken": false
         },
         {
             "id": 47,
             "potScr": {
-                "instanceID": 38218
+                "instanceID": 38214
             },
             "broken": false
         },
         {
             "id": 48,
             "potScr": {
-                "instanceID": 37400
+                "instanceID": 37398
             },
             "broken": false
         },
         {
             "id": 49,
             "potScr": {
-                "instanceID": 29230
+                "instanceID": 29232
             },
             "broken": false
         },
         {
             "id": 50,
             "potScr": {
-                "instanceID": 31324
+                "instanceID": 31326
             },
             "broken": false
         },
         {
             "id": 51,
             "potScr": {
-                "instanceID": 33642
+                "instanceID": 33644
             },
             "broken": false
         },
         {
             "id": 52,
             "potScr": {
-                "instanceID": 37510
+                "instanceID": 37506
             },
             "broken": false
         },
         {
             "id": 53,
             "potScr": {
-                "instanceID": 34770
+                "instanceID": 34772
             },
             "broken": false
         },
         {
             "id": 54,
             "potScr": {
-                "instanceID": 32230
+                "instanceID": 32232
             },
             "broken": false
         },
         {
             "id": 55,
             "potScr": {
-                "instanceID": 32166
+                "instanceID": 32168
             },
             "broken": false
         },
         {
             "id": 56,
             "potScr": {
-                "instanceID": 37558
+                "instanceID": 37554
             },
-            "broken": false
+            "broken": true
         },
         {
             "id": 57,
             "potScr": {
-                "instanceID": 27396
+                "instanceID": 27398
             },
             "broken": false
         },
         {
             "id": 58,
             "potScr": {
-                "instanceID": 35636
+                "instanceID": 35638
             },
             "broken": false
         },
         {
             "id": 59,
             "potScr": {
-                "instanceID": 33900
+                "instanceID": 33902
             },
             "broken": false
         },
         {
             "id": 60,
             "potScr": {
-                "instanceID": 34684
+                "instanceID": 34686
             },
             "broken": false
         },
         {
             "id": 61,
             "potScr": {
-                "instanceID": 28982
+                "instanceID": 28984
             },
             "broken": false
         },
         {
             "id": 62,
             "potScr": {
-                "instanceID": 27234
+                "instanceID": 27236
             },
             "broken": false
         },
         {
             "id": 63,
             "potScr": {
-                "instanceID": 31688
+                "instanceID": 31690
             },
             "broken": false
         },
         {
             "id": 64,
             "potScr": {
-                "instanceID": 35606
+                "instanceID": 35608
             },
             "broken": false
         }
@@ -497,42 +497,42 @@
         {
             "id": 0,
             "pickUpScr": {
-                "instanceID": 36864
+                "instanceID": 36866
             },
             "picked": false
         },
         {
             "id": 1,
             "pickUpScr": {
-                "instanceID": 27422
+                "instanceID": 27424
             },
             "picked": false
         },
         {
             "id": 2,
             "pickUpScr": {
-                "instanceID": 32972
+                "instanceID": 32974
             },
             "picked": false
         },
         {
             "id": 3,
             "pickUpScr": {
-                "instanceID": 28240
+                "instanceID": 28242
             },
-            "picked": true
+            "picked": false
         },
         {
             "id": 4,
             "pickUpScr": {
-                "instanceID": 31758
+                "instanceID": 31760
             },
             "picked": false
         },
         {
             "id": 5,
             "pickUpScr": {
-                "instanceID": 30140
+                "instanceID": 30142
             },
             "picked": true
         }
@@ -541,51 +541,51 @@
         {
             "id": 0,
             "chestScr": {
-                "instanceID": 36944
+                "instanceID": 36946
             },
-            "collected": false
+            "collected": true
         },
         {
             "id": 1,
             "chestScr": {
-                "instanceID": 30916
+                "instanceID": 30918
             },
             "collected": false
         },
         {
             "id": 2,
             "chestScr": {
-                "instanceID": 35778
+                "instanceID": 35780
             },
             "collected": false
         },
         {
             "id": 3,
             "chestScr": {
-                "instanceID": 29470
+                "instanceID": 29472
             },
             "collected": false
         },
         {
             "id": 4,
             "chestScr": {
-                "instanceID": 28286
+                "instanceID": 28288
             },
             "collected": false
         },
         {
             "id": 5,
             "chestScr": {
-                "instanceID": 32390
+                "instanceID": 32392
             },
             "collected": false
         },
         {
             "id": 6,
             "chestScr": {
-                "instanceID": 33738
+                "instanceID": 33740
             },
-            "collected": false
+            "collected": true
         }
     ],
     "plantList": [],
@@ -593,12 +593,12 @@
         {
             "id": 0,
             "npcQuestScr": {
-                "instanceID": 27240
+                "instanceID": 27242
             },
             "questTaken": false,
             "questEnded": false,
             "quest": {
-                "instanceID": 26176
+                "instanceID": 26178
             },
             "redirect_Quest": {
                 "instanceID": 0
@@ -608,27 +608,27 @@
         {
             "id": 1,
             "npcQuestScr": {
-                "instanceID": 33122
+                "instanceID": 33124
             },
-            "questTaken": false,
+            "questTaken": true,
             "questEnded": false,
             "quest": {
-                "instanceID": 26304
+                "instanceID": 26306
             },
             "redirect_Quest": {
                 "instanceID": 0
             },
-            "count": 0
+            "count": 6
         },
         {
             "id": 2,
             "npcQuestScr": {
-                "instanceID": 35856
+                "instanceID": 35858
             },
-            "questTaken": false,
+            "questTaken": true,
             "questEnded": false,
             "quest": {
-                "instanceID": 26044
+                "instanceID": 26046
             },
             "redirect_Quest": {
                 "instanceID": 0
@@ -638,9 +638,9 @@
         {
             "id": 3,
             "npcQuestScr": {
-                "instanceID": 31380
+                "instanceID": 31382
             },
-            "questTaken": false,
+            "questTaken": true,
             "questEnded": false,
             "quest": {
                 "instanceID": 25120
@@ -648,7 +648,7 @@
             "redirect_Quest": {
                 "instanceID": 0
             },
-            "count": 0
+            "count": 1
         }
     ],
     "canPass": true

@@ -16,10 +16,13 @@ public class Redirect_Quest : MonoBehaviour
     private float sizeOfContainerBottomInital = 0;
     private RectTransform rectTransform;
     public GameManager gameManager;
+    [SerializeField]
+    private Create_Quest defaultQuest;
     private void Awake()
     {
        rectTransform = parentGameObject.gameObject.GetComponent<RectTransform>();
        sizeOfContainerBottomInital = rectTransform.offsetMin.y;
+        AddQuest(defaultQuest, 0);
     }
 
     //test 
@@ -74,7 +77,8 @@ public class Redirect_Quest : MonoBehaviour
                 {
                     Debug.Log("finished quest");
                     questObjectTemp.quest.Finished = true;
-                    questObjectTemp.Scr.NpcQuest.Finished = true;
+                    if(questObjectTemp.Scr !=null)
+                        questObjectTemp.Scr.NpcQuest.Finished = true;
                     questObjectTemp.completedQuest = true;
                     questObjectTemp.panelScr.QuestCompleted();
                 }
@@ -116,6 +120,43 @@ public class Redirect_Quest : MonoBehaviour
             Debug.Log("finished quest");
             questObjectTemp1.quest.Finished = true;
             questObjectTemp1.Scr.NpcQuest.Finished = true;
+            questObjectTemp1.completedQuest = true;
+            questObjectTemp1.panelScr.QuestCompleted();
+        }
+    }
+    public void AddQuest(Create_Quest quest, int currentCount)
+    {
+        QuestObject questObjectTemp1 = new QuestObject();
+        Debug.Log("Dodaj quest: " + quest.name);
+        GameObject panel = Instantiate(panelPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        panel.transform.SetParent(parentGameObject.transform);
+        panel.transform.localScale = new Vector3(0.75f, 0.75f, 1);
+        questObjectTemp1.quest = quest;
+        //questObjectTemp1.Scr = npcScr;
+        questObjectTemp1.completedQuest = false;
+        questObjectTemp1.activeQuest = true;
+        QuestController questController = panel.gameObject.GetComponent<QuestController>();
+        questObjectTemp1.panelScr = questController;
+        Debug.Log(currentCount);
+        questObjectTemp1.counter = currentCount;
+        questObjects.Add(questObjectTemp1);
+        //panel texts
+        panel.SetActive(true);
+        questController.nameOfQuest.text = quest.name;
+        questController.description.text = quest.description.ToString();
+        questController.progression.text = questObjectTemp1.counter.ToString();
+        questController.activeQuest = true;
+        questController.progressionFull.text = quest.count.ToString();
+        if (questObjects.Count > 5)
+        {
+            sizeOfContainerBottom = rectTransform.offsetMin.y - 70f;
+            rectTransform.offsetMin = new Vector2(rectTransform.offsetMin.x, sizeOfContainerBottom);
+        }
+        if (questObjectTemp1.counter >= questObjectTemp1.quest.count)
+        {
+            Debug.Log("finished quest");
+            questObjectTemp1.quest.Finished = true;
+            //questObjectTemp1.Scr.NpcQuest.Finished = true;
             questObjectTemp1.completedQuest = true;
             questObjectTemp1.panelScr.QuestCompleted();
         }

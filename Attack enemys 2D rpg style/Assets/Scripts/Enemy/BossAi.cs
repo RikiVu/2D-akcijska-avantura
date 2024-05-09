@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using Pathfinding;
 using Random = UnityEngine.Random;
+using UnityEditor.VersionControl;
+
 public enum Stages
 {
     first,
@@ -8,7 +10,7 @@ public enum Stages
     third
 }
 
-public class BossAi : Enemy
+public class BossAi : EnemyR
 {
     // General variables
     [SerializeField] private Stages currentStage;
@@ -20,7 +22,6 @@ public class BossAi : Enemy
     private Seeker seeker;
 
     // AI variables
-    public static float chaseRadius;
     [SerializeField] private float attackRadius;
     [SerializeField] private Transform centerWaypoint;
     [SerializeField] private float nextWaypointDistance = 3f;
@@ -49,20 +50,29 @@ public class BossAi : Enemy
     private Vector3 temp;
     [SerializeField]
     private Vector3 tempVector;
+    [SerializeField]
+    private GameObject bossHealth;
+    public static float chaseRadius;
 
-   
-    
+    //Enemy drop
+    public GameObject itemInside2;
+
 
 
     void Start()
     {
-        anim = GetComponent<Animator>();
         seeker = GetComponent<Seeker>();
         currentStage = Stages.first;
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        InvokeRepeating("UpdatePathPlayer", 0f, .5f);
+        myRigidbody = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        anim = GetComponent<Animator>();
         anim.SetFloat("MoveX", 0);
         anim.SetFloat("MoveY", -1);
-        chaseRadius = 35;
+        enemySprite = this.GetComponent<SpriteRenderer>();
+        Health = enemyScribtableObject.MaxHealth;
+        target = player.transform;
+        chaseRadius = enemyScribtableObject.chaseRadius;
     }
 
     void UpdatePath()
@@ -70,10 +80,22 @@ public class BossAi : Enemy
         if (Vector3.Distance(target.position,transform.position) <= chaseRadius && Vector3.Distance(target.position, transform.position) > attackRadius)
             seeker.StartPath(myRigidbody.position, target.position, OnPathComplete);
     }
+    void UpdatePathPlayer()
+    {
+        if (Vector2.Distance(target.position, transform.position) <= chaseRadius &&
+            Vector2.Distance(target.position, transform.position) > enemyScribtableObject.attackRadius)
+        {
+            if (seeker.IsDone())
+            {
+                seeker.StartPath(myRigidbody.position, target.position, OnPathComplete);
+            }
+         
+        }
+    }
 
     void OnPathComplete(Path p)
     {
-        if(!p.error)
+        if (!p.error)
         {
             path = p;
             currentWaypoint = 0;
@@ -90,7 +112,7 @@ public class BossAi : Enemy
         {
             if (currentStage== Stages.first)
             {
-                Instantiate(itemInside, SpawnPosition.position + new Vector3(UnityEngine.Random.Range(-1, 1), 0, UnityEngine.Random.Range(-1, 1)), Quaternion.identity);
+                Instantiate(itemInside, transform.position + new Vector3(UnityEngine.Random.Range(-1, 1), 0, UnityEngine.Random.Range(-1, 1)), Quaternion.identity);
                 counterOfProjectiles = 30;
             }
             currentStage = Stages.second;
@@ -99,7 +121,7 @@ public class BossAi : Enemy
         else if(Health > 10 && Health <= 20)
         {
             if (currentStage == Stages.second)
-                Instantiate(itemInside, SpawnPosition.position + new Vector3(UnityEngine.Random.Range(-1, 1), 0, UnityEngine.Random.Range(-1, 1)), Quaternion.identity);
+                Instantiate(itemInside, transform.position + new Vector3(UnityEngine.Random.Range(-1, 1), 0, UnityEngine.Random.Range(-1, 1)), Quaternion.identity);
             currentStage = Stages.first;
         }
         else if (Health > 1 && Health <= 10)
@@ -131,7 +153,7 @@ public class BossAi : Enemy
                 {
                     myCollider.enabled = true;
                     myCollider2.enabled = true;
-                    ChangeState(EnemyState.idle); //Promjeni animaciju
+                    ChangeState(EnemyStateR.idle); //Promjeni animaciju
 
                     //timer za pucanje
                     fireDelaySeconds -= Time.deltaTime;
@@ -220,15 +242,15 @@ public class BossAi : Enemy
         if (Vector3.Distance(target.position,transform.position) <= chaseRadius && Vector3.Distance(target.position, transform.position) > attackRadius)
         {
             anim.SetBool("StartWalking", true);
-            HealthTip_Go.SetActive(true);
-            if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
+            bossHealth.SetActive(true);
+            if (currentState == EnemyStateR.idle || currentState == EnemyStateR.walk && currentState != EnemyStateR.stagger)
             {
                 anim.SetFloat("MoveX", (target.position.x - transform.position.x));
                 anim.SetFloat("MoveY", (target.position.y - transform.position.y));
                 Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - myRigidbody.position).normalized;
-                Vector2 force = direction * moveSpeed * Time.deltaTime;
+                Vector2 force = direction * enemyScribtableObject.speed * Time.deltaTime;
                 myRigidbody.AddForce(force);
-                ChangeState(EnemyState.walk); //Promjeni animaciju
+                ChangeState(EnemyStateR.walk); //Promjeni animaciju
             }
         
         }
@@ -246,10 +268,9 @@ public class BossAi : Enemy
         DeSelect();
 
         // Deactivate health tip
-        HealthTip_Go.SetActive(false);
+        bossHealth.SetActive(false);
 
-        // Mark the enemy as no longer active
-        Enemy1 = false;
+       
 
         // Play death sound
         FindObjectOfType<AudioManager>().Play("DieLog");
@@ -261,13 +282,14 @@ public class BossAi : Enemy
         InitHearts2();
 
         // Report the enemy kill to the Redirect class
-        Redirect.Killed(enemyName);
+        Redirect.Killed(enemyScribtableObject.enemyName);
 
         // Spawn an item at a random position around the death location
-        Instantiate(itemInside, SpawnPosition.position + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)), Quaternion.identity);
+        itemInside2.transform.position = this.transform.position;
+        itemInside2.SetActive(true);
 
         // Spawn a soul at the death location
-        Instantiate(soul, SpawnPosition.position + new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(soul, transform.position + new Vector3(0, 0, 0), Quaternion.identity);
 
 
         // End the boss fight in the room movement
@@ -275,17 +297,19 @@ public class BossAi : Enemy
 
         // Deactivate the boss wall
         WallBoss.SetActive(false);
+        
     }
 
 
-    void ChangeState(EnemyState newState)
+    void ChangeState(EnemyStateR newState)
     {
         if (currentState != newState)
             currentState = newState;
     }
 
-  
-        
+ 
+
+
 }
 
  

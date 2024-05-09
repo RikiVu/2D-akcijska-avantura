@@ -47,10 +47,10 @@ public class EnemyR : MonoBehaviour
     private GameObject enemy;
     private GameObject Current;
     //Flash
-    private bool FlashActive;
+    protected bool FlashActive;
     [SerializeField]
-    private float flashLenght = 0f;
-    private float flashCounter = 0f;
+    protected float flashLenght = 0f;
+    protected float flashCounter = 0f;
 
     // quest
     private GameObject QuestPanel;
@@ -73,11 +73,10 @@ public class EnemyR : MonoBehaviour
     }
     void LateUpdate()
     {
-        if (currentSelected == true)
+        if (currentSelected == true && enemyScribtableObject.isBoss==false)
         {
             if (Vector3.Distance(target.position, Current.transform.position) >= 25)
                 DeSelect();
-            UpdateHearts();
             pos = Camera.main.WorldToScreenPoint(healthBar.transform.position);
             ShowHealth(pos);
         }
@@ -87,7 +86,7 @@ public class EnemyR : MonoBehaviour
 
     public virtual void DeSelect()
     {
-        if (enemyScribtableObject.enemyName != "Arachne")
+        if (enemyScribtableObject.isBoss == false)
         {
             GameManager.haveTarget = false;
             InitHearts2();
@@ -97,17 +96,21 @@ public class EnemyR : MonoBehaviour
     public virtual Transform Select()
     {
         Debug.Log(enemyScribtableObject.enemyName);
-        name.text = enemyScribtableObject.enemyName;
         currentSelected = true;
-        if (enemyScribtableObject.enemyName != "Arachne")
-            healthGroup.alpha = 1;
-        InitHearts();
         Current = this.gameObject;
+        if (enemyScribtableObject.isBoss == false)
+        {
+            name.text = enemyScribtableObject.enemyName;
+            healthGroup.alpha = 1;
+            InitHearts();
+        }
+           
+     
         return hitBox;
     }
     void Awake()
     {
-        if (enemyScribtableObject.enemyName != "Arachne")
+        if (enemyScribtableObject.isBoss == false)
         {
             healthGroup = GameObject.FindGameObjectWithTag("EnemyCanvas").GetComponent<CanvasGroup>();
             HealthTip_Go = GameObject.FindGameObjectWithTag("EnemyHealth");
@@ -123,11 +126,8 @@ public class EnemyR : MonoBehaviour
     }
     public void ShowHealth(Vector3 position)
     {
-        if (enemyScribtableObject.enemyName != "Arachne")
-        {
             HealthTip_Go.transform.position = position;
             HealthTip_Go.SetActive(true);
-        }
     }
     private void flash()
     {
@@ -187,18 +187,23 @@ public class EnemyR : MonoBehaviour
             hearts[i].sprite = fullHeart;
         }
     }
+ 
     public void InitHearts2()
     {
-        currentSelected = false;
-        foreach (Image img in hearts)
+        if (enemyScribtableObject.isBoss == false)
         {
-            img.gameObject.SetActive(false);
+            currentSelected = false;
+            foreach (Image img in hearts)
+            {
+                img.gameObject.SetActive(false);
+            }
         }
+        
     }
     public void UpdateHearts()
     {
 
-        name.text = enemyScribtableObject.enemyName;
+        //name.text = enemyScribtableObject.enemyName;
         float tempHealth = Health / 2;
         for (int i = 0; i < enemyScribtableObject.MaxHealth / 2; i++)
         {
@@ -216,7 +221,7 @@ public class EnemyR : MonoBehaviour
             }
         }
     }
-    int heartsToSpawn;
+   protected int heartsToSpawn;
     public virtual void Knock(Rigidbody2D myRigidbody, float knockTime, float damage)
     {
         if (isTargetable)
@@ -232,6 +237,7 @@ public class EnemyR : MonoBehaviour
             else
                 heartsToSpawn = (int)(damage / 2);
             Health -= damage;
+            UpdateHearts();
             for (int i = 0; i < heartsToSpawn; i++)
             {
                 Instantiate(knockHeart, transform.position + new Vector3(0, 1, 0) * (i + 1), Quaternion.identity);
@@ -275,7 +281,7 @@ public class EnemyR : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime)
+    protected IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime)
     {
         if (myRigidbody != null && Health > 0)
         {

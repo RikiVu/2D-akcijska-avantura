@@ -7,6 +7,7 @@ using UnityEngine;
 public class CreateEnemy : ScriptableObject
 {
         public string enemyName ="EnemyName";
+        public bool isBoss = false;
         public float MaxHealth = 4;
         public float chaseRadius = 21f;
         public float attackRadius = 8f;

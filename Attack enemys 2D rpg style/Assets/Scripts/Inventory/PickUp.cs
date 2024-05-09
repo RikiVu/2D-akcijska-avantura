@@ -54,6 +54,7 @@ public class PickUp : ShowOutline
                 return;
             }
             inRange = false;
+            Debug.Log("pokupio?");
             invScr.AddItem(item);
             picked = true;
             try

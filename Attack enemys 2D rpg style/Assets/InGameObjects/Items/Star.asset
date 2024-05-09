@@ -17,7 +17,7 @@ MonoBehaviour:
   ID: 0
   name: Star
   description: My precious
-  pickable: 0
+  pickable: 1
   isStackable: 1
   Price: 1
   HealthBoost: 0

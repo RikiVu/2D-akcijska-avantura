@@ -307,6 +307,7 @@ public class Inventory : MonoBehaviour
         {
             ++starCount;
             starsCountText.text = starCount.ToString();
+            Redirect.Gathering(item.name, num);
             return;
         }
 
