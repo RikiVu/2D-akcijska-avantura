@@ -24,10 +24,17 @@ public class SpawnEnemies : MonoBehaviour
     int i;
     GameObject randomSpawn;
     GameObject temp;
+    int lenghtOfEnemies;
+    int idToSpawn;
 
     private void Start()
     {
         //maxMinions = target.MaxCount;
+        //  Debug.Log("enemies lenght "+ target.Enemies.Length);
+        if (target.Enemies[0] !=null)
+        {
+            lenghtOfEnemies = target.Enemies.Length;
+        }
     }
 
 
@@ -42,7 +49,8 @@ public class SpawnEnemies : MonoBehaviour
         for ( i = 0; i<  placeOfSpawn.Length-1; i++)
         {
             // Instantiate enemy at the randomly selected spawn point
-            temp = Instantiate(target.Enemy, placeOfSpawn[i].transform.position, Quaternion.identity);
+            idToSpawn = Random.Range(0, lenghtOfEnemies);
+            temp = Instantiate(target.Enemies[idToSpawn], placeOfSpawn[i].transform.position, Quaternion.identity);
             enemies.Add(temp);
         }
           
@@ -65,7 +73,7 @@ public class SpawnEnemies : MonoBehaviour
                 if (randomSpawn != null)
                 {
                     // Instantiate prefab at the selected spawn point
-                    Instantiate(target.Enemy, randomSpawn.transform.position, Quaternion.identity);
+                    Instantiate(target.Enemies[0], randomSpawn.transform.position, Quaternion.identity);
                     currentMinionCount++;
                     timer = 0f;
                     Debug.Log(currentMinionCount);

@@ -19,8 +19,8 @@ public class NpcQuestScr : NpcScr
 
     //save and load 
     public GameManager gameManager;
-    [SerializeField]
-    private int assignedId;
+
+    public int assignedId;
 
 
 
@@ -28,7 +28,6 @@ public class NpcQuestScr : NpcScr
     {
         base.Start();
         redirectScr = GameObject.FindGameObjectWithTag("QuestPanel").GetComponent<Redirect_Quest>();
-        assignedId = gameManager.addInQuestList(this, questTaken, questEnded, NpcQuest);
     }
 
     public void loadQuestData(bool taken, bool ended)

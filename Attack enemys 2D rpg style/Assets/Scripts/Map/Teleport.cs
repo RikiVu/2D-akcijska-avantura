@@ -7,7 +7,7 @@ public class Teleport : MonoBehaviour
     public Vector3 offset;
     private CameraMovement cam;
     public int number;
-
+    public CreateMap mapScrObject;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,9 @@ public class Teleport : MonoBehaviour
     {
         if (collision.CompareTag("Player") && collision.isTrigger)
         {
-                collision.transform.position = desiredLocation.transform.position + offset;
+            cam.MapTransfer(mapScrObject.minPosition, mapScrObject.maxPosition, mapScrObject.mapName);
+            collision.transform.position = desiredLocation.transform.position + offset;
+            cam.smooothing = 0.03f;
         }
     }
 }

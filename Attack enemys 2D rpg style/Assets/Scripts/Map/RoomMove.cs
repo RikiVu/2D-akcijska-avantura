@@ -19,29 +19,13 @@ public class RoomMove : MonoBehaviour
     private bool changedSmoothing = false; 
     public int number;
     public GameManager manager;
+    public CreateMap mapScrObject;
 
 
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main.GetComponent <CameraMovement>();
-       /* if (!spawn)
-            WallSprite = gameObject.GetComponent<SpriteRenderer>();
-       */
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(changedSmoothing)
-        {
-            cam.smooothing = cam.smooothing + 0.05f * Time.deltaTime;
-            if( cam.smooothing >= 0.1f)
-            {
-                changedSmoothing = false;
-                cam.smooothing = 0.1f;
-            }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

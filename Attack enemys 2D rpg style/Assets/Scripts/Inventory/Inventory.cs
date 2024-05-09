@@ -200,7 +200,15 @@ public class Inventory : MonoBehaviour
             GameManager.InvOppened = true;
             panelInv.SetActive(true);
             ItemForPlanting();
-            Time.timeScale = 0;
+           
+        }
+    }
+    public void closeInvToPlant()
+    {
+        if (GameManager.InvOppened == true)
+        {
+            GameManager.InvOppened = false;
+            panelInv.SetActive(false);
         }
     }
     public bool transferFromItem(CreateItem itm,string name)

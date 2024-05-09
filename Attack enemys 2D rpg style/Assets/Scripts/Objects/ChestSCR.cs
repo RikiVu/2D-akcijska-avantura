@@ -27,8 +27,7 @@ public class ChestSCR : MonoBehaviour
     private AlertPanelScr alertPanelScr;
 
     public GameManager gameManager;
-    [SerializeField]
-    private int assignedId;
+    public int assignedId;
 
     void Start() // ovo se pokrece samo jednom
     {
@@ -37,7 +36,6 @@ public class ChestSCR : MonoBehaviour
         ChestPanel.SetActive(false);
         anim = GetComponent<Animator>(); // anim na foru dohvaca Animator u Unityu
         chestCollected = false; // bool moze bit samo true i false na pocetku "Start je false"
-        assignedId = gameManager.addInChestList(this, chestCollected);
     }
 void Update()
 {
@@ -86,6 +84,7 @@ void Update()
 
     public void loadChest(bool state)
     {
+        Debug.Log("wtf");
         chestCollected = state;
         if (!state)
             anim.SetBool("Oppened", false);

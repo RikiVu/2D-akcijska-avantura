@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e234ce9cb43a39c4d95c8b3b9b68a61c, type: 3}
   m_Name: Map 5
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 3172384392692796538, guid: 09dc113b14eb6964bb90c3b8d71c4d4c, type: 3}
-  MaxCount: 0
-  RespawnTime: 0
+  Enemies:
+  - {fileID: 4473233539476626048, guid: 085f55bc54f4cd14c959692a70d5f0ee, type: 3}
+  MaxCount: 25
+  RespawnTime: 2
   mapName: Bojare
   maxPosition: {x: 30, y: 45}
   minPosition: {x: -28.5, y: -36.5}

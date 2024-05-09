@@ -24,15 +24,14 @@ public class pot : MonoBehaviour
     // Start is called before the first frame update
 
     public GameManager gameManager;
-    [SerializeField]
-    private int assignedId;
+
+    public int assignedId;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         m_Collider = GetComponent<Collider2D>();
         // hitBox = this.gameObject;
-        assignedId = gameManager.addInPotList(this, false);
     }
     public virtual void DeSelect()
     {

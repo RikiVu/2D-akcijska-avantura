@@ -9,11 +9,15 @@ public class SpawnEnemiesArea : MonoBehaviour
     public Transform Player;
     public GameObject[] placeOfSpawn;
     private bool inRange = false;
+    [SerializeField]
     private int maxMinions = 10;
 
+    [SerializeField]
     private float timer = 0f;
+    [SerializeField]
     private float interval = 2.5f;
 
+    [SerializeField]
     private float minSpawnDistance = 5f;
 
     void Update()

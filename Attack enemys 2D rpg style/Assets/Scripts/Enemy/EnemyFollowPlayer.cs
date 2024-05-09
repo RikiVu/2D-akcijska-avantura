@@ -123,6 +123,7 @@ public class EnemyFollowPlayer : EnemyR
         ray = Physics2D.Raycast(transform.position, target.position - transform.position, sightRange, layerMask);
         if (ray.collider != null)
         {
+           // Debug.Log(ray.collider.gameObject.name);
             hasLineOfSight = ray.collider.CompareTag("Player");
             if (hasLineOfSight)
             {

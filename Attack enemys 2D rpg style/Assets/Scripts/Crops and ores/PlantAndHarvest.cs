@@ -159,7 +159,17 @@ public class PlantAndHarvest : Interactable
             contextOn.Raise();
         }
     }
-  
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && collision.isTrigger)
+        {
+            playerInRange = false;
+            inventory.closeInvToPlant();
+            contextOff.Raise();
+
+        }
+    }
+
 
 
 

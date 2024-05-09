@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e234ce9cb43a39c4d95c8b3b9b68a61c, type: 3}
   m_Name: Map 2
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 4047847017028428844, guid: 0ba2095b7d0a7a54a9cb6e2fa6641c4e, type: 3}
+  Enemies:
+  - {fileID: 4047847017028428844, guid: 0ba2095b7d0a7a54a9cb6e2fa6641c4e, type: 3}
   MaxCount: 6
   RespawnTime: 2.5
   mapName: Feles forest

@@ -18,8 +18,7 @@ MonoBehaviour:
   alreadyTakenQuest: How is killing going?
   completedQuest: Thank you. Here, your reward.
   Target: Skeleton
-  count: 2
+  count: 5
   Finished: 0
   AtNpcPlace: 0
   money: 200
-  XPgain: 0

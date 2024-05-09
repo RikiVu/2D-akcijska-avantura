@@ -35,7 +35,7 @@ public class SaveOrLoad : MonoBehaviour
         cam = Camera.main.GetComponent<CameraMovement>();
     }
     public void SavetoJson(Vector3 playerPosition, bool godmode, float health, float gold, int arrows, int stars, List<CreateItem> items, List<CreateItem> equipment,
-        List<ChestObject> chestList, List<PlantAndHarvestObject> plantListPar, List<PotObject> potlist, bool passage, List<ItemsOnGroundObject> pickUpItemList, List<QuestObjectLog> questObject)
+        List<ChestObject> chestList,  List<PotObject> potlist, bool passage, List<ItemsOnGroundObject> pickUpItemList, List<QuestObjectLog> questObject)
     {
         GameData data = new GameData();
         data.spawnPosition = playerPosition;
@@ -81,7 +81,7 @@ public class SaveOrLoad : MonoBehaviour
                 manager.redirect_Quest.saveToManager();
                 SavetoJson(player.transform.position, PlayerScr.GodMode, HeartManager.playerCurrentHealth, PlayerScr.Gold,
                     PlayerScr.Arrows, Inventory.starCount, inventory.SaveInventory(), equipment.SaveEquipment(),
-                    manager.chestList, manager.plantList, manager.potList, AllowPassage.CanPass, manager.pickupList, manager.questObjectLogList);
+                    manager.chestList, manager.potList, AllowPassage.CanPass, manager.pickupList, manager.questObjectLogList);
                 StartCoroutine(Saving());
             }
             catch

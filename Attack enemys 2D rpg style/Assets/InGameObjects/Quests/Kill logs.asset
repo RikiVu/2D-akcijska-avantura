@@ -18,8 +18,7 @@ MonoBehaviour:
   alreadyTakenQuest: Kill those bastards !!
   completedQuest: Thank you. Here, your reward.
   Target: Log
-  count: 5
+  count: 8
   Finished: 0
   AtNpcPlace: 0
   money: 200
-  XPgain: 120

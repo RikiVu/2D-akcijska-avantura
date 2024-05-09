@@ -54,23 +54,49 @@ public class GameManager : MonoBehaviour
     int i = 0;
     public Redirect_Quest redirect_Quest;
 
+    public pot[] potScr;
+    public PickUp[] pickupScr;
+    public ChestSCR[] chestSCRScr;
+    public NpcQuestScr[] NpcQuestScr;
+
+    public void giveIds()
+    {
+       for(i=0; i<potScr.Length; i++)
+        {
+            potScr[i].assignedId = i;
+            addInPotList(potScr[i], false, i);
+        }
+        for (i = 0; i < pickupScr.Length; i++)
+        {
+            pickupScr[i].assignedId = i;
+            addInPickupList(pickupScr[i], false, i);
+        }
+        for (i = 0; i < chestSCRScr.Length; i++)
+        {
+            chestSCRScr[i].assignedId = i;
+            addInChestList(chestSCRScr[i], false, i);
+        }
+        for (i = 0; i < NpcQuestScr.Length; i++)
+        {
+            NpcQuestScr[i].assignedId = i;
+            addInQuestList(NpcQuestScr[i], false, false, NpcQuestScr[i].NpcQuest, i);
+        }
+    }
     //cica 
     public void Passage(bool value)
     {
         allowPassage.load(value);
     }
     //quest log load and save
-    public int addInQuestList(NpcQuestScr npcQuestScr, bool taken, bool ended, Create_Quest whichQuest)
+  public void  addInQuestList(NpcQuestScr npcQuestScr, bool taken, bool ended, Create_Quest whichQuest, int id)
     {
         QuestObjectLog questObjectLog = new QuestObjectLog();
         questObjectLog.npcQuestScr = npcQuestScr;
         questObjectLog.questTaken = taken;
         questObjectLog.questEnded = ended;
         questObjectLog.quest = whichQuest;
-        questObjectLog.id = i;
-        ++i;
+        questObjectLog.id = id;
         questObjectLogList.Add(questObjectLog);
-        return questObjectLog.id;
     }
     public void addInQuestList(int Id, bool taken, bool ended)
     {
@@ -109,15 +135,13 @@ public class GameManager : MonoBehaviour
 
     }
     //pickUp load and save
-    public int addInPickupList(PickUp pickUpScr, bool state)
+    public void addInPickupList(PickUp pickUpScr, bool state, int id)
     {
         ItemsOnGroundObject tempPickUpObject = new ItemsOnGroundObject();
         tempPickUpObject.pickUpScr = pickUpScr;
         tempPickUpObject.picked = state;
-        tempPickUpObject.id = i;
-        ++i;
+        tempPickUpObject.id = id;
         pickupList.Add(tempPickUpObject);
-        return tempPickUpObject.id;
     }
     public void addInPickupList(int Id, bool state)
     {
@@ -137,15 +161,13 @@ public class GameManager : MonoBehaviour
     }
 
     //pot load and save
-    public int addInPotList(pot potScr, bool state)
+    public void addInPotList(pot potScr, bool state,int id)
     {
         PotObject tempPotObject = new PotObject();
         tempPotObject.potScr = potScr;
         tempPotObject.broken = state;
-        tempPotObject.id = i;
-        ++i;
+        tempPotObject.id = id;
         potList.Add(tempPotObject);
-        return tempPotObject.id;
     }
     public void addInPotList( int Id,bool state)
     {
@@ -166,15 +188,13 @@ public class GameManager : MonoBehaviour
 
 
     //chest load and save
-    public int addInChestList(ChestSCR chestScr, bool state)
+    public void addInChestList(ChestSCR chestScr, bool state, int id)
     {
         ChestObject tempChestObject = new ChestObject();
         tempChestObject.chestScr = chestScr;
         tempChestObject.collected = state;
-        tempChestObject.id = i;
-        ++i;
+        tempChestObject.id = id;
         chestList.Add(tempChestObject);
-        return tempChestObject.id;
     }
     public void addInChestList(bool state, int Id)
     {
@@ -182,11 +202,15 @@ public class GameManager : MonoBehaviour
     }
     public void loadChests(List<ChestObject> list)
     {
-        chestList = list;
-        foreach (ChestObject c in chestList)
+        if (list != null)
         {
-            c.chestScr.loadChest(c.collected);
+            chestList = list;
+            foreach (ChestObject c in chestList)
+            {
+                c.chestScr.loadChest(c.collected);
+            }
         }
+      
     }
 
     //plant load and save
@@ -227,7 +251,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
- 
+        giveIds();
         Inventory.gameObject.SetActive(true);
         //ShopInventory.gameObject.SetActive(true);
         //  InvScr = Inventory.GetComponent<Inventory>();

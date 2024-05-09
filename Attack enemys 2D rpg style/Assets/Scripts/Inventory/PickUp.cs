@@ -15,8 +15,8 @@ public class PickUp : ShowOutline
     private AlertPanelScr alertPanelScr;
 
     public GameManager gameManager;
-    [SerializeField]
-    private int assignedId;
+
+    public int assignedId;
     private bool picked = false;
 
     public void Awake()
@@ -24,10 +24,7 @@ public class PickUp : ShowOutline
         alertPanelGm = GameObject.FindGameObjectWithTag("alertPanel");
         alertPanelScr = alertPanelGm.GetComponent<AlertPanelScr>();
     }
-    private void Start()
-    {
-        assignedId = gameManager.addInPickupList(this, false);
-    }
+
 
     public void loadItem(bool state)
     {
@@ -58,10 +55,16 @@ public class PickUp : ShowOutline
             }
             inRange = false;
             invScr.AddItem(item);
-            picked= true;
-            gameManager.addInPickupList(assignedId, picked);
+            picked = true;
+            try
+            {
+                gameManager.addInPickupList(assignedId, picked);
+            }
+            catch
+            {
+                Debug.Log("error sa saveanjem ");
+            }
             this.gameObject.SetActive(false);
-           // Destroy(this.gameObject);
         }
     }
     
