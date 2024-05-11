@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
-using static UnityEditor.Progress;
+
 
 public class Equipment : MonoBehaviour
 {

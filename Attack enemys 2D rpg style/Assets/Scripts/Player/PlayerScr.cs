@@ -42,7 +42,7 @@ public class PlayerScr : MonoBehaviour
     private float cooldownSeconds;
     private bool cooldownBool;
     //Money
-    public static float Gold = 4550;
+    public static float Gold = 0;
 
     //Health
     public bool isTargetable = true;
@@ -92,6 +92,7 @@ public class PlayerScr : MonoBehaviour
     void Awake()
     {
         GodMode = SetGodMode;
+        /*
         DontDestroyOnLoad(this);
 
         if (playerInstance == null)
@@ -102,6 +103,7 @@ public class PlayerScr : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        */
     }
 
     public static bool trci = false;

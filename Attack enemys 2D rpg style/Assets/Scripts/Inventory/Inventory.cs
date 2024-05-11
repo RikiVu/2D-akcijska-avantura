@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 using System;
-using static UnityEditor.Progress;
+
 
 public class Inventory : MonoBehaviour
 {

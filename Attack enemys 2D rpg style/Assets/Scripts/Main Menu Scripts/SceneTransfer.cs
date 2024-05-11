@@ -10,7 +10,7 @@ public class SceneTransfer : MonoBehaviour
 
     public void GotoStart()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("test");
     }
 
     public void GotoOptions()

@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         for (i = 0; i < NpcQuestScr.Length; i++)
         {
             NpcQuestScr[i].assignedId = i;
-            addInQuestList(NpcQuestScr[i], false, false, NpcQuestScr[i].NpcQuest, i);
+            addInQuestList(NpcQuestScr[i], NpcQuestScr[i].questTaken, NpcQuestScr[i].questEnded, NpcQuestScr[i].NpcQuest, i);
         }
     }
     //cica 
@@ -177,10 +177,18 @@ public class GameManager : MonoBehaviour
     {
         if (list != null)
         {
-            potList = list;
+            //potList = list;
+            /*
             foreach (PotObject c in potList)
             {
                 c.potScr.loadPot(c.broken);
+            }
+            */
+
+            //chestList = list;
+            for (int i = 0; i < potList.Count; i++)
+            {
+                potList[i].potScr.loadPot(list[i].broken);
             }
         }
       
@@ -204,11 +212,12 @@ public class GameManager : MonoBehaviour
     {
         if (list != null)
         {
-            chestList = list;
-            foreach (ChestObject c in chestList)
+            //chestList = list;
+            for (int i = 0; i< chestList.Count; i++)
             {
-                c.chestScr.loadChest(c.collected);
+                chestList[i].chestScr.loadChest(list[i].collected);
             }
+          
         }
       
     }

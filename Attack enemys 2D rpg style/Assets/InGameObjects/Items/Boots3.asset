@@ -20,7 +20,7 @@ MonoBehaviour:
     that grant the wearer unparalleled speed and agility. ( Dexterity + 3 )'
   pickable: 1
   isStackable: 0
-  Price: 450
+  Price: 600
   HealthBoost: 0
   StrenghtBoost: 0
   ConstitutionBoost: 0

@@ -84,7 +84,7 @@ void Update()
 
     public void loadChest(bool state)
     {
-        Debug.Log("wtf");
+        Debug.Log("chest load");
         chestCollected = state;
         if (!state)
             anim.SetBool("Oppened", false);

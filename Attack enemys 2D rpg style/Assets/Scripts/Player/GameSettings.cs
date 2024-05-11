@@ -8,6 +8,7 @@ public class GameSettings : MonoBehaviour
     private static GameSettings GameManagerInstance;
     void Awake()
     {
+        /*
         DontDestroyOnLoad(this);
 
         if (GameManagerInstance == null)
@@ -18,6 +19,7 @@ public class GameSettings : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        */
     }
 
     // Start is called before the first frame update

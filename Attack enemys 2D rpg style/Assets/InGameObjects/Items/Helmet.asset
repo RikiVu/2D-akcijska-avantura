@@ -21,7 +21,7 @@ MonoBehaviour:
     heat of battle. ( Constitution + 1 )
   pickable: 1
   isStackable: 0
-  Price: 170
+  Price: 200
   HealthBoost: 0
   StrenghtBoost: 0
   ConstitutionBoost: 1

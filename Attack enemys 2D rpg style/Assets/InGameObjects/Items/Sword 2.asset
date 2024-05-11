@@ -20,7 +20,7 @@ MonoBehaviour:
     essence of classic weaponry with a modern touch. ( Strenght + 2 )
   pickable: 1
   isStackable: 0
-  Price: 150
+  Price: 400
   HealthBoost: 0
   StrenghtBoost: 2
   ConstitutionBoost: 0

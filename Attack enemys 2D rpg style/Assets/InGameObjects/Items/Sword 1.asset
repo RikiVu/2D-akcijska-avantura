@@ -19,7 +19,7 @@ MonoBehaviour:
   description: Worn but sharp, a testament to past battles.  ( Strenght +1 )
   pickable: 1
   isStackable: 0
-  Price: 80
+  Price: 50
   HealthBoost: 0
   StrenghtBoost: 1
   ConstitutionBoost: 0

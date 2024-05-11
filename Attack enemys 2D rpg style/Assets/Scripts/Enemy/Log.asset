@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Log
   m_EditorClassIdentifier: 
   enemyName: Log
-  MaxHealth: 6
-  chaseRadius: 21
+  isBoss: 0
+  MaxHealth: 7
+  chaseRadius: 22
   attackRadius: 3
-  prepareToAttack: 0.2
-  attackCooldown: 0.5
-  speed: 650
-  gold: 2
+  prepareToAttack: 0.15
+  attackCooldown: 0.4
+  speed: 850
+  gold: 5

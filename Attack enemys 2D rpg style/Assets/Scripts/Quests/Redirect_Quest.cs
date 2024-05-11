@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using UnityEditor.PackageManager.Requests;
+
 using UnityEngine;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
-using static UnityEngine.EventSystems.EventTrigger;
+
 
 public class Redirect_Quest : MonoBehaviour
 {
@@ -30,14 +29,25 @@ public class Redirect_Quest : MonoBehaviour
     {
         foreach (QuestObject obj in questObjects) {
             gameManager.addInQuestList(obj.counter, obj.quest);
-            Debug.Log("ovvvvvvvvvvo "+ obj.counter);
+            Debug.Log("saving quest:  "+ obj.quest.name);
         }
      
     }
     public void loadQuests(QuestObjectLog obj)
     {
         if (obj.questTaken == true && obj.questEnded == false)
-            AddQuest(obj.quest,obj.npcQuestScr, obj.count);
+        {
+            if (obj.npcQuestScr == null)
+            {
+                AddQuest(obj.quest, obj.count);
+            }
+            else
+            {
+                AddQuest(obj.quest, obj.npcQuestScr, obj.count);
+            }
+        
+        }
+       
     }
     public void Killed(string name)
     {

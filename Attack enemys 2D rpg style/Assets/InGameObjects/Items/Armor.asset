@@ -20,7 +20,7 @@ MonoBehaviour:
     + 1 )
   pickable: 1
   isStackable: 0
-  Price: 100
+  Price: 150
   HealthBoost: 1
   StrenghtBoost: 0
   ConstitutionBoost: 1
