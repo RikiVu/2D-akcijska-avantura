@@ -6,7 +6,7 @@ public class NpcQuestScr : NpcScr
     [Header("Quest section")]
     public Create_Quest NpcQuest;
     public CreateItem NpcItem;
-   
+    private bool npcItemState;
     public bool questTaken = false;
     public bool questEnded = false;
     protected Redirect_Quest redirectScr;
@@ -19,7 +19,7 @@ public class NpcQuestScr : NpcScr
 
     public int assignedId;
 
-
+    
 
     protected override void Start()
     {
@@ -27,38 +27,51 @@ public class NpcQuestScr : NpcScr
         redirectScr = GameObject.FindGameObjectWithTag("QuestPanel").GetComponent<Redirect_Quest>();
     }
 
-    public void loadQuestData(bool taken, bool ended)
+    public void loadQuestData(bool taken, bool ended, int count)
     {
+        
         if (taken != null || ended !=null)
         {
             questTaken = taken;
             questEnded = ended;
+           
+            if (NpcQuest.Type == TypeOfQuest.Gathering)
+                    NpcItem.pickable = false;
+
             if (questTaken && !questEnded)
             {
                 emoteSprite.enabled = true;
                 emoteSprite.color = new Color(0.4f, 0.74f, 0.95f);
-                if (NpcItem!=null)
-                    NpcItem.pickable = true;
+                if (NpcQuest.Type == TypeOfQuest.Gathering)
+                {
+                   // Debug.Log(NpcQuest.name + " , " + questTaken + " , " + questEnded);
+                    this.NpcItem.pickable = true;
+                    
+                }
+                       
             }
             else if(questTaken && questEnded)
             {
                 emoteSprite.enabled = false;
+                NpcItem.pickable = false;
             }
             else
             {
                 emoteSprite.enabled = true;
                 emoteSprite.color = new Color(1f, 0.9195983f, 0.5707547f);
-                if (NpcItem != null)
-                    NpcItem.pickable = false;
             }
+       
         }
     }
 
     void Awake()
     {
         NpcQuest.Finished = false;
-        if (NpcItem)
+        if (NpcItem && NpcItem.name != "Star")
+        {
             NpcItem.pickable = false;
+            npcItemState = NpcItem.pickable;
+        }
     }
 
     public override void Interact()

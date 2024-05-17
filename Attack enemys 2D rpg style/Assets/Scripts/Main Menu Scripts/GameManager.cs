@@ -122,21 +122,36 @@ public class GameManager : MonoBehaviour
     {
         if (list != null)
         {
-            questObjectLogList = list;
+            //questObjectLogList = list;
            
+          
             redirect_Quest.DeleteAll();
+            /*
+          for (int i = 0; i < questObjectLogList.Count; i++)
+          {
+              questObjectLogList[i].npcQuestScr.loadQuestData(list[i].questTaken, list[i].questEnded, list[i].count);
+              redirect_Quest.loadQuests(questObjectLogList[i]);
+          }
+          */
+           
             foreach (QuestObjectLog c in questObjectLogList)
             {
-                c.npcQuestScr.loadQuestData(c.questTaken, c.questEnded);
+                //Debug.Log(c.quest.name + " , "+ c.questTaken + " , "+ c.questEnded);
+                c.npcQuestScr.loadQuestData(c.questTaken, c.questEnded, c.count);
+                /*
+                if (c.npcQuestScr.questTaken && c.npcQuestScr.questEnded == false && c.npcQuestScr.NpcQuest.Type == TypeOfQuest.Gathering)
+                {
+
+                }*/
                 redirect_Quest.loadQuests(c);
             }
-      
         }
 
     }
     //pickUp load and save
     public void addInPickupList(PickUp pickUpScr, bool state, int id)
     {
+        Debug.Log(pickUpScr.item.name + " , picked ? : " + state);
         ItemsOnGroundObject tempPickUpObject = new ItemsOnGroundObject();
         tempPickUpObject.pickUpScr = pickUpScr;
         tempPickUpObject.picked = state;
@@ -145,17 +160,19 @@ public class GameManager : MonoBehaviour
     }
     public void addInPickupList(int Id, bool state)
     {
+        Debug.Log(Id + " , " + state);
         pickupList.Find(p => p.id == Id).picked = state;
     }
     public void loadPickUpItems(List<ItemsOnGroundObject> list)
     {
         if (list != null)
         {
-            pickupList = list;
-            foreach (ItemsOnGroundObject c in pickupList)
+            //pickupList = list;
+            for (int i = 0; i < pickupList.Count; i++)
             {
-                c.pickUpScr.loadItem(c.picked);
+                pickupList[i].pickUpScr.loadItem(list[i].picked);
             }
+         
         }
 
     }

@@ -20,6 +20,9 @@ public class Equipment : MonoBehaviour
     protected Redirect_Quest Redirect;
     private GameObject QuestPanel;
     public GameManager GameManager;
+    [SerializeField]
+    private PlayerScr playerScr;
+
     private void Start()
     {
         QuestPanel = GameObject.FindGameObjectWithTag("QuestPanel");
@@ -76,6 +79,10 @@ public class Equipment : MonoBehaviour
     }
     private void ItemLogicUnequip(CreateItem item)
     {
+        if(item.TypeOfEquipment == TypeOfEquipment.Weapon)
+        {
+            playerScr.changeHaveSwordState(false);
+        }
         if (item.nullify)
         {
             armorManager.hasProtection = false;
@@ -103,7 +110,7 @@ public class Equipment : MonoBehaviour
                 case TypeOfEquipment.Weapon:
                     itemScr = slot[5].GetComponentInChildren<item>();
                     conditionFunc(itemScr, item);
-                    PlayerScr.haveSword = true;
+                    playerScr.changeHaveSwordState(true);
                     AllowPassage.CanPass = true;
                     break;
                 case TypeOfEquipment.Helmet:

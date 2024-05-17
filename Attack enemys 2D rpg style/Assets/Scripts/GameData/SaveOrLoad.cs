@@ -127,6 +127,7 @@ public class SaveOrLoad : MonoBehaviour
             player.triggerBox.enabled = true;
             if (File.Exists(filePath))
             {
+             
                 string json = File.ReadAllText(Application.dataPath + "/gameData.json");
                 GameData data = JsonUtility.FromJson<GameData>(json);
                 player.transform.position = data.spawnPosition;
@@ -144,6 +145,7 @@ public class SaveOrLoad : MonoBehaviour
                 manager.Passage(data.canPass);
                 manager.loadPickUpItems(data.pickUpItems);
                 manager.loadQuests(data.quests);
+                player.loadPlayer();
                 alertPanelScr.showAlertPanel("Loaded");
             }
             else

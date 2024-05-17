@@ -44,6 +44,7 @@ public class AllowPassage : MonoBehaviour
         CanPass = value;
         if (!value)
         {
+            gameObject.GetComponent<AllowPassage>().enabled = true;
             transform.position = initalPos;
             anim.SetBool("Moving", false);
             Wall.SetActive(true);

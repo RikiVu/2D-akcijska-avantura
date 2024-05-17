@@ -18,11 +18,13 @@ public class PickUp : ShowOutline
 
     public int assignedId;
     private bool picked = false;
+    private bool pickable = false;
 
     public void Awake()
     {
         alertPanelGm = GameObject.FindGameObjectWithTag("alertPanel");
         alertPanelScr = alertPanelGm.GetComponent<AlertPanelScr>();
+        pickable = item.pickable;
     }
 
 
@@ -31,7 +33,9 @@ public class PickUp : ShowOutline
         if (state != null)
         {
             picked = state;
+            Debug.Log(item.name + " , picked?: " + picked);
             this.gameObject.SetActive(!state);
+       
         }
     }
 

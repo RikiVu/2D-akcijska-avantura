@@ -20,7 +20,11 @@ MonoBehaviour:
   pickable: 0
   isStackable: 1
   Price: 0
-  damageBoost: 0
   HealthBoost: 0
+  StrenghtBoost: 0
+  ConstitutionBoost: 0
+  DexterityBoost: 0
+  MonsterGoldBonus: 0
+  nullify: 0
   icon: {fileID: 1340625377, guid: ecc64b27a50d6904c85997cb99cbb48b, type: 3}
   isDefaultItem: 0

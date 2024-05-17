@@ -103,6 +103,8 @@ public class EnemyR : MonoBehaviour
             name.text = enemyScribtableObject.enemyName;
             healthGroup.alpha = 1;
             InitHearts();
+            UpdateHearts();
+            //
         }
            
      

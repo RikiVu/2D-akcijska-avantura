@@ -30,6 +30,7 @@ public class PlayerScr : MonoBehaviour
    // public Transform Spawn;
     public PlayerState currentState;
     public static bool canRun = true;
+    private bool canMove = true;
     public static float speed;
     float moveSpeed=100;
     private Vector3 change;
@@ -42,7 +43,7 @@ public class PlayerScr : MonoBehaviour
     private float cooldownSeconds;
     private bool cooldownBool;
     //Money
-    public static float Gold = 0;
+    public static float Gold = 50;
 
     //Health
     public bool isTargetable = true;
@@ -105,14 +106,30 @@ public class PlayerScr : MonoBehaviour
         }
         */
     }
+    public void loadPlayer() {
+        GameManager.gameOver = false;
+        FlashActive = false;
+        canMove = true;
+        currentState = PlayerState.idle;
+        PlayerSprite.color = new Color(255, 255, 255);
+        myRididbody.velocity = Vector2.zero;
+        animator.SetBool("Death", false);
+        PlayerHealthSignal.Raise();
+        Time.timeScale = 1;
+    } 
 
     public static bool trci = false;
     #endregion
 
+    public void changeHaveSwordState(bool state)
+    {
+        haveSword = state;
+        animator.SetBool("haveSword", state);
+    }
 
     void Start()
     {
-        
+        animator.SetBool("haveSword", false);
         Arrows = 0;
         PlayerSprite = gameObject.GetComponent<SpriteRenderer>();
         //transform.position = Spawn.position;
@@ -132,7 +149,7 @@ public class PlayerScr : MonoBehaviour
         if (GodMode)
         {
             haveSword = true;
-           
+            animator.SetBool("haveSword", true);
             haveBow = true;
             Gold += 10000;
             Arrows = 20;
@@ -248,7 +265,7 @@ public class PlayerScr : MonoBehaviour
     {
         if(attackActive== false)
         {
-        if(change != Vector3.zero)
+        if(change != Vector3.zero && canMove)
         {
                 moving = true;
                 MoveCharacter();
@@ -351,6 +368,7 @@ public class PlayerScr : MonoBehaviour
     {
         GameManager.gameOver = true;
         FlashActive = false;
+        canMove = false;
         PlayerSprite.color = new Color(255, 255, 255);
         myRididbody.velocity = Vector2.zero;
         animator.SetBool("Death", true);
