@@ -524,7 +524,7 @@ MonoBehaviour:
   maxWanderInterval: 4
   canMove: 0
   attacking: 0
-  leapForce: 0
+  leapForce: 4
 --- !u!95 &898018827601462087
 Animator:
   serializedVersion: 5

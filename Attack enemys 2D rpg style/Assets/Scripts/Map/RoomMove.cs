@@ -68,6 +68,18 @@ public class RoomMove : MonoBehaviour
         
         }
     }
+    public void loadPrevious2()
+    {
+        this.gameObject.SetActive(false);
+        bossFight = false;
+        WallSprite.SetActive(false);
+    }
+    public void loadPrevious()
+    {
+        this.gameObject.SetActive(true);
+        bossFight = false;
+        WallSprite.SetActive(false);
+    }
     private IEnumerator placeNameCo()
     {
         yield return new WaitForSeconds(1f);

@@ -1,9 +1,11 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
     public GameObject desiredLocation;
+    private Vector3 locationToSpawn;
     public Vector3 offset;
     private CameraMovement cam;
     public int number;
@@ -13,6 +15,7 @@ public class Teleport : MonoBehaviour
     void Start()
     {
         cam = Camera.main.GetComponent<CameraMovement>();
+        locationToSpawn = new Vector3(desiredLocation.transform.position.x, desiredLocation.transform.position.y, 0);
     }
  
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,7 +23,9 @@ public class Teleport : MonoBehaviour
         if (collision.CompareTag("Player") && collision.isTrigger)
         {
             cam.MapTransfer(mapScrObject.minPosition, mapScrObject.maxPosition, mapScrObject.mapName);
-            collision.transform.position = desiredLocation.transform.position + offset;
+           
+            collision.transform.position = locationToSpawn + offset;
+         
             cam.smooothing = 0.03f;
         }
     }

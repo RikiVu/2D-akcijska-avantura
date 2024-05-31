@@ -15,10 +15,11 @@ MonoBehaviour:
   Type: 1
   name: Kill  logs
   description: Can you kill logs in Rendal forest
-  alreadyTakenQuest: Kill those bastards !!
+  alreadyTakenQuest: Kill them all!
   completedQuest: Thank you. Here, your reward.
   Target: Log
   count: 8
   Finished: 0
   AtNpcPlace: 0
   money: 200
+  defaultQuest: 0

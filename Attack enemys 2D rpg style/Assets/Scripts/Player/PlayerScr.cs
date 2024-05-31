@@ -43,7 +43,7 @@ public class PlayerScr : MonoBehaviour
     private float cooldownSeconds;
     private bool cooldownBool;
     //Money
-    public static float Gold = 50;
+    public static float Gold = 400;
 
     //Health
     public bool isTargetable = true;

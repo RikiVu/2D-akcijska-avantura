@@ -29,7 +29,7 @@ public class Redirect_Quest : MonoBehaviour
     {
         foreach (QuestObject obj in questObjects) {
             gameManager.addInQuestList(obj.counter, obj.quest);
-            Debug.Log("saving quest:  "+ obj.quest.name);
+            Debug.Log("saving quest:  "+ obj.quest.name + " , quest taken: ");
         }
      
     }

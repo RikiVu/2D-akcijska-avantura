@@ -17,7 +17,7 @@ MonoBehaviour:
   MaxHealth: 40
   chaseRadius: 35
   attackRadius: 6
-  prepareToAttack: 0.5
+  prepareToAttack: 0.3
   attackCooldown: 2.5
   speed: 700
   gold: 1

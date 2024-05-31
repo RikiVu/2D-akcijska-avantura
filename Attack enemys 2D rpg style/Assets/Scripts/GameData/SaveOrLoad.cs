@@ -27,6 +27,7 @@ public class SaveOrLoad : MonoBehaviour
     private CreateMap mapScrObject;
     private CameraMovement cam;
     public GameManager manager;
+    public BossAi Boss;
 
 
     private void Start()
@@ -35,7 +36,7 @@ public class SaveOrLoad : MonoBehaviour
         cam = Camera.main.GetComponent<CameraMovement>();
     }
     public void SavetoJson(Vector3 playerPosition, bool godmode, float health, float gold, int arrows, int stars, List<CreateItem> items, List<CreateItem> equipment,
-        List<ChestObject> chestList,  List<PotObject> potlist, bool passage, List<ItemsOnGroundObject> pickUpItemList, List<QuestObjectLog> questObject)
+        List<ChestObject> chestList,  List<PotObject> potlist, bool passage, List<ItemsOnGroundObject> pickUpItemList, List<QuestObjectLog> questObject, BossAi boss)
     {
         GameData data = new GameData();
         data.spawnPosition = playerPosition;
@@ -54,6 +55,7 @@ public class SaveOrLoad : MonoBehaviour
         data.canPass = passage;
         data.pickUpItems = pickUpItemList;
         data.quests = questObject;
+        data.bossDefeated= boss.bossDefeated;
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(Application.dataPath + "/gameData.json", json);
     }
@@ -81,7 +83,7 @@ public class SaveOrLoad : MonoBehaviour
                 manager.redirect_Quest.saveToManager();
                 SavetoJson(player.transform.position, PlayerScr.GodMode, HeartManager.playerCurrentHealth, PlayerScr.Gold,
                     PlayerScr.Arrows, Inventory.starCount, inventory.SaveInventory(), equipment.SaveEquipment(),
-                    manager.chestList, manager.potList, AllowPassage.CanPass, manager.pickupList, manager.questObjectLogList);
+                    manager.chestList, manager.potList, AllowPassage.CanPass, manager.pickupList, manager.questObjectLogList, Boss);
                 StartCoroutine(Saving());
             }
             catch
@@ -132,12 +134,13 @@ public class SaveOrLoad : MonoBehaviour
                 GameData data = JsonUtility.FromJson<GameData>(json);
                 player.transform.position = data.spawnPosition;
                 PlayerScr.GodMode = data.godMode;
+                equipment.LoadEquipment(data.equipment);
                 HeartManager.playerCurrentHealth = data.currentHealth;
                 PlayerScr.Gold = data.gold;
                 PlayerScr.Arrows = data.arrows;
                 Inventory.starCount = data.stars;
                 inventory.LoadInventory(data.items);
-                equipment.LoadEquipment(data.equipment);
+                
                 cam.MapTransfer(data.camMinPosition, data.camMaxPosition);
                 manager.loadChests(data.chests);
                 //manager.loadPlant(data.plantList);
@@ -146,6 +149,7 @@ public class SaveOrLoad : MonoBehaviour
                 manager.loadPickUpItems(data.pickUpItems);
                 manager.loadQuests(data.quests);
                 player.loadPlayer();
+                Boss.Load(data.bossDefeated);
                 alertPanelScr.showAlertPanel("Loaded");
             }
             else

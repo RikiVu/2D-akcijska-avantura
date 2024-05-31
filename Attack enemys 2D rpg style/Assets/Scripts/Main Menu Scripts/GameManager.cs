@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using static UnityEngine.PlayerLoop.PostLateUpdate;
 
 public class GameManager : MonoBehaviour
@@ -122,28 +123,24 @@ public class GameManager : MonoBehaviour
     {
         if (list != null)
         {
-            //questObjectLogList = list;
-           
-          
             redirect_Quest.DeleteAll();
-            /*
-          for (int i = 0; i < questObjectLogList.Count; i++)
-          {
-              questObjectLogList[i].npcQuestScr.loadQuestData(list[i].questTaken, list[i].questEnded, list[i].count);
-              redirect_Quest.loadQuests(questObjectLogList[i]);
-          }
-          */
+   
            
-            foreach (QuestObjectLog c in questObjectLogList)
+            foreach (QuestObjectLog c in list)
             {
-                //Debug.Log(c.quest.name + " , "+ c.questTaken + " , "+ c.questEnded);
+                Debug.Log(c.quest.name + " , "+ c.questTaken + " , "+ c.questEnded);
                 c.npcQuestScr.loadQuestData(c.questTaken, c.questEnded, c.count);
-                /*
-                if (c.npcQuestScr.questTaken && c.npcQuestScr.questEnded == false && c.npcQuestScr.NpcQuest.Type == TypeOfQuest.Gathering)
-                {
-
-                }*/
                 redirect_Quest.loadQuests(c);
+                questObject =  questObjectLogList.Find(p => p.quest.name == c.quest.name);
+                if (questObject != null)
+                {
+                    questObject.questTaken = c.questTaken;
+                    questObject.questEnded = c.questEnded;
+                    questObject.count = c.count;
+                    questObject.quest = c.quest;
+
+                }
+
             }
         }
 
@@ -449,8 +446,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeTarget()
     {
-        try
-        {
+        
             if (bossAlive)
             {
                 haveTarget = true;
@@ -463,11 +459,8 @@ public class GameManager : MonoBehaviour
                 if (currentTarget != null)
                     player.MyTarget = currentTarget.Select();
             }
-        }
-        catch
-        {
-            Debug.Log("error Gamemanager");
-        }
+       
+      
         //if boss alive 
     
        

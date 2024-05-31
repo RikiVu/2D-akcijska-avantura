@@ -108,24 +108,6 @@ public class Menu : MonoBehaviour
     public void Load()
     {
         FindObjectOfType<AudioManager>().Play("Click");
-       // PlayerData data = SaveSystem.LoadPlayer();
-
-        //Health
-       // player.MaxHealth = data.MaxHealth;
-      //  player.currentHealth = data.currentHealth;
-        
-        //Gold
-      //  PlayerScr.Gold = data.Gold;
-
-        //Pozicija 
-       // Vector3 position;
-      //  position.x = data.position[0];
-      //  position.y = data.position[1];
-       // position.z = data.position[2];
-      //  player.transform.position = position;
-
-      
-
     }
     public void ReturnFromOptions()
     {

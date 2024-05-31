@@ -23,5 +23,6 @@ public class GameData
     public List<PlantAndHarvestObject> plantList = new List<PlantAndHarvestObject>();
     public List<QuestObjectLog> quests = new List<QuestObjectLog>();
     public bool canPass;
+    public bool bossDefeated;
 
 }

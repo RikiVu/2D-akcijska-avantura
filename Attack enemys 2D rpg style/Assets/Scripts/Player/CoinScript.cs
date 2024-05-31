@@ -10,6 +10,12 @@ public class CoinScript : MonoBehaviour
     public static float bonusPerc;
     private float bonus;
     int randomGeneratedNum;
+    private float lifetime = 15f;
+    private float lifetimeSeconds;
+    private void Start()
+    {
+        lifetimeSeconds = lifetime;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -34,12 +40,15 @@ public class CoinScript : MonoBehaviour
         transform.localScale += new Vector3(-0.2F, -0.2f, -0.2f);
         yield return new WaitForSeconds(30f); // 
         transform.localScale += new Vector3(0.0F, 0.0f, 0.0f);
-       
-        
-     
+    }
+    private void Update()
+    {
+        lifetimeSeconds -= Time.deltaTime;
+        if (lifetimeSeconds <= 0)
+            Destroy(this.gameObject);
     }
 
-   
+
 
 
 }

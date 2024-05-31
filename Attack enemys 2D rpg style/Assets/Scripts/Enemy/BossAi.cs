@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using Pathfinding;
 using Random = UnityEngine.Random;
+using System.Collections.Generic;
+using System.Collections;
+using UnityEngine.Rendering;
 
 
 public enum Stages
@@ -35,7 +38,7 @@ public class BossAi : EnemyR
     [SerializeField] private int numProjectiles = 100;
     [SerializeField] private float noiseMagnitude = 1f;
     [SerializeField] private float rotationSpeed = 2;
-    [SerializeField] private GameObject[] minions;
+    [SerializeField] private Transform[] minionsSpawn;
     
     [SerializeField] private BoxCollider2D myCollider;
     [SerializeField] private BoxCollider2D myCollider2;
@@ -56,7 +59,15 @@ public class BossAi : EnemyR
 
     //Enemy drop
     public GameObject itemInside2;
-
+    private Vector3 starInitailPosition;
+    //load
+    public bool bossDefeated = false;
+    private Vector3 bossInitialPosition;
+    [SerializeField]
+    private RoomMove rmMove;
+    [SerializeField]
+    private GameObject EnemyToSpawn;
+    private List<GameObject> minions = new List<GameObject>();
 
 
     void Start()
@@ -73,6 +84,51 @@ public class BossAi : EnemyR
         Health = enemyScribtableObject.MaxHealth;
         target = player.transform;
         chaseRadius = enemyScribtableObject.chaseRadius;
+        bossInitialPosition = this.transform.position;
+        starInitailPosition = itemInside2.transform.position;
+    }
+
+    public void Load(bool bossDefeated2)
+    {
+        bossDefeated = bossDefeated2;
+        DeSelect();
+        bossHealth.SetActive(false);
+        RoomMove.bossFight = false;
+        itemInside2.transform.position = starInitailPosition;
+        if (minions!=null)
+        {
+            foreach (GameObject minion in minions)
+            {
+                Destroy(minion);
+            }
+            minions.Clear();
+        }
+    
+
+        if (bossDefeated)
+        {
+            this.gameObject.SetActive(false);
+            WallBoss.SetActive(false);
+            rmMove.loadPrevious2();
+        }
+        else
+        {
+            this.gameObject.SetActive(true);
+            //restore health..
+            Health = enemyScribtableObject.MaxHealth;
+            InitHearts2();
+            InitHearts();
+            this.transform.position = bossInitialPosition;
+            chaseRadius = 35;
+            anim.SetFloat("MoveX", 0);
+            anim.SetFloat("MoveY", -1);
+            rmMove.loadPrevious();
+            currentStage = Stages.first;
+            target = player.transform;
+            currentState = EnemyStateR.idle;
+            isTargetable = true;
+            //numProjectiles = 100;
+        }
     }
 
     void UpdatePath()
@@ -105,15 +161,13 @@ public class BossAi : EnemyR
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Health > 30)
-            currentStage = Stages.first;
-        
-        else if(Health > 20 &&  Health <= 30)
+        if(Health > 20 &&  Health <= 30)
         {
             if (currentStage== Stages.first)
             {
                 Instantiate(itemInside, transform.position + new Vector3(UnityEngine.Random.Range(-1, 1), 0, UnityEngine.Random.Range(-1, 1)), Quaternion.identity);
                 counterOfProjectiles = 30;
+                shootingCount = 0;
             }
             currentStage = Stages.second;
             anim.SetBool("StartWalking", false);
@@ -128,8 +182,15 @@ public class BossAi : EnemyR
         {
             if (currentStage == Stages.first)
             {
-                foreach (var minion in minions)
-                    minion.SetActive(true);
+                counterOfProjectiles = 30;
+                shootingCount = 0;
+                Debug.Log("enemies lenght: " + minionsSpawn.Length);
+                foreach (Transform minion in minionsSpawn)
+                {
+                    Debug.Log("spawining enemy");
+                    minions.Add(Instantiate(EnemyToSpawn, minion.position + new Vector3(UnityEngine.Random.Range(-1, 1), 0, UnityEngine.Random.Range(-1, 1)), Quaternion.identity));
+                }
+                    
             }
             currentStage = Stages.second;
         }
@@ -196,7 +257,8 @@ public class BossAi : EnemyR
                         }
                         else
                         {
-                            counterOfProjectiles = 20;
+                            counterOfProjectiles = 30;
+                            shootingCount = 0;
                         }
                     }
                 }
@@ -225,7 +287,24 @@ public class BossAi : EnemyR
             current.GetComponent<Projectile>().Launch(direction);
         }
     }
-  
+    public float leapForce;
+
+    private bool coroutineStarted;
+    private IEnumerator AttackCo()
+    {
+
+        coroutineStarted = true;
+        yield return new WaitForSeconds(enemyScribtableObject.prepareToAttack);
+        Vector2 directionToPlayer = (target.position - transform.position).normalized;
+        // Apply leap force towards the player
+        myRigidbody.velocity = directionToPlayer * leapForce;
+        // Trigger attack animation
+        anim.SetFloat("MoveX", directionToPlayer.x);
+        anim.SetFloat("MoveY", directionToPlayer.y);
+        //anim.SetTrigger("attack");
+        yield return new WaitForSeconds(enemyScribtableObject.attackCooldown);
+        coroutineStarted = false;
+    }
     void Moving()
     {
         if (path == null && Health>0)
@@ -234,6 +313,8 @@ public class BossAi : EnemyR
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
+            if(!coroutineStarted)
+             StartCoroutine(AttackCo());
             return;
         }
         else
@@ -278,7 +359,6 @@ public class BossAi : EnemyR
         // Deactivate the GameObject
         this.gameObject.SetActive(false);
 
-        // Initialize additional hearts (assuming it's a method for that purpose)
         InitHearts2();
 
         // Report the enemy kill to the Redirect class
@@ -286,7 +366,7 @@ public class BossAi : EnemyR
 
         // Spawn an item at a random position around the death location
         itemInside2.transform.position = this.transform.position;
-        itemInside2.SetActive(true);
+        //itemInside2.SetActive(true);
 
         // Spawn a soul at the death location
         Instantiate(soul, transform.position + new Vector3(0, 0, 0), Quaternion.identity);
@@ -297,7 +377,7 @@ public class BossAi : EnemyR
 
         // Deactivate the boss wall
         WallBoss.SetActive(false);
-        
+        bossDefeated = true;
     }
 
 

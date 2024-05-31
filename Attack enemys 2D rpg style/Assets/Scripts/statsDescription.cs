@@ -4,8 +4,7 @@ using UnityEngine.EventSystems;
 
 public class statsDescription : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private GameObject Tooltip;
-    toolTipScr tooltipSCR;
+    public toolTipScr tooltipSCR;
     [SerializeField]
     private string textToShowTitle = " ";
     [SerializeField]
@@ -14,17 +13,17 @@ public class statsDescription : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     void Start()
     {
-        Tooltip = GameObject.FindGameObjectWithTag("ToolTip");
-        tooltipSCR = Tooltip.GetComponent<toolTipScr>();
+        //Tooltip = GameObject.FindGameObjectWithTag("ToolTip");
+        //tooltipSCR = Tooltip.GetComponent<toolTipScr>();
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
             tooltipSCR.ChangeText(textToShowTitle, textToShow);
-            Tooltip.transform.position = transform.position + temp;
-            Tooltip.SetActive(true);
+            tooltipSCR.transform.position = transform.position + temp;
+             tooltipSCR.gameObject.SetActive(true);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        Tooltip.SetActive(false);
+        tooltipSCR.gameObject.SetActive(false);
     }
 }

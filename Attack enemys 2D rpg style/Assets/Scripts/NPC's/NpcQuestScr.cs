@@ -53,7 +53,8 @@ public class NpcQuestScr : NpcScr
             else if(questTaken && questEnded)
             {
                 emoteSprite.enabled = false;
-                NpcItem.pickable = false;
+                if(NpcItem!=null)
+                    NpcItem.pickable = false;
             }
             else
             {

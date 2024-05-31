@@ -16,10 +16,11 @@ MonoBehaviour:
   name: Kill evil spider queen
   description: To free us from spider queen's terror you must kill her, she is located
     in castle dungeon, west from here.
-  alreadyTakenQuest: Taken Quest
+  alreadyTakenQuest: Have you killed her?
   completedQuest: These lands are now free! Thank you adventurer!
   Target: Arachne
   count: 1
   Finished: 0
   AtNpcPlace: 0
   money: 2000
+  defaultQuest: 0

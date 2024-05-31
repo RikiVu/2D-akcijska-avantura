@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class Settings : MonoBehaviour
 {
     public AudioMixer audioMixer;
+    public AudioSource audioSource;
     public Dropdown resolutionDropdown;
     //Resolution[] resolutions;
 
     private void Start()
     {
-      
+       audioSource.volume = .3f;
         Screen.SetResolution(1024   , 768, false);
         // resolutions = Screen.resolutions;
         /*
@@ -45,7 +46,9 @@ public class Settings : MonoBehaviour
     public void SetVolume (float volume)
     {
         audioMixer.SetFloat("Volume", volume);
+        audioSource.volume = volume;
     }
+
 
      public void SetQuality (int qualityIndex)
     {
@@ -53,6 +56,6 @@ public class Settings : MonoBehaviour
     }
     public void SetFullScreen(bool isFullscreen)
     {
-      //  Screen.fullScreen = isFullscreen;
+        Screen.fullScreen = isFullscreen;
     }
 }
