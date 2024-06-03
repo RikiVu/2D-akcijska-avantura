@@ -1,19 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 public class Settings : MonoBehaviour
 {
+    public CreateSettings createSettings;
     public AudioMixer audioMixer;
     public AudioSource audioSource;
-    public Dropdown resolutionDropdown;
-    //Resolution[] resolutions;
+    public TMP_Dropdown resolutionDropdown;
+   // public Dropdown resolutionDropdown;
+    public Slider volumeSlider;
+    public Toggle fullscreenToggle;
+  
 
+    private void Awake()
+    {
+        Screen.SetResolution(1920, 1080, createSettings.fullscreen);
+        audioMixer.SetFloat("Volume", createSettings.volume);
+        audioSource.volume = createSettings.volume;
+        volumeSlider.value = createSettings.volume;
+        Screen.fullScreen = createSettings.fullscreen;
+        fullscreenToggle.enabled = createSettings.fullscreen;
+        QualitySettings.SetQualityLevel(createSettings.qualityIndex);
+    }
     private void Start()
     {
-       audioSource.volume = .3f;
-        Screen.SetResolution(1024   , 768, false);
+       // Screen.SetResolution(1920, 1080, false);
         // resolutions = Screen.resolutions;
         /*
          resolutionDropdown.ClearOptions();
@@ -47,15 +62,19 @@ public class Settings : MonoBehaviour
     {
         audioMixer.SetFloat("Volume", volume);
         audioSource.volume = volume;
+        createSettings.volume = volume;
     }
 
 
      public void SetQuality (int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+        createSettings.qualityIndex = qualityIndex;
     }
     public void SetFullScreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+        createSettings.fullscreen = isFullscreen;
+
     }
 }

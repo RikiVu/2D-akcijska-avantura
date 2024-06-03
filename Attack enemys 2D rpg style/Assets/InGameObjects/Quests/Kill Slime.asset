@@ -21,4 +21,5 @@ MonoBehaviour:
   count: 10
   Finished: 0
   AtNpcPlace: 0
-  money: 200
+  money: 100
+  defaultQuest: 0

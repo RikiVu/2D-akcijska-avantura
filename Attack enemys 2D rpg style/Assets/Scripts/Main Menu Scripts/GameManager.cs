@@ -5,8 +5,7 @@ using TMPro;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
-using static UnityEngine.PlayerLoop.PostLateUpdate;
+
 
 public class GameManager : MonoBehaviour
 {

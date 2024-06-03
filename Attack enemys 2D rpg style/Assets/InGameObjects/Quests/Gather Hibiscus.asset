@@ -17,9 +17,10 @@ MonoBehaviour:
   description: Can you gather 5 Hibiscus flowers , it's red plant that you can find
     in forrest nearby.
   alreadyTakenQuest: Did you bring me that plants that i asked you for
-  completedQuest: Thank you!
+  completedQuest: Thank you! Here 100 gold.
   Target: 'Hibiscus '
   count: 5
   Finished: 1
   AtNpcPlace: 0
-  money: 100
+  money: 60
+  defaultQuest: 0
