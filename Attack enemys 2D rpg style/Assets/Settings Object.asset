@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa82bf02c7ae794a9616ddd0272e46f, type: 3}
   m_Name: Settings Object
   m_EditorClassIdentifier: 
-  fullscreen: 0
+  fullscreen: 1
   volume: 0.3
+  qualityIndex: 2

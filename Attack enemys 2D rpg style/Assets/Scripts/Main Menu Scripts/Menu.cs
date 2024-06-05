@@ -19,6 +19,7 @@ public class Menu : MonoBehaviour
     bool optionsOppened;
     public bool StopSong;
     public int Coinvalue;
+    public savesButtonScr savesButtonScr;
 
 
   //  public GameObject inventoryUI;
@@ -37,6 +38,7 @@ public class Menu : MonoBehaviour
         {
             gM.CloseInv();
             gM.CloseQuests();
+           
         }
 
        else if (Input.GetKeyDown(KeyCode.Escape) && escOppened == false && optionsOppened==false && GameManager.InvOppened== false)
@@ -55,6 +57,7 @@ public class Menu : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Escape) && escOppened == true && optionsOppened == false)
         {
             EscPanel.SetActive(false);
+            savesButtonScr.backBtn();
             escOppened = false;
             if(GameManager.gameOver==false)
                 Time.timeScale = 1;

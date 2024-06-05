@@ -1,0 +1,804 @@
+{
+    "spawnPosition": {
+        "x": -34.79999923706055,
+        "y": 95.30000305175781,
+        "z": 0.0
+    },
+    "godMode": false,
+    "currentHealth": 8.0,
+    "gold": 100.0,
+    "arrows": 0,
+    "stars": 0,
+    "strenght": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "items": [],
+    "equipment": [],
+    "camMaxPosition": {
+        "x": 115.0,
+        "y": 89.0
+    },
+    "camMinPosition": {
+        "x": -28.5,
+        "y": 74.0
+    },
+    "pots": [
+        {
+            "id": 0,
+            "potScr": {
+                "instanceID": 474948
+            },
+            "broken": false
+        },
+        {
+            "id": 1,
+            "potScr": {
+                "instanceID": 483872
+            },
+            "broken": false
+        },
+        {
+            "id": 2,
+            "potScr": {
+                "instanceID": 484054
+            },
+            "broken": false
+        },
+        {
+            "id": 3,
+            "potScr": {
+                "instanceID": 483350
+            },
+            "broken": false
+        },
+        {
+            "id": 4,
+            "potScr": {
+                "instanceID": 476608
+            },
+            "broken": false
+        },
+        {
+            "id": 5,
+            "potScr": {
+                "instanceID": 482764
+            },
+            "broken": false
+        },
+        {
+            "id": 6,
+            "potScr": {
+                "instanceID": 483380
+            },
+            "broken": false
+        },
+        {
+            "id": 7,
+            "potScr": {
+                "instanceID": 479888
+            },
+            "broken": false
+        },
+        {
+            "id": 8,
+            "potScr": {
+                "instanceID": 474068
+            },
+            "broken": false
+        },
+        {
+            "id": 9,
+            "potScr": {
+                "instanceID": 476780
+            },
+            "broken": false
+        },
+        {
+            "id": 10,
+            "potScr": {
+                "instanceID": 484064
+            },
+            "broken": false
+        },
+        {
+            "id": 11,
+            "potScr": {
+                "instanceID": 481110
+            },
+            "broken": false
+        },
+        {
+            "id": 12,
+            "potScr": {
+                "instanceID": 483176
+            },
+            "broken": false
+        },
+        {
+            "id": 13,
+            "potScr": {
+                "instanceID": 476882
+            },
+            "broken": false
+        },
+        {
+            "id": 14,
+            "potScr": {
+                "instanceID": 484340
+            },
+            "broken": false
+        },
+        {
+            "id": 15,
+            "potScr": {
+                "instanceID": 483278
+            },
+            "broken": false
+        },
+        {
+            "id": 16,
+            "potScr": {
+                "instanceID": 477248
+            },
+            "broken": false
+        },
+        {
+            "id": 17,
+            "potScr": {
+                "instanceID": 479582
+            },
+            "broken": false
+        },
+        {
+            "id": 18,
+            "potScr": {
+                "instanceID": 483634
+            },
+            "broken": false
+        },
+        {
+            "id": 19,
+            "potScr": {
+                "instanceID": 476274
+            },
+            "broken": false
+        },
+        {
+            "id": 20,
+            "potScr": {
+                "instanceID": 484096
+            },
+            "broken": false
+        },
+        {
+            "id": 21,
+            "potScr": {
+                "instanceID": 473574
+            },
+            "broken": false
+        },
+        {
+            "id": 22,
+            "potScr": {
+                "instanceID": 482068
+            },
+            "broken": false
+        },
+        {
+            "id": 23,
+            "potScr": {
+                "instanceID": 482828
+            },
+            "broken": false
+        },
+        {
+            "id": 24,
+            "potScr": {
+                "instanceID": 477486
+            },
+            "broken": false
+        },
+        {
+            "id": 25,
+            "potScr": {
+                "instanceID": 483436
+            },
+            "broken": false
+        },
+        {
+            "id": 26,
+            "potScr": {
+                "instanceID": 480398
+            },
+            "broken": false
+        },
+        {
+            "id": 27,
+            "potScr": {
+                "instanceID": 478792
+            },
+            "broken": false
+        },
+        {
+            "id": 28,
+            "potScr": {
+                "instanceID": 476556
+            },
+            "broken": false
+        },
+        {
+            "id": 29,
+            "potScr": {
+                "instanceID": 478618
+            },
+            "broken": false
+        },
+        {
+            "id": 30,
+            "potScr": {
+                "instanceID": 478948
+            },
+            "broken": false
+        },
+        {
+            "id": 31,
+            "potScr": {
+                "instanceID": 483860
+            },
+            "broken": false
+        },
+        {
+            "id": 32,
+            "potScr": {
+                "instanceID": 477392
+            },
+            "broken": false
+        },
+        {
+            "id": 33,
+            "potScr": {
+                "instanceID": 478532
+            },
+            "broken": false
+        },
+        {
+            "id": 34,
+            "potScr": {
+                "instanceID": 478366
+            },
+            "broken": false
+        },
+        {
+            "id": 35,
+            "potScr": {
+                "instanceID": 482672
+            },
+            "broken": false
+        },
+        {
+            "id": 36,
+            "potScr": {
+                "instanceID": 474080
+            },
+            "broken": false
+        },
+        {
+            "id": 37,
+            "potScr": {
+                "instanceID": 477474
+            },
+            "broken": false
+        },
+        {
+            "id": 38,
+            "potScr": {
+                "instanceID": 483836
+            },
+            "broken": false
+        },
+        {
+            "id": 39,
+            "potScr": {
+                "instanceID": 483972
+            },
+            "broken": false
+        },
+        {
+            "id": 40,
+            "potScr": {
+                "instanceID": 482494
+            },
+            "broken": false
+        },
+        {
+            "id": 41,
+            "potScr": {
+                "instanceID": 475850
+            },
+            "broken": false
+        },
+        {
+            "id": 42,
+            "potScr": {
+                "instanceID": 477928
+            },
+            "broken": false
+        },
+        {
+            "id": 43,
+            "potScr": {
+                "instanceID": 483642
+            },
+            "broken": false
+        },
+        {
+            "id": 44,
+            "potScr": {
+                "instanceID": 476072
+            },
+            "broken": false
+        },
+        {
+            "id": 45,
+            "potScr": {
+                "instanceID": 478744
+            },
+            "broken": false
+        },
+        {
+            "id": 46,
+            "potScr": {
+                "instanceID": 481468
+            },
+            "broken": false
+        },
+        {
+            "id": 47,
+            "potScr": {
+                "instanceID": 484374
+            },
+            "broken": false
+        },
+        {
+            "id": 48,
+            "potScr": {
+                "instanceID": 483876
+            },
+            "broken": false
+        },
+        {
+            "id": 49,
+            "potScr": {
+                "instanceID": 475572
+            },
+            "broken": false
+        },
+        {
+            "id": 50,
+            "potScr": {
+                "instanceID": 477668
+            },
+            "broken": false
+        },
+        {
+            "id": 51,
+            "potScr": {
+                "instanceID": 480014
+            },
+            "broken": false
+        },
+        {
+            "id": 52,
+            "potScr": {
+                "instanceID": 483996
+            },
+            "broken": false
+        },
+        {
+            "id": 53,
+            "potScr": {
+                "instanceID": 481164
+            },
+            "broken": false
+        },
+        {
+            "id": 54,
+            "potScr": {
+                "instanceID": 478574
+            },
+            "broken": false
+        },
+        {
+            "id": 55,
+            "potScr": {
+                "instanceID": 478510
+            },
+            "broken": false
+        },
+        {
+            "id": 56,
+            "potScr": {
+                "instanceID": 473682
+            },
+            "broken": false
+        },
+        {
+            "id": 57,
+            "potScr": {
+                "instanceID": 482026
+            },
+            "broken": false
+        },
+        {
+            "id": 58,
+            "potScr": {
+                "instanceID": 480288
+            },
+            "broken": false
+        },
+        {
+            "id": 59,
+            "potScr": {
+                "instanceID": 481078
+            },
+            "broken": false
+        },
+        {
+            "id": 60,
+            "potScr": {
+                "instanceID": 475324
+            },
+            "broken": false
+        },
+        {
+            "id": 61,
+            "potScr": {
+                "instanceID": 473508
+            },
+            "broken": false
+        },
+        {
+            "id": 62,
+            "potScr": {
+                "instanceID": 478032
+            },
+            "broken": false
+        }
+    ],
+    "pickUpItems": [
+        {
+            "id": 0,
+            "pickUpScr": {
+                "instanceID": 483296
+            },
+            "picked": false
+        },
+        {
+            "id": 1,
+            "pickUpScr": {
+                "instanceID": 479336
+            },
+            "picked": false
+        },
+        {
+            "id": 2,
+            "pickUpScr": {
+                "instanceID": 476476
+            },
+            "picked": false
+        },
+        {
+            "id": 3,
+            "pickUpScr": {
+                "instanceID": 480254
+            },
+            "picked": false
+        },
+        {
+            "id": 4,
+            "pickUpScr": {
+                "instanceID": 474536
+            },
+            "picked": false
+        },
+        {
+            "id": 5,
+            "pickUpScr": {
+                "instanceID": 478102
+            },
+            "picked": false
+        },
+        {
+            "id": 6,
+            "pickUpScr": {
+                "instanceID": 473708
+            },
+            "picked": false
+        },
+        {
+            "id": 7,
+            "pickUpScr": {
+                "instanceID": 483702
+            },
+            "picked": false
+        },
+        {
+            "id": 8,
+            "pickUpScr": {
+                "instanceID": 483822
+            },
+            "picked": false
+        },
+        {
+            "id": 9,
+            "pickUpScr": {
+                "instanceID": 480652
+            },
+            "picked": false
+        },
+        {
+            "id": 10,
+            "pickUpScr": {
+                "instanceID": 476658
+            },
+            "picked": false
+        },
+        {
+            "id": 11,
+            "pickUpScr": {
+                "instanceID": 477160
+            },
+            "picked": false
+        },
+        {
+            "id": 12,
+            "pickUpScr": {
+                "instanceID": 480714
+            },
+            "picked": false
+        },
+        {
+            "id": 13,
+            "pickUpScr": {
+                "instanceID": 473824
+            },
+            "picked": false
+        },
+        {
+            "id": 14,
+            "pickUpScr": {
+                "instanceID": 475564
+            },
+            "picked": false
+        },
+        {
+            "id": 15,
+            "pickUpScr": {
+                "instanceID": 481968
+            },
+            "picked": false
+        },
+        {
+            "id": 16,
+            "pickUpScr": {
+                "instanceID": 481610
+            },
+            "picked": false
+        },
+        {
+            "id": 17,
+            "pickUpScr": {
+                "instanceID": 478982
+            },
+            "picked": false
+        },
+        {
+            "id": 18,
+            "pickUpScr": {
+                "instanceID": 475962
+            },
+            "picked": false
+        },
+        {
+            "id": 19,
+            "pickUpScr": {
+                "instanceID": 477012
+            },
+            "picked": false
+        },
+        {
+            "id": 20,
+            "pickUpScr": {
+                "instanceID": 473938
+            },
+            "picked": false
+        },
+        {
+            "id": 21,
+            "pickUpScr": {
+                "instanceID": 480086
+            },
+            "picked": false
+        },
+        {
+            "id": 22,
+            "pickUpScr": {
+                "instanceID": 477894
+            },
+            "picked": false
+        },
+        {
+            "id": 23,
+            "pickUpScr": {
+                "instanceID": 474612
+            },
+            "picked": false
+        },
+        {
+            "id": 24,
+            "pickUpScr": {
+                "instanceID": 479216
+            },
+            "picked": false
+        },
+        {
+            "id": 25,
+            "pickUpScr": {
+                "instanceID": 482642
+            },
+            "picked": false
+        },
+        {
+            "id": 26,
+            "pickUpScr": {
+                "instanceID": 475106
+            },
+            "picked": false
+        },
+        {
+            "id": 27,
+            "pickUpScr": {
+                "instanceID": 474118
+            },
+            "picked": false
+        },
+        {
+            "id": 28,
+            "pickUpScr": {
+                "instanceID": 473752
+            },
+            "picked": false
+        }
+    ],
+    "chests": [
+        {
+            "id": 0,
+            "chestScr": {
+                "instanceID": 483376
+            },
+            "collected": false
+        },
+        {
+            "id": 1,
+            "chestScr": {
+                "instanceID": 477262
+            },
+            "collected": false
+        },
+        {
+            "id": 2,
+            "chestScr": {
+                "instanceID": 482168
+            },
+            "collected": false
+        },
+        {
+            "id": 3,
+            "chestScr": {
+                "instanceID": 475812
+            },
+            "collected": false
+        },
+        {
+            "id": 4,
+            "chestScr": {
+                "instanceID": 474582
+            },
+            "collected": false
+        },
+        {
+            "id": 5,
+            "chestScr": {
+                "instanceID": 478732
+            },
+            "collected": false
+        },
+        {
+            "id": 6,
+            "chestScr": {
+                "instanceID": 480110
+            },
+            "collected": false
+        }
+    ],
+    "plantList": [],
+    "quests": [
+        {
+            "id": 0,
+            "npcQuestScr": {
+                "instanceID": 473514
+            },
+            "questTaken": false,
+            "questEnded": false,
+            "quest": {
+                "instanceID": 26202
+            },
+            "redirect_Quest": {
+                "instanceID": 0
+            },
+            "count": 0
+        },
+        {
+            "id": 1,
+            "npcQuestScr": {
+                "instanceID": 479486
+            },
+            "questTaken": false,
+            "questEnded": false,
+            "quest": {
+                "instanceID": 26332
+            },
+            "redirect_Quest": {
+                "instanceID": 0
+            },
+            "count": 0
+        },
+        {
+            "id": 2,
+            "npcQuestScr": {
+                "instanceID": 482250
+            },
+            "questTaken": false,
+            "questEnded": false,
+            "quest": {
+                "instanceID": 26070
+            },
+            "redirect_Quest": {
+                "instanceID": 0
+            },
+            "count": 0
+        },
+        {
+            "id": 3,
+            "npcQuestScr": {
+                "instanceID": 477724
+            },
+            "questTaken": false,
+            "questEnded": false,
+            "quest": {
+                "instanceID": 25136
+            },
+            "redirect_Quest": {
+                "instanceID": 0
+            },
+            "count": 0
+        },
+        {
+            "id": 4,
+            "npcQuestScr": {
+                "instanceID": 474924
+            },
+            "questTaken": true,
+            "questEnded": false,
+            "quest": {
+                "instanceID": 25088
+            },
+            "redirect_Quest": {
+                "instanceID": 0
+            },
+            "count": 0
+        }
+    ],
+    "canPass": false,
+    "bossDefeated": false
+}

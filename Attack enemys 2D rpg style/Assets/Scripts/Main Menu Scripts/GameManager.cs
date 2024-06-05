@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     public PickUp[] pickupScr;
     public ChestSCR[] chestSCRScr;
     public NpcQuestScr[] NpcQuestScr;
+    private List<NpcQuestScr> npcQuestScrsTempList = new List<NpcQuestScr>();
 
     public void giveIds()
     {
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
         {
             NpcQuestScr[i].assignedId = i;
             addInQuestList(NpcQuestScr[i], NpcQuestScr[i].questTaken, NpcQuestScr[i].questEnded, NpcQuestScr[i].NpcQuest, i);
+            npcQuestScrsTempList.Add(NpcQuestScr[i]);
         }
     }
     //cica 
@@ -123,12 +125,20 @@ public class GameManager : MonoBehaviour
         if (list != null)
         {
             redirect_Quest.DeleteAll();
-   
-           
             foreach (QuestObjectLog c in list)
             {
                 Debug.Log(c.quest.name + " , "+ c.questTaken + " , "+ c.questEnded);
-                c.npcQuestScr.loadQuestData(c.questTaken, c.questEnded, c.count);
+                foreach(NpcQuestScr scr in npcQuestScrsTempList)
+                {
+                    if(scr.assignedId == c.id)
+                    {
+                        scr.loadQuestData(c.questTaken, c.questEnded, c.count);
+                        npcQuestScrsTempList.Remove(scr);
+                        break;
+                    }
+                }
+              
+               // c.npcQuestScr.loadQuestData(c.questTaken, c.questEnded, c.count);
                 redirect_Quest.loadQuests(c);
                 questObject =  questObjectLogList.Find(p => p.quest.name == c.quest.name);
                 if (questObject != null)
@@ -137,9 +147,13 @@ public class GameManager : MonoBehaviour
                     questObject.questEnded = c.questEnded;
                     questObject.count = c.count;
                     questObject.quest = c.quest;
-
                 }
 
+            }
+            npcQuestScrsTempList.Clear();
+            for (i = 0; i < NpcQuestScr.Length; i++)
+            {
+                npcQuestScrsTempList.Add(NpcQuestScr[i]);
             }
         }
 
@@ -228,6 +242,7 @@ public class GameManager : MonoBehaviour
             //chestList = list;
             for (int i = 0; i< chestList.Count; i++)
             {
+                Debug.Log(list[i].collected);
                 chestList[i].chestScr.loadChest(list[i].collected);
             }
           

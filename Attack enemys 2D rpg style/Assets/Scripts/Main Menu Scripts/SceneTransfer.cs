@@ -9,6 +9,9 @@ public class SceneTransfer : MonoBehaviour
     public GameObject CreditsPanel;
     public GameObject mainMenuPanel;
     public AudioManager audioManager;
+    public CreateSettings createSettings;
+    public GameObject loadPanel;
+    public savesButtonScr savesButtonScr;
 
     private void Awake()
     {
@@ -16,20 +19,39 @@ public class SceneTransfer : MonoBehaviour
     }
     private void startUp()
     {
-        mainMenuPanel.gameObject.SetActive(true);
         CreditsPanel.gameObject.SetActive(false);
         OptionPanel.gameObject.SetActive(false);
+        loadPanel.SetActive(false);
+        mainMenuPanel.gameObject.SetActive(true);
+      
     }
 
-    public void GotoStart()
+    public void NewGame()
     {
         audioManager.Play("Click");
+        createSettings.newGame = true;
         SceneManager.LoadScene("test");
+
+    }
+    public void ShowLoadPanel()
+    {
+        audioManager.Play("Click");
+        loadPanel.SetActive(true);
+        savesButtonScr.ShowLoadRecordsMenu();
+    }
+    public void LoadGame()
+    {
+        audioManager.Play("Click");
+        createSettings.newGame = false;
+        SceneManager.LoadScene("test");
+
+
     }
 
     public void GotoOptions()
     {
         audioManager.Play("Click");
+        loadPanel.SetActive(false);
         mainMenuPanel.gameObject.SetActive(false);
         CreditsPanel.gameObject.SetActive(false);
         OptionPanel.SetActive(true);
@@ -37,6 +59,7 @@ public class SceneTransfer : MonoBehaviour
     public void GotoCredits()
     {
         audioManager.Play("Click");
+        loadPanel.SetActive(false);
         mainMenuPanel.gameObject.SetActive(false);
         OptionPanel.SetActive(false);
         CreditsPanel.SetActive(true);

@@ -4,6 +4,8 @@ using System.IO;
 using TMPro;
 using System.Collections.Generic;
 using System.Collections;
+using System;
+using System.Globalization;
 
 public class SaveOrLoad : MonoBehaviour
 {
@@ -16,7 +18,7 @@ public class SaveOrLoad : MonoBehaviour
     private bool saved = false;
     List<CreateItem> itemsTemp;
     List<CreateItem> equipmentTemp;
-    string filePath = Application.dataPath + "/gameData.json";
+    string filePath; //= Application.dataPath + "/saves/gameData.json";
     [SerializeField]
     private Animator animator;
     [SerializeField]
@@ -28,12 +30,23 @@ public class SaveOrLoad : MonoBehaviour
     private CameraMovement cam;
     public GameManager manager;
     public BossAi Boss;
+    public bool canSave = true;
+    private string timestamp = "";
+    private string currentGameRecord = "";
 
-
-    private void Start()
+    private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScr>();
         cam = Camera.main.GetComponent<CameraMovement>();
+    }
+    public static string ConvertToFileName(string dateTimeString)
+    {
+        
+        DateTime dateTime = DateTime.ParseExact(dateTimeString, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+
+        string fileName = dateTime.ToString("yyyy-MM-dd_HH-mm-ss");
+
+        return fileName;
     }
     public void SavetoJson(Vector3 playerPosition, bool godmode, float health, float gold, int arrows, int stars, List<CreateItem> items, List<CreateItem> equipment,
         List<ChestObject> chestList,  List<PotObject> potlist, bool passage, List<ItemsOnGroundObject> pickUpItemList, List<QuestObjectLog> questObject, BossAi boss)
@@ -57,15 +70,85 @@ public class SaveOrLoad : MonoBehaviour
         data.quests = questObject;
         data.bossDefeated= boss.bossDefeated;
         string json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(Application.dataPath + "/gameData.json", json);
+        timestamp = System.DateTime.Now.ToString();
+        timestamp = ConvertToFileName(timestamp);
+        currentGameRecord = Application.dataPath + "/saves/" + timestamp+".json";
+        
+        Debug.Log(timestamp);
+        File.WriteAllText(Application.dataPath + "/saves/"+timestamp+".json", json);
+    }
+    public void SavetoJson(Vector3 playerPosition, bool godmode, float health, float gold, int arrows, int stars, List<CreateItem> items, List<CreateItem> equipment,
+    List<ChestObject> chestList, List<PotObject> potlist, bool passage, List<ItemsOnGroundObject> pickUpItemList, List<QuestObjectLog> questObject, BossAi boss,string name)
+    {
+        GameData data = new GameData();
+        data.spawnPosition = playerPosition;
+        data.godMode = godmode;
+        data.currentHealth = health;
+        data.gold = gold;
+        data.arrows = arrows;
+        data.stars = stars;
+        data.items = items;
+        data.equipment = equipment;
+        data.camMaxPosition = mapScrObject.maxPosition;
+        data.camMinPosition = mapScrObject.minPosition;
+        data.chests = chestList;
+        //data.plantList = plantListPar;
+        data.pots = potlist;
+        data.canPass = passage;
+        data.pickUpItems = pickUpItemList;
+        data.quests = questObject;
+        data.bossDefeated = boss.bossDefeated;
+        string json = JsonUtility.ToJson(data, true);
+        currentGameRecord = Application.dataPath + "/saves/" + name + ".json";
+        File.WriteAllText(Application.dataPath + "/saves/" + name + ".json", json);
+    }
+    /* //old
+    public void NewGame()
+    {
+        if (!saved && !loading)
+        {
+            try
+            {
+                player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScr>();
+                cam = Camera.main.GetComponent<CameraMovement>();
+                manager.redirect_Quest.saveToManager();
+                SavetoJson(player.transform.position, PlayerScr.GodMode, HeartManager.playerCurrentHealth, PlayerScr.Gold,
+                    PlayerScr.Arrows, Inventory.starCount, inventory.SaveInventory(), equipment.SaveEquipment(),
+                    manager.chestList, manager.potList, AllowPassage.CanPass, manager.pickupList, manager.questObjectLogList, Boss, "new_game");
+                StartCoroutine(Saving2());
+            }
+            catch (Exception e)
+            {
+                Debug.Log("failed to save!: " + e);
+                alertPanelScr.showAlertPanel("Failed to save!");
+            }
+        }
+    }
+    */
+    public void NewGame()
+    {
+        if (!saved && !loading)
+        {
+            try
+            {
+                if (!loading)
+                    StartCoroutine(Loading("new_game.json",true));
+            }
+            catch
+            {
+                Debug.Log("failed to new game!");
+                alertPanelScr.showAlertPanel("Failed to start a new game!");
+            }
+        }
     }
 
-    public void LoadFromJson()
+
+    public void LoadFromJson(string name)
     {
         try
         {
             if (!loading)
-                StartCoroutine(Loading());
+                StartCoroutine(Loading(name,false));
         }
         catch
         {
@@ -76,7 +159,7 @@ public class SaveOrLoad : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!saved && !loading)
+        if (!saved && !loading && canSave)
         {
             try
             {
@@ -121,16 +204,37 @@ public class SaveOrLoad : MonoBehaviour
         animator.SetBool("canSave", true);
         saved = false;
     }
-    private IEnumerator Loading()
+    private IEnumerator Saving2()
+    {
+        saved = true;
+        animator.SetBool("canSave", false);
+        yield return new WaitForSeconds(1f);
+        //animator.SetTrigger("saved");
+        //alertPanelScr.showAlertPanel("Saved");
+        yield return new WaitForSeconds(10f);
+        animator.SetBool("canSave", true);
+        saved = false;
+    }
+    private IEnumerator Loading(string name,bool newgame)
     {
             loading = true;
             player.triggerBox.enabled = false;
             yield return Frames(2);
             player.triggerBox.enabled = true;
+            string json;
+            if (!newgame)
+            {
+                alertPanelScr.showAlertPanel("Loaded");
+                json = File.ReadAllText(Application.dataPath + "/saves/" + name);
+                filePath = Application.dataPath + "/saves/" + name;
+            }
+            else
+            {
+                json = File.ReadAllText(Application.dataPath + "/" + name);
+                filePath = Application.dataPath + "/" + name;
+            }
             if (File.Exists(filePath))
             {
-             
-                string json = File.ReadAllText(Application.dataPath + "/gameData.json");
                 GameData data = JsonUtility.FromJson<GameData>(json);
                 player.transform.position = data.spawnPosition;
                 PlayerScr.GodMode = data.godMode;
@@ -150,7 +254,8 @@ public class SaveOrLoad : MonoBehaviour
                 manager.loadQuests(data.quests);
                 player.loadPlayer();
                 Boss.Load(data.bossDefeated);
-                alertPanelScr.showAlertPanel("Loaded");
+               
+                   
             }
             else
             {
@@ -168,7 +273,7 @@ public class SaveOrLoad : MonoBehaviour
     private IEnumerator waitToLeave()
     {
         waitingCoro = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         loading = false;
         waitingCoro = false;
     }

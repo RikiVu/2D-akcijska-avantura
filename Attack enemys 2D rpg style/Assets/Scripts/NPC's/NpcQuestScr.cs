@@ -29,7 +29,7 @@ public class NpcQuestScr : NpcScr
 
     public void loadQuestData(bool taken, bool ended, int count)
     {
-        
+        Debug.Log("test");
         if (taken != null || ended !=null)
         {
             questTaken = taken;

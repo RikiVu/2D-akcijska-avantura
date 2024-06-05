@@ -23,7 +23,7 @@ public class Settings : MonoBehaviour
         audioSource.volume = createSettings.volume;
         volumeSlider.value = createSettings.volume;
         Screen.fullScreen = createSettings.fullscreen;
-        fullscreenToggle.enabled = createSettings.fullscreen;
+        fullscreenToggle.isOn = createSettings.fullscreen;
         QualitySettings.SetQualityLevel(createSettings.qualityIndex);
     }
     private void Start()
