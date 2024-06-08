@@ -33,7 +33,7 @@ public class PickUp : ShowOutline
         if (state != null)
         {
             picked = state;
-            Debug.Log(item.name + " , picked?: " + picked);
+           // Debug.Log(item.name + " , picked?: " + picked);
             this.gameObject.SetActive(!state);
        
         }
@@ -63,7 +63,7 @@ public class PickUp : ShowOutline
             picked = true;
             try
             {
-                gameManager.addInPickupList(assignedId, picked);
+                gameManager.changePickupList(assignedId, picked);
             }
             catch
             {

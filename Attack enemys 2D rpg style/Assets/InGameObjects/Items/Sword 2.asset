@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   TypeOfEquipment: 1
-  ID: 0
+  ID: 16
   name: Ironclad Sword
   description: A newly forged blade, sturdy and reliable, embodying the timeless
     essence of classic weaponry with a modern touch. ( Strenght + 2 )

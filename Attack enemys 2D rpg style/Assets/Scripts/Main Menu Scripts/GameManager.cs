@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     private QuestObjectLog questObject;
     //  public List<ChestObject> itemsOnGroundList = new List<ChestObject>();
     int i = 0;
+    int j = 0;
     public Redirect_Quest redirect_Quest;
 
     public pot[] potScr;
@@ -65,7 +66,7 @@ public class GameManager : MonoBehaviour
        for(i=0; i<potScr.Length; i++)
         {
             potScr[i].assignedId = i;
-            addInPotList(potScr[i], false, i);
+            addInPotList( false, i);
         }
         for (i = 0; i < pickupScr.Length; i++)
         {
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour
         for (i = 0; i < chestSCRScr.Length; i++)
         {
             chestSCRScr[i].assignedId = i;
-            addInChestList(chestSCRScr[i], false, i);
+            addInChestList(false, i);
         }
         for (i = 0; i < NpcQuestScr.Length; i++)
         {
@@ -93,7 +94,7 @@ public class GameManager : MonoBehaviour
   public void  addInQuestList(NpcQuestScr npcQuestScr, bool taken, bool ended, Create_Quest whichQuest, int id)
     {
         QuestObjectLog questObjectLog = new QuestObjectLog();
-        questObjectLog.npcQuestScr = npcQuestScr;
+        //questObjectLog.npcQuestScr = npcQuestScr;
         questObjectLog.questTaken = taken;
         questObjectLog.questEnded = ended;
         questObjectLog.quest = whichQuest;
@@ -127,20 +128,17 @@ public class GameManager : MonoBehaviour
             redirect_Quest.DeleteAll();
             foreach (QuestObjectLog c in list)
             {
-                Debug.Log(c.quest.name + " , "+ c.questTaken + " , "+ c.questEnded);
                 foreach(NpcQuestScr scr in npcQuestScrsTempList)
                 {
                     if(scr.assignedId == c.id)
                     {
-                        scr.loadQuestData(c.questTaken, c.questEnded, c.count);
+                       c.quest =  scr.loadQuestData(c.questTaken, c.questEnded, c.count);
                         npcQuestScrsTempList.Remove(scr);
                         break;
                     }
                 }
-              
-               // c.npcQuestScr.loadQuestData(c.questTaken, c.questEnded, c.count);
                 redirect_Quest.loadQuests(c);
-                questObject =  questObjectLogList.Find(p => p.quest.name == c.quest.name);
+                questObject =  questObjectLogList.Find(p => p.quest == c.quest);
                 if (questObject != null)
                 {
                     questObject.questTaken = c.questTaken;
@@ -163,35 +161,39 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log(pickUpScr.item.name + " , picked ? : " + state);
         ItemsOnGroundObject tempPickUpObject = new ItemsOnGroundObject();
-        tempPickUpObject.pickUpScr = pickUpScr;
+        //tempPickUpObject.pickUpScr = pickUpScr;
         tempPickUpObject.picked = state;
         tempPickUpObject.id = id;
         pickupList.Add(tempPickUpObject);
     }
-    public void addInPickupList(int Id, bool state)
+    public void changePickupList(int Id, bool state)
     {
-        Debug.Log(Id + " , " + state);
+        //Debug.Log(Id + " , " + state);
         pickupList.Find(p => p.id == Id).picked = state;
     }
     public void loadPickUpItems(List<ItemsOnGroundObject> list)
     {
         if (list != null)
         {
-            //pickupList = list;
-            for (int i = 0; i < pickupList.Count; i++)
+            for (i = 0; i < pickupScr.Length; i++)
             {
-                pickupList[i].pickUpScr.loadItem(list[i].picked);
+                for ( j = 0; j < pickupList.Count; j++)
+                {
+                    if (pickupScr[i].assignedId == list[j].id)
+                    {
+                        pickupScr[i].loadItem(list[j].picked);
+                        list.Remove(list[j]);
+                        break;
+                    }
+                }
             }
-         
         }
-
     }
 
     //pot load and save
-    public void addInPotList(pot potScr, bool state,int id)
+    public void addInPotList(bool state,int id)
     {
         PotObject tempPotObject = new PotObject();
-        tempPotObject.potScr = potScr;
         tempPotObject.broken = state;
         tempPotObject.id = id;
         potList.Add(tempPotObject);
@@ -204,34 +206,31 @@ public class GameManager : MonoBehaviour
     {
         if (list != null)
         {
-            //potList = list;
-            /*
-            foreach (PotObject c in potList)
+            for (i = 0; i < potScr.Length; i++)
             {
-                c.potScr.loadPot(c.broken);
-            }
-            */
-
-            //chestList = list;
-            for (int i = 0; i < potList.Count; i++)
-            {
-                potList[i].potScr.loadPot(list[i].broken);
+                for ( j = 0; j < potList.Count; j++)
+                {
+                    if (potScr[i].assignedId == list[j].id)
+                    {
+                        potScr[i].loadPot(list[j].broken);
+                        list.Remove(list[j]);
+                        break;
+                    }
+                }
             }
         }
-      
     }
 
 
     //chest load and save
-    public void addInChestList(ChestSCR chestScr, bool state, int id)
+    public void addInChestList( bool state, int id)
     {
         ChestObject tempChestObject = new ChestObject();
-        tempChestObject.chestScr = chestScr;
         tempChestObject.collected = state;
         tempChestObject.id = id;
         chestList.Add(tempChestObject);
     }
-    public void addInChestList(bool state, int Id)
+    public void changeInChestList(bool state, int Id)
     {
         chestList.Find(p => p.id == Id).collected = state;
     }
@@ -239,13 +238,18 @@ public class GameManager : MonoBehaviour
     {
         if (list != null)
         {
-            //chestList = list;
-            for (int i = 0; i< chestList.Count; i++)
+            for(i=0; i< chestSCRScr.Length; i++)
             {
-                Debug.Log(list[i].collected);
-                chestList[i].chestScr.loadChest(list[i].collected);
+                for( j=0; j < chestList.Count; j++)
+                {
+                    if (chestSCRScr[i].assignedId == list[j].id)
+                    {
+                        chestSCRScr[i].loadChest(list[j].collected);
+                        list.Remove(list[j]);
+                        break;
+                    } 
+                }
             }
-          
         }
       
     }

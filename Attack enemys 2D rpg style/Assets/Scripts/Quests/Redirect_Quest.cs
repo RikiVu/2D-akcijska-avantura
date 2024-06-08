@@ -37,17 +37,8 @@ public class Redirect_Quest : MonoBehaviour
     {
         if (obj.questTaken == true && obj.questEnded == false)
         {
-            if (obj.npcQuestScr == null)
-            {
                 AddQuest(obj.quest, obj.count);
-            }
-            else
-            {
-                AddQuest(obj.quest, obj.npcQuestScr, obj.count);
-            }
-        
         }
-       
     }
     public void Killed(string name)
     {

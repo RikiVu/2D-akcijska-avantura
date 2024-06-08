@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   TypeOfEquipment: 3
-  ID: 0
+  ID: 2
   name: Epic Chestplate
   description: Legendary armor imbued with potent magical enchantments. ( Constitution
     + 3 )

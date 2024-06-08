@@ -174,6 +174,8 @@ public class Equipment : MonoBehaviour
         }
         return items;
     }
+
+
     public void LoadEquipment(List<CreateItem> items)
     {
         WipeEquipment();

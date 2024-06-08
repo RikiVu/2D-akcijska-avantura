@@ -5,6 +5,6 @@ using UnityEngine;
 public class ChestObject 
 {
     public int id;
-    public ChestSCR chestScr;
+    //public ChestSCR chestScr;
     public bool collected;
 }

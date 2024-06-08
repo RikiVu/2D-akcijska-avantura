@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 5
   TypeOfEquipment: 0
-  ID: 0
+  ID: 14
   name: Star
   description: My precious
   pickable: 1

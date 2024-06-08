@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   TypeOfEquipment: 0
-  ID: 0
+  ID: 3
   name: Arrow
   description: Plain arrow.
   pickable: 1

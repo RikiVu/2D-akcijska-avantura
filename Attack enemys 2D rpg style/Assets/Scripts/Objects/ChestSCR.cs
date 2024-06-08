@@ -72,7 +72,7 @@ void Update()
                 //anim.SetBool("Oppened", false);
                 ChestPanel.SetActive(false);
                 contextOff.Raise();
-                gameManager.addInChestList(chestCollected, assignedId);
+                gameManager.changeInChestList(chestCollected, assignedId);
             }
             else
             {

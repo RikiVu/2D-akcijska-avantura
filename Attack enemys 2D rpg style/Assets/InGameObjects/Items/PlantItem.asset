@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   TypeOfEquipment: 0
-  ID: 0
+  ID: 11
   name: 'Hibiscus '
   description: Hibiscus flowers are often used in teas and have various health benefits
-  pickable: 0
+  pickable: 1
   isStackable: 1
   Price: 0
   HealthBoost: 0

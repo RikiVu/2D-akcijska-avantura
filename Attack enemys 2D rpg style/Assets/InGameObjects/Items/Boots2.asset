@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   TypeOfEquipment: 4
-  ID: 0
+  ID: 5
   name: Ironbound Boots
   description: Crafted from hardened leather with steel toe caps, these boots offer
     superior protection in battle and exploration. ( Dexterity + 2 )

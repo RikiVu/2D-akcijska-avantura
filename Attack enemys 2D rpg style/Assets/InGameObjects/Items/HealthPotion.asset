@@ -14,12 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   TypeOfEquipment: 0
+  ID: 8
   name: Healing Potion
   description: 'This restores one heart '
   pickable: 1
   isStackable: 1
   Price: 50
-  damageBoost: 0
   HealthBoost: 0
+  StrenghtBoost: 0
+  ConstitutionBoost: 0
+  DexterityBoost: 0
+  MonsterGoldBonus: 0
+  nullify: 0
   icon: {fileID: -4832337857863999088, guid: f12bb00f95d49a646ae61d32b2fb8edc, type: 3}
   isDefaultItem: 0

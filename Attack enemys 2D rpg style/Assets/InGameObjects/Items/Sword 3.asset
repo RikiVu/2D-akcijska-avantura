@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   TypeOfEquipment: 1
-  ID: 0
+  ID: 17
   name: Stormforged Blade
   description: Forged in the heart of a raging tempest, this sword crackles with
     raw power, ready to unleash lightning-fast strikes on foes. ( Strenght + 3 )

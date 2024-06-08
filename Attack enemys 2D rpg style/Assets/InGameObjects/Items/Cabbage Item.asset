@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09525a09b78461d459be3e4eace15c2a, type: 3}
+  m_Name: Cabbage Item
+  m_EditorClassIdentifier: 
+  Type: 4
+  TypeOfEquipment: 0
+  ID: 19
+  name: Cabbage
+  description: Edible
+  pickable: 1
+  isStackable: 1
+  Price: 10
+  HealthBoost: 0
+  StrenghtBoost: 0
+  ConstitutionBoost: 0
+  DexterityBoost: 0
+  MonsterGoldBonus: 0
+  nullify: 0
+  icon: {fileID: 1196608871, guid: 9c294fe340717fc4ba04cc1a99bd312f, type: 3}
+  isDefaultItem: 0

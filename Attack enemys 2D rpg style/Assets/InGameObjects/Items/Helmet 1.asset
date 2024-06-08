@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   TypeOfEquipment: 2
-  ID: 0
+  ID: 10
   name: Shadowstride Mask
   description: A sleek leather helm imbued with shadow magic, enhancing the wearer's
     agility and evasiveness in combat. ( Dexterity + 1 )

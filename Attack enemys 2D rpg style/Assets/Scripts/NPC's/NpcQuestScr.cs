@@ -1,4 +1,5 @@
 
+using UnityEditor;
 using UnityEngine;
 
 public class NpcQuestScr : NpcScr
@@ -27,7 +28,7 @@ public class NpcQuestScr : NpcScr
         redirectScr = GameObject.FindGameObjectWithTag("QuestPanel").GetComponent<Redirect_Quest>();
     }
 
-    public void loadQuestData(bool taken, bool ended, int count)
+    public Create_Quest loadQuestData(bool taken, bool ended, int count)
     {
         Debug.Log("test");
         if (taken != null || ended !=null)
@@ -63,6 +64,7 @@ public class NpcQuestScr : NpcScr
             }
        
         }
+        return NpcQuest;
     }
 
     void Awake()

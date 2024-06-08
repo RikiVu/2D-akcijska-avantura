@@ -199,9 +199,15 @@ public class item : MonoBehaviour
     {
         if (haveItem != false)
         {
+       
             if (thisItem.isStackable && counter1 > 1 && thisItem.Type != TypeOfItem.Quest)
             {
-
+                name = null;
+                description = null;
+                img = null;
+                haveItem = false;
+                DeleteButton.SetActive(false);
+                counter1 = 1;
             }
             else if (thisItem.isStackable && counter1 >= 1 && thisItem.Type == TypeOfItem.Quest)
             {

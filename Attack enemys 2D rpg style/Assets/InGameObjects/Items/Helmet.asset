@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   TypeOfEquipment: 2
-  ID: 0
+  ID: 9
   name: Vigorplate Helm
   description: Crafted from reinforced steel plates, the Vigorplate Helm fortifies
     the wearer's constitution, granting increased resilience and endurance in the

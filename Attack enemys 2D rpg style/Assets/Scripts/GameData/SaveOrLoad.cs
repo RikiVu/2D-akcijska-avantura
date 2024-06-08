@@ -48,7 +48,7 @@ public class SaveOrLoad : MonoBehaviour
 
         return fileName;
     }
-    public void SavetoJson(Vector3 playerPosition, bool godmode, float health, float gold, int arrows, int stars, List<CreateItem> items, List<CreateItem> equipment,
+    public void SavetoJson(Vector3 playerPosition, bool godmode, float health, float gold, int arrows, int stars, List<ItemObject> items, List<CreateItem> equipment,
         List<ChestObject> chestList,  List<PotObject> potlist, bool passage, List<ItemsOnGroundObject> pickUpItemList, List<QuestObjectLog> questObject, BossAi boss)
     {
         GameData data = new GameData();
@@ -72,11 +72,27 @@ public class SaveOrLoad : MonoBehaviour
         string json = JsonUtility.ToJson(data, true);
         timestamp = System.DateTime.Now.ToString();
         timestamp = ConvertToFileName(timestamp);
+        Debug.Log(currentGameRecord);
+        if (currentGameRecord != "new_game.json")
+        {
+            filePath = Application.dataPath + "/saves/" + currentGameRecord;
+            if (File.Exists(filePath))
+            {
+                // Delete the previous record
+                File.Delete(filePath);
+                Debug.Log("Deleted file: " + filePath);
+            }
+            else
+            {
+                Debug.LogWarning("File not found: " + filePath);
+            }
+        }
         currentGameRecord = Application.dataPath + "/saves/" + timestamp+".json";
         
         Debug.Log(timestamp);
         File.WriteAllText(Application.dataPath + "/saves/"+timestamp+".json", json);
     }
+    /*
     public void SavetoJson(Vector3 playerPosition, bool godmode, float health, float gold, int arrows, int stars, List<CreateItem> items, List<CreateItem> equipment,
     List<ChestObject> chestList, List<PotObject> potlist, bool passage, List<ItemsOnGroundObject> pickUpItemList, List<QuestObjectLog> questObject, BossAi boss,string name)
     {
@@ -102,6 +118,7 @@ public class SaveOrLoad : MonoBehaviour
         currentGameRecord = Application.dataPath + "/saves/" + name + ".json";
         File.WriteAllText(Application.dataPath + "/saves/" + name + ".json", json);
     }
+    */
     /* //old
     public void NewGame()
     {
@@ -217,50 +234,52 @@ public class SaveOrLoad : MonoBehaviour
     }
     private IEnumerator Loading(string name,bool newgame)
     {
-            loading = true;
-            player.triggerBox.enabled = false;
-            yield return Frames(2);
-            player.triggerBox.enabled = true;
-            string json;
-            if (!newgame)
-            {
-                alertPanelScr.showAlertPanel("Loaded");
-                json = File.ReadAllText(Application.dataPath + "/saves/" + name);
-                filePath = Application.dataPath + "/saves/" + name;
-            }
-            else
-            {
-                json = File.ReadAllText(Application.dataPath + "/" + name);
-                filePath = Application.dataPath + "/" + name;
-            }
-            if (File.Exists(filePath))
-            {
-                GameData data = JsonUtility.FromJson<GameData>(json);
-                player.transform.position = data.spawnPosition;
-                PlayerScr.GodMode = data.godMode;
-                equipment.LoadEquipment(data.equipment);
-                HeartManager.playerCurrentHealth = data.currentHealth;
-                PlayerScr.Gold = data.gold;
-                PlayerScr.Arrows = data.arrows;
-                Inventory.starCount = data.stars;
-                inventory.LoadInventory(data.items);
+        loading = true;
+        player.triggerBox.enabled = false;
+        yield return Frames(2);
+        player.triggerBox.enabled = true;
+        string json;
+        if (!newgame)
+        {
+            alertPanelScr.showAlertPanel("Loaded");
+            json = File.ReadAllText(Application.dataPath + "/saves/" + name);
+            filePath = Application.dataPath + "/saves/" + name;
+        }
+        else
+        {
+            json = File.ReadAllText(Application.dataPath + "/" + name);
+            filePath = Application.dataPath + "/" + name;
+        }
+            currentGameRecord = name;
+        //treba ak je novi napravit
+        if (File.Exists(filePath))
+        {
+            GameData data = JsonUtility.FromJson<GameData>(json);
+            player.transform.position = data.spawnPosition;
+            PlayerScr.GodMode = data.godMode;
+            equipment.LoadEquipment(data.equipment);
+            HeartManager.playerCurrentHealth = data.currentHealth;
+            PlayerScr.Gold = data.gold;
+            PlayerScr.Arrows = data.arrows;
+            Inventory.starCount = data.stars;
+            inventory.LoadInventory(data.items);
                 
-                cam.MapTransfer(data.camMinPosition, data.camMaxPosition);
-                manager.loadChests(data.chests);
-                //manager.loadPlant(data.plantList);
-                manager.loadPots(data.pots);
-                manager.Passage(data.canPass);
-                manager.loadPickUpItems(data.pickUpItems);
-                manager.loadQuests(data.quests);
-                player.loadPlayer();
-                Boss.Load(data.bossDefeated);
+            cam.MapTransfer(data.camMinPosition, data.camMaxPosition);
+            manager.loadChests(data.chests);
+            //manager.loadPlant(data.plantList);
+            manager.loadPots(data.pots);
+            manager.Passage(data.canPass);
+            manager.loadPickUpItems(data.pickUpItems);
+            manager.loadQuests(data.quests);
+            player.loadPlayer();
+            Boss.Load(data.bossDefeated);
                
                    
-            }
-            else
-            {
-                Debug.LogError("There are no save files");
-            }
+        }
+        else
+        {
+            Debug.LogError("There are no save files");
+        }
     }
     public static IEnumerator Frames(int frameCount)
     {

@@ -14,12 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   TypeOfEquipment: 6
+  ID: 7
   name: Bow
   description: Strong elven bow
   pickable: 1
   isStackable: 0
   Price: 150
-  damageBoost: 0
   HealthBoost: 0
+  StrenghtBoost: 0
+  ConstitutionBoost: 0
+  DexterityBoost: 0
+  MonsterGoldBonus: 0
+  nullify: 0
   icon: {fileID: 21300000, guid: fed9ece8de605764ea77d81622fcbec6, type: 3}
   isDefaultItem: 0

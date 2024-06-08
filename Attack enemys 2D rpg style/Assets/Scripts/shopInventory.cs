@@ -8,6 +8,7 @@ public class shopInventory : Inventory
     public GameObject ParentGM;
     public Inventory Inventory;
     public static bool InShop = false;
+    int x = 0;
 
     // Start is called before the first frame update
 

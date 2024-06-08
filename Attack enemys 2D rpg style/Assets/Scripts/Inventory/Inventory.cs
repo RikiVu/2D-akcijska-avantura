@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 using System;
+using UnityEngine.Rendering.Universal;
 
 
 public class Inventory : MonoBehaviour
@@ -24,7 +25,7 @@ public class Inventory : MonoBehaviour
 
     protected int num =0;
     protected int i = 0;
-     public int x= 0;
+    // public int x= 0;
     public static bool isFull = false;
      public int Pun = 0;
     protected int Prazan = 0;
@@ -40,6 +41,9 @@ public class Inventory : MonoBehaviour
     public TextMeshProUGUI starsCountText;
 
     public static int starCount = 0;
+    [SerializeField]
+    private List<CreateItem> allItems = new List<CreateItem>();
+  
 
     // Start is called before the first frame update
     public  virtual void  Awake()
@@ -145,7 +149,7 @@ public class Inventory : MonoBehaviour
                 num--;
 
                Pun -= 1;
-                x++;
+        
             }
            
             if (itemScr.haveItem == false)
@@ -262,40 +266,67 @@ public class Inventory : MonoBehaviour
     }
     public void wipeInvenory()
     {
-        for (int i = 0; i < slot.Length; i++)
+        for (i = 0; i < slot.Length; i++)
         {
             itemScr = slot[i].GetComponentInChildren<item>();
             if (itemScr.haveItem)
             {
+                Debug.Log("obrisao: " + itemScr.name);
                 itemScr.Destroy();
-                num--;
-                Pun -= 1;
-                x++;
             }
         }
+        num = 0;
+        Pun = 0;
     }
-    public List<CreateItem> SaveInventory()
+
+    public List<ItemObject> SaveInventory()
     {
-        List<CreateItem> items = new List<CreateItem>();
-        for (int i = 0; i < slot.Length; i++)
+        List<ItemObject> items = new List<ItemObject>();
+        for ( i = 0; i < slot.Length; i++)
         {
             itemScr = slot[i].GetComponentInChildren<item>();
             if (itemScr.haveItem)
-                items.Add(itemScr.thisItem);
-            continue;
+            {
+                ItemObject itemObject = new ItemObject();
+                itemObject.assign(itemScr.thisItem.ID, itemScr.counter1);
+                items.Add(itemObject);
+            }
         }
-      
         return items;
     }
+ public void checkInvContent() {
+    for (i = 0; i < slot.Length; i++)
+        {
+            itemScr = slot[i].GetComponentInChildren<item>();
+            if (itemScr.haveItem)
+            {
+                Debug.Log("pun na : " + i + 1 + " , " + itemScr.name);
+            }
+            else
+            {
+                Debug.Log("empty at place : " + i + 1);
+            }
+        }
+ }
 
-    public void LoadInventory(List<CreateItem> items)
+    public void LoadInventory(List<ItemObject> items)
     {
         starsCountText.text = starCount.ToString();
         wipeInvenory();
-        foreach (CreateItem item1 in items)
+        foreach (ItemObject item1 in items)
         {
-            if(item1 != null)
-                AddItem(item1);
+            for (i = 0; i < allItems.Count; i++)
+            {
+                //Debug.Log(item1.id + " , " + item1.count);
+                    if (item1.id == allItems[i].ID)
+                    {
+                        for(int j=0;j< item1.count; j++)
+                        {
+                            AddItem(allItems[i]);
+                         }
+                        break;
+                    }
+            }
         }
     }
 
@@ -348,7 +379,6 @@ public class Inventory : MonoBehaviour
                 itemScr.Type = item.Type;
                 itemScr.haveItem = true;
                 Pun++;
-                x++;
                 if (item.Type == TypeOfItem.Quest)
                 {
                     num++;

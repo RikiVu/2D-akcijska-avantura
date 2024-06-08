@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   TypeOfEquipment: 5
-  ID: 0
+  ID: 13
   name: Sentinel's Ward Ring
   description: Ring possesses the ability to nullify incoming damage once every 20
     seconds.

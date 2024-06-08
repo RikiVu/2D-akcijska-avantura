@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   TypeOfEquipment: 3
-  ID: 0
+  ID: 1
   name: Rare Chestplate
   description: Hardened steel with intricate engravings, offering superior defense.
     ( Constitution + 2 )

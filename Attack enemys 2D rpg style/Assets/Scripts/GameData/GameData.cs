@@ -13,7 +13,7 @@ public class GameData
     public int strenght = 0;
     public int dexterity = 0;
     public int constitution = 0;
-    public List<CreateItem> items = new List<CreateItem>();
+    public List<ItemObject> items = new List<ItemObject>();
     public List<CreateItem> equipment = new List<CreateItem>();
     public Vector2 camMaxPosition;
     public Vector2 camMinPosition;
