@@ -15,3 +15,8 @@ MonoBehaviour:
   fullscreen: 1
   volume: 0.3
   qualityIndex: 2
+  newGame: 1
+  recordSelected: 
+  godmode: 0
+  diff: 0
+  recordName: 0

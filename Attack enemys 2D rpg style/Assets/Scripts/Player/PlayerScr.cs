@@ -148,11 +148,11 @@ public class PlayerScr : MonoBehaviour
         //pocne sva cetitri napadat kada se ne pomakne iz prve trea stavit pocetni float npr da je dolje 1
         if (GodMode)
         {
-            haveSword = true;
-            animator.SetBool("haveSword", true);
-            haveBow = true;
+            //haveSword = true;
+           // animator.SetBool("haveSword", true);
+            //haveBow = true;
             Gold += 10000;
-            Arrows = 20;
+           // Arrows = 20;
             Knockback.damageBoost = 2;
         }
 

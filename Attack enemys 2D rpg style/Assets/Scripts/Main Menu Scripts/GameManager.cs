@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     public NpcQuestScr[] NpcQuestScr;
     private List<NpcQuestScr> npcQuestScrsTempList = new List<NpcQuestScr>();
 
+    private float startTime = 0,  runTime;
     public void giveIds()
     {
        for(i=0; i<potScr.Length; i++)
@@ -137,7 +138,7 @@ public class GameManager : MonoBehaviour
                         break;
                     }
                 }
-                redirect_Quest.loadQuests(c);
+              //  redirect_Quest.loadQuests(c);
                 questObject =  questObjectLogList.Find(p => p.quest == c.quest);
                 if (questObject != null)
                 {
@@ -301,6 +302,7 @@ public class GameManager : MonoBehaviour
         QuestList.gameObject.SetActive(false);
         QuestTitle.gameObject.SetActive(false);
         updateStats(stats.Strenght, stats.Dexterity, stats.Constitution);
+        startTime = Time.time;
     }
 
     public void updateStats(int Str, int Dex, int Const)
@@ -379,12 +381,18 @@ public class GameManager : MonoBehaviour
 
 
     }
+   
 
+    /*
+    public void  GetRunTime()
+    {
+        runTime = Time.time - startTime;
+        Debug.Log("Total run time: " + startTime.ToString());
+       // return runTime;
+    }
+    */
 
-
-
-
-  public  void CloseInv()
+    public void CloseInv()
     {
         InvOppened = false;
         Inventory.gameObject.SetActive(false);

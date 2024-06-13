@@ -5,6 +5,8 @@
         "z": 0.0
     },
     "godMode": false,
+    "recordName": "test",
+    "difficulty": "easy",
     "currentHealth": 8.0,
     "gold": 100.0,
     "arrows": 0,

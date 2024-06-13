@@ -33,13 +33,7 @@ public class Redirect_Quest : MonoBehaviour
         }
      
     }
-    public void loadQuests(QuestObjectLog obj)
-    {
-        if (obj.questTaken == true && obj.questEnded == false)
-        {
-                AddQuest(obj.quest, obj.count);
-        }
-    }
+ 
     public void Killed(string name)
     {
         Debug.Log("killed " + name);
@@ -78,8 +72,11 @@ public class Redirect_Quest : MonoBehaviour
                 {
                     Debug.Log("finished quest");
                     questObjectTemp.quest.Finished = true;
-                    if(questObjectTemp.Scr !=null)
-                        questObjectTemp.Scr.NpcQuest.Finished = true;
+                    if(questObjectTemp.Scr != null)
+                    {
+                        questObjectTemp.Scr.NpcItem.pickable = false;
+                    }
+                       
                     questObjectTemp.completedQuest = true;
                     questObjectTemp.panelScr.QuestCompleted();
                 }

@@ -125,7 +125,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: TypeOfCrop
-    m_EventTreshold: 3
+    m_EventTreshold: 19
   - m_ConditionMode: 2
     m_ConditionEvent: harvested
     m_EventTreshold: 0
@@ -288,7 +288,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: TypeOfCrop
-    m_EventTreshold: 1
+    m_EventTreshold: 20
   - m_ConditionMode: 2
     m_ConditionEvent: harvested
     m_EventTreshold: 0
@@ -853,7 +853,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: TypeOfCrop
-    m_EventTreshold: 2
+    m_EventTreshold: 18
   - m_ConditionMode: 2
     m_ConditionEvent: harvested
     m_EventTreshold: 0

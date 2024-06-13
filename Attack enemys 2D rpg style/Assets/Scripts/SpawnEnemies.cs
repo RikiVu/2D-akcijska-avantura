@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour
 {
-
+    
     public CreateMap target;
     private int maxMinions;
     public Transform Player;
@@ -15,6 +15,7 @@ public class SpawnEnemies : MonoBehaviour
     [SerializeField]
     private bool spawned = false;
     public List<GameObject> enemies = new List<GameObject>();
+    public static string defaultDifficulty = "Easy";
 
     //unused
     public static int currentMinionCount = 0;
@@ -25,6 +26,7 @@ public class SpawnEnemies : MonoBehaviour
     GameObject randomSpawn;
     GameObject temp;
     int lenghtOfEnemies;
+    int lenghtOfEnemiesMedium;
     int idToSpawn;
 
     private void Start()
@@ -35,7 +37,12 @@ public class SpawnEnemies : MonoBehaviour
         {
             lenghtOfEnemies = target.Enemies.Length;
         }
+        if (target.EnemiesMedium[0] != null)
+        {
+            lenghtOfEnemiesMedium = target.Enemies.Length;
+        }
     }
+
 
 
     void Update()
@@ -45,14 +52,28 @@ public class SpawnEnemies : MonoBehaviour
 
 
         spawned = true;
-
-        for ( i = 0; i<  placeOfSpawn.Length-1; i++)
+        if(defaultDifficulty == "Easy")
         {
-            // Instantiate enemy at the randomly selected spawn point
-            idToSpawn = Random.Range(0, lenghtOfEnemies);
-            temp = Instantiate(target.Enemies[idToSpawn], placeOfSpawn[i].transform.position, Quaternion.identity);
-            enemies.Add(temp);
+            for (i = 0; i < placeOfSpawn.Length - 1; i++)
+            {
+                // Instantiate enemy at the randomly selected spawn point
+                idToSpawn = Random.Range(0, lenghtOfEnemies);
+                temp = Instantiate(target.Enemies[idToSpawn], placeOfSpawn[i].transform.position, Quaternion.identity);
+                enemies.Add(temp);
+            }
+
         }
+        else
+        {
+            for (i = 0; i < placeOfSpawn.Length - 1; i++)
+            {
+                // Instantiate enemy at the randomly selected spawn point
+                idToSpawn = Random.Range(0, lenghtOfEnemiesMedium);
+                temp = Instantiate(target.EnemiesMedium[idToSpawn], placeOfSpawn[i].transform.position, Quaternion.identity);
+                enemies.Add(temp);
+            }
+        }
+      
           
     }
 

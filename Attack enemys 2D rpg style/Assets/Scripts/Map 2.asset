@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemies:
   - {fileID: 4047847017028428844, guid: 0ba2095b7d0a7a54a9cb6e2fa6641c4e, type: 3}
+  EnemiesMedium:
+  - {fileID: 4047847017028428844, guid: c1178aee542e2d44baa60da03dd40f00, type: 3}
   MaxCount: 6
   RespawnTime: 2.5
   mapName: Feles forest

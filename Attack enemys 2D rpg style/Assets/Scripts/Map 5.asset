@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemies:
   - {fileID: 4473233539476626048, guid: 085f55bc54f4cd14c959692a70d5f0ee, type: 3}
+  EnemiesMedium:
+  - {fileID: 4473233539476626048, guid: 275ac86e3dd3d934a882c18126b6dfa5, type: 3}
   MaxCount: 25
   RespawnTime: 2
   mapName: Bojare

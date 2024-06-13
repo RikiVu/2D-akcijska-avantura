@@ -15,6 +15,9 @@ MonoBehaviour:
   Enemies:
   - {fileID: 3172384392692796538, guid: 09dc113b14eb6964bb90c3b8d71c4d4c, type: 3}
   - {fileID: 1689840480547647927, guid: 40465ec7c782e2c489b8173472b91938, type: 3}
+  EnemiesMedium:
+  - {fileID: 3172384392692796538, guid: e9f1256641048ad4295917f610e2600d, type: 3}
+  - {fileID: 1689840480547647927, guid: 6c4401bfa61ec1f48bda01b1063ff441, type: 3}
   MaxCount: 25
   RespawnTime: 2.5
   mapName: Deep Feles forest

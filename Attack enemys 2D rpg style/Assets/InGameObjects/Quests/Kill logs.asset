@@ -18,7 +18,7 @@ MonoBehaviour:
   alreadyTakenQuest: Kill them all!
   completedQuest: Thank you. Here, your reward.
   Target: Log
-  count: 8
+  count: 7
   Finished: 0
   AtNpcPlace: 0
   money: 200

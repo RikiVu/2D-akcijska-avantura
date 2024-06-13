@@ -20,7 +20,7 @@ MonoBehaviour:
   completedQuest: Thank you! Here 60 gold.
   Target: 'Hibiscus '
   count: 5
-  Finished: 0
+  Finished: 1
   AtNpcPlace: 0
   money: 60
   defaultQuest: 0

@@ -35,7 +35,8 @@ public class NpcQuestScr : NpcScr
         {
             questTaken = taken;
             questEnded = ended;
-           
+            NpcQuest.Finished = ended;
+
             if (NpcQuest.Type == TypeOfQuest.Gathering)
                     NpcItem.pickable = false;
 
@@ -49,7 +50,8 @@ public class NpcQuestScr : NpcScr
                     this.NpcItem.pickable = true;
                     
                 }
-                       
+                redirectScr.AddQuest(NpcQuest,this, count);
+
             }
             else if(questTaken && questEnded)
             {

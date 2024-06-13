@@ -22,6 +22,15 @@ public class AlertPanelScr : MonoBehaviour
         }
      
     }
+    public void showAlertPanel(string text, float time)
+    {
+        textPanel.text = text;
+        if (!coroutineStarted)
+        {
+            StartCoroutine(PanelShowed(time));
+        }
+
+    }
 
     private IEnumerator PanelShowed()
     {
@@ -31,5 +40,14 @@ public class AlertPanelScr : MonoBehaviour
         panel.SetActive(false);
         coroutineStarted = false;
     }
+    private IEnumerator PanelShowed(float time)
+    {
+        coroutineStarted = true;
+        panel.SetActive(true);
+        yield return new WaitForSeconds(time);
+        panel.SetActive(false);
+        coroutineStarted = false;
+    }
+
 
 }

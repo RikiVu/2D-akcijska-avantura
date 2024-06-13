@@ -15,6 +15,7 @@ public class dataToPass : MonoBehaviour
     {
         if (createSettings.newGame)
         {
+            PlayerScr.Gold = 100;
             StartCoroutine(WaitCoro());
         }
         else
@@ -24,12 +25,18 @@ public class dataToPass : MonoBehaviour
     }
     IEnumerator WaitCoro()
     {
-        yield return new WaitForSeconds(0.25f);
-        SaveOrLoad.NewGame();
+        yield return new WaitForSeconds(0.1f);
+        PlayerScr.GodMode = createSettings.godmode;
+        if (createSettings.godmode)
+        {
+            PlayerScr.Gold = 10000;
+        }
+        SaveOrLoad.NewGame(createSettings.recordSelected, createSettings.godmode, createSettings.diff);
+        SpawnEnemies.defaultDifficulty = createSettings.diff.ToString();
     }
     IEnumerator WaitCoro2()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         SaveOrLoad.LoadFromJson(createSettings.recordSelected);
     }
 

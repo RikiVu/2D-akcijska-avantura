@@ -6,6 +6,8 @@ public class GameData
 {
     public Vector3 spawnPosition;
     public bool godMode;
+    public string recordName = "";
+    public string difficulty = "Easy";
     public float currentHealth=4;
     public float gold=0;
     public int arrows=0;
