@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e234ce9cb43a39c4d95c8b3b9b68a61c, type: 3}
   m_Name: Map 3.1
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 3172384392692796538, guid: 09dc113b14eb6964bb90c3b8d71c4d4c, type: 3}
+  Enemies: []
+  EnemiesMedium: []
   MaxCount: 25
   RespawnTime: 2.5
   mapName: Deep Feles forest
   maxPosition: {x: 217.2, y: 103.7}
   minPosition: {x: 154.9, y: -36.5}
+  songToPlay: {fileID: 8300000, guid: 89d325637819edc42911e6e7520981a1, type: 3}

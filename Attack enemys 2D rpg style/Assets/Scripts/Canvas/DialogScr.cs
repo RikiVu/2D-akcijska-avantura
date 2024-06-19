@@ -19,6 +19,9 @@ public class DialogScr : MonoBehaviour
     public string placeHolder = "";
     private RectTransform rectTransform;
     public GameObject Inventory;
+    [SerializeField]
+    private AudioManager audioManager;
+
 
 
     // Start is called before the first frame update
@@ -62,6 +65,7 @@ public class DialogScr : MonoBehaviour
             tmProNameText.text = "";
             ShopPanel.SetActive(true);
             hideDialog();
+            audioManager.Play("ShopSound");
             PlayerScr.playerCanMove = false;
             GameManager.InvOppened = true;
             Inventory.gameObject.SetActive(true);
@@ -142,6 +146,7 @@ public class DialogScr : MonoBehaviour
 
         for (i = 0; i < placeHolder.Length; i++)
         {
+            audioManager.Play("Typing");
             TmProText.text += placeHolder[i];
             yield return new WaitForSeconds(0.05f);
             if (Input.GetKey(KeyCode.E) && i>4)

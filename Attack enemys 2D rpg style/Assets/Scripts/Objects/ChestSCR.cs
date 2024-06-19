@@ -54,11 +54,11 @@ void Update()
                 ShowItems(pos);
                 chestInvScr.AddItem1(ChestItem);
                 //   PlayerScr.Gold += 50;              
-                Debug.Log("otvorio si chest");
+                //Debug.Log("otvorio si chest");
             }
             else if (chestCollected)
             {
-                Debug.Log("You already looted this chest");
+                //Debug.Log("You already looted this chest");
             }
         }
        else if (Input.GetKeyDown(KeyCode.E) && !chestCollected  && chestOppened)
@@ -77,14 +77,14 @@ void Update()
             else
             {
                 alertPanelScr.showAlertPanel("No space in inventory!");
-                Debug.Log("No space in inventory!");
+               // Debug.Log("No space in inventory!");
             }
         }
     }
 
     public void loadChest(bool state)
     {
-        Debug.Log("chest load");
+        //Debug.Log("chest load");
         chestCollected = state;
         if (!state)
             anim.SetBool("Oppened", false);

@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e234ce9cb43a39c4d95c8b3b9b68a61c, type: 3}
   m_Name: Map 6
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 0}
+  Enemies: []
+  EnemiesMedium: []
   MaxCount: 0
   RespawnTime: 0
   mapName: 'Naysa''s forrest '
   maxPosition: {x: 115, y: 89}
   minPosition: {x: -28.5, y: 74}
+  songToPlay: {fileID: 8300000, guid: 66b03c6cb8ae07e4b8114f3c847905b9, type: 3}

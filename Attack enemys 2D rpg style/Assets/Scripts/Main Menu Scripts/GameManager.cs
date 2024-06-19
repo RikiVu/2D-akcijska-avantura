@@ -61,7 +61,10 @@ public class GameManager : MonoBehaviour
     public NpcQuestScr[] NpcQuestScr;
     private List<NpcQuestScr> npcQuestScrsTempList = new List<NpcQuestScr>();
 
-    private float startTime = 0,  runTime;
+   // private float startTime = 0,  runTime;
+
+
+
     public void giveIds()
     {
        for(i=0; i<potScr.Length; i++)
@@ -115,7 +118,7 @@ public class GameManager : MonoBehaviour
         if (questObject != null)
         {
             questObject.count = counter;
-            Debug.Log(counter);
+            //Debug.Log(counter);
         }
     }
     public void addInQuestList(int Id, int counter)
@@ -160,7 +163,7 @@ public class GameManager : MonoBehaviour
     //pickUp load and save
     public void addInPickupList(PickUp pickUpScr, bool state, int id)
     {
-        Debug.Log(pickUpScr.item.name + " , picked ? : " + state);
+       // Debug.Log(pickUpScr.item.name + " , picked ? : " + state);
         ItemsOnGroundObject tempPickUpObject = new ItemsOnGroundObject();
         //tempPickUpObject.pickUpScr = pickUpScr;
         tempPickUpObject.picked = state;
@@ -302,7 +305,7 @@ public class GameManager : MonoBehaviour
         QuestList.gameObject.SetActive(false);
         QuestTitle.gameObject.SetActive(false);
         updateStats(stats.Strenght, stats.Dexterity, stats.Constitution);
-        startTime = Time.time;
+       // startTime = Time.time;
     }
 
     public void updateStats(int Str, int Dex, int Const)

@@ -15,6 +15,7 @@ public class CreateEnemy : ScriptableObject
         public float attackCooldown = 2f;
         public float speed = 500f;
         public float gold = 0;
+        public string sound = "";
 }
 
 

@@ -223,6 +223,10 @@ public class EnemyFollowPlayer : EnemyR
         anim.SetFloat("MoveX", directionToPlayer.x);
         anim.SetFloat("MoveY", directionToPlayer.y);
         anim.SetTrigger("attack");
+        if(enemyScribtableObject.sound != "")
+        {
+            FindObjectOfType<AudioManager>().Play(enemyScribtableObject.sound);
+        }
         yield return new WaitForSeconds(enemyScribtableObject.attackCooldown);
         canMove = true;
         coroutineStarted2 = false;

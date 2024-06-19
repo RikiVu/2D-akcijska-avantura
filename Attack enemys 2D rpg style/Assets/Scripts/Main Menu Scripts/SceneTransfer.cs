@@ -57,7 +57,7 @@ public class SceneTransfer : MonoBehaviour
         createSettings.recordSelected = FilterToValidJsonFileName(inputField.GetComponent<TMP_InputField>().text);
      
       //  Debug.Log(createSettings.recordName);
-         SceneManager.LoadScene("test");
+         SceneManager.LoadScene("Act1");
     }
 
     public void ChangeStateEasy()
@@ -95,7 +95,7 @@ public class SceneTransfer : MonoBehaviour
     {
         audioManager.Play("Click");
         createSettings.newGame = false;
-        SceneManager.LoadScene("test");
+        SceneManager.LoadScene("Act1");
 
 
     }

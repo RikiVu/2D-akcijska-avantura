@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Map 7
   m_EditorClassIdentifier: 
   Enemies: []
+  EnemiesMedium: []
   MaxCount: 0
   RespawnTime: 0
   mapName: 'Domain of the Spider Queen '
   maxPosition: {x: -27.3, y: 155}
   minPosition: {x: -28.5, y: 130.4}
+  songToPlay: {fileID: 8300000, guid: 88b7dd8999a2b6347aa82786af591c52, type: 3}

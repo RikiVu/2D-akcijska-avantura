@@ -33,7 +33,7 @@ public class SpawnEnemies : MonoBehaviour
     {
         //maxMinions = target.MaxCount;
         //  Debug.Log("enemies lenght "+ target.Enemies.Length);
-        if (target.Enemies[0] !=null)
+        if (target.Enemies[0] != null)
         {
             lenghtOfEnemies = target.Enemies.Length;
         }
@@ -41,6 +41,25 @@ public class SpawnEnemies : MonoBehaviour
         {
             lenghtOfEnemiesMedium = target.Enemies.Length;
         }
+    }
+
+    public void newGameIntroSpawn()
+    {
+        StartCoroutine(disablenewGameIntroSpawn(10));
+    }
+    private IEnumerator disablenewGameIntroSpawn(float knockTime)
+    {
+        inRange = true;
+        yield return new WaitForSeconds(knockTime);
+        inRange = false;
+        spawned = false;
+        for (i = enemies.Count - 1; i >= 0; i--)
+        {
+            temp = enemies[i];
+            enemies.RemoveAt(i);
+            Destroy(temp);
+        }
+        enemies.Clear();
     }
 
 

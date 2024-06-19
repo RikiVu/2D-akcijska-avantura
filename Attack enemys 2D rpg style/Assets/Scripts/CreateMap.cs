@@ -13,6 +13,7 @@ public class CreateMap : ScriptableObject
     new public string mapName ="";
     new public Vector2 maxPosition;
     new public Vector2 minPosition;
+    new public AudioClip songToPlay;
 }
 
 

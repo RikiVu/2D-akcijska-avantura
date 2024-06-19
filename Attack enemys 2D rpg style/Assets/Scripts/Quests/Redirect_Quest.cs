@@ -29,7 +29,7 @@ public class Redirect_Quest : MonoBehaviour
     {
         foreach (QuestObject obj in questObjects) {
             gameManager.addInQuestList(obj.counter, obj.quest);
-            Debug.Log("saving quest:  "+ obj.quest.name + " , quest taken: ");
+            //Debug.Log("saving quest:  "+ obj.quest.name + " , quest taken: ");
         }
      
     }
@@ -125,7 +125,7 @@ public class Redirect_Quest : MonoBehaviour
     public void AddQuest(Create_Quest quest, int currentCount)
     {
         QuestObject questObjectTemp1 = new QuestObject();
-        Debug.Log("Dodaj quest: " + quest.name);
+        //Debug.Log("Dodaj quest: " + quest.name);
         GameObject panel = Instantiate(panelPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
         panel.transform.SetParent(parentGameObject.transform);
         panel.transform.localScale = new Vector3(0.75f, 0.75f, 1);
@@ -135,7 +135,7 @@ public class Redirect_Quest : MonoBehaviour
         questObjectTemp1.activeQuest = true;
         QuestController questController = panel.gameObject.GetComponent<QuestController>();
         questObjectTemp1.panelScr = questController;
-        Debug.Log(currentCount);
+        //Debug.Log(currentCount);
         questObjectTemp1.counter = currentCount;
         questObjects.Add(questObjectTemp1);
         //panel texts

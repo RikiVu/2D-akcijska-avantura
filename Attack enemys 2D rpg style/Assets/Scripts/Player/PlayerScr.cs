@@ -90,8 +90,13 @@ public class PlayerScr : MonoBehaviour
     private static PlayerScr playerInstance;
 
     public AlertPanelScr alertPanelScr;
+
+    //sound 
+    [SerializeField]
+    private AudioManager audioManager;
     void Awake()
     {
+    
         GodMode = SetGodMode;
         /*
         DontDestroyOnLoad(this);
@@ -105,6 +110,8 @@ public class PlayerScr : MonoBehaviour
             Destroy(gameObject);
         }
         */
+
+        PlayerSprite.enabled = false;
     }
     public void loadPlayer() {
         GameManager.gameOver = false;
@@ -163,7 +170,8 @@ public class PlayerScr : MonoBehaviour
         arrowCounter.text = Arrows.ToString();
         if (Input.GetKeyDown(KeyCode.Q) && currentState != PlayerState.attack && currentState != PlayerState.stagger && cooldownBool == true && !trci && MyTarget != null && CanDash && !CantAtt)
         {
-            FindObjectOfType<AudioManager>().Play("Dash");
+            audioManager.Play("Dash");
+            //FindObjectOfType<AudioManager>().Play("Dash");
             animator.SetFloat("moveX", MyTarget.position.x - transform.position.x);
             animator.SetFloat("moveY", MyTarget.position.y - transform.position.y);
             Vector3 tempVector = MyTarget.transform.position - transform.position;
@@ -272,6 +280,7 @@ public class PlayerScr : MonoBehaviour
             animator.SetFloat("moveX", change.x);
             animator.SetFloat("moveY", change.y);
             animator.SetBool("moving", true);
+             
                
         }
         else
@@ -292,6 +301,7 @@ public class PlayerScr : MonoBehaviour
     {
         
         change.Normalize();
+        //audioManager.Play("PlayerSteps");
         myRididbody.MovePosition(transform.position + change * speed * Time.fixedDeltaTime);
        
         
@@ -410,7 +420,8 @@ public class PlayerScr : MonoBehaviour
                     AdrenalinScr.value -= 0.1f;
                     if (HeartManager.playerCurrentHealth > 0)
                     {
-                        FindObjectOfType<AudioManager>().Play("PlayerPain");
+                        audioManager.Play("PlayerPain");
+                        //FindObjectOfType<AudioManager>().Play("PlayerPain");
                         StartCoroutine(KnockCo(knockTime));
                     }
                     else
@@ -465,6 +476,14 @@ public class PlayerScr : MonoBehaviour
             //      FindObjectOfType<AudioManager>().Play("Step");
         }
     }
+
+    public void spawningPlayer()
+    {
+        PlayerSprite.enabled = true;
+        animator.SetTrigger("spawned");
+        playerCanMove = true;
+    }
+
     private void flash() // kad ga udari da mjenja kao boju 
     {
         if (FlashActive)

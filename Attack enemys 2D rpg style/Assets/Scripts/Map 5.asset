@@ -21,3 +21,4 @@ MonoBehaviour:
   mapName: Bojare
   maxPosition: {x: 30, y: 45}
   minPosition: {x: -28.5, y: -36.5}
+  songToPlay: {fileID: 8300000, guid: ae25bf7228b39a04eb5a62049451d5fb, type: 3}

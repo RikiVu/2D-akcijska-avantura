@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e234ce9cb43a39c4d95c8b3b9b68a61c, type: 3}
   m_Name: Map 4
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 3172384392692796538, guid: 09dc113b14eb6964bb90c3b8d71c4d4c, type: 3}
+  Enemies: []
+  EnemiesMedium: []
   MaxCount: 0
   RespawnTime: 0
   mapName: Bobota
   maxPosition: {x: 154.9, y: 80}
   minPosition: {x: 70, y: -45}
+  songToPlay: {fileID: 8300000, guid: 9d78f9deea31aed46baef199531dcd78, type: 3}

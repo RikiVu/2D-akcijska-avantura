@@ -121,6 +121,11 @@ public class Menu : MonoBehaviour
         escOppened = true;
         Time.timeScale = 0;
     }
+    public void ReturnFromDescriptionPanel()
+    {
+        FindObjectOfType<AudioManager>().Play("Click");
+        Time.timeScale = 0;
+    }
 
     public void ReturnToGame()
     {

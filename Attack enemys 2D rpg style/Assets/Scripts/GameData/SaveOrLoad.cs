@@ -32,7 +32,9 @@ public class SaveOrLoad : MonoBehaviour
     public BossAi Boss;
     public bool canSave = true;
     private string timestamp = "";
-   
+    public AudioSource audioSource;
+    public AudioClip songToPlay;
+
     public static string currentGameRecord = "";
 
     private void Awake()
@@ -133,6 +135,7 @@ public class SaveOrLoad : MonoBehaviour
                 currentGameRecord = Application.dataPath + "/saves/" + timestamp + ".json";
                 File.WriteAllText(Application.dataPath + "/saves/" + timestamp + ".json", json);
             }
+           
         }
         catch (Exception e)
         {
@@ -146,11 +149,13 @@ public class SaveOrLoad : MonoBehaviour
         {
             try
             {
+                audioSource.clip = songToPlay;
+                audioSource.Play();
                 manager.redirect_Quest.saveToManager();
                 SavetoJson(player.transform.position, godmode, HeartManager.playerCurrentHealth, PlayerScr.Gold,
                     PlayerScr.Arrows, Inventory.starCount, inventory.SaveInventory(), equipment.SaveEquipment(),
                     manager.chestList, manager.potList, AllowPassage.CanPass, manager.pickupList, manager.questObjectLogList, Boss, recordname, dif.ToString());
-                StartCoroutine(Saving());
+                StartCoroutine(Saving2());
                 //StartCoroutine(Loading(recordname, godmode, dif.ToString()));
             }
             catch (Exception e)
@@ -202,7 +207,12 @@ public class SaveOrLoad : MonoBehaviour
             try
             {
                 if (!waitingCoro)
+                {
                     StartCoroutine(waitToLeave());
+                    audioSource.clip = songToPlay;
+                    audioSource.Play();
+                }
+              
             }
             catch
             {
@@ -237,6 +247,7 @@ public class SaveOrLoad : MonoBehaviour
     private IEnumerator Loading(string name)
     {
         loading = true;
+       
         player.triggerBox.enabled = false;
         yield return Frames(2);
         player.triggerBox.enabled = true;
@@ -270,60 +281,14 @@ public class SaveOrLoad : MonoBehaviour
             player.loadPlayer();
             Boss.Load(data.bossDefeated);
             SpawnEnemies.defaultDifficulty = data.difficulty;
+            
         }
         else
         {
             Debug.LogError("There are no save files");
         }
     }
-    /*
-    private IEnumerator Loading(string name, bool godmode, string diff)
-    {
-        loading = true;
-        player.triggerBox.enabled = false;
-        yield return Frames(2);
-        player.triggerBox.enabled = true;
-        string json;
-        json = File.ReadAllText(Application.dataPath + "/" + "new_game.json");
-        filePath = Application.dataPath + "/" + "new_game.json";
-        currentGameRecord = "new_game.json";
-        //treba ak je novi napravit
-        if (File.Exists(filePath))
-        {
-            GameData data = JsonUtility.FromJson<GameData>(json);
-            player.transform.position = data.spawnPosition;
-            data.godMode = godmode;
-            PlayerScr.GodMode = data.godMode;
-            data.recordName = name;
-            data.difficulty = diff;
-            //record name 
-            // Diff
-            equipment.LoadEquipment(data.equipment);
-            HeartManager.playerCurrentHealth = data.currentHealth;
-            PlayerScr.Gold = data.gold;
-            if (godmode)
-            {
-                PlayerScr.Gold = 10000;
-            }
-            PlayerScr.Arrows = data.arrows;
-            Inventory.starCount = data.stars;
-            inventory.LoadInventory(data.items);
-            cam.MapTransfer(data.camMinPosition, data.camMaxPosition);
-            manager.loadChests(data.chests);
-            //manager.loadPlant(data.plantList);
-            manager.loadPots(data.pots);
-            manager.Passage(data.canPass);
-            manager.loadPickUpItems(data.pickUpItems);
-            manager.loadQuests(data.quests);
-            player.loadPlayer();
-            Boss.Load(data.bossDefeated);
-        }
-        else
-        {
-            Debug.LogError("There are no save files");
-        }
-    }
-    */
+   
     public static IEnumerator Frames(int frameCount)
     {
         while (frameCount > 0)

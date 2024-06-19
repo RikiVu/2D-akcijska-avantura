@@ -21,3 +21,4 @@ MonoBehaviour:
   mapName: Feles forest
   maxPosition: {x: 217, y: 165}
   minPosition: {x: 166, y: 126}
+  songToPlay: {fileID: 8300000, guid: 56bb3e1ac1afd454e8edb26bf6b70999, type: 3}

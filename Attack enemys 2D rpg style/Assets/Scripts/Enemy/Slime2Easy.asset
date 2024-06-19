@@ -21,3 +21,4 @@ MonoBehaviour:
   attackCooldown: 3
   speed: 450
   gold: 5
+  sound: SlimeJump

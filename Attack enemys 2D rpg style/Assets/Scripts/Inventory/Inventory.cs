@@ -38,6 +38,8 @@ public class Inventory : MonoBehaviour
 
     private int spaceInInventory;
     public AlertPanelScr alertPanelScr;
+    [SerializeField]
+    private descriptionPanelScr descriptionPanelScr;
     public TextMeshProUGUI starsCountText;
 
     public static int starCount = 0;
@@ -341,7 +343,8 @@ public class Inventory : MonoBehaviour
             Redirect.Gathering(item.name, num);
             if(starCount >= 10)
             {
-                alertPanelScr.showAlertPanel("Game finished, demo completed!");
+                descriptionPanelScr.showDescriptionPanel();
+              //  alertPanelScr.showAlertPanel("Game finished, demo completed!");
             }
             return;
         }

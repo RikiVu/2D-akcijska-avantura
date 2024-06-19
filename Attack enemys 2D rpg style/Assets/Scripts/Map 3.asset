@@ -23,3 +23,4 @@ MonoBehaviour:
   mapName: Deep Feles forest
   maxPosition: {x: 217.2, y: 103.7}
   minPosition: {x: 154.9, y: -36.5}
+  songToPlay: {fileID: 8300000, guid: 89d325637819edc42911e6e7520981a1, type: 3}
