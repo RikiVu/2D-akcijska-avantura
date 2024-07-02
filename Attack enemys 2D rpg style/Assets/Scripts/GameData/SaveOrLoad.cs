@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Collections;
 using System;
 using System.Globalization;
+using JetBrains.Annotations;
+using System.Net;
 
 public class SaveOrLoad : MonoBehaviour
 {
@@ -31,24 +33,31 @@ public class SaveOrLoad : MonoBehaviour
     public GameManager manager;
     public BossAi Boss;
     public bool canSave = true;
-    private string timestamp = "";
+   
     public AudioSource audioSource;
     public AudioClip songToPlay;
 
+    //logger 
+    public static string timestamp = "";
+    public static string logEntry = "";
+    public static string logPath = Path.Combine(Application.dataPath, "logs", "log.txt");
     public static string currentGameRecord = "";
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScr>();
         cam = Camera.main.GetComponent<CameraMovement>();
+        if (!File.Exists(logPath))
+        {
+            File.WriteAllText(logPath, "");
+            Debug.Log("Created logs.txt");
+        }
     }
+
     public static string ConvertToFileName(string dateTimeString)
     {
-        
         DateTime dateTime = DateTime.ParseExact(dateTimeString, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-
         string fileName = dateTime.ToString("yyyy-MM-dd_HH-mm-ss");
-
         return fileName;
     }
     public void SavetoJson(Vector3 playerPosition, bool godmode, float health, float gold, int arrows, int stars, List<ItemObject> items, List<CreateItem> equipment,
@@ -85,7 +94,7 @@ public class SaveOrLoad : MonoBehaviour
             data.canPass = passage;
             data.pickUpItems = pickUpItemList;
             data.quests = questObject;
-            data.bossDefeated = boss.bossDefeated;
+            data.bossDefeated = BossAi.bossDefeated;
             json = JsonUtility.ToJson(data, true);
             File.WriteAllText(currentGameRecord, json);
         }
@@ -96,7 +105,7 @@ public class SaveOrLoad : MonoBehaviour
        
     }
     public void SavetoJson(Vector3 playerPosition, bool godmode, float health, float gold, int arrows, int stars, List<ItemObject> items, List<CreateItem> equipment,
-        List<ChestObject> chestList, List<PotObject> potlist, bool passage, List<ItemsOnGroundObject> pickUpItemList, List<QuestObjectLog> questObject, BossAi boss, string recordName, string diff)
+         List<ChestObject> chestList, List<PotObject> potlist, bool passage, List<ItemsOnGroundObject> pickUpItemList, List<QuestObjectLog> questObject, BossAi boss, string recordName, string diff)
     {
         try
         {
@@ -104,7 +113,7 @@ public class SaveOrLoad : MonoBehaviour
             data.spawnPosition = playerPosition;
             data.godMode = godmode;
             data.difficulty = diff;
-            //add to adjust to diff
+            // Add to adjust to diff
             data.currentHealth = health;
             data.gold = gold;
             data.arrows = arrows;
@@ -118,29 +127,42 @@ public class SaveOrLoad : MonoBehaviour
             data.canPass = passage;
             data.pickUpItems = pickUpItemList;
             data.quests = questObject;
-            data.bossDefeated = boss.bossDefeated;
-            timestamp = System.DateTime.Now.ToString();
+            data.bossDefeated = BossAi.bossDefeated;
+
+            string dateTimeFormat = "dd/MM/yyyy HH:mm:ss";
+            timestamp = DateTime.Now.ToString(dateTimeFormat, CultureInfo.InvariantCulture);
             timestamp = ConvertToFileName(timestamp);
-            if (recordName != "")
+
+            if (!string.IsNullOrEmpty(recordName))
             {
                 data.recordName = recordName;
                 string json = JsonUtility.ToJson(data, true);
-                currentGameRecord = Application.dataPath + "/saves/" + data.recordName + ".json";
-                File.WriteAllText(Application.dataPath + "/saves/" + data.recordName + ".json", json);
+                currentGameRecord = Path.Combine(Application.dataPath, "saves", data.recordName + ".json");
+                File.WriteAllText(currentGameRecord, json);
             }
             else
             {
+                timestamp = DateTime.Now.ToString(dateTimeFormat, CultureInfo.InvariantCulture);
+                timestamp = ConvertToFileName(timestamp);
                 data.recordName = timestamp;
                 string json = JsonUtility.ToJson(data, true);
-                currentGameRecord = Application.dataPath + "/saves/" + timestamp + ".json";
-                File.WriteAllText(Application.dataPath + "/saves/" + timestamp + ".json", json);
+                currentGameRecord = Path.Combine(Application.dataPath, "saves", timestamp + ".json");
+                File.WriteAllText(currentGameRecord, json);
             }
-           
+
         }
         catch (Exception e)
         {
             alertPanelScr.showAlertPanel("Failed to start a new game!");
+            BugLogger(e);
         }
+    }
+
+    public static void BugLogger(Exception e)
+    {
+        timestamp = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+        logEntry = $"{timestamp}{Environment.NewLine}{e.ToString()}{Environment.NewLine}{e.StackTrace}{Environment.NewLine}";
+        File.AppendAllText(logPath, logEntry);
     }
 
     public void NewGame(string recordname,bool godmode, Diff dif)
@@ -162,6 +184,7 @@ public class SaveOrLoad : MonoBehaviour
             {
                 Debug.Log("failed to new game!");
                 alertPanelScr.showAlertPanel("Failed to start a new game!");
+                BugLogger(e);
             }
         }
     }
@@ -169,15 +192,24 @@ public class SaveOrLoad : MonoBehaviour
 
     public void LoadFromJson(string name)
     {
+       // Debug.Log("LoadFromJson");
         try
         {
             if (!loading)
+            {
                 StartCoroutine(Loading(name));
+            }
+            else
+            {
+                alertPanelScr.showAlertPanel("Failed to load! !loading");
+            }
+        
         }
-        catch
+        catch (Exception e)
         {
             Debug.Log("failed to load!");
             alertPanelScr.showAlertPanel("Failed to load!");
+            BugLogger(e);
         }
     }
 
@@ -193,10 +225,11 @@ public class SaveOrLoad : MonoBehaviour
                     manager.chestList, manager.potList, AllowPassage.CanPass, manager.pickupList, manager.questObjectLogList, Boss);
                 StartCoroutine(Saving());
             }
-            catch
+            catch (Exception e)
             {
                 Debug.Log("failed to save!");
                 alertPanelScr.showAlertPanel("Failed to save!");
+                BugLogger(e);
             }
         }
     }
@@ -214,9 +247,10 @@ public class SaveOrLoad : MonoBehaviour
                 }
               
             }
-            catch
+            catch (Exception e)
             {
                 Debug.Log("Coroutine couldn't be started because the the game object 'spawn_0(1)' is inactive!");
+                BugLogger(e);
             }
         
         }
@@ -247,7 +281,6 @@ public class SaveOrLoad : MonoBehaviour
     private IEnumerator Loading(string name)
     {
         loading = true;
-       
         player.triggerBox.enabled = false;
         yield return Frames(2);
         player.triggerBox.enabled = true;
@@ -256,7 +289,8 @@ public class SaveOrLoad : MonoBehaviour
         json = File.ReadAllText(Application.dataPath + "/saves/" + name);
         filePath = Application.dataPath + "/saves/" + name;
         currentGameRecord = filePath;
-        
+        Debug.Log("load-ao "+ currentGameRecord);
+   
         if (File.Exists(filePath))
         {
             GameData data = JsonUtility.FromJson<GameData>(json);
@@ -281,6 +315,7 @@ public class SaveOrLoad : MonoBehaviour
             player.loadPlayer();
             Boss.Load(data.bossDefeated);
             SpawnEnemies.defaultDifficulty = data.difficulty;
+            RunningScr.value = 1;
             
         }
         else

@@ -20,6 +20,9 @@ public class Menu : MonoBehaviour
     public bool StopSong;
     public int Coinvalue;
     public savesButtonScr savesButtonScr;
+    [SerializeField] shopInventory shopInventory;
+    [SerializeField]
+    private CameraMovement cameraMovement;
 
 
   //  public GameObject inventoryUI;
@@ -38,20 +41,20 @@ public class Menu : MonoBehaviour
         {
             gM.CloseInv();
             gM.CloseQuests();
-           
+            shopInventory.ClosePanel();
         }
 
        else if (Input.GetKeyDown(KeyCode.Escape) && escOppened == false && optionsOppened==false && GameManager.InvOppened== false)
         {
-           
-
+         
+            if (cameraMovement.cameraAnimDone == false)
+            {
+                cameraMovement.skipIntro();
+                return;
+            }
             EscPanel.SetActive(true);
             escOppened = true;
-
-           // inventoryUI.SetActive(false);
-           Time.timeScale = 0;
-
-            
+            Time.timeScale = 0;
 
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && escOppened == true && optionsOppened == false)
@@ -142,7 +145,7 @@ public class Menu : MonoBehaviour
     public void GotoMainMenu()
     {
         FindObjectOfType<AudioManager>().Play("Click");
-
+        SaveOrLoad.loading = false;
         SceneManager.LoadScene("Main Menu");
         Time.timeScale = 1;
     }

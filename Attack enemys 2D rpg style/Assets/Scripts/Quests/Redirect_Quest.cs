@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-
+using TMPro;
 using UnityEngine;
 
 
 public class Redirect_Quest : MonoBehaviour
 {
     public List<QuestObject> questObjects = new List<QuestObject>();
+    [SerializeField]
     private QuestObject questObjectTemp = new QuestObject();
     public GameObject parentGameObject;
     public GameObject panelPrefab;
@@ -17,6 +18,12 @@ public class Redirect_Quest : MonoBehaviour
     public GameManager gameManager;
     [SerializeField]
     private Create_Quest defaultQuest;
+
+    [SerializeField] private GameObject progressContainer;
+    [SerializeField] private TextMeshProUGUI textTitle;
+    [SerializeField] private TextMeshProUGUI textProgress;
+    private bool coroStarted = false;
+    private string tempText;
     private void Awake()
     {
        rectTransform = parentGameObject.gameObject.GetComponent<RectTransform>();
@@ -44,13 +51,16 @@ public class Redirect_Quest : MonoBehaviour
             {
                 questObjectTemp.counter++;
                 questObjectTemp.panelScr.progression.text = questObjectTemp.counter.ToString();
-                if(questObjectTemp.counter >= questObjectTemp.quest.count )
+                tempText = questObjectTemp.counter + " / " +  questObjectTemp.quest.count;
+                ProgressUpdate(questObjectTemp.quest.name, tempText,false);
+                if (questObjectTemp.counter >= questObjectTemp.quest.count )
                 {
                     Debug.Log("finished quest");
                     questObjectTemp.quest.Finished = true;
                     questObjectTemp.Scr.NpcQuest.Finished = true;
                     questObjectTemp.completedQuest = true;
                     questObjectTemp.panelScr.QuestCompleted();
+                    ProgressUpdate(questObjectTemp.quest.name,"Completed!", false);
                 }
             }
         }
@@ -58,9 +68,9 @@ public class Redirect_Quest : MonoBehaviour
                          // napravi da moze rjesit quest prije neg sto ga uzme.
     }
 
-    public void Gathering(string name, int num)
+    public void Gathering(string name, int num,bool load)
     {
-        Debug.Log("Got " + name);
+       // Debug.Log("Got " + name);
         questObjectTemp = questObjects.Find(p => p.quest.Target == name);
         if (questObjectTemp != null)
         {
@@ -68,6 +78,8 @@ public class Redirect_Quest : MonoBehaviour
             {
                 questObjectTemp.counter++;
                 questObjectTemp.panelScr.progression.text = questObjectTemp.counter.ToString();
+                tempText = questObjectTemp.counter + " / " + questObjectTemp.quest.count;
+                ProgressUpdate(questObjectTemp.quest.name, tempText,load);
                 if (questObjectTemp.counter >= questObjectTemp.quest.count)
                 {
                     Debug.Log("finished quest");
@@ -79,6 +91,7 @@ public class Redirect_Quest : MonoBehaviour
                        
                     questObjectTemp.completedQuest = true;
                     questObjectTemp.panelScr.QuestCompleted();
+                    ProgressUpdate(questObjectTemp.quest.name, "Completed!",load);
                 }
             }
         }
@@ -185,8 +198,34 @@ public class Redirect_Quest : MonoBehaviour
             Destroy(qObject.panelScr.gameObject);
            
         }
+        questObjectTemp = new QuestObject();
         questObjects.Clear();
         rectTransform.offsetMin = new Vector2(rectTransform.offsetMin.x, sizeOfContainerBottomInital);
 
+    }
+
+    private void ProgressUpdate(string title, string text, bool load)
+    {
+        if (!load)
+        {
+            textTitle.text = title;
+            textProgress.text = text;
+            progressContainer.SetActive(true);
+            if (!coroStarted)
+                StartCoroutine(WaitCoro());
+            else
+            {
+                StopCoroutine(WaitCoro());
+                coroStarted = false;
+                StartCoroutine(WaitCoro());
+            }
+        }
+    }
+    IEnumerator WaitCoro()
+    {
+        coroStarted = true;
+        yield return new WaitForSeconds(3f);
+        progressContainer.SetActive(false);
+        coroStarted = false;
     }
 }

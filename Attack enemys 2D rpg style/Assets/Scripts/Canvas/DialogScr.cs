@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class DialogScr : MonoBehaviour
 {
     public TextMeshProUGUI TmProText;
+    [SerializeField]
+    private  TextMeshProUGUI hintText;
     public TextMeshProUGUI tmProNameText;
     public GameObject acceptButton;
     public GameObject rejectButton;
@@ -21,7 +23,6 @@ public class DialogScr : MonoBehaviour
     public GameObject Inventory;
     [SerializeField]
     private AudioManager audioManager;
-
 
 
     // Start is called before the first frame update
@@ -107,6 +108,7 @@ public class DialogScr : MonoBehaviour
         rejectButton.SetActive(false);
         placeHolder = text.ToString();
         tmProNameText.text = name;
+     
     }
     public void showDialogShop(string text, string name)
     {
@@ -130,6 +132,7 @@ public class DialogScr : MonoBehaviour
             StopCoroutine(FreezeCo());
             coroutineStarted = false;
             placeHolder = "";
+            hintText.text = "";
         }
         catch
         {

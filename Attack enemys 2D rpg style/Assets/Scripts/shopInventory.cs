@@ -25,12 +25,14 @@ public class shopInventory : Inventory
 
     public void ClosePanel()
     {
-        PlayerScr.playerCanMove = true;
-        //Time.timeScale = 1;
-        DeleteItems();
-        ParentGM.SetActive(false);
-        InShop = false;
-        
+        if(InShop)
+        {
+            PlayerScr.playerCanMove = true;
+            //Time.timeScale = 1;
+            DeleteItems();
+            ParentGM.SetActive(false);
+            InShop = false;
+        }
     }
     void CloseShop()
     {
@@ -119,7 +121,7 @@ public class shopInventory : Inventory
                 if (item.Type == TypeOfItem.Quest)
                 {
                     num++;
-                    Redirect.Gathering(item.name, num);
+                    Redirect.Gathering(item.name, num, true);
 
                 }
                 return;
@@ -139,7 +141,7 @@ public class shopInventory : Inventory
                 if (item.Type == TypeOfItem.Quest)
                 {
                     num++;
-                    Redirect.Gathering(item.name, num);
+                    Redirect.Gathering(item.name, num, true);
 
                 }
 

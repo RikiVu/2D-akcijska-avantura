@@ -14,6 +14,7 @@ public class NpcQuestScr : NpcScr
     public Inventory invScr;
     [SerializeField]
     protected SpriteRenderer emoteSprite;
+    
 
     //save and load 
     public GameManager gameManager;
@@ -30,7 +31,6 @@ public class NpcQuestScr : NpcScr
 
     public Create_Quest loadQuestData(bool taken, bool ended, int count)
     {
-        Debug.Log("test");
         if (taken != null || ended !=null)
         {
             questTaken = taken;
@@ -107,6 +107,10 @@ public class NpcQuestScr : NpcScr
 
                 dialogBoxScr.hideDialog();
                 emoteSprite.color = new Color(0.4f, 0.74f, 0.95f);
+                if(NpcQuest.Target == "Arachne" && BossAi.bossDefeated)
+                {
+                    redirectScr.Killed("Arachne");
+                }
             }
         }
         else if (!decide)

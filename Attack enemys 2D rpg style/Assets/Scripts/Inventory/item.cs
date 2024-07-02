@@ -355,7 +355,7 @@ public class item : MonoBehaviour
             {
                 if (thisItem.Type != TypeOfItem.Arrows)
                 {
-                    invScr2.AddItem(thisItem);
+                    invScr2.AddItem(thisItem, false);
                     PlayerScr.Gold -= thisItem.Price;
                 }
                 if (thisItem.Type == TypeOfItem.Arrows && PlayerScr.Arrows < PlayerScr.MaxArrows)
@@ -376,7 +376,7 @@ public class item : MonoBehaviour
 
     public void ChestSend(CreateItem item)
     {
-        invScr2.AddItem(item);
+        invScr2.AddItem(item,false);
     }
 
     public void PointerExit()

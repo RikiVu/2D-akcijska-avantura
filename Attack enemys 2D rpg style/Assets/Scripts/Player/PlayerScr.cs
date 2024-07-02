@@ -479,6 +479,7 @@ public class PlayerScr : MonoBehaviour
 
     public void spawningPlayer()
     {
+        Debug.Log(" spawningPlayer() playerscr");
         PlayerSprite.enabled = true;
         animator.SetTrigger("spawned");
         playerCanMove = true;

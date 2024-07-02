@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 using System;
 using UnityEngine.Rendering.Universal;
+using Unity.Loading;
 
 
 public class Inventory : MonoBehaviour
@@ -324,7 +325,7 @@ public class Inventory : MonoBehaviour
                     {
                         for(int j=0;j< item1.count; j++)
                         {
-                            AddItem(allItems[i]);
+                            AddItem(allItems[i], true);
                          }
                         break;
                     }
@@ -334,13 +335,13 @@ public class Inventory : MonoBehaviour
 
 
 
-    public void AddItem(CreateItem item)
+    public void AddItem(CreateItem item,    bool loading )
         {
         if (item.Type == TypeOfItem.Star)
         {
             ++starCount;
             starsCountText.text = starCount.ToString();
-            Redirect.Gathering(item.name, num);
+            Redirect.Gathering(item.name, num, loading);
             if(starCount >= 10)
             {
                 descriptionPanelScr.showDescriptionPanel();
@@ -372,7 +373,7 @@ public class Inventory : MonoBehaviour
                 {
                     Debug.Log("salje");
                     num++;
-                    Redirect.Gathering(item.name, num);
+                    Redirect.Gathering(item.name, num, loading);
                 }
                 return;
             }
@@ -389,7 +390,7 @@ public class Inventory : MonoBehaviour
                 if (item.Type == TypeOfItem.Quest)
                 {
                     num++;
-                    Redirect.Gathering(item.name,num);
+                    Redirect.Gathering(item.name,num, loading);
                 }
                 if (Pun == spaceInInventory)
                 {

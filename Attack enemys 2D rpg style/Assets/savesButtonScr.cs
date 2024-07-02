@@ -73,6 +73,7 @@ public class savesButtonScr : MonoBehaviour
                 }
 
                 buttonComponent.onClick.AddListener(() => OnButtonClickMenu(fileName));
+             
                 gameObjectsToDestroy.Add(buttonPrefab);
             }
         }
@@ -94,10 +95,10 @@ public class savesButtonScr : MonoBehaviour
     }
     void OnButtonClickMenu (string name)
     {
-        //audioManager.Play("Click");
+        Debug.Log(name);
         createSettings.newGame = false;
         createSettings.recordSelected = name;
-        SceneManager.LoadScene("test");
+        SceneManager.LoadScene("Act1");
     }
     public string[] GetJsonFiles(string directoryPath)
     {

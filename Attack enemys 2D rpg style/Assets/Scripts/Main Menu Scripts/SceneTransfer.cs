@@ -23,9 +23,6 @@ public class SceneTransfer : MonoBehaviour
     private ColorBlock theColorYellow;
     private ColorBlock theColorWhite;
 
-
-    //private string valueOfInput ="";
-
     private void Awake()
     {
         startUp();
@@ -37,8 +34,6 @@ public class SceneTransfer : MonoBehaviour
         OptionPanel.gameObject.SetActive(false);
         loadPanel.SetActive(false);
         mainMenuPanel.gameObject.SetActive(true);
-        //easyBtn.onClick.Invoke();
-        //godmodeToggle.isOn = createSettings.godmode;
         theColorYellow = easyBtn.colors;
         theColorWhite = easyBtn.colors;
         theColorYellow.normalColor = Color.yellow;
@@ -52,11 +47,7 @@ public class SceneTransfer : MonoBehaviour
     {
         audioManager.Play("Click");
         createSettings.newGame = true;
-        //filter stuff 
-       
         createSettings.recordSelected = FilterToValidJsonFileName(inputField.GetComponent<TMP_InputField>().text);
-     
-      //  Debug.Log(createSettings.recordName);
          SceneManager.LoadScene("Act1");
     }
 
@@ -96,8 +87,6 @@ public class SceneTransfer : MonoBehaviour
         audioManager.Play("Click");
         createSettings.newGame = false;
         SceneManager.LoadScene("Act1");
-
-
     }
 
     public void GotoOptions()
@@ -124,9 +113,6 @@ public class SceneTransfer : MonoBehaviour
         createSettings.godmode = false;
         easyBtn.colors = theColorYellow;
         mediumBtn.colors = theColorWhite;
-        //easyBtn.onClick.Invoke();
-
-        //toogle to no
         createSettings.diff = Diff.Easy;
         audioManager.Play("Click");
         loadPanel.SetActive(false);
@@ -151,7 +137,6 @@ public class SceneTransfer : MonoBehaviour
     }
     public string FilterToValidJsonFileName(string input)
     {
-     
         string validFileName = Regex.Replace(input, @"[^\w\-]", "_");
         return validFileName;
     }

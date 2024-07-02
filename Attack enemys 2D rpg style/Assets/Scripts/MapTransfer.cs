@@ -26,7 +26,6 @@ public class MapTransfer : MonoBehaviour
             audioSource.Play();
             cam.MapTransfer(mapScrObject.minPosition, mapScrObject.maxPosition, mapScrObject.mapName);
             other.transform.position += playerChange;
-            cam.smooothing = 0.03f;
           //  other.transform.position = spawnLocation.transform.position;
         
         }

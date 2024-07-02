@@ -23,13 +23,12 @@ public class Teleport : MonoBehaviour
     {
         if (collision.CompareTag("Player") && collision.isTrigger)
         {
+           
             audioSource.clip = mapScrObject.songToPlay;
             audioSource.Play();
             cam.MapTransfer(mapScrObject.minPosition, mapScrObject.maxPosition, mapScrObject.mapName);
            
             collision.transform.position = locationToSpawn + offset;
-         
-            cam.smooothing = 0.03f;
         }
     }
 }

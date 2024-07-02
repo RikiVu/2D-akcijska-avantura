@@ -28,23 +28,26 @@ public class dataToPass : MonoBehaviour
             {
                 PlayerScr.Gold = 10000;
             }
+            StopCoroutine(WaitCoro());
             StartCoroutine(WaitCoro());
         }
         else
         {
+            StopCoroutine(WaitCoro2());
             StartCoroutine(WaitCoro2());
         }
     }
     IEnumerator WaitCoro()
     {
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(.5f);
         cameraMovement.newgame();
         SaveOrLoad.NewGame(createSettings.recordSelected, createSettings.godmode, createSettings.diff);
         SpawnEnemies.defaultDifficulty = createSettings.diff.ToString();
     }
     IEnumerator WaitCoro2()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
+        cameraMovement.cameraLoaded();
         SaveOrLoad.LoadFromJson(createSettings.recordSelected);
         playerScr.spawningPlayer();
     }

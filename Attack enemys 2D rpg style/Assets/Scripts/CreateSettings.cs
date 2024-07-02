@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 [CreateAssetMenu(fileName = "New Settings", menuName = "Settings" )]
-
-
 
 public class CreateSettings : ScriptableObject
 {
@@ -17,10 +13,6 @@ public class CreateSettings : ScriptableObject
     new public string recordSelected= "";
     new public bool godmode= false;
     new public Diff diff = Diff.Easy;
-   // new public string recordName = "";
-
-
-
 }
 public enum Diff
 {

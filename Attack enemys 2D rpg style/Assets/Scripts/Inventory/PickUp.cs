@@ -59,7 +59,7 @@ public class PickUp : ShowOutline
             }
             inRange = false;
             Debug.Log("pokupio?");
-            invScr.AddItem(item);
+            invScr.AddItem(item,false);
             picked = true;
             try
             {

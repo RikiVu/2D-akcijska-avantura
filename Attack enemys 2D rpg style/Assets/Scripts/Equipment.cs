@@ -63,7 +63,7 @@ public class Equipment : MonoBehaviour
         {
             ItemLogicUnequip(itemScr.thisItem);
             Inventory.checkSpaceInInventory(1);
-            Inventory.AddItem(itemScr.thisItem);
+            Inventory.AddItem(itemScr.thisItem, false);
             ItemLogic(itemScr, item);
             Debug.Log("Swap Equipo");
             if (item.nullify)
@@ -98,7 +98,7 @@ public class Equipment : MonoBehaviour
     {
         ItemLogicUnequip(item.thisItem);
         item.DeleteButton.SetActive(false);
-        Inventory.AddItem(item.thisItem);
+        Inventory.AddItem(item.thisItem, false);
     }
 
     public void AddItem(CreateItem item)
@@ -138,7 +138,7 @@ public class Equipment : MonoBehaviour
                     }           
                     else
                     {
-                        Inventory.AddItem(itemScr.thisItem);
+                        Inventory.AddItem(itemScr.thisItem,false);
                         ItemLogic(itemScr, item);
                     }
                     break;

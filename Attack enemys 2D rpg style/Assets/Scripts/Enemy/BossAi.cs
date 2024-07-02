@@ -61,13 +61,14 @@ public class BossAi : EnemyR
     public GameObject itemInside2;
     private Vector3 starInitailPosition;
     //load
-    public bool bossDefeated = false;
+    public static bool bossDefeated = false;
     private Vector3 bossInitialPosition;
     [SerializeField]
     private RoomMove rmMove;
     [SerializeField]
     private GameObject EnemyToSpawn;
     private List<GameObject> minions = new List<GameObject>();
+   
 
 
     void Start()
