@@ -23,15 +23,16 @@ public class Menu : MonoBehaviour
     [SerializeField] shopInventory shopInventory;
     [SerializeField]
     private CameraMovement cameraMovement;
+    public GameObject howToPlayPanel;
 
-
-  //  public GameObject inventoryUI;
+    //  public GameObject inventoryUI;
 
     // Start is called before the first frame update
     void Start()
     {
        escOppened = false;
         optionsOppened = false;
+        howToPlayPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -105,6 +106,22 @@ public class Menu : MonoBehaviour
         Time.timeScale = 0;
 
 
+    }
+
+    public void GotoControls()
+    {
+        FindObjectOfType<AudioManager>().Play("Click");
+        howToPlayPanel.SetActive(true);
+        EscPanel.SetActive(false);
+        Time.timeScale = 0;
+    }
+    public void ReturnFromControls()
+    {
+        FindObjectOfType<AudioManager>().Play("Click");
+        howToPlayPanel.SetActive(false);
+        EscPanel.SetActive(true);
+        escOppened = true;
+        Time.timeScale = 0;
     }
     public void Save()
     {

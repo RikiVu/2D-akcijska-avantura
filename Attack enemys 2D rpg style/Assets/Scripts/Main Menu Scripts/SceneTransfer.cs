@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using System.IO;
 public class SceneTransfer : MonoBehaviour
 {
     public GameObject OptionPanel;
@@ -22,6 +22,8 @@ public class SceneTransfer : MonoBehaviour
     public Toggle godmodeToggle;
     private ColorBlock theColorYellow;
     private ColorBlock theColorWhite;
+    string filePath = Application.dataPath + "/saves/";
+    public AlertPanelScr alertPanelScr;
 
     private void Awake()
     {
@@ -46,9 +48,15 @@ public class SceneTransfer : MonoBehaviour
     public void NewGame()
     {
         audioManager.Play("Click");
+        if (File.Exists(filePath + FilterToValidJsonFileName(inputField.GetComponent<TMP_InputField>().text) + ".json"))
+        {
+            alertPanelScr.showAlertPanel("That record name already exists!");
+            return;
+        }
+      
         createSettings.newGame = true;
         createSettings.recordSelected = FilterToValidJsonFileName(inputField.GetComponent<TMP_InputField>().text);
-         SceneManager.LoadScene("Act1");
+        SceneManager.LoadScene("Act1");
     }
 
     public void ChangeStateEasy()

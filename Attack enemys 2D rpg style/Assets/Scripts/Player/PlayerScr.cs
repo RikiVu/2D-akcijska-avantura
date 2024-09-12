@@ -268,27 +268,24 @@ public class PlayerScr : MonoBehaviour
         StartCoroutine(CastSpell());
        
     }
-
     private void UpdateAnimationAndMove()
     {
         if(attackActive== false)
         {
-        if(change != Vector3.zero && canMove)
-        {
-                moving = true;
-                MoveCharacter();
-            animator.SetFloat("moveX", change.x);
-            animator.SetFloat("moveY", change.y);
-            animator.SetBool("moving", true);
-             
-               
+            if(change != Vector3.zero && canMove)
+            {
+                    moving = true;
+                    MoveCharacter();
+                animator.SetFloat("moveX", change.x);
+                animator.SetFloat("moveY", change.y);
+                animator.SetBool("moving", true);
+            }
+            else
+            {
+                animator.SetBool("moving", false);
+                    moving = false;
+            }
         }
-        else
-        {
-            animator.SetBool("moving", false);
-                moving = false;
-        }
-         }
     }
 
 
@@ -298,14 +295,10 @@ public class PlayerScr : MonoBehaviour
     }
     
     public void MoveCharacter()
-    {
-        
+    {  
         change.Normalize();
         //audioManager.Play("PlayerSteps");
         myRididbody.MovePosition(transform.position + change * speed * Time.fixedDeltaTime);
-       
-        
-
     }
     public void AnimateMovement(Vector2 direction)
     {
@@ -406,11 +399,9 @@ public class PlayerScr : MonoBehaviour
                     FlashActive = true;
                     flashCounter = flashLenght;
                     AdrenalinScr.value -= 0.1f;
-                    //FindObjectOfType<AudioManager>().Play("PlayerPain");
                     StartCoroutine(KnockCo(knockTime));
                     armorManager.ArmorHit();
                 }
-
                 else if (armorManager.activeProtection == false)
                 {
                     HeartManager.playerCurrentHealth -= damage;
@@ -425,9 +416,7 @@ public class PlayerScr : MonoBehaviour
                         StartCoroutine(KnockCo(knockTime));
                     }
                     else
-                    {
                         StartCoroutine(DeathCo());
-                    }
                 }
             }
             else
@@ -435,14 +424,9 @@ public class PlayerScr : MonoBehaviour
                 myRididbody.velocity = Vector2.zero;
                 currentState = PlayerState.idle;
             }
-
         }
         else
-        {
             currentState = PlayerState.idle;
-        }
-        
-
     } 
     private IEnumerator KnockCo( float knockTime)
     {
@@ -485,7 +469,7 @@ public class PlayerScr : MonoBehaviour
         playerCanMove = true;
     }
 
-    private void flash() // kad ga udari da mjenja kao boju 
+    private void flash() // mjenja boju kad ga udari
     {
         if (FlashActive)
         {
@@ -527,7 +511,6 @@ public class PlayerScr : MonoBehaviour
             {
                 PlayerSprite.color = new Color(255, 255, 255);
                 FlashActive = false;
-
             }
             flashCounter -= Time.deltaTime;
         }

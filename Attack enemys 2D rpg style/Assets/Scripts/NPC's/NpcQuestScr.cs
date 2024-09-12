@@ -137,11 +137,9 @@ public class NpcQuestScr : NpcScr
             dialogBoxScr.placeHolder = NpcQuest.completedQuest.ToString();
             PlayerScr.Gold += NpcQuest.money;
             questEnded = true;
-            Debug.Log("ugasio");
             emoteSprite.enabled = false;
             redirectScr.DeleteQuest(NpcQuest.name);
             gameManager.addInQuestList(assignedId, questTaken, questEnded);
-            Debug.Log("jel obriso ?" + NpcQuest.name);
             if (NpcQuest.Type == TypeOfQuest.Gathering)
                 invScr.DeleteItemAfterQuestEnded(NpcQuest);
         }

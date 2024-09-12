@@ -1,0 +1,479 @@
+{
+    "spawnPosition": {
+        "x": -34.79999923706055,
+        "y": 95.30000305175781,
+        "z": 0.0
+    },
+    "godMode": false,
+    "recordName": "2024-08-26_21-59-31",
+    "difficulty": "Easy",
+    "currentHealth": 8.0,
+    "gold": 100.0,
+    "arrows": 0,
+    "stars": 0,
+    "strenght": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "items": [],
+    "equipment": [],
+    "camMaxPosition": {
+        "x": 115.0,
+        "y": 89.0
+    },
+    "camMinPosition": {
+        "x": -28.5,
+        "y": 74.0
+    },
+    "pots": [
+        {
+            "id": 0,
+            "broken": false
+        },
+        {
+            "id": 1,
+            "broken": false
+        },
+        {
+            "id": 2,
+            "broken": false
+        },
+        {
+            "id": 3,
+            "broken": false
+        },
+        {
+            "id": 4,
+            "broken": false
+        },
+        {
+            "id": 5,
+            "broken": false
+        },
+        {
+            "id": 6,
+            "broken": false
+        },
+        {
+            "id": 7,
+            "broken": false
+        },
+        {
+            "id": 8,
+            "broken": false
+        },
+        {
+            "id": 9,
+            "broken": false
+        },
+        {
+            "id": 10,
+            "broken": false
+        },
+        {
+            "id": 11,
+            "broken": false
+        },
+        {
+            "id": 12,
+            "broken": false
+        },
+        {
+            "id": 13,
+            "broken": false
+        },
+        {
+            "id": 14,
+            "broken": false
+        },
+        {
+            "id": 15,
+            "broken": false
+        },
+        {
+            "id": 16,
+            "broken": false
+        },
+        {
+            "id": 17,
+            "broken": false
+        },
+        {
+            "id": 18,
+            "broken": false
+        },
+        {
+            "id": 19,
+            "broken": false
+        },
+        {
+            "id": 20,
+            "broken": false
+        },
+        {
+            "id": 21,
+            "broken": false
+        },
+        {
+            "id": 22,
+            "broken": false
+        },
+        {
+            "id": 23,
+            "broken": false
+        },
+        {
+            "id": 24,
+            "broken": false
+        },
+        {
+            "id": 25,
+            "broken": false
+        },
+        {
+            "id": 26,
+            "broken": false
+        },
+        {
+            "id": 27,
+            "broken": false
+        },
+        {
+            "id": 28,
+            "broken": false
+        },
+        {
+            "id": 29,
+            "broken": false
+        },
+        {
+            "id": 30,
+            "broken": false
+        },
+        {
+            "id": 31,
+            "broken": false
+        },
+        {
+            "id": 32,
+            "broken": false
+        },
+        {
+            "id": 33,
+            "broken": false
+        },
+        {
+            "id": 34,
+            "broken": false
+        },
+        {
+            "id": 35,
+            "broken": false
+        },
+        {
+            "id": 36,
+            "broken": false
+        },
+        {
+            "id": 37,
+            "broken": false
+        },
+        {
+            "id": 38,
+            "broken": false
+        },
+        {
+            "id": 39,
+            "broken": false
+        },
+        {
+            "id": 40,
+            "broken": false
+        },
+        {
+            "id": 41,
+            "broken": false
+        },
+        {
+            "id": 42,
+            "broken": false
+        },
+        {
+            "id": 43,
+            "broken": false
+        },
+        {
+            "id": 44,
+            "broken": false
+        },
+        {
+            "id": 45,
+            "broken": false
+        },
+        {
+            "id": 46,
+            "broken": false
+        },
+        {
+            "id": 47,
+            "broken": false
+        },
+        {
+            "id": 48,
+            "broken": false
+        },
+        {
+            "id": 49,
+            "broken": false
+        },
+        {
+            "id": 50,
+            "broken": false
+        },
+        {
+            "id": 51,
+            "broken": false
+        },
+        {
+            "id": 52,
+            "broken": false
+        },
+        {
+            "id": 53,
+            "broken": false
+        },
+        {
+            "id": 54,
+            "broken": false
+        },
+        {
+            "id": 55,
+            "broken": false
+        },
+        {
+            "id": 56,
+            "broken": false
+        },
+        {
+            "id": 57,
+            "broken": false
+        },
+        {
+            "id": 58,
+            "broken": false
+        },
+        {
+            "id": 59,
+            "broken": false
+        },
+        {
+            "id": 60,
+            "broken": false
+        },
+        {
+            "id": 61,
+            "broken": false
+        },
+        {
+            "id": 62,
+            "broken": false
+        }
+    ],
+    "pickUpItems": [
+        {
+            "id": 0,
+            "picked": false
+        },
+        {
+            "id": 1,
+            "picked": false
+        },
+        {
+            "id": 2,
+            "picked": false
+        },
+        {
+            "id": 3,
+            "picked": false
+        },
+        {
+            "id": 4,
+            "picked": false
+        },
+        {
+            "id": 5,
+            "picked": false
+        },
+        {
+            "id": 6,
+            "picked": false
+        },
+        {
+            "id": 7,
+            "picked": false
+        },
+        {
+            "id": 8,
+            "picked": false
+        },
+        {
+            "id": 9,
+            "picked": false
+        },
+        {
+            "id": 10,
+            "picked": false
+        },
+        {
+            "id": 11,
+            "picked": false
+        },
+        {
+            "id": 12,
+            "picked": false
+        },
+        {
+            "id": 13,
+            "picked": false
+        },
+        {
+            "id": 14,
+            "picked": false
+        },
+        {
+            "id": 15,
+            "picked": false
+        },
+        {
+            "id": 16,
+            "picked": false
+        },
+        {
+            "id": 17,
+            "picked": false
+        },
+        {
+            "id": 18,
+            "picked": false
+        },
+        {
+            "id": 19,
+            "picked": false
+        },
+        {
+            "id": 20,
+            "picked": false
+        },
+        {
+            "id": 21,
+            "picked": false
+        },
+        {
+            "id": 22,
+            "picked": false
+        },
+        {
+            "id": 23,
+            "picked": false
+        },
+        {
+            "id": 24,
+            "picked": false
+        },
+        {
+            "id": 25,
+            "picked": false
+        },
+        {
+            "id": 26,
+            "picked": false
+        },
+        {
+            "id": 27,
+            "picked": false
+        },
+        {
+            "id": 28,
+            "picked": false
+        }
+    ],
+    "chests": [
+        {
+            "id": 0,
+            "collected": false
+        },
+        {
+            "id": 1,
+            "collected": false
+        },
+        {
+            "id": 2,
+            "collected": false
+        },
+        {
+            "id": 3,
+            "collected": false
+        },
+        {
+            "id": 4,
+            "collected": false
+        },
+        {
+            "id": 5,
+            "collected": false
+        },
+        {
+            "id": 6,
+            "collected": false
+        }
+    ],
+    "plantList": [],
+    "quests": [
+        {
+            "id": 0,
+            "questTaken": false,
+            "questEnded": false,
+            "quest": {
+                "instanceID": 26228
+            },
+            "count": 0
+        },
+        {
+            "id": 1,
+            "questTaken": false,
+            "questEnded": false,
+            "quest": {
+                "instanceID": 26358
+            },
+            "count": 0
+        },
+        {
+            "id": 2,
+            "questTaken": false,
+            "questEnded": false,
+            "quest": {
+                "instanceID": 26096
+            },
+            "count": 0
+        },
+        {
+            "id": 3,
+            "questTaken": false,
+            "questEnded": false,
+            "quest": {
+                "instanceID": 25150
+            },
+            "count": 0
+        },
+        {
+            "id": 4,
+            "questTaken": true,
+            "questEnded": false,
+            "quest": {
+                "instanceID": 25102
+            },
+            "count": 0
+        }
+    ],
+    "canPass": false,
+    "bossDefeated": false
+}

@@ -37,6 +37,7 @@ public class SaveOrLoad : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip songToPlay;
 
+
     //logger 
     public static string timestamp = "";
     public static string logEntry = "";
@@ -136,6 +137,7 @@ public class SaveOrLoad : MonoBehaviour
             if (!string.IsNullOrEmpty(recordName))
             {
                 data.recordName = recordName;
+       
                 string json = JsonUtility.ToJson(data, true);
                 currentGameRecord = Path.Combine(Application.dataPath, "saves", data.recordName + ".json");
                 File.WriteAllText(currentGameRecord, json);

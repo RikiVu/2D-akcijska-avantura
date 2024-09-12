@@ -20,10 +20,8 @@ public class Inventory : MonoBehaviour
     //public GameObject PlantButton;
     private PlantAndHarvest plantingScr;
     public GameObject plantGm;
-
     public GameObject DeactivateButton;
     public GameObject Sort;
-
     protected int num =0;
     protected int i = 0;
     // public int x= 0;
@@ -32,21 +30,16 @@ public class Inventory : MonoBehaviour
     protected int Prazan = 0;
     public Redirect_Quest Redirect;
     protected bool closedTransfer = false;
-
     public CreateItem testMrkva;
     public GameObject panelInv;
-
-
     private int spaceInInventory;
     public AlertPanelScr alertPanelScr;
     [SerializeField]
     private descriptionPanelScr descriptionPanelScr;
     public TextMeshProUGUI starsCountText;
-
     public static int starCount = 0;
     [SerializeField]
     private List<CreateItem> allItems = new List<CreateItem>();
-  
 
     // Start is called before the first frame update
     public  virtual void  Awake()
@@ -56,8 +49,6 @@ public class Inventory : MonoBehaviour
         spaceInInventory = slot.Length;
         starsCountText.text = starCount.ToString();
     }
-
-  
 
     public void checkSpaceInInventory(int amount)
     {
@@ -71,12 +62,9 @@ public class Inventory : MonoBehaviour
         gM.CloseInv();
     }
 
-
     public void ActivateDeleteFunc()
     {
       //  ActivateButton.SetActive(false);
-     
-
         for (int b = 0; b < slot.Length ; b++)
         {
             itemScr = slot[b].GetComponentInChildren<item>();
@@ -352,7 +340,6 @@ public class Inventory : MonoBehaviour
 
         if (isFull)
         {
-            Debug.Log("ovdi?");
             alertPanelScr.showAlertPanel("No space in inventory");
             return;
         }

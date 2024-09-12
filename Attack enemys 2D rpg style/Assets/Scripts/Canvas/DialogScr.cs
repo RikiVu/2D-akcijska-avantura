@@ -108,8 +108,9 @@ public class DialogScr : MonoBehaviour
         rejectButton.SetActive(false);
         placeHolder = text.ToString();
         tmProNameText.text = name;
-     
     }
+
+
     public void showDialogShop(string text, string name)
     {
         talking = true;

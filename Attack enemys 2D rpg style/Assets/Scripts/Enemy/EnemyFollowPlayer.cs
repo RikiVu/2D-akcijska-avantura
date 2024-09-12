@@ -27,7 +27,7 @@ public class EnemyFollowPlayer : EnemyR
     private float distance;
     private bool isUpdatingPath = false;
 
-    // Temporary variables
+    // Temp variables
     private Vector2 direction;
     private Vector2 force;
 
@@ -137,11 +137,9 @@ public class EnemyFollowPlayer : EnemyR
                     isUpdatingPath = true;
                     if (!hasTarget)
                         EmoteShow();
-                  
                      
                     hasTarget = true;
                     InvokeRepeating("UpdatePathPlayer", 0f, .5f);
-                  
                 }
             }
             else
@@ -151,9 +149,7 @@ public class EnemyFollowPlayer : EnemyR
                 {
                     CancelInvoke("UpdatePathPlayer");
                     isUpdatingPath = false;
-                   
                 }
-                
             }
         }
     }
@@ -176,7 +172,6 @@ public class EnemyFollowPlayer : EnemyR
     {
         if(hasTarget)
         {
-            Debug.Log("NE NEG ovaj je kriv ");
             EmoteShow2();
         }
         coroutineStarted = true;
@@ -289,8 +284,6 @@ public class EnemyFollowPlayer : EnemyR
                     currentWaypoint++;
                 return;
             }
-
-
             if (!coroutineStarted)
             {
                 direction = ((Vector2)path.vectorPath[currentWaypoint] - myRigidbody.position).normalized;
@@ -320,8 +313,7 @@ public class EnemyFollowPlayer : EnemyR
         {
            // Debug.Log("chase logic");
             if (Vector2.Distance(target.position, transform.position) > enemyScribtableObject.attackRadius)
-            {
-             
+            {     
                 anim.SetBool("StartWalking", true);
                 direction = ((Vector2)path.vectorPath[currentWaypoint] - myRigidbody.position).normalized;
                 if (hasLineOfSight)
@@ -340,7 +332,6 @@ public class EnemyFollowPlayer : EnemyR
                 distance = Vector2.Distance(myRigidbody.position, path.vectorPath[currentWaypoint]);
                 if (distance < nextWaypointDistance)
                     currentWaypoint++;
-               
             }
             else if (Vector3.Distance(target.position, transform.position) > enemyScribtableObject.chaseRadius)
             {
@@ -353,9 +344,6 @@ public class EnemyFollowPlayer : EnemyR
                 if (!coroutineStarted2)
                     StartCoroutine(AttackCo());
             }
-
-         
-
         }
     }
 

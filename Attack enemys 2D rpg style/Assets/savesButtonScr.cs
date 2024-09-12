@@ -42,7 +42,7 @@ public class savesButtonScr : MonoBehaviour
                 tmpro = buttonPrefab.GetComponentInChildren<TextMeshProUGUI>();
                 if (tmpro != null)
                 {
-                    tmpro.text = Path.GetFileName(fileName);
+                    tmpro.text = Path.GetFileNameWithoutExtension(fileName);
                 }
 
                 buttonComponent.onClick.AddListener(() => OnButtonClick(fileName));
@@ -69,7 +69,7 @@ public class savesButtonScr : MonoBehaviour
                 tmpro = buttonPrefab.GetComponentInChildren<TextMeshProUGUI>();
                 if (tmpro != null)
                 {
-                    tmpro.text = Path.GetFileName(fileName);
+                    tmpro.text = Path.GetFileNameWithoutExtension(fileName);
                 }
 
                 buttonComponent.onClick.AddListener(() => OnButtonClickMenu(fileName));

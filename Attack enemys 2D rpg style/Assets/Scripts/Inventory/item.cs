@@ -66,7 +66,6 @@ public class item : MonoBehaviour
                 tooltipSCR = Tooltip.GetComponent<toolTipScr>();
             }
         }
-       
     }
 
     // Start is called before the first frame update
@@ -81,8 +80,6 @@ public class item : MonoBehaviour
         }
 
     }
-
-
 
     // Update is called once per frame
     void Update()
@@ -140,11 +137,8 @@ public class item : MonoBehaviour
     {
         if (CantUse == false)
         {
-
-
             if (Type == TypeOfItem.HealingPotion)
             {
-
                 if (HeartManager.playerCurrentHealth < HeartManager.playerMaxHealth)
                 {
                     if (HeartManager.playerCurrentHealth == HeartManager.playerMaxHealth - 1)
@@ -153,9 +147,7 @@ public class item : MonoBehaviour
                         HeartManager.playerCurrentHealth += 2;
 
                     FindObjectOfType<AudioManager>().Play("HealHeart");
-
                     plyScr.PlayerHealthSignal.Raise();
-
                     if (counter1 == 1)
                     {
                         Tooltip.SetActive(false);
@@ -164,33 +156,17 @@ public class item : MonoBehaviour
                         img = null;
                         //  sprite.enabled = false;
                         sprite.sprite = null;
-
                         haveItem = false;
                         if (PlayerInv)
                             invScr.checkSpaceInInventory(1);
                     }
                     else if (counter1 > 1 && counter1 < 6)
-                    {
                         counter1--;
-                    }
-
-
-
-
-
+              
                 }
             }
-
             else if (Type == TypeOfItem.Equipment)
-            {
                 Equip();
-            }
-            /*
-            else if (Type == TypeOfItem.Veggies)
-            {
-                EquipInHand();  
-            }
-            */
         }
     }
 
@@ -199,7 +175,6 @@ public class item : MonoBehaviour
     {
         if (haveItem != false)
         {
-       
             if (thisItem.isStackable && counter1 > 1 && thisItem.Type != TypeOfItem.Quest)
             {
                 name = null;
@@ -214,8 +189,6 @@ public class item : MonoBehaviour
                 name = null;
                 description = null;
                 img = null;
-                //  sprite.enabled = false;
-                //sprite.sprite = null;
                 haveItem = false;
                 DeleteButton.SetActive(false);
                 counter1 = 1;
@@ -225,8 +198,6 @@ public class item : MonoBehaviour
                 name = null;
                 description = null;
                 img = null;
-                //  sprite.enabled = false;
-                //sprite.sprite = null;
                 if (PlayerInv)
                     invScr.checkSpaceInInventory(1);
                 haveItem = false;

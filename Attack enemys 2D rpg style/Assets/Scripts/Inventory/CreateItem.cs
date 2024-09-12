@@ -27,17 +27,11 @@ public class CreateItem : ScriptableObject
     public Sprite icon = null;
     public bool isDefaultItem = false;
     
-
-    
-        //Debug.Log("Using " + name);
-    
+   
     public void RemoveFromInventory()
     {
       //  inventory.instance.Remove(this);
     }
-   
-
-   //drs
 }
 
 
